@@ -1,4 +1,12 @@
-# Radar Solana
+# Radar Solana et Plan Solana
+
+Deux pages autonomes, à ouvrir dans un navigateur :
+
+- `index.html` (**Radar**) : le cours en direct, l'historique, les échanges et le réseau.
+- `plan.html` (**Plan**) : ton plan d'investissement, le thermomètre d'achat, les alertes et l'explication
+  de chaque grande hausse et baisse depuis 2020. Fond noir, couleurs de Solana.
+
+## Radar
 
 Tableau de bord pour suivre Solana (SOL) en direct : le prix qui bouge chaque seconde, tout
 l'historique depuis la première cotation (10 avril 2020), les échanges en cours et l'activité du réseau.
@@ -36,6 +44,38 @@ Une connexion internet est nécessaire, toutes les données arrivent en direct.
 
 Les choix (devise, période, type de graphique, filtre) sont mémorisés dans le navigateur.
 
+## Plan
+
+- **Thermomètre d'achat** (0 à 100) en 5 zones : très bas, bas, neutre, haut, très haut. Il combine
+  l'écart du prix à sa moyenne des 200 derniers jours comparé à toute l'histoire de SOL (40 %), le RSI
+  sur 14 jours (20 %), la place du prix dans son année (20 %) et l'indice peur et avidité (20 %).
+  Le calcul n'utilise que les données connues à chaque date, sans regarder le futur.
+- **Pourquoi ça bouge** : comparaison en direct avec le Bitcoin et l'Ethereum (mouvement de tout le
+  marché ou propre à Solana), sentiment du marché, état du réseau, dernières actualités, et la
+  situation de fond issue de la recherche.
+- **Alertes** : changement de zone, forte variation sur 24 h (avec la cause probable), seuils de prix
+  en euros, jour d'achat du plan. Dans la page, en notification du navigateur et en son. Elles
+  fonctionnent tant que la page est ouverte.
+- **Mon plan** : date de début (septembre 2027 par défaut), 24, 30 ou 36 achats, montant de base,
+  jour du mois, multiplicateurs par zone (×2, ×1,5, ×1, ×0,5, pause), prises de bénéfices en option,
+  calendrier et suivi des achats réels (prix moyen, gain), avec sauvegarde.
+- **Simulation** : le plan rejoué sur les vrais prix en euros, pour n'importe quel mois de départ
+  depuis 2021, comparé à l'achat fixe et à l'achat en une fois, plus un bilan sur toutes les dates de
+  départ possibles.
+- **Histoire** : 37 grands mouvements de 2020 à novembre 2026, chacun expliqué avec ses sources,
+  placés sur le graphique, le classement des causes qui reviennent et les pannes du réseau.
+- **D'ici 2030** : les événements connus pendant le plan (Fed, halving du Bitcoin en 2028, élection
+  américaine, baisse de l'inflation du SOL...), le cycle de 4 ans, l'offre de SOL et l'avis
+  d'analystes.
+
+La recherche est dans `recherche.json` (avec toutes les sources). Après l'avoir modifiée :
+
+```bash
+python3 solana/build_plan.py   # recopie la recherche dans plan.html
+```
+
+Réglages, achats notés et alertes restent dans le navigateur (bouton de sauvegarde pour les transférer).
+
 ## Sources
 
 | Donnée | Source |
@@ -44,6 +84,9 @@ Les choix (devise, période, type de graphique, filtre) sont mémorisés dans le
 | Conversion en euros | Paire EUR/USDT de Binance, au cours de chaque bougie |
 | Capitalisation, offre | CoinGecko |
 | Réseau | Nœuds RPC publics (`solana-rpc.publicnode.com`, repli sur `api.mainnet-beta.solana.com`) |
+| Sentiment (Plan) | Indice Fear & Greed d'alternative.me |
+| Actualités (Plan) | Google Actualités et Cointelegraph, via rss2json (relais allorigins en secours) |
+| Incidents réseau (Plan) | status.solana.com |
 | Graphiques | TradingView Lightweight Charts 5.0.9 |
 
 Si le flux en direct (WebSocket) est bloqué, la page passe en **mode secours** : elle interroge

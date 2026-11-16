@@ -215,6 +215,7 @@ footer a{color:var(--ink-2)}
       <span>Radar Solana</span>
     </div>
     <div class="chip" id="status" data-state="warn" role="status"><span class="dot"></span><span id="statusText">Connexion…</span></div>
+    <a class="chip" href="plan.html" style="text-decoration:none;color:var(--ink)">Plan d'investissement</a>
     <div class="seg" role="group" aria-label="Devise d'affichage" id="curSeg">
       <button type="button" id="cur-usd" data-cur="usd" aria-pressed="true">$ USD</button>
       <button type="button" id="cur-eur" data-cur="eur" aria-pressed="false">€ EUR</button>
@@ -226,18 +227,18 @@ footer a{color:var(--ink-2)}
   <section class="hero" aria-label="Prix actuel">
     <div>
       <div class="eyebrow">Solana · SOL</div>
-      <div class="price" id="price"><span id="priceVal">—</span><span class="unit" id="priceUnit">$</span></div>
+      <div class="price" id="price"><span id="priceVal">–</span><span class="unit" id="priceUnit">$</span></div>
       <div class="delta">
-        <span class="pill" id="d24pill"><svg viewBox="0 0 10 10" aria-hidden="true"><path id="d24arrow" d="M5 1 9 8H1Z" fill="currentColor"/></svg><span id="d24pct">—</span></span>
+        <span class="pill" id="d24pill"><svg viewBox="0 0 10 10" aria-hidden="true"><path id="d24arrow" d="M5 1 9 8H1Z" fill="currentColor"/></svg><span id="d24pct">–</span></span>
         <span id="d24abs" class="muted">sur 24 heures</span>
       </div>
       <div class="meta" id="meta">Chargement des données…</div>
     </div>
     <dl class="hero-stats">
-      <div><dt>Plus haut 24 h</dt><dd id="h24">—</dd></div>
-      <div><dt>Plus bas 24 h</dt><dd id="l24">—</dd></div>
-      <div><dt>Volume échangé 24 h</dt><dd id="v24">—<small>&nbsp;</small></dd></div>
-      <div><dt>Capitalisation</dt><dd id="mcap">—<small>&nbsp;</small></dd></div>
+      <div><dt>Plus haut 24 h</dt><dd id="h24">–</dd></div>
+      <div><dt>Plus bas 24 h</dt><dd id="l24">–</dd></div>
+      <div><dt>Volume échangé 24 h</dt><dd id="v24">–<small>&nbsp;</small></dd></div>
+      <div><dt>Capitalisation</dt><dd id="mcap">–<small>&nbsp;</small></dd></div>
     </dl>
   </section>
 
@@ -254,10 +255,10 @@ footer a{color:var(--ink-2)}
       </div>
     </div>
     <div class="summary" id="summary">
-      <div><span id="sumLabel">Variation</span><strong id="sumChange">—</strong></div>
-      <div><span>Plus haut</span><strong id="sumHigh">—</strong></div>
-      <div><span>Plus bas</span><strong id="sumLow">—</strong></div>
-      <div><span>Volume</span><strong id="sumVol">—</strong></div>
+      <div><span id="sumLabel">Variation</span><strong id="sumChange">–</strong></div>
+      <div><span>Plus haut</span><strong id="sumHigh">–</strong></div>
+      <div><span>Plus bas</span><strong id="sumLow">–</strong></div>
+      <div><span>Volume</span><strong id="sumVol">–</strong></div>
     </div>
     <div class="readout" id="readout" aria-hidden="true"></div>
     <div class="chart-wrap" id="chartWrap">
@@ -282,8 +283,8 @@ footer a{color:var(--ink-2)}
         <tbody id="perfBody"><tr><td colspan="4" class="muted">Chargement de l'historique…</td></tr></tbody>
       </table></div>
       <div class="records">
-        <div><span>Plus haut historique</span><strong id="athVal">—</strong><small id="athNote">&nbsp;</small></div>
-        <div><span>Plus bas historique</span><strong id="atlVal">—</strong><small id="atlNote">&nbsp;</small></div>
+        <div><span>Plus haut historique</span><strong id="athVal">–</strong><small id="athNote">&nbsp;</small></div>
+        <div><span>Plus bas historique</span><strong id="atlVal">–</strong><small id="atlNote">&nbsp;</small></div>
       </div>
     </section>
 
@@ -297,8 +298,8 @@ footer a{color:var(--ink-2)}
       </div>
       <div class="pressure" id="pressure" role="img" aria-label="Répartition achats et ventes sur 60 secondes"><span class="b" id="pBuy" style="flex-basis:50%"></span><span class="s" id="pSell" style="flex-basis:50%"></span></div>
       <div class="pressure-text">
-        <span><i style="background:var(--up)"></i><span id="pBuyTxt">Achats —</span></span>
-        <span><i style="background:var(--down)"></i><span id="pSellTxt">Ventes —</span></span>
+        <span><i style="background:var(--up)"></i><span id="pBuyTxt">Achats –</span></span>
+        <span><i style="background:var(--down)"></i><span id="pSellTxt">Ventes –</span></span>
       </div>
       <p class="note" id="flowNote">Sur les 60 dernières secondes, ordres au marché sur SOL/USDT.</p>
       <ul class="trades" id="trades" aria-label="Derniers échanges"><li class="empty">En attente des premiers échanges…</li></ul>
@@ -309,16 +310,16 @@ footer a{color:var(--ink-2)}
     <div class="card-head"><h2 id="netTitle">Réseau Solana</h2><span class="sub" id="netSub">Connexion au réseau…</span></div>
     <div class="net">
       <div class="kpis">
-        <div class="kpi"><span>Slot actuel</span><strong id="nSlot">—</strong><small id="nHeight">&nbsp;</small></div>
-        <div class="kpi"><span>Transactions par seconde</span><strong id="nTps">—</strong><small>moyenne glissante sur 10 s</small></div>
-        <div class="kpi wide"><span>Transactions traitées depuis le lancement</span><strong id="nTx">—</strong></div>
+        <div class="kpi"><span>Slot actuel</span><strong id="nSlot">–</strong><small id="nHeight">&nbsp;</small></div>
+        <div class="kpi"><span>Transactions par seconde</span><strong id="nTps">–</strong><small>moyenne glissante sur 10 s</small></div>
+        <div class="kpi wide"><span>Transactions traitées depuis le lancement</span><strong id="nTx">–</strong></div>
         <div class="kpi wide"><span id="nEpochLabel">Époque</span>
           <div class="meter" role="progressbar" aria-label="Avancement de l'époque" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="nEpochMeter"><i id="nEpochBar"></i></div>
           <small id="nEpochText">&nbsp;</small></div>
-        <div class="kpi"><span>Durée moyenne d'un slot</span><strong id="nSlotTime">—</strong><small>sur les 10 dernières minutes</small></div>
-        <div class="kpi"><span>Validateurs actifs</span><strong id="nVal">—</strong><small id="nValNote">&nbsp;</small></div>
-        <div class="kpi"><span>Offre en circulation</span><strong id="nSupply">—</strong><small id="nSupplyNote">&nbsp;</small></div>
-        <div class="kpi"><span>Inflation annuelle</span><strong id="nInfl">—</strong><small id="nVersion">&nbsp;</small></div>
+        <div class="kpi"><span>Durée moyenne d'un slot</span><strong id="nSlotTime">–</strong><small>sur les 10 dernières minutes</small></div>
+        <div class="kpi"><span>Validateurs actifs</span><strong id="nVal">–</strong><small id="nValNote">&nbsp;</small></div>
+        <div class="kpi"><span>Offre en circulation</span><strong id="nSupply">–</strong><small id="nSupplyNote">&nbsp;</small></div>
+        <div class="kpi"><span>Inflation annuelle</span><strong id="nInfl">–</strong><small id="nVersion">&nbsp;</small></div>
       </div>
       <div style="min-width:0">
         <div class="card-head" style="margin-bottom:6px"><h3 class="sub" style="font-weight:600;color:var(--ink-2)">Transactions par seconde, 12 dernières heures</h3><span class="sub" id="tpsSum">&nbsp;</span></div>
@@ -397,13 +398,13 @@ const nfCompact = new Intl.NumberFormat('fr-FR', { notation: 'compact', maximumF
 const sym = () => (state.cur === 'eur' ? '€' : '$');
 const digits = v => { const a = Math.abs(v); return a >= 1 ? 2 : a >= 0.1 ? 3 : 4; };
 const ok = v => v != null && isFinite(v);
-const fmtP = v => ok(v) ? nf(digits(v)).format(v) : '—';
-const fmtPrice = v => ok(v) ? fmtP(v) + NBSP + sym() : '—';
-const fmtMoneyC = v => ok(v) ? nfCompact.format(v) + NBSP + sym() : '—';
-const fmtInt = v => ok(v) ? nf(0).format(v) : '—';
+const fmtP = v => ok(v) ? nf(digits(v)).format(v) : '–';
+const fmtPrice = v => ok(v) ? fmtP(v) + NBSP + sym() : '–';
+const fmtMoneyC = v => ok(v) ? nfCompact.format(v) + NBSP + sym() : '–';
+const fmtInt = v => ok(v) ? nf(0).format(v) : '–';
 function fmtSigned(v, d) { const s = v > 0 ? '+' : v < 0 ? MINUS : ''; return s + nf(d).format(Math.abs(v)); }
 function fmtPct(r) {
-  if (!ok(r)) return '—';
+  if (!ok(r)) return '–';
   const p = r * 100, a = Math.abs(p);
   return fmtSigned(p, a >= 1000 ? 0 : 2) + NBSP + '%';
 }
@@ -427,7 +428,7 @@ function fmtBarTime(sec, p = state.period) {
   return (p.ms < 60e3 ? F.dts : F.dt).format(d);
 }
 function fmtDuration(sec) {
-  if (!ok(sec) || sec < 0) return '—';
+  if (!ok(sec) || sec < 0) return '–';
   const d = Math.floor(sec / 86400), h = Math.floor(sec % 86400 / 3600), m = Math.floor(sec % 3600 / 60);
   if (d) return `${d}${NBSP}j ${h}${NBSP}h`;
   if (h) return `${h}${NBSP}h ${m}${NBSP}min`;
@@ -1050,14 +1051,14 @@ function renderPerf() {
     const tr = document.createElement('tr');
     const th = document.createElement('td'); th.textContent = r.label;
     const tdRef = document.createElement('td');
-    tdRef.textContent = ok(r.ref) ? fmtPrice(r.ref) : '—';
+    tdRef.textContent = ok(r.ref) ? fmtPrice(r.ref) : '–';
     if (ok(r.ref) && r.time) {
       const sm = document.createElement('small');
       sm.textContent = r.timeLocal ? F.dt.format(new Date(r.time * 1000)) : F.day.format(new Date(r.time * 1000));
       tdRef.append(sm);
     }
     const tdCh = document.createElement('td'); tdCh.className = 'r ' + dir(r.ch);
-    tdCh.textContent = ok(r.ch) ? fmtPct(r.ch) : '—';
+    tdCh.textContent = ok(r.ch) ? fmtPct(r.ch) : '–';
     if (r.launch && ok(r.ch)) { const sm = document.createElement('small'); sm.textContent = `soit ×${nf(0).format(1 + r.ch)}`; tdCh.append(sm); }
     const tdBar = document.createElement('td');
     if (ok(r.ch) && !r.launch) {
@@ -1108,8 +1109,8 @@ function renderTrades() {
   const bp = total > 0 ? state.buyV / total : 0.5;
   $('pBuy').style.flexBasis = (bp * 100) + '%';
   $('pSell').style.flexBasis = ((1 - bp) * 100) + '%';
-  $('pBuyTxt').textContent = total > 0 ? `Achats ${nf(0).format(bp * 100)}${NBSP}% · ${fmtMoneyC(toDisp(state.buyV))}` : 'Achats —';
-  $('pSellTxt').textContent = total > 0 ? `Ventes ${nf(0).format((1 - bp) * 100)}${NBSP}% · ${fmtMoneyC(toDisp(state.sellV))}` : 'Ventes —';
+  $('pBuyTxt').textContent = total > 0 ? `Achats ${nf(0).format(bp * 100)}${NBSP}% · ${fmtMoneyC(toDisp(state.buyV))}` : 'Achats –';
+  $('pSellTxt').textContent = total > 0 ? `Ventes ${nf(0).format((1 - bp) * 100)}${NBSP}% · ${fmtMoneyC(toDisp(state.sellV))}` : 'Ventes –';
   $('pressure').setAttribute('aria-label', `Sur 60 secondes : achats ${nf(0).format(bp * 100)} %, ventes ${nf(0).format((1 - bp) * 100)} %`);
   if (state.wsState === 'polling') $('flowNote').textContent = 'Flux des échanges indisponible en mode secours, il reprend dès que la connexion en direct revient.';
   else {
@@ -1184,7 +1185,7 @@ function renderNetLive() {
   $('netSub').textContent = 'Données en direct, actualisées chaque seconde';
   $('nSlot').textContent = fmtInt(net.slot);
   $('nHeight').textContent = `bloc n° ${fmtInt(net.height)}`;
-  $('nTx').textContent = net.tx ? fmtInt(net.tx) : '—';
+  $('nTx').textContent = net.tx ? fmtInt(net.tx) : '–';
   const h = net.txHist;
   if (h.length >= 3) {
     const a = h[0], b = h[h.length - 1];

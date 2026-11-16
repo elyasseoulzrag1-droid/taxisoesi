@@ -1,0 +1,2705 @@
+{
+ "asof": "2026-11-16",
+ "events": [
+  {
+   "start": "2020-04-10",
+   "end": "2020-04-21",
+   "kind": "baisse",
+   "from": 1.33,
+   "to": 0.51,
+   "title": "Lancement du SOL : flambée puis rechute après Binance",
+   "explain": "Le réseau Solana a démarré sa version « Mainnet Beta » le 16 mars 2020, et 8 millions de SOL ont été vendus fin mars aux enchères sur la plateforme CoinList, à 0,22 $ pièce (1,76 million de dollars levés). Dès les premiers échanges sur Binance le 10 avril, le SOL a grimpé jusqu'à 1,33 $ avant de retomber à 0,51 $ le 21 avril : une découverte du prix brutale sur un tout petit nombre de jetons en circulation (environ 8,3 millions), sans doute nourrie par les prises de bénéfices des premiers acheteurs, aucune source de presse ne détaillant cette baisse. Le 27 avril, la fondation a reconnu ne pas avoir révélé le prêt de 11,4 millions de SOL à un teneur de marché et a promis de retirer ces jetons du marché, ce qui a entamé la confiance.",
+   "tags": [
+    "Levée de fonds",
+    "Écosystème et adoption",
+    "Faillite ou scandale"
+   ],
+   "scope": "solana",
+   "confidence": "faible",
+   "sources": [
+    {
+     "title": "May Newsletter",
+     "publisher": "Solana Foundation",
+     "date": "2020-06-24",
+     "url": "https://solana.com/news/may-newsletter"
+    },
+    {
+     "title": "Solana Will Reduce Its Token Supply to Account for Market Making Allocation",
+     "publisher": "Solana Foundation",
+     "date": "2020-04-27",
+     "url": "https://solana.com/news/solana-will-reduce-its-token-supply-to-account-for-market-making-allocation"
+    },
+    {
+     "title": "Blockchain project Solana raises $1.76M from its launch auction on CoinList",
+     "publisher": "The Block",
+     "date": "2020-03-25",
+     "url": "https://theblock.co/news/ecosystems/2020-03-25-blockchain-project-solana-raises-1-76m-from-its-launch-auction-on-coinlist-59952"
+    },
+    {
+     "title": "Class action lawsuit claims Solana's SOL is an unregistered security",
+     "publisher": "Cointelegraph",
+     "date": "2022-07-08",
+     "url": "https://cointelegraph.com/news/class-action-lawsuit-claims-solana-s-sol-is-an-unregistered-security"
+    }
+   ]
+  },
+  {
+   "start": "2020-07-17",
+   "end": "2020-09-01",
+   "kind": "hausse",
+   "from": 0.77,
+   "to": 4.95,
+   "title": "FTX choisit Solana pour Serum, l'été DeFi porte le SOL",
+   "explain": "Le 26 juillet 2020, la plateforme FTX et le fonds Alameda Research de Sam Bankman-Fried annoncent Serum, une bourse décentralisée construite sur Solana, et FTX ouvre au même moment le trading du SOL : le jeton passe de 0,99 $ à 1,90 $ en deux jours. Le jeton SRM de Serum s'envole dès sa mise en vente le 11 août, puis la plateforme est mise en service le 30 août, en plein « été DeFi » où les échanges sur les bourses décentralisées dépassent 10 milliards de dollars en un mois. Porté par cet engouement, le SOL culmine à environ 4,95 $ le 1er septembre.",
+   "tags": [
+    "DeFi",
+    "Écosystème et adoption",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "FTX Chooses Solana for Serum: A High-Speed, Non-Custodial Decentralized Derivatives Exchange",
+     "publisher": "Solana Foundation",
+     "date": "2020-07-26",
+     "url": "https://solana.com/news/ftx-chooses-solana-for-serum--a-high-speed--non-custodial-decentralized-derivatives-exchange"
+    },
+    {
+     "title": "FTX to Launch 'Scalable' Decentralized Exchange in Weeks",
+     "publisher": "CoinDesk",
+     "date": "2020-07-27",
+     "url": "https://www.coindesk.com/markets/2020/07/27/ftx-to-launch-scalable-decentralized-exchange-in-weeks"
+    },
+    {
+     "title": "FTX's Serum goes live as DEXs end another record-breaking month for volume",
+     "publisher": "The Block",
+     "date": "2020-08-30",
+     "url": "https://www.theblock.co/news/defi/2020-08-30-ftx-serum-dex-august-76409"
+    },
+    {
+     "title": "SOL Rockets 40 Percent as Tether Launches on Solana Blockchain",
+     "publisher": "U.Today",
+     "date": "2020-09-09",
+     "url": "https://u.today/sol-rockets-40-percent-as-tether-launches-on-solana-blockchain"
+    }
+   ]
+  },
+  {
+   "start": "2020-09-09",
+   "end": "2020-11-04",
+   "kind": "baisse",
+   "from": 3.88,
+   "to": 1.27,
+   "title": "Fin de l'été DeFi : le SOL perd les deux tiers",
+   "explain": "Le 9 septembre, l'annonce de l'arrivée du stablecoin USDT de Tether sur Solana fait bondir le SOL de plus de 40 %, mais l'élan retombe vite. La bulle des jetons DeFi se dégonfle depuis début septembre : le 5, l'ether perd 12 % et le jeton SUSHI 53 % en 24 heures après la vente de tous ses jetons par le fondateur anonyme de SushiSwap. Fin octobre, les jetons de gouvernance DeFi ont perdu environ un tiers de leur valeur en un mois et le COMP de Compound est repassé sous 100 $, contre 372 $ en juin. Aucune mauvaise nouvelle propre à Solana n'explique la chute : le SOL suit surtout le reflux de la spéculation DeFi.",
+   "tags": [
+    "DeFi",
+    "Marché crypto global"
+   ],
+   "scope": "marché",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "SOL Rockets 40 Percent as Tether Launches on Solana Blockchain",
+     "publisher": "U.Today",
+     "date": "2020-09-09",
+     "url": "https://u.today/sol-rockets-40-percent-as-tether-launches-on-solana-blockchain"
+    },
+    {
+     "title": "Ethereum's 12% Plunge Batters DeFi Tokens",
+     "publisher": "Decrypt",
+     "date": "2020-09-05",
+     "url": "https://decrypt.co/40972/ethereums-12-plunge-batters-defi-tokens"
+    },
+    {
+     "title": "With COMP Below $100, a Look Back at the 'DeFi Summer' It Sparked",
+     "publisher": "CoinDesk",
+     "date": "2020-10-20",
+     "url": "https://www.coindesk.com/business/2020/10/20/with-comp-below-100-a-look-back-at-the-defi-summer-it-sparked"
+    },
+    {
+     "title": "'Hyperinflation' DeFi coins hit the hardest in crash: Report",
+     "publisher": "Cointelegraph",
+     "date": "2020-10-28",
+     "url": "https://cointelegraph.com/news/hyperinflation-defi-coins-hit-the-hardest-in-crash-report"
+    }
+   ]
+  },
+  {
+   "start": "2020-12-23",
+   "end": "2021-05-18",
+   "kind": "hausse",
+   "from": 1.03,
+   "to": 58.38,
+   "title": "Grand rallye 2021 : marché haussier et essor de la DeFi",
+   "explain": "Le SOL profite du grand marché haussier du début 2021, pendant lequel le bitcoin bat son record au-dessus de 64 000 $ le 14 avril. Il est aussi porté par l'essor de son propre écosystème : la bourse décentralisée Raydium rejoint Serum, les stablecoins USDC et USDT arrivent sur le réseau, de nouveaux portefeuilles comme Sollet apparaissent, et les frais restent minuscules alors qu'Ethereum est saturé et cher. Le SOL passe de 12,19 $ le 26 mars à 36,10 $ fin avril, puis dépasse 50 $ à la mi-mai alors que le bitcoin s'essouffle, avec plus de 50 projets lancés depuis mars et 40 millions de dollars d'investissements stratégiques via la Solana Foundation.",
+   "tags": [
+    "Marché crypto global",
+    "Bitcoin",
+    "DeFi",
+    "Écosystème et adoption"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Solana (SOL) hits new highs as DApps, DeFi and stablecoins join the network",
+     "publisher": "Cointelegraph",
+     "date": "2021-04-22",
+     "url": "https://cointelegraph.com/news/solana-sol-hits-new-highs-as-dapps-defi-and-stablecoins-join-the-network"
+    },
+    {
+     "title": "Solana pumps to all-time high as Bitcoin, altcoins lag",
+     "publisher": "Cointelegraph",
+     "date": "2021-05-16",
+     "url": "https://cointelegraph.com/news/solana-pumps-to-all-time-high-as-bitcoin-altcoins-lag"
+    },
+    {
+     "title": "Bitcoin Falls as China Calls for Crackdown on Crypto Mining, Trading",
+     "publisher": "CoinDesk",
+     "date": "2021-05-21",
+     "url": "https://www.coindesk.com/markets/2021/05/21/bitcoin-falls-as-china-calls-for-crackdown-on-crypto-mining-trading"
+    }
+   ]
+  },
+  {
+   "start": "2021-05-18",
+   "end": "2021-05-23",
+   "kind": "baisse",
+   "from": 58.38,
+   "to": 19,
+   "title": "Krach de mai 2021 : Chine, Tesla et liquidations",
+   "explain": "Le 18 mai 2021, trois associations financières chinoises interdisent aux banques et aux sociétés de paiement de proposer des services liés aux cryptomonnaies, quelques jours après l'arrêt des paiements en bitcoin chez Tesla. Le 19 mai, le bitcoin chute de 32 % et l'ether de 46 % en moins de 12 heures, et environ 8 milliards de dollars de positions à effet de levier sont liquidées de force, ce qui accélère la baisse. Le 21 mai, un comité du gouvernement chinois appelle à sévir contre le minage et le trading de bitcoin, et le marché rechute pendant le week-end. Le SOL, qui venait de battre son record, perd environ deux tiers de sa valeur en cinq jours, comme la plupart des altcoins.",
+   "tags": [
+    "Régulation",
+    "Liquidations en cascade",
+    "Bitcoin",
+    "Marché crypto global"
+   ],
+   "scope": "marché",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "China bans financial, payment institutions from cryptocurrency business",
+     "publisher": "CNBC (Reuters)",
+     "date": "2021-05-18",
+     "url": "https://www.cnbc.com/2021/05/18/china-bans-financial-payment-institutions-from-cryptocurrency-business.html"
+    },
+    {
+     "title": "The (Flash) Crash of May 19, 2021",
+     "publisher": "Deribit Insights",
+     "date": "2021-05-22",
+     "url": "https://insights.deribit.com/exchange-updates/the-flash-crash-of-may-19-2021/"
+    },
+    {
+     "title": "Bitcoin Falls as China Calls for Crackdown on Crypto Mining, Trading",
+     "publisher": "CoinDesk",
+     "date": "2021-05-21",
+     "url": "https://www.coindesk.com/markets/2021/05/21/bitcoin-falls-as-china-calls-for-crackdown-on-crypto-mining-trading"
+    }
+   ]
+  },
+  {
+   "start": "2021-07-20",
+   "end": "2021-09-09",
+   "kind": "hausse",
+   "from": 22,
+   "to": 216,
+   "title": "L'été Solana 2021 : NFT et DeFi font décupler le SOL",
+   "explain": "En juin 2021, Solana Labs lève 314 millions de dollars auprès des fonds a16z et Polychain, signe de l'intérêt des grands investisseurs. Le 15 août, la collection NFT Degenerate Ape Academy (10 000 images) se vend en huit minutes et le SOL bondit de près de 37 % en un jour, à un record de 63 $, entrant dans le top 10 des cryptomonnaies. Fin août, la valeur déposée dans les applications DeFi de Solana dépasse 3 milliards de dollars (+400 % en 30 jours), le prix moyen des ventes de NFT s'envole et le SOL franchit 100 $. La hausse se prolonge jusqu'à environ 216 $ le 9 septembre, soit près de dix fois le prix de juillet.",
+   "tags": [
+    "NFT et applis",
+    "DeFi",
+    "Levée de fonds",
+    "Écosystème et adoption"
+   ],
+   "scope": "solana",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Solana Labs raises $314 million in new funding led by A16z and Polychain Capital",
+     "publisher": "The Block",
+     "date": "2021-06-09",
+     "url": "https://www.theblock.co/post/107749/solana-labs-raises-314-million-funding-a16z-polychain-capital"
+    },
+    {
+     "title": "Degenerate Apes NFT Sale Sends Solana to All-Time High",
+     "publisher": "Decrypt",
+     "date": "2021-08-16",
+     "url": "https://decrypt.co/78600/degenerate-apes-nft-sale-sends-solana-all-time-high"
+    },
+    {
+     "title": "SOL Hits Record High, Climbs Above $100 as Total Value Locked on Solana Crosses $3B",
+     "publisher": "CoinDesk",
+     "date": "2021-08-30",
+     "url": "https://www.coindesk.com/markets/2021/08/30/sol-hits-record-high-climbs-above-100-as-total-value-locked-on-solana-crosses-3b"
+    }
+   ]
+  },
+  {
+   "start": "2021-09-09",
+   "end": "2021-09-21",
+   "kind": "baisse",
+   "from": 216,
+   "to": 116,
+   "title": "Panne de 17 heures puis peur autour d'Evergrande",
+   "explain": "Après avoir été multiplié par dix en sept semaines, le SOL commence à fléchir quand, le 14 septembre 2021, le réseau Solana s'arrête pendant environ 17 heures : des robots l'ont inondé d'environ 300 000 transactions par seconde lors d'une vente de jetons Grape Protocol sur Raydium. Le SOL tombe vers 145 $ pendant la panne, puis le redémarrage coordonné du réseau par les validateurs limite la casse. Le 20 septembre, la peur d'une faillite du promoteur immobilier chinois Evergrande provoque une vente générale : le bitcoin perd jusqu'à 10,7 %, 1,3 milliard de dollars de positions sont liquidées et le SOL touche 116 $ le lendemain.",
+   "tags": [
+    "Panne ou congestion du réseau",
+    "Marché crypto global",
+    "Macro et taux",
+    "Liquidations en cascade"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "9-14 Network Outage Initial Overview",
+     "publisher": "Solana Foundation",
+     "date": "2021-09-20",
+     "url": "https://solana.com/news/9-14-network-outage-initial-overview"
+    },
+    {
+     "title": "Solana's Price Crashes 13% as Network Outage Continues",
+     "publisher": "Decrypt",
+     "date": "2021-09-14",
+     "url": "https://decrypt.co/80952/solana-price-crashes-13-percent-network-outage-continues"
+    },
+    {
+     "title": "Solana blockchain validators restart network after transaction stoppage",
+     "publisher": "The Block",
+     "date": "2021-09-15",
+     "url": "https://www.theblock.co/news/markets/2021-09-15-solana-blockchain-validators-restart-network-after-transaction-stoppage-117711"
+    },
+    {
+     "title": "Bitcoin sinks below $43,000 as Evergrande fears sweep markets",
+     "publisher": "Al Jazeera (Bloomberg)",
+     "date": "2021-09-20",
+     "url": "https://www.aljazeera.com/amp/economy/2021/9/20/bitcoin-sinks-below-43000-as-evergrade-fears-sweep-markets"
+    }
+   ]
+  },
+  {
+   "start": "2021-09-21",
+   "end": "2021-11-06",
+   "kind": "hausse",
+   "from": 116,
+   "to": 259.9,
+   "title": "Record à 260 $ porté par le marché et la DeFi",
+   "explain": "Le marché crypto repart fort en octobre 2021 : le premier ETF américain lié au bitcoin (ProShares, adossé à des contrats à terme) démarre le 19 octobre, puis le bitcoin et l'ether battent leurs records. Solana profite aussi de sa propre croissance : la valeur déposée dans sa DeFi passe de 13,9 milliards de dollars fin octobre à 15,1 milliards début novembre, et ses NFT s'échangent pour plus de 64 millions de dollars par semaine. Le 5 novembre, Solana Ventures, FTX et Lightspeed lancent un fonds de 100 millions de dollars pour les jeux blockchain, et le SOL atteint 259,90 $ le 6 novembre, à la veille de la première conférence Breakpoint à Lisbonne. Il est alors la quatrième cryptomonnaie par capitalisation, devant Cardano.",
+   "tags": [
+    "Marché crypto global",
+    "Investisseurs institutionnels et ETF",
+    "DeFi",
+    "Écosystème et adoption"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Bitcoin futures ETF opens with gain, explosive trading volume",
+     "publisher": "InvestmentNews (Bloomberg)",
+     "date": "2021-10-19",
+     "url": "https://www.investmentnews.com/alternatives/bitcoin-futures-etf-opens-with-gain-explosive-trading-volume/212925"
+    },
+    {
+     "title": "Ethereum Rival Solana Sets New All-Time High After 36% Weekly Rise",
+     "publisher": "Decrypt",
+     "date": "2021-10-25",
+     "url": "https://decrypt.co/84361/solana-price-all-time-high-after-36-percent-weekly-rise"
+    },
+    {
+     "title": "Solana Ventures, FTX, and Lightspeed launch $100 million blockchain gaming fund",
+     "publisher": "The Block",
+     "date": "2021-11-05",
+     "url": "https://www.theblock.co/news/web3/2021-11-05-solana-ventures-ftx-lightspeed-100-million-blockchain-gaming-fund-123397"
+    },
+    {
+     "title": "Solana Hits All-Time High of $260",
+     "publisher": "Decrypt",
+     "date": "2021-11-07",
+     "url": "https://decrypt.co/85457/solana-hits-all-time-high-of-260"
+    }
+   ]
+  },
+  {
+   "start": "2021-11-06",
+   "end": "2022-01-24",
+   "kind": "baisse",
+   "from": 259.9,
+   "to": 80.83,
+   "title": "Virage de la Fed et réseau saturé : le SOL perd 69 %",
+   "explain": "Après le pic de novembre 2021, tout le marché crypto se retourne quand la Réserve fédérale américaine (Fed) prépare un resserrement plus rapide : le 5 janvier 2022, le compte rendu de sa réunion de décembre évoque une forte réduction de son bilan, et le bitcoin tombe à son plus bas depuis un mois. Solana souffre en plus de ses propres problèmes : en janvier, des robots saturent le réseau de transactions en double, les échecs se multiplient et la page de statut affiche une « panne partielle » pendant neuf jours, notamment les 21 et 22 janvier. Le SOL perd 42 % en une semaine, la pire performance du top 20, et touche 80,83 $ le 24 janvier, jour où plus de 240 millions de dollars de positions sont liquidées en quelques heures.",
+   "tags": [
+    "Macro et taux",
+    "Marché crypto global",
+    "Panne ou congestion du réseau",
+    "Liquidations en cascade"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Bitcoin Falls to 1-Month Low as Fed Minutes Reveal Talks to Shrink Balance Sheet",
+     "publisher": "CoinDesk",
+     "date": "2022-01-05",
+     "url": "https://www.coindesk.com/markets/2022/01/05/bitcoin-falls-to-1-month-low-as-fed-minutes-reveal-talks-to-shrink-balance-sheet"
+    },
+    {
+     "title": "Solana User Experience 'Not What It Should Be', Says Co-Founder as Network Struggles",
+     "publisher": "Decrypt",
+     "date": "2022-01-24",
+     "url": "https://decrypt.co/91117/solana-user-experience-not-what-it-should-be-co-founder-anatoly"
+    },
+    {
+     "title": "Solana Slides 17% to Lead Losses Amid Crypto Market Plunge",
+     "publisher": "CoinDesk",
+     "date": "2022-01-24",
+     "url": "https://www.coindesk.com/markets/2022/01/24/solana-slides-17-to-lead-losses-amid-crypto-market-plunge"
+    },
+    {
+     "title": "Solana Tanks 16% Amid Ruthless Crypto Market Crash",
+     "publisher": "Decrypt",
+     "date": "2022-01-24",
+     "url": "https://decrypt.co/91067/solana-tanks-amid-ruthless-crypto-market-crash"
+    }
+   ]
+  },
+  {
+   "start": "2022-01-24",
+   "end": "2022-04-02",
+   "kind": "hausse",
+   "from": 80.83,
+   "to": 143.51,
+   "title": "Rebond du printemps 2022 : bitcoin, OpenSea et NFT",
+   "explain": "Février est agité : le pont Wormhole, qui relie Solana à Ethereum, est piraté le 2 février (environ 320 millions de dollars volés, aussitôt remboursés par la société Jump), puis la Russie envahit l'Ukraine le 24 février. Fin mars, le marché repart : le bitcoin remonte au-dessus de 47 000 $, aidé par les achats massifs de la Luna Foundation Guard (Terra), et le SOL gagne jusqu'à 14 % le 28 mars, la hausse forçant les parieurs à la baisse à racheter. Le 29 mars, OpenSea, la plus grande place de marché de NFT, annonce qu'elle accueillera les NFT Solana en avril : le SOL bondit de près de 12 % et le volume d'échanges des NFT Solana grimpe de plus de 80 % en 24 heures. Le SOL atteint 143,51 $ le 2 avril.",
+   "tags": [
+    "Marché crypto global",
+    "Bitcoin",
+    "NFT et applis",
+    "Géopolitique"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "Crypto Bridge Wormhole Replenished After Hack for $320M in Ethereum",
+     "publisher": "Decrypt",
+     "date": "2022-02-03",
+     "url": "https://decrypt.co/91962/crypto-bridge-wormhole-replenished-after-hack-320m-ethereum"
+    },
+    {
+     "title": "Shiba Inu, Solana Tokens Lead Gains as Bitcoin Hovers Over $47K",
+     "publisher": "CoinDesk",
+     "date": "2022-03-28",
+     "url": "https://www.coindesk.com/markets/2022/03/28/shiba-inu-solana-tokens-lead-gains-as-bitcoin-hovers-over-47k/"
+    },
+    {
+     "title": "Solana Surges as NFT Trading Rises 80% Following OpenSea Reveal",
+     "publisher": "Decrypt",
+     "date": "2022-03-30",
+     "url": "https://decrypt.co/96462/solana-price-nft-trading-surges-opensea"
+    },
+    {
+     "title": "Solana jumps past key selloff junction: SOL price eyes $150 in April",
+     "publisher": "Cointelegraph",
+     "date": "2022-04-02",
+     "url": "https://cointelegraph.com/news/solana-jumps-past-key-selloff-junction-sol-price-eyes-150-in-april"
+    }
+   ]
+  },
+  {
+   "start": "2022-04-02",
+   "end": "2022-05-12",
+   "kind": "baisse",
+   "from": 143.51,
+   "to": 37.37,
+   "title": "Hausse des taux, panne et effondrement de Terra",
+   "explain": "Le 30 avril 2022, le réseau Solana s'arrête environ sept heures, submergé par des robots qui tentaient d'acheter des NFT dès leur mise en vente (jusqu'à 6 millions de requêtes par seconde). Le 4 mai, la Fed relève ses taux d'un demi-point, sa plus forte hausse depuis 2000, et actions comme cryptomonnaies chutent dès le lendemain. Surtout, entre le 7 et le 12 mai, le stablecoin UST de Terra perd sa parité avec le dollar et le LUNA s'effondre de 96 % en une journée, ce qui efface plus de 200 milliards de dollars de valeur du marché crypto en 24 heures. Le SOL perd 30 % le 11 mai et descend à 37,37 $ le 12 mai.",
+   "tags": [
+    "Faillite ou scandale",
+    "Macro et taux",
+    "Panne ou congestion du réseau",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "04-30-22 Solana Mainnet Beta Outage Report and Mitigation",
+     "publisher": "Solana Foundation",
+     "date": "2022-05-02",
+     "url": "https://solana.com/news/04-30-22-solana-mainnet-beta-outage-report-mitigation"
+    },
+    {
+     "title": "Bitcoin plummets alongside stocks following the Federal Reserve decision",
+     "publisher": "Fortune",
+     "date": "2022-05-05",
+     "url": "https://fortune.com/2022/05/05/bitcoin-plummets-alongside-stocks-federal-reserve-decision/"
+    },
+    {
+     "title": "Market Wrap: Cryptos Extend Losses as LUNA Plunges",
+     "publisher": "CoinDesk",
+     "date": "2022-05-11",
+     "url": "https://www.coindesk.com/markets/2022/05/11/market-wrap-cryptos-extend-losses-as-luna-plunges"
+    },
+    {
+     "title": "Crypto is getting utterly obliterated and no token is safe",
+     "publisher": "Fortune",
+     "date": "2022-05-12",
+     "url": "https://fortune.com/2022/05/12/crypto-crash-bitcoin-ether-bnb-luna-prices-dropping/"
+    }
+   ]
+  },
+  {
+   "start": "2022-05-15",
+   "end": "2022-06-14",
+   "kind": "baisse",
+   "from": 59.31,
+   "to": 25.86,
+   "title": "Nouvelle panne, inflation à 8,6 % et gel de Celsius",
+   "explain": "Après un court rebond qui suit le krach de Terra, le SOL reprend sa chute. Le 1er juin 2022, un bug lié à un type de transaction peu utilisé (les « durable nonces ») bloque le réseau Solana environ quatre heures et demie, et le SOL perd près de 13 % en 24 heures, à environ 40 $. Le 10 juin, l'inflation américaine atteint 8,6 % sur un an, plus que prévu, puis le 12 juin le prêteur crypto Celsius gèle les retraits de ses clients. Le 13 juin, la valeur totale du marché crypto passe sous 1 000 milliards de dollars et le bitcoin sous 23 000 $ : le SOL perd 30 % en une semaine et touche 25,86 $ le 14 juin.",
+   "tags": [
+    "Panne ou congestion du réseau",
+    "Macro et taux",
+    "Faillite ou scandale",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "06-01-22 Solana Mainnet Beta Outage Report",
+     "publisher": "Solana Foundation",
+     "date": "2022-06-04",
+     "url": "https://solana.com/news/06-01-22-solana-mainnet-beta-outage-report-2"
+    },
+    {
+     "title": "Solana suffered a four-hour blackout due to a bug in how the blockchain processes offline transactions",
+     "publisher": "Fortune (CoinDesk)",
+     "date": "2022-06-02",
+     "url": "https://fortune.com/2022/06/02/solana-shutdown-longest-time-offline-transaction-durable-nonce/"
+    },
+    {
+     "title": "The crypto industry just had one of its worst days ever: Here's what happened",
+     "publisher": "CNBC",
+     "date": "2022-06-13",
+     "url": "https://www.cnbc.com/2022/06/13/the-crypto-industry-just-had-one-of-its-worst-days-ever.html"
+    },
+    {
+     "title": "Crypto market cap falls below $1 trillion as Bitcoin drops 65% from all-time high",
+     "publisher": "Fortune",
+     "date": "2022-06-13",
+     "url": "https://fortune.com/2022/06/13/crypto-market-cap-below-1-trillion-bitcoin-extreme-fear-inflation/"
+    }
+   ]
+  },
+  {
+   "start": "2022-06-14",
+   "end": "2022-08-13",
+   "kind": "hausse",
+   "from": 25.86,
+   "to": 48.38,
+   "title": "Rebond de l'été 2022 : la Fed et l'inflation rassurent",
+   "explain": "Après la capitulation de mi-juin, le marché crypto rebondit : en juillet, les investisseurs se rassurent en voyant la Fed s'en tenir à des hausses de 0,75 point plutôt que 1 point, et l'ether est porté par la préparation de « The Merge », sa grande mise à jour prévue en septembre. Le 10 août, l'inflation américaine de juillet ressort à 8,5 %, sous les attentes, et le bitcoin remonte vers 24 000 $. Côté Solana, l'annonce du smartphone Saga le 23 juin entretient l'intérêt, tandis que le vol de plus de 8 millions de dollars dans près de 8 000 portefeuilles liés à l'application Slope fait reculer le SOL de près de 12 % début août, une baisse vite effacée. Le SOL atteint 48,38 $ le 13 août, porté surtout par le climat général du marché.",
+   "tags": [
+    "Marché crypto global",
+    "Macro et taux",
+    "Écosystème et adoption"
+   ],
+   "scope": "marché",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "Bitcoin tops $24,000 as hopes of softer Fed action fuel crypto relief rally",
+     "publisher": "CNBC",
+     "date": "2022-07-20",
+     "url": "https://www.cnbc.com/2022/07/20/crypto-prices-bitcoin-btc-climbs-above-23000.html"
+    },
+    {
+     "title": "Solana's developers unveil web3-focused mobile phone",
+     "publisher": "The Block",
+     "date": "2022-06-23",
+     "url": "https://www.theblock.co/post/153864/solanas-developers-unveil-web3-focused-mobile-phone"
+    },
+    {
+     "title": "Another setback for Solana as users lose $8 million in assets following the latest exploit",
+     "publisher": "Kitco",
+     "date": "2022-08-03",
+     "url": "https://www.kitco.com/news/article/2022-08-03/another-setback-solana-users-lose-8-million-assets-following-latest-exploit"
+    },
+    {
+     "title": "US inflation shows signs of slowing down as CPI below expectations at 8.5%",
+     "publisher": "The Block",
+     "date": "2022-08-10",
+     "url": "https://www.theblock.co/post/162714/us-inflation-shows-signs-of-slowing-down-as-cpi-below-expectations-at-8-5"
+    }
+   ]
+  },
+  {
+   "start": "2022-11-05",
+   "end": "2022-12-29",
+   "kind": "baisse",
+   "from": 38.79,
+   "to": 8.0,
+   "title": "Faillite de FTX : le SOL, « Sam coin », s'effondre",
+   "explain": "Le 2 novembre 2022, CoinDesk révèle que le bilan d'Alameda Research, le fonds de Sam Bankman-Fried, repose largement sur des jetons liés à son empire, dont environ 1,2 milliard de dollars de SOL. Le 6 novembre, Binance annonce vendre ses jetons FTT, puis FTX bloque les retraits et se déclare en faillite le 11 novembre : le SOL, très associé à Bankman-Fried, perd plus de 40 % le seul 9 novembre et 57 % en une semaine, sur fond de crainte de reventes massives des plus de 50 millions de SOL que FTX et Alameda avaient achetés à la fondation. Fin décembre, l'annonce du départ des deux grandes collections NFT DeGods et y00ts vers Ethereum et Polygon accentue la chute : le SOL passe sous 10 $ le 28 décembre, une première depuis février 2021, et touche 8 $ le 29.",
+   "tags": [
+    "Faillite ou scandale",
+    "Ventes d'un gros détenteur",
+    "NFT et applis",
+    "Marché crypto global"
+   ],
+   "scope": "solana",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Divisions in Sam Bankman-Fried's Crypto Empire Blur on His Trading Titan Alameda's Balance Sheet",
+     "publisher": "CoinDesk",
+     "date": "2022-11-02",
+     "url": "https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titan-alamedas-balance-sheet"
+    },
+    {
+     "title": "Not just FTX Token: Solana price nukes 40% along with other 'Sam coins'",
+     "publisher": "Cointelegraph",
+     "date": "2022-11-09",
+     "url": "https://cointelegraph.com/news/not-just-ftx-token-solana-price-nukes-40-along-with-other-sam-coins"
+    },
+    {
+     "title": "Solana Foundation Details FTX, SBF Financial Ties as SOL Struggles",
+     "publisher": "Decrypt",
+     "date": "2022-11-14",
+     "url": "https://decrypt.co/114626/solana-foundation-ftx-sbf-financial-ties"
+    },
+    {
+     "title": "Solana Sinks Below $10 for First Time in Nearly Two Years",
+     "publisher": "Decrypt",
+     "date": "2022-12-28",
+     "url": "https://decrypt.co/118071/solana-sinks-below-10-first-time-nearly-two-years"
+    }
+   ]
+  },
+  {
+   "start": "2022-12-29",
+   "end": "2023-02-20",
+   "kind": "hausse",
+   "from": 8.0,
+   "to": 27.12,
+   "title": "Rebond post-FTX porté par le mèmecoin BONK",
+   "explain": "Fin décembre 2022, le SOL tombe à environ 8 $, plombé par ses liens étroits avec FTX et Sam Bankman-Fried. Le mèmecoin BONK, lancé le 25 décembre avec la moitié de ses jetons distribués gratuitement à la communauté Solana, relance l'intérêt : le 3 janvier 2023, le SOL bondit d'environ 20 % en 24 heures et force la liquidation de 6,7 millions de dollars de paris à la baisse, un record depuis la faillite de FTX. Le rebond se prolonge ensuite avec la reprise générale du marché crypto : le 16 février, le bitcoin repasse 25 000 $ pour la première fois depuis août 2022.",
+   "tags": [
+    "Mèmecoins",
+    "Marché crypto global",
+    "Bitcoin",
+    "Écosystème et adoption"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Solana's SOL Token Surges 20% as Dog Coin Bonk Fires Up Community Interest",
+     "publisher": "CoinDesk",
+     "date": "2023-01-03",
+     "url": "https://www.coindesk.com/markets/2023/01/03/solana-price-gains-as-dog-coin-bonk-fires-up-community-interest"
+    },
+    {
+     "title": "Solana Surges 16% as Doge-Themed SHIB Rival BONK Takes Off",
+     "publisher": "Decrypt",
+     "date": "2023-01-03",
+     "url": "https://decrypt.co/118295/solana-surges-16-as-doge-themed-shib-rival-bonk-takes-off"
+    },
+    {
+     "title": "Bitcoin Tops $25,000 as Crypto Looks Past Regulatory Woe",
+     "publisher": "Bloomberg",
+     "date": "2023-02-16",
+     "url": "https://www.bloomberg.com/news/articles/2023-02-16/bitcoin-jumps-toward-25-000-as-crypto-looks-past-us-regulatory-crackdown"
+    }
+   ]
+  },
+  {
+   "start": "2023-02-20",
+   "end": "2023-03-10",
+   "kind": "baisse",
+   "from": 27.12,
+   "to": 16.0,
+   "title": "Panne du réseau puis crise bancaire américaine",
+   "explain": "Le 25 février 2023, le réseau Solana tourne au ralenti pendant près de 20 heures : un validateur a diffusé un bloc anormalement gros qui a saturé la circulation des blocs, et le réseau a dû être redémarré manuellement le 26 février. Début mars, la crise bancaire américaine frappe tout le secteur : Silvergate, banque très utilisée par les entreprises crypto, annonce sa liquidation le 8 mars et le bitcoin chute d'environ 7 %, vers 20 500 $, le 9 mars, sur fond de craintes de hausses de taux plus fortes que prévu. Le 10 mars, la faillite de Silicon Valley Bank aggrave la panique et le SOL touche 16 $.",
+   "tags": [
+    "Panne ou congestion du réseau",
+    "Faillite ou scandale",
+    "Marché crypto global",
+    "Macro et taux"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "02-25-23 Solana Mainnet Beta Outage Report",
+     "publisher": "Solana Foundation",
+     "date": "2023-04-18",
+     "url": "https://solana.com/news/02-25-23-solana-mainnet-beta-outage-report"
+    },
+    {
+     "title": "Bitcoin, ether fall after go-to crypto bank Silvergate announces liquidation",
+     "publisher": "CNBC",
+     "date": "2023-03-09",
+     "url": "https://www.cnbc.com/2023/03/09/bitcoin-ether-fall-after-go-to-crypto-bank-silvergate-announces-liquidation.html"
+    },
+    {
+     "title": "Bitcoin at Three-Week Low as Silvergate Fallout Weighs on Crypto",
+     "publisher": "Bloomberg",
+     "date": "2023-03-08",
+     "url": "https://www.bloomberg.com/news/articles/2023-03-08/bitcoin-fluctuates-near-three-week-low-xrp-extends-gains"
+    }
+   ]
+  },
+  {
+   "start": "2023-04-17",
+   "end": "2023-06-10",
+   "kind": "baisse",
+   "from": 26.0,
+   "to": 12.8,
+   "title": "La SEC qualifie le SOL de titre financier",
+   "explain": "Après un pic vers 26 $ mi-avril 2023, le SOL recule d'abord avec l'ensemble du marché. Le coup dur vient ensuite de la SEC, le gendarme boursier américain : ses plaintes contre Binance (5 juin) et Coinbase (6 juin) qualifient le SOL de titre financier non enregistré, ce que Solana conteste. Le 9 juin, Robinhood annonce qu'il retire le SOL, l'ADA et le MATIC le 27 juin, et des portefeuilles liés à Cumberland, Jump et Robinhood envoient de gros montants de ces jetons vers les plateformes d'échange. Le 10 juin, le SOL perd jusqu'à 25 % en quelques heures, avec près de 300 millions de dollars de liquidations sur les contrats à terme crypto, alors que le bitcoin ne cède qu'environ 4 % sur la semaine.",
+   "tags": [
+    "Régulation",
+    "Ventes d'un gros détenteur",
+    "Liquidations en cascade",
+    "Marché crypto global"
+   ],
+   "scope": "solana",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "SOL, ADA, MATIC Tokens Slide 20% in Sudden Move Days After SEC Lawsuit Allegations",
+     "publisher": "CoinDesk",
+     "date": "2023-06-10",
+     "url": "https://www.coindesk.com/markets/2023/06/10/sol-ada-matic-tokens-slide-20-in-sudden-move-after-sec-lawsuit"
+    },
+    {
+     "title": "Solana, Cardano, and Polygon plunge nearly 30% as big firms dump holdings after SEC allegations",
+     "publisher": "Fortune",
+     "date": "2023-06-11",
+     "url": "https://fortune.com/crypto/2023/06/11/solano-cardano-and-polygon-plunge-nearly-30-as-big-firms-dump-holdings-after-sec-allegations/"
+    },
+    {
+     "title": "Robinhood to delist tokens for Solana, Cardano, and Polygon after SEC suits name them as securities",
+     "publisher": "Fortune",
+     "date": "2023-06-09",
+     "url": "https://fortune.com/crypto/2023/06/09/robinhood-delists-solana-sol-cardano-ada-polygon-matic-sec-lawsuits-securities/"
+    },
+    {
+     "title": "Coinbase sued by SEC one day after regulator sues Binance",
+     "publisher": "The Block",
+     "date": "2023-06-06",
+     "url": "https://www.theblock.co/post/233270/sec-sues-coinbase-binance"
+    }
+   ]
+  },
+  {
+   "start": "2023-06-10",
+   "end": "2023-07-14",
+   "kind": "hausse",
+   "from": 12.8,
+   "to": 32.13,
+   "title": "ETF bitcoin de BlackRock et victoire de Ripple",
+   "explain": "Le 15 juin 2023, BlackRock, le plus grand gestionnaire d'actifs au monde, dépose une demande de fonds indiciel (ETF) au comptant sur le bitcoin, imité par d'autres gestionnaires : le bitcoin gagne environ 15 % en une semaine et repasse 30 000 $. Le 13 juillet, la juge new-yorkaise Analisa Torres estime que les ventes de XRP au public sur les plateformes d'échange ne sont pas des offres de titres financiers, ce qui affaiblit la position de la SEC contre les jetons qu'elle visait, dont le SOL. Le SOL bondit alors d'environ 26 % en une journée et atteint 32 $, plus du double de son plus bas de juin.",
+   "tags": [
+    "Régulation",
+    "Investisseurs institutionnels et ETF",
+    "Bitcoin",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "BlackRock ETF filing could be 'turning point' for bitcoin, Ark says",
+     "publisher": "The Block",
+     "date": "2023-06-26",
+     "url": "https://www.theblock.co/post/236415/blackrock-etf-filing-could-be-turning-point-for-bitcoin-ark-says"
+    },
+    {
+     "title": "It's like 2021 again as crypto altcoins soar as much as 66%",
+     "publisher": "CNBC",
+     "date": "2023-07-14",
+     "url": "https://www.cnbc.com/2023/07/14/its-like-2021-again-as-crypto-altcoins-soar-as-much-as-66percent.html"
+    },
+    {
+     "title": "Crypto Altcoins Outperform as Ripple Court Ruling Spurs FOMO",
+     "publisher": "Bloomberg",
+     "date": "2023-07-14",
+     "url": "https://www.bloomberg.com/news/articles/2023-07-14/crypto-altcoin-outperform-as-fomo-takes-over-after-xrp-ruling"
+    }
+   ]
+  },
+  {
+   "start": "2023-07-14",
+   "end": "2023-09-11",
+   "kind": "baisse",
+   "from": 32.13,
+   "to": 17.33,
+   "title": "Krach d'août et stock de SOL de FTX dévoilé",
+   "explain": "L'euphorie de juillet retombe vite et le marché s'enlise pendant l'été 2023. Le 17 août, une chute brutale envoie le bitcoin vers 25 200 $ et provoque environ 1 milliard de dollars de liquidations en 24 heures, sur fond de rumeurs non confirmées de ventes de bitcoins par SpaceX. Le 11 septembre, un document du tribunal des faillites révèle que FTX détient pour 1,16 milliard de dollars de SOL, son plus gros actif crypto, et veut vendre ses cryptos pour rembourser ses créanciers : le SOL touche 17,33 $ le jour même. Le juge autorise ces ventes le 13 septembre, avec un plafond de 100 millions de dollars par semaine pour la plupart des jetons.",
+   "tags": [
+    "Ventes d'un gros détenteur",
+    "Faillite ou scandale",
+    "Liquidations en cascade",
+    "Marché crypto global",
+    "Bitcoin"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "Crypto traders hit by $1.04 billion in liquidations amid intense market volatility",
+     "publisher": "The Block",
+     "date": "2023-08-18",
+     "url": "https://www.theblock.co/news/markets/2023-08-18-crypto-traders-liquidations-volatility-246149"
+    },
+    {
+     "title": "FTX Holds $1.16B in SOL, $200M in Bahamas Real Estate, Court Filing Says",
+     "publisher": "CoinDesk",
+     "date": "2023-09-11",
+     "url": "https://www.coindesk.com/policy/2023/09/11/ftx-holds-116b-in-sol-200m-in-bahamas-real-estate-court-filing-says"
+    },
+    {
+     "title": "FTX's $3.4 Billion Crypto Portfolio Includes Solana, Bitcoin and Ethereum",
+     "publisher": "Decrypt",
+     "date": "2023-09-11",
+     "url": "https://decrypt.co/155829/ftx-details-its-3-4-billion-crypto-portfolio-of-solana-bitcoin-and-ethereum"
+    },
+    {
+     "title": "Judge approves order allowing FTX to start selling crypto",
+     "publisher": "The Block",
+     "date": "2023-09-13",
+     "url": "https://www.theblock.co/post/250876/judge-approves-order-allowing-ftx-to-start-selling-crypto"
+    }
+   ]
+  },
+  {
+   "start": "2023-09-11",
+   "end": "2024-03-18",
+   "kind": "hausse",
+   "from": 17.33,
+   "to": 210.18,
+   "title": "Airdrops, mèmecoins et ETF bitcoin font décoller le SOL",
+   "explain": "Le SOL vit l'un des plus forts rebonds de son histoire, porté par un regain d'activité sur Solana. En décembre 2023, la distribution gratuite du jeton JTO de Jito (7 décembre), l'une des plus lucratives de l'histoire crypto, l'attente d'autres distributions et la frénésie autour de BONK attirent les spéculateurs : le SOL repasse 100 $ le 23 décembre, après avoir été multiplié par plus de 10 sur l'année. L'approbation de 11 ETF bitcoin au comptant aux États-Unis le 10 janvier 2024 amène ensuite de l'argent neuf sur tout le marché crypto. En mars, la folie des mèmecoins (WIF, BOME) fait exploser l'activité : le 18 mars, le SOL franchit 200 $ pour la première fois depuis novembre 2021, avec 3,2 millions de dollars de frais payés sur le réseau en 24 heures.",
+   "tags": [
+    "Mèmecoins",
+    "DeFi",
+    "Écosystème et adoption",
+    "Investisseurs institutionnels et ETF",
+    "Bitcoin",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Layer by Layer: Jito Airdrop Breathes New Life into Solana Ecosystem",
+     "publisher": "The Block",
+     "date": "2023-12-13",
+     "url": "https://www.theblock.co/research/blockchains/layer-by-layer-jito-airdrop-breathes-new-life-into-solana-ecosystem-267562"
+    },
+    {
+     "title": "Solana's SOL Rallies Past $100, Continuing Torrid Month",
+     "publisher": "CoinDesk",
+     "date": "2023-12-23",
+     "url": "https://www.coindesk.com/markets/2023/12/23/solana-sol-rallies-past-100-continuing-torrid-month"
+    },
+    {
+     "title": "SEC approves 11 spot bitcoin ETFs, with trading likely set to start tomorrow",
+     "publisher": "The Block",
+     "date": "2024-01-10",
+     "url": "https://www.theblock.co/post/271324/the-sec-said-it-has-approved-proposals-for-spot-bitcoin-etfs-on-an-accelerated-basis"
+    },
+    {
+     "title": "SOL Crosses $200 as Meme Coin Frenzy Bumps Demand for Solana Network",
+     "publisher": "CoinDesk",
+     "date": "2024-03-18",
+     "url": "https://www.coindesk.com/tech/2024/03/18/sol-crosses-200-as-meme-coin-frenzy-bumps-demand-for-solana-network"
+    }
+   ]
+  },
+  {
+   "start": "2024-03-18",
+   "end": "2024-04-13",
+   "kind": "baisse",
+   "from": 210.18,
+   "to": 116.0,
+   "title": "Réseau saturé et choc Iran-Israël",
+   "explain": "Victime de son succès, Solana est engorgé par les robots de trading et les lancements de mèmecoins : le 4 avril 2024, environ 75 % des transactions hors votes échouent selon Dune Analytics, même si des experts précisent qu'il s'agit surtout de robots d'arbitrage. Le 5 avril, on apprend aussi que FTX a vendu jusqu'à 30 millions de SOL bloqués à 64 $ pièce (environ 1,9 milliard de dollars) à Galaxy, Pantera et d'autres, très en dessous du cours de 174 $. Le 13 avril, l'attaque de drones et de missiles de l'Iran contre Israël fait plonger tout le marché : le bitcoin perd environ 8 % et le SOL environ 16 %, jusqu'à un plus bas de 116 $. Un premier correctif contre la congestion (version 1.17.31) est recommandé aux validateurs le 15 avril.",
+   "tags": [
+    "Panne ou congestion du réseau",
+    "Mèmecoins",
+    "Ventes d'un gros détenteur",
+    "Géopolitique",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "Solana struggles: Record 75% of user txs are failing... or are they?",
+     "publisher": "Cointelegraph",
+     "date": "2024-04-05",
+     "url": "https://cointelegraph.com/news/solana-struggling-record-seventy-five-percent-trasnactions-fail-memecoin-mania"
+    },
+    {
+     "title": "FTX estate sells $1.9 billion worth of locked up SOL for $64 per token: report",
+     "publisher": "The Block",
+     "date": "2024-04-05",
+     "url": "https://www.theblock.co/news/markets/2024-04-05-ftx-estate-sells-1-9-billion-worth-of-locked-up-sol-for-64-per-token-report-286717"
+    },
+    {
+     "title": "Bitcoin nosedives as political tensions escalate in the Middle East",
+     "publisher": "Cointelegraph",
+     "date": "2024-04-13",
+     "url": "https://cointelegraph.com/news/bitcoin-nose-dive-as-political-tensions-escalate-israel-iran-middle-east"
+    },
+    {
+     "title": "Solana patch aims to help alleviate ongoing network congestion issues",
+     "publisher": "The Block",
+     "date": "2024-04-15",
+     "url": "https://www.theblock.co/post/288274/solana-patch-aims-to-help-alleviate-ongoing-network-congestion-issues"
+    }
+   ]
+  },
+  {
+   "start": "2024-04-13",
+   "end": "2024-07-29",
+   "kind": "hausse",
+   "from": 116.0,
+   "to": 193.98,
+   "title": "Demandes d'ETF Solana et effet Trump",
+   "explain": "Le SOL remonte par étapes au printemps et à l'été 2024. Le 27 juin, VanEck dépose la première demande d'ETF Solana au comptant aux États-Unis, bientôt suivi par 21Shares, et le SOL gagne environ 6,5 % en quelques minutes, de 139 $ à 148 $. En juillet, la hausse des chances de victoire de Donald Trump, après la tentative d'assassinat du 13 juillet, fait espérer une régulation plus favorable : le SOL prend environ 22 % en une semaine, à 170 $, et les mèmecoins de Solana s'envolent (WIF +62 %). Le 27 juillet, au congrès Bitcoin 2024 de Nashville, Trump promet une réserve stratégique de bitcoins, et le SOL atteint 194 $ le 29 juillet.",
+   "tags": [
+    "Investisseurs institutionnels et ETF",
+    "Régulation",
+    "Mèmecoins",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "SOL spikes 6% following VanEck's spot Solana ETF filing",
+     "publisher": "The Block",
+     "date": "2024-06-27",
+     "url": "https://www.theblock.co/post/302297/sol-spikes-6-following-vanecks-spot-solana-etf-filing"
+    },
+    {
+     "title": "Solana and XRP jump over 20% in week, lifted by Trump's electoral chances",
+     "publisher": "Fortune",
+     "date": "2024-07-19",
+     "url": "https://fortune.com/crypto/2024/07/19/solana-and-xrp-jump-over-20-in-week-lifted-by-trumps-electoral-chances/"
+    },
+    {
+     "title": "Trump Backs U.S. Bitcoin Reserve and Says Democrat Win Will Be Disaster for Crypto",
+     "publisher": "CoinDesk",
+     "date": "2024-07-27",
+     "url": "https://www.coindesk.com/policy/2024/07/27/if-we-dont-do-it-china-will-trumps-crypto-embrace-tightens-as-he-speaks-at-bitcoin-event-in-nashville"
+    }
+   ]
+  },
+  {
+   "start": "2024-07-29",
+   "end": "2024-08-05",
+   "kind": "baisse",
+   "from": 193.98,
+   "to": 110.0,
+   "title": "Krach mondial du 5 août et carry trade du yen",
+   "explain": "Début août 2024, une panique mondiale frappe tous les marchés. La Banque du Japon relève son taux vers 0,25 %, le yen s'envole et force le dénouement du « carry trade » (emprunter en yens bon marché pour acheter des actifs plus risqués), tandis qu'un rapport décevant sur l'emploi américain (114 000 créations de postes) ravive la peur d'une récession. Le 5 août, la Bourse de Tokyo perd environ 7 % en matinée, le bitcoin tombe vers 49 000 $ et le SOL chute de 20 à 25 % en une journée, avec plus de 1 milliard de dollars de liquidations sur les contrats à terme crypto. Selon les analystes de QCP, des ventes massives d'ether par la société de trading Jump ont amplifié la chute.",
+   "tags": [
+    "Macro et taux",
+    "Liquidations en cascade",
+    "Marché crypto global",
+    "Bitcoin",
+    "Ventes d'un gros détenteur"
+   ],
+   "scope": "marché",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "First Mover Americas: Bitcoin Crashes to $50K as 'Perfect Storm' Hits Crypto Market",
+     "publisher": "CoinDesk",
+     "date": "2024-08-05",
+     "url": "https://www.coindesk.com/markets/2024/08/05/first-mover-americas-bitcoin-crashes-to-50k-as-perfect-storm-hits-crypto-market"
+    },
+    {
+     "title": "UPDATE: Bitcoin plunges below $50,000, ether under $2,200 amid Jump Crypto moves, US election uncertainty",
+     "publisher": "The Block",
+     "date": "2024-08-04",
+     "url": "https://www.theblock.co/post/309277/bitcoin-plunges-below-55000-ether-under-2400"
+    },
+    {
+     "title": "Crypto market crash triggered by 'aggressive' selling by Jump Trading: Report",
+     "publisher": "Cointelegraph",
+     "date": "2024-08-05",
+     "url": "https://cointelegraph.com/news/crypto-market-crash-jump-trading-selling-qcp"
+    }
+   ]
+  },
+  {
+   "start": "2024-08-05",
+   "end": "2025-01-19",
+   "kind": "hausse",
+   "from": 110.0,
+   "to": 295.83,
+   "title": "Élection de Trump et folie des mèmecoins",
+   "explain": "La victoire de Donald Trump le 5 novembre 2024 déclenche un grand rallye crypto : le bitcoin bat son record et le SOL repasse 200 $ dès le 7 novembre. Les demandes d'ETF Solana se multiplient (VanEck et 21Shares en juin, Canary en octobre, Bitwise le 21 novembre), alors que le président de la SEC, Gary Gensler, doit partir le 20 janvier 2025. La frénésie des mèmecoins, créés en masse grâce à la plateforme Pump.fun, culmine avec le jeton TRUMP, lancé sur Solana dans la nuit du 17 au 18 janvier 2025 et valorisé 6,9 milliards de dollars peu après. Le SOL établit son record absolu à 295,83 $ le 19 janvier, même si l'essentiel des échanges de TRUMP se faisait contre le dollar numérique USDC plutôt que contre le SOL.",
+   "tags": [
+    "Mèmecoins",
+    "Régulation",
+    "Investisseurs institutionnels et ETF",
+    "Écosystème et adoption",
+    "Bitcoin",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Solana climbs above $200, bitcoin hits new high amid extended post-election rally",
+     "publisher": "The Block",
+     "date": "2024-11-07",
+     "url": "https://www.theblock.co/post/325146/solana-breaks-above-200-bitcoin-hits-new-high"
+    },
+    {
+     "title": "Bitwise Joins Mounting Race for Solana ETF",
+     "publisher": "CoinDesk",
+     "date": "2024-11-21",
+     "url": "https://www.coindesk.com/policy/2024/11/21/bitwise-joins-mounting-race-for-solana-etf"
+    },
+    {
+     "title": "Official Trump memecoin launch breaks records, as Solana (SOL) rallies to new all-time high",
+     "publisher": "Cointelegraph",
+     "date": "2025-01-18",
+     "url": "https://cointelegraph.com/news/official-trump-memecoin-launch-breaks-records-as-solana-sol-rallies-to-new-all-time-high"
+    },
+    {
+     "title": "Layer by Layer: Solana Sets New Records with Surging Memecoin Activity",
+     "publisher": "The Block",
+     "date": "2025-01-27",
+     "url": "https://www.theblock.co/research/blockchains/layer-by-layer-solana-sets-new-records-with-surging-memecoin-activity-337079"
+    }
+   ]
+  },
+  {
+   "start": "2025-01-19",
+   "end": "2025-02-28",
+   "kind": "baisse",
+   "from": 295.83,
+   "to": 125.55,
+   "title": "Fin de la fièvre mèmecoins, LIBRA et droits de douane",
+   "explain": "Le 3 février 2025, les droits de douane de 25 % imposés par Washington au Canada et au Mexique provoquent plus de 2,2 milliards de dollars de liquidations, puis le mèmecoin LIBRA, promu sur Solana par le président argentin Javier Milei, perd plus de 4,4 milliards de dollars de valeur en quelques heures à la mi-février. L'activité des mèmecoins s'effondre : le volume quotidien des plateformes d'échange décentralisées de Solana passe de 35,5 milliards de dollars le 17 janvier à 3,1 milliards le 17 février. Les investisseurs redoutent aussi le déblocage, le 1er mars, de 11,2 millions de SOL achetés aux enchères de FTX (environ 2 milliards de dollars), que leurs acheteurs pourront revendre. Fin février, le piratage record de la plateforme Bybit (environ 1,5 milliard de dollars volés) et la chute du bitcoin sous 90 000 $ le 25 février achèvent d'envoyer le SOL vers 125 $.",
+   "tags": [
+    "Mèmecoins",
+    "Faillite ou scandale",
+    "Ventes d'un gros détenteur",
+    "Macro et taux",
+    "Liquidations en cascade",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "XRP, Dogecoin Plunge 25% as Crypto Liquidations Cross $2.2B on Tariffs Led Dump",
+     "publisher": "CoinDesk",
+     "date": "2025-02-03",
+     "url": "https://www.coindesk.com/markets/2025/02/03/xrp-dogecoin-plunge-25-as-crypto-liquidations-cross-usd2-2b-on-tariffs-led-dump"
+    },
+    {
+     "title": "Solana Drops 8.8% Following LIBRA Meme Coin Crash",
+     "publisher": "Decrypt",
+     "date": "2025-02-18",
+     "url": "https://decrypt.co/306509/solana-drops-8-8-following-libra-meme-coin-crash"
+    },
+    {
+     "title": "LIBRA memecoin scandal dings Solana's image, but here's the real reason why SOL is down",
+     "publisher": "Cointelegraph",
+     "date": "2025-02-18",
+     "url": "https://cointelegraph.com/markets/libra-memecoin-scandal-dings-solana-s-image-but-here-s-the-real-reason-why-sol-is-down"
+    },
+    {
+     "title": "Bitcoin drops below $90,000 on global jitters",
+     "publisher": "RTÉ",
+     "date": "2025-02-25",
+     "url": "https://www.rte.ie/news/business/2025/0225/1498914-bitcoin-drops-below-90-000-on-global-jitters"
+    }
+   ]
+  },
+  {
+   "start": "2025-02-28",
+   "end": "2025-03-02",
+   "kind": "hausse",
+   "from": 125.55,
+   "to": 179.85,
+   "title": "Trump cite le SOL pour une réserve crypto",
+   "explain": "Le 2 mars 2025, Donald Trump annonce sur son réseau Truth Social qu'une réserve stratégique crypto des États-Unis inclura le XRP, le SOL et l'ADA, puis précise que le bitcoin et l'ether en seront « au cœur ». Le SOL, qui sortait d'un plus bas à 125 $ le 28 février, bondit d'environ 25 %, contre environ 10 % pour le bitcoin, revenu vers 94 000 $ après être tombé sous 80 000 $ le vendredi précédent. Ce rebond éclair touche tout le marché après une forte baisse, mais la mention explicite du SOL, du XRP et de l'ADA a fait grimper ces trois jetons bien plus que les autres.",
+   "tags": [
+    "Régulation",
+    "Marché crypto global",
+    "Bitcoin"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Trump Says Crypto Reserve Will Hold XRP, Solana, Cardano, And 'Obviously' Bitcoin and Ethereum",
+     "publisher": "Decrypt",
+     "date": "2025-03-02",
+     "url": "https://decrypt.co/308413/trump-crypto-reserve-xrp-solana-cardano"
+    },
+    {
+     "title": "Trump announces strategic crypto reserve including bitcoin, Solana, XRP and more",
+     "publisher": "CNBC (via NBC New York)",
+     "date": "2025-03-02",
+     "url": "https://www.nbcnewyork.com/news/business/money-report/trump-announces-strategic-crypto-reserve-including-bitcoin-solana-xrp-and-more/6169567/"
+    }
+   ]
+  },
+  {
+   "start": "2025-03-02",
+   "end": "2025-04-07",
+   "kind": "baisse",
+   "from": 179.85,
+   "to": 95.26,
+   "title": "Déblocages FTX et krach des droits de douane",
+   "explain": "L'enthousiasme dure peu : le 4 mars 2025, des portefeuilles de FTX et d'Alameda sortent du staking 3,03 millions de SOL (environ 431 millions de dollars), au moment où se débloquent les SOL achetés aux enchères de FTX, et le 6 mars le décret de Trump limite la réserve aux cryptos déjà saisies par l'État, sans nouveaux achats, ce qui déçoit. Le 2 avril, les droits de douane « réciproques » du « Liberation Day » (10 % minimum, jusqu'à 49 % selon les pays) font reculer le SOL de 6,5 % dans la soirée, vers 118 $. La riposte chinoise du 4 avril (34 % sur les produits américains) déclenche ensuite un krach mondial. Le 7 avril, le bitcoin passe sous 75 000 $ et le SOL plonge de plus de 20 %, jusqu'à 95,26 $, son plus bas depuis début 2024.",
+   "tags": [
+    "Ventes d'un gros détenteur",
+    "Régulation",
+    "Macro et taux",
+    "Géopolitique",
+    "Marché crypto global",
+    "Bitcoin"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "FTX and Alameda wallets unstake $431M in SOL",
+     "publisher": "Cointelegraph",
+     "date": "2025-03-04",
+     "url": "https://cointelegraph.com/news/ftx-alameda-research-solana-tokens-unstaked"
+    },
+    {
+     "title": "Bitcoin falls even after Trump officially establishes U.S. bitcoin reserve",
+     "publisher": "CNBC (via NBC DFW)",
+     "date": "2025-03-07",
+     "url": "https://www.nbcdfw.com/news/business/money-report/cryptocurrencies-fall-after-trump-officially-establishes-u-s-bitcoin-reserve/3786125/"
+    },
+    {
+     "title": "Crypto markets fall after Trump lays out sweeping reciprocal tariffs; Ethereum, Solana drop 6%",
+     "publisher": "The Block",
+     "date": "2025-04-02",
+     "url": "https://www.theblock.co/post/349397/crypto-markets-fall-after-trump-lays-out-sweeping-reciprocal-tariffs-ethereum-solana-drop-6"
+    },
+    {
+     "title": "Crypto Daybook Americas: XRP, SOL Lead Drop as Bitcoin, Equities Slide in Tariff-Fueled Wipeout",
+     "publisher": "CoinDesk",
+     "date": "2025-04-07",
+     "url": "https://www.coindesk.com/daybook-us/2025/04/07/crypto-daybook-americas-xrp-sol-lead-drop-as-bitcoin-equities-slide-in-tariff-fueled-wipeout"
+    }
+   ]
+  },
+  {
+   "start": "2025-04-07",
+   "end": "2025-09-18",
+   "kind": "hausse",
+   "from": 95.26,
+   "to": 253.51,
+   "title": "Trésoreries d'entreprise, ETF staking et baisse des taux",
+   "explain": "Après le point bas du 7 avril 2025 (krach lié aux droits de douane américains), le SOL a profité de la reprise générale du marché crypto. Des sociétés cotées ont commencé à stocker du SOL comme réserve : environ 17 millions de SOL détenus mi-septembre (près de 3 % de l'offre), dont Forward Industries qui a levé 1,65 milliard de dollars le 8 septembre avec Galaxy, Jump et Multicoin. Le premier ETF Solana avec staking (SSK de REX-Osprey) a démarré le 2 juillet avec 12 millions de dollars d'entrées le premier jour, et les validateurs ont approuvé à environ 98 % la mise à jour Alpenglow début septembre. La baisse des taux de la Fed du 17 septembre a porté le SOL à son sommet de 253 $ le lendemain.",
+   "tags": [
+    "Investisseurs institutionnels et ETF",
+    "Levée de fonds",
+    "Mise à jour technique",
+    "Macro et taux",
+    "Marché crypto global"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "First Solana staking ETF hits $12M on debut trading day",
+     "publisher": "Cointelegraph",
+     "date": "2025-07-03",
+     "url": "https://cointelegraph.com/news/first-solana-staking-etf-hits-12m-on-debut-trading-day"
+    },
+    {
+     "title": "Galaxy, Jump and Multicoin lead $1.65 billion private placement for Solana treasury strategy",
+     "publisher": "The Block",
+     "date": "2025-09-08",
+     "url": "https://www.theblock.co/post/369776/galaxy-jump-multicoin-solana-treasury-2"
+    },
+    {
+     "title": "Solana strategic reserves surpass $4B as companies accumulate 3% of supply",
+     "publisher": "Cointelegraph",
+     "date": "2025-09-16",
+     "url": "https://cointelegraph.com/news/solana-strategic-reserves-surpass-4b-companies-accumulate-3-percent-supply"
+    },
+    {
+     "title": "Federal Reserve issues FOMC statement",
+     "publisher": "Federal Reserve",
+     "date": "2025-09-17",
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm"
+    }
+   ]
+  },
+  {
+   "start": "2025-09-18",
+   "end": "2025-09-26",
+   "kind": "baisse",
+   "from": 253.51,
+   "to": 190.8,
+   "title": "Prises de bénéfices après la Fed et liquidations",
+   "explain": "La baisse des taux du 17 septembre était déjà anticipée et le marché a pris ses bénéfices juste après. Le 22 septembre, environ 1,7 milliard de dollars de positions à effet de levier ont été liquidées en 24 heures (dont 1,6 milliard de paris à la hausse), puis plus de 1,1 milliard le 25 septembre, alors que le bitcoin retombait sous 110 000 $. Les inquiétudes macro (risque de fermeture du gouvernement américain, emploi faible) ont pesé et le SOL a perdu environ 20 % en une semaine pour repasser sous 200 $. Aucune mauvaise nouvelle propre à Solana n'explique ce repli.",
+   "tags": [
+    "Marché crypto global",
+    "Liquidations en cascade",
+    "Macro et taux",
+    "Bitcoin"
+   ],
+   "scope": "marché",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "$1.7 billion in liquidations sweep crypto markets over past day as bitcoin slide sparks broader selloff",
+     "publisher": "The Block",
+     "date": "2025-09-22",
+     "url": "https://www.theblock.co/post/371560/crypto-liquidations-surpass-1-billion"
+    },
+    {
+     "title": "Bitcoin, Ethereum and Dogecoin Dive as Crypto Liquidations Top $1 Billion",
+     "publisher": "Decrypt",
+     "date": "2025-09-25",
+     "url": "https://decrypt.co/341397/bitcoin-ethereum-dogecoin-dive-crypto-liquidations-1-billion"
+    },
+    {
+     "title": "SOL slips below $200, but ETF verdict could be institutional moment for new highs",
+     "publisher": "Cointelegraph",
+     "date": "2025-09-26",
+     "url": "https://cointelegraph.com/news/sol-slips-below-dollar200-but-etf-verdict-could-be-institutional-moment-for-new-highs"
+    }
+   ]
+  },
+  {
+   "start": "2025-10-06",
+   "end": "2025-10-10",
+   "kind": "baisse",
+   "from": 237.79,
+   "to": 168.79,
+   "title": "Krach du 10 octobre après la menace de tarifs sur la Chine",
+   "explain": "Le bitcoin venait de battre son record (environ 126 000 $ le 6 octobre) quand Donald Trump a menacé, le 10 octobre, d'imposer des droits de douane de 100 % sur les produits chinois à partir du 1er novembre. La vente qui a suivi a déclenché la plus grosse vague de liquidations de l'histoire des cryptos, environ 19 milliards de dollars en 24 heures, et la valeur totale du marché a fondu d'environ 450 milliards. Le SOL a perdu 17 % dans la demi-heure suivant l'annonce, la chute étant amplifiée par des carnets d'ordres vidés et des mécanismes de garantie défaillants sur certaines plateformes comme Binance.",
+   "tags": [
+    "Géopolitique",
+    "Liquidations en cascade",
+    "Marché crypto global",
+    "Bitcoin"
+   ],
+   "scope": "marché",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Record $19bn crypto crash exposes dark side of leverage boom",
+     "publisher": "DL News (via Yahoo Finance)",
+     "date": "2025-10-12",
+     "url": "https://finance.yahoo.com/news/record-19bn-crypto-crash-exposes-194741410.html"
+    },
+    {
+     "title": "$19B crypto market crash: leverage and China tariffs",
+     "publisher": "Cointelegraph",
+     "date": "2025-10-13",
+     "url": "https://cointelegraph.com/news/19b-crypto-market-crash-leverage-china-tariffs"
+    },
+    {
+     "title": "Surveying the damage from Friday's crypto market plunge",
+     "publisher": "Axios",
+     "date": "2025-10-14",
+     "url": "https://www.axios.com/2025/10/14/trump-tariffs-china-crypto"
+    }
+   ]
+  },
+  {
+   "start": "2025-10-14",
+   "end": "2025-12-18",
+   "kind": "baisse",
+   "from": 211.25,
+   "to": 116.88,
+   "title": "ETF Solana lancés, mais marché baissier fin 2025",
+   "explain": "Les premiers ETF Solana au comptant ont été lancés fin octobre (BSOL de Bitwise le 28 octobre, GSOL de Grayscale le lendemain) : près de 200 millions de dollars d'entrées nettes la première semaine et 370 millions cumulés mi-novembre, sans empêcher le SOL de reculer. Tout le marché a basculé dans la baisse : le bitcoin est tombé vers 80 500 $ le 21 novembre avec plus de 2 milliards de dollars de liquidations en 24 heures, des retraits record des ETF bitcoin (903 millions sur une journée) et des doutes sur une baisse des taux de la Fed en décembre. Le piratage de la plateforme coréenne Upbit (environ 30 millions de dollars de jetons Solana volés le 27 novembre) a ajouté au malaise, et le SOL a glissé jusqu'à 117 $ le 18 décembre.",
+   "tags": [
+    "Investisseurs institutionnels et ETF",
+    "Marché crypto global",
+    "Bitcoin",
+    "Macro et taux",
+    "Liquidations en cascade",
+    "Faillite ou scandale"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "'Big time debut': U.S. spot Solana ETFs draw $200 million in inflows during short debut trading week",
+     "publisher": "The Block",
+     "date": "2025-11-01",
+     "url": "https://www.theblock.co/post/377172/big-time-debut-u-s-spot-solana-etfs-draw-200-million-in-inflows-during-short-debut-trading-week"
+    },
+    {
+     "title": "SOL drops to 5-month low despite Solana spot ETF success: Is $100 next?",
+     "publisher": "Cointelegraph",
+     "date": "2025-11-14",
+     "url": "https://cointelegraph.com/news/sol-drops-to-5-month-low-despite-solana-spot-etf-success-is-dollar100-next"
+    },
+    {
+     "title": "The Daily: crypto selloff, JPMorgan blames retail BTC and ETH ETF outflows, liquidations",
+     "publisher": "The Block",
+     "date": "2025-11-21",
+     "url": "https://www.theblock.co/post/379981/the-daily-crypto-selloff-jpmorgan-blames-retail-btc-eth-etf-outflows-liquidations"
+    },
+    {
+     "title": "North Korea's Lazarus Group suspected in $30 million Upbit hack: report",
+     "publisher": "The Block",
+     "date": "2025-11-27",
+     "url": "https://www.theblock.co/post/380743/lazarus-group-suspected-upbit-hack"
+    }
+   ]
+  },
+  {
+   "start": "2025-12-18",
+   "end": "2026-01-13",
+   "kind": "hausse",
+   "from": 116.88,
+   "to": 148.74,
+   "title": "Rebond de début d'année : mèmecoins et Morgan Stanley",
+   "explain": "Début janvier 2026, les investisseurs sont revenus vers les actifs les plus délaissés en fin d'année : les mèmecoins ont bondi le 2 janvier (PEPE +32 %, BONK +13 %) et le SOL a gagné près de 5 % ce jour-là. Le 6 janvier, Morgan Stanley est devenue la première grande banque américaine à demander l'autorisation de lancer un ETF Solana, et les ETF SOL ont collecté environ 50 millions de dollars sur les dix premiers jours du mois. Le bitcoin est remonté vers 97 000 à 98 000 $ mi-janvier, aidé par une inflation américaine sans mauvaise surprise, et le SOL a culminé près de 149 $.",
+   "tags": [
+    "Mèmecoins",
+    "Investisseurs institutionnels et ETF",
+    "Marché crypto global",
+    "Macro et taux"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "PEPE leads memecoin gains amid post-holiday crypto market altcoin rally",
+     "publisher": "The Block",
+     "date": "2026-01-02",
+     "url": "https://www.theblock.co/post/384164/pepe-leads-memecoin-gains-amid-post-holiday-crypto-market-altcoin-rally"
+    },
+    {
+     "title": "Morgan Stanley files for bitcoin, solana ETFs in digital assets push",
+     "publisher": "Reuters (via Yahoo Finance)",
+     "date": "2026-01-06",
+     "url": "https://finance.yahoo.com/news/morgan-stanley-files-bitcoin-solana-111504913.html"
+    },
+    {
+     "title": "Solana Price Rises 20% Amid $50M ETF Inflows and Upcoming Alpenglow Upgrade",
+     "publisher": "KuCoin News",
+     "date": "2026-01-10",
+     "url": "https://www.kucoin.com/news/flash/solana-price-rises-20-amid-50m-etf-inflows-and-upcoming-alpenglow-upgrade"
+    },
+    {
+     "title": "Bitcoin retraces to $91K as tariff concerns spark risk-off move: Crypto Markets Today",
+     "publisher": "CoinDesk",
+     "date": "2026-01-20",
+     "url": "https://www.coindesk.com/markets/2026/01/20/bitcoin-slides-to-usd91-000-as-u-s-trade-tensions-spur-selloff-crypto-markets-today"
+    }
+   ]
+  },
+  {
+   "start": "2026-01-13",
+   "end": "2026-02-06",
+   "kind": "baisse",
+   "from": 148.74,
+   "to": 67.5,
+   "title": "Groenland, choc Warsh et krach du 5 février",
+   "explain": "La hausse s'est retournée le 19 janvier quand Washington a menacé plusieurs pays européens de droits de douane à propos du Groenland, avec environ 815 millions de dollars de liquidations. Le 30 janvier, le choix de Kevin Warsh, réputé ferme sur l'inflation, pour diriger la Fed a fait chuter le bitcoin de plus de 7 % sous 78 000 $, sur fond de craintes d'un conflit entre les États-Unis et l'Iran. Le mouvement s'est terminé en capitulation le 5 février : le bitcoin a touché 60 000 $ (environ -17 % en 24 heures), quelque 2,6 milliards de dollars de positions ont été liquidées (dont environ 189 millions sur le SOL) et l'indice de peur est tombé à 5, un record. Le piratage de l'appli Step Finance (environ 27 millions de dollars en SOL le 31 janvier) n'a joué qu'un rôle marginal.",
+   "tags": [
+    "Géopolitique",
+    "Macro et taux",
+    "Liquidations en cascade",
+    "Bitcoin",
+    "Marché crypto global"
+   ],
+   "scope": "marché",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Bitcoin retraces to $91K as tariff concerns spark risk-off move: Crypto Markets Today",
+     "publisher": "CoinDesk",
+     "date": "2026-01-20",
+     "url": "https://www.coindesk.com/markets/2026/01/20/bitcoin-slides-to-usd91-000-as-u-s-trade-tensions-spur-selloff-crypto-markets-today"
+    },
+    {
+     "title": "Bitcoin Drops Below $78,000 After Trump Taps Kevin Warsh To Lead Federal Reserve",
+     "publisher": "Forbes",
+     "date": "2026-01-31",
+     "url": "https://www.forbes.com/sites/mikestunson/2026/01/31/bitcoin-is-dropping-fast-heres-why-it-dropped-below-78000/"
+    },
+    {
+     "title": "Solana News: SOL Hits 2026 Lows Despite Record-Breaking On-Chain Activity",
+     "publisher": "CoinMarketCap Academy",
+     "date": "2026-02-03",
+     "url": "https://coinmarketcap.com/academy/article/solana-news-sol-hits-2026-lows-despite-record-breaking-on-chain-activity"
+    },
+    {
+     "title": "Bitcoin flash crashes to $60,000, traders refuse to catch 'falling knives': analysts",
+     "publisher": "The Block (via Yahoo Finance)",
+     "date": "2026-02-05",
+     "url": "https://finance.yahoo.com/news/bitcoin-flash-crashes-60-000-020734460.html"
+    }
+   ]
+  },
+  {
+   "start": "2026-02-06",
+   "end": "2026-05-11",
+   "kind": "hausse",
+   "from": 67.5,
+   "to": 98.41,
+   "title": "Rebond après la capitulation, trêve avec l'Iran et ETF",
+   "explain": "Après le point bas du 6 février, le SOL est vite remonté vers 80 à 90 $, puis a stagné : la guerre lancée par les États-Unis et Israël contre l'Iran le 28 février et la fermeture du détroit d'Ormuz ont fait flamber le pétrole et freiné les actifs risqués. Le cessez-le-feu des 7 et 8 avril a relancé l'appétit pour le risque, et le bitcoin est revenu vers 76 000 $ le 14 avril grâce à la baisse du pétrole et au rebond du Nasdaq. Début mai, le SOL a signé sa meilleure semaine de 2026 (+13 %), porté par 39 millions de dollars d'entrées hebdomadaires dans les ETF Solana (le meilleur chiffre depuis février), l'essai d'Alpenglow sur un réseau de test et des actions américaines à des records. Une partie du rebond relève aussi du simple rattrapage après une baisse excessive.",
+   "tags": [
+    "Géopolitique",
+    "Investisseurs institutionnels et ETF",
+    "Marché crypto global",
+    "Mise à jour technique",
+    "Bitcoin"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "Bitcoin price news: BTC completes rebound from Feb. 5 crash",
+     "publisher": "CoinDesk",
+     "date": "2026-04-14",
+     "url": "https://www.coindesk.com/markets/2026/04/14/bitcoin-climbs-to-highest-level-since-feb-5-crash-that-sent-price-plunging-to-usd60-000"
+    },
+    {
+     "title": "2026 Iran war ceasefire",
+     "publisher": "Wikipedia (consulté le 16/11/2026)",
+     "date": "2026-11-16",
+     "url": "https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire"
+    },
+    {
+     "title": "Solana Outpaces Bitcoin in May: What's driving SOL's risk-on rally?",
+     "publisher": "AMBCrypto",
+     "date": "2026-05-12",
+     "url": "https://ambcrypto.com/solana-outpaces-bitcoin-in-may-whats-driving-sols-risk-on-rally/"
+    },
+    {
+     "title": "Solana Price Prediction: SOL Just Posted Its Best Week of 2026, Can the Momentum Hold?",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-05-13",
+     "url": "https://247wallst.com/investing/2026/05/13/solana-price-prediction-sol-just-posted-its-best-week-of-2026-can-the-momentum-hold/"
+    }
+   ]
+  },
+  {
+   "start": "2026-05-11",
+   "end": "2026-06-06",
+   "kind": "baisse",
+   "from": 98.41,
+   "to": 60.13,
+   "title": "Inflation, pétrole et Warsh : rechute vers 60 $",
+   "explain": "Mi-mai, une inflation plus forte que prévu et un Brent au-dessus de 105 $ (conflit iranien, détroit d'Ormuz quasi fermé) ont fait monter le taux américain à 10 ans au-delà de 4,5 %, et les marchés ont commencé à parier sur des hausses de taux plutôt que des baisses. Le 16 mai, le SOL a perdu 5 % et 581 millions de dollars de positions ont été liquidées, à 95 % des paris à la hausse ; Kevin Warsh a ensuite pris la tête de la Fed le 22 mai avec une inflation proche de 3,8 %. Début juin, la première vente de bitcoins de Strategy depuis 2022 et un rapport sur l'emploi très solide (172 000 postes créés en mai contre 85 000 attendus) ont fait plonger le bitcoin à 59 100 $ le 5 juin, avec plus de 1,7 milliard de dollars de liquidations. Côté Solana, les ETF sont repassés en sorties nettes et Forward Industries, plus gros détenteur coté, a transféré environ 456 000 SOL vers Coinbase Prime, ce qui a nourri la peur d'une vente.",
+   "tags": [
+    "Macro et taux",
+    "Géopolitique",
+    "Liquidations en cascade",
+    "Bitcoin",
+    "Ventes d'un gros détenteur",
+    "Investisseurs institutionnels et ETF"
+   ],
+   "scope": "marché",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "Why is bitcoin down? BTC slides to $78,000, SOL, DOGE, XRP down 5%",
+     "publisher": "CoinDesk",
+     "date": "2026-05-16",
+     "url": "https://www.coindesk.com/markets/2026/05/16/crypto-longs-lose-usd500-million-as-bitcoin-slides-to-usd78-000-sol-and-xrp-down-5"
+    },
+    {
+     "title": "Bitcoin falls to $74,190 as Kevin Warsh becomes Fed chair, raising rate hike fears",
+     "publisher": "Crypto Briefing",
+     "date": "2026-05-24",
+     "url": "https://cryptobriefing.com/bitcoin-falls-kevin-warsh-fed-chair-rate-hike/"
+    },
+    {
+     "title": "Bitcoin price falls below $60K as hot U.S. jobs report crushes rate cut hopes",
+     "publisher": "crypto.news",
+     "date": "2026-06-05",
+     "url": "https://crypto.news/bitcoin-price-falls-below-60k-as-hot-u-s-jobs-report-crushes-rate-cut-hopes/"
+    },
+    {
+     "title": "Solana price crashes to $61 with 50 million dollar liquidation risk! What are the drivers investors need to watch?",
+     "publisher": "Cointurk (via Bitget News)",
+     "date": "2026-06-07",
+     "url": "https://www.bitget.com/news/detail/12560605447874"
+    }
+   ]
+  },
+  {
+   "start": "2026-06-06",
+   "end": "2026-09-27",
+   "kind": "hausse",
+   "from": 60.13,
+   "to": 124.95,
+   "title": "Rachats du Trésor, ETF records et actions tokenisées",
+   "explain": "Après le plancher de juin, le SOL a stagné autour de 74 $ en juin et juillet, la trêve avec l'Iran restant fragile (rupture du cessez-le-feu le 8 juillet). Le déclic est venu fin août : le Trésor américain a doublé ses rachats d'obligations longues, ce qui a forcé les vendeurs à découvert à racheter et fait passer le bitcoin d'environ 62 000 à 80 000 $ en une semaine. Le SOL a fait mieux (environ +41 % en août), avec un record de 60,9 millions de dollars d'entrées dans les ETF Solana le 27 août et un vote des validateurs pour réduire deux fois plus vite l'inflation du SOL (la proposition de brûlage des frais a en revanche échoué). En septembre, la hausse s'est poursuivie vers 125 $ avec l'exemption de la SEC du 17 septembre autorisant le négoce d'actions tokenisées, un créneau où Solana domine, et l'approche d'Alpenglow, malgré une hausse des taux de la Fed le 16 septembre et l'échec de la loi CLARITY au Sénat le 15 septembre.",
+   "tags": [
+    "Macro et taux",
+    "Investisseurs institutionnels et ETF",
+    "Liquidations en cascade",
+    "Régulation",
+    "Mise à jour technique",
+    "Écosystème et adoption"
+   ],
+   "scope": "mixte",
+   "confidence": "moyenne",
+   "sources": [
+    {
+     "title": "Bitcoin's surge above $80,000 was driven by short covering, not excessive leverage",
+     "publisher": "CoinDesk",
+     "date": "2026-08-25",
+     "url": "https://www.coindesk.com/markets/2026/08/25/a-bitcoin-short-squeeze-for-the-ages-as-futures-open-interest-collapses"
+    },
+    {
+     "title": "Bitcoin is having a great month, but Solana is doing even better as coin soars above $100",
+     "publisher": "Fortune",
+     "date": "2026-08-27",
+     "url": "https://fortune.com/2026/08/27/bitcoin-great-month-solana-soars-above-100/"
+    },
+    {
+     "title": "Solana's First Binding Governance Vote Closes: Supply Cut Passes, Fee Burn Plan Falls Short",
+     "publisher": "Solana Compass",
+     "date": "2026-08-28",
+     "url": "https://solanacompass.com/news/solanas-first-binding-governance-vote-closes-supply-cut-passes-fee-burn-plan-falls-short"
+    },
+    {
+     "title": "SEC Issues 'Innovation Exemption' to Facilitate the Trading of Tokenized NMS Stock and Request for Comment",
+     "publisher": "SEC",
+     "date": "2026-09-17",
+     "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment"
+    }
+   ]
+  },
+  {
+   "start": "2026-09-27",
+   "end": "2026-11-15",
+   "kind": "baisse",
+   "from": 124.95,
+   "to": 67.41,
+   "title": "Taux en hausse, piratage de Binance et sorties d'ETF",
+   "explain": "Dès octobre, un taux américain à 10 ans au plus haut depuis 24 ans, un Brent au-dessus de 100 $ et une inflation plus forte que prévu ont relancé la peur de nouvelles hausses de taux, et le SOL a perdu 19 % sur le mois. L'activation d'Alpenglow le 21 octobre (validation visée en environ 150 millisecondes) a été suivie d'un mouvement de « vente sur la nouvelle », tandis que les ETF Solana subissaient leurs premières sorties durables, dont un record de 71,5 millions de dollars sur la semaine du 26 au 30 octobre. Le piratage record de Binance (environ 6,3 milliards de dollars le 29 octobre) puis, en novembre, la victoire des démocrates aux élections de mi-mandat, la démission du patron de Nvidia et une Fed prête à remonter ses taux en décembre ont fait tomber le bitcoin sous 64 000 $. Le 14 novembre, le SOL a chuté d'environ 11 % vers 71 $, avec près de 1,5 milliard de dollars de liquidations sur l'ensemble du marché.",
+   "tags": [
+    "Macro et taux",
+    "Faillite ou scandale",
+    "Investisseurs institutionnels et ETF",
+    "Mise à jour technique",
+    "Liquidations en cascade",
+    "Bitcoin"
+   ],
+   "scope": "mixte",
+   "confidence": "élevée",
+   "sources": [
+    {
+     "title": "$6.3 billion Binance hack is largest crypto theft on record",
+     "publisher": "CNBC",
+     "date": "2026-10-29",
+     "url": "https://www.cnbc.com/2026/10/29/circle-tether-freeze-funds-impacted-by-potential-binance-security-issue.html"
+    },
+    {
+     "title": "Bitcoin post-Binance hack: What recovery needs in November",
+     "publisher": "21Shares",
+     "date": "2026-11-03",
+     "url": "https://www.21shares.com/en-us/insights/bitcoin-outlook-november-2026"
+    },
+    {
+     "title": "Solana Slides Toward $95 as Spot SOL ETFs Post Record $71.47M Weekly Exit",
+     "publisher": "BigGo Finance",
+     "date": "2026-11-05",
+     "url": "https://finance.biggo.com/news/e702dcbd-b114-4ad5-8d01-0e1b5b706755"
+    },
+    {
+     "title": "Bitcoin falls below $64,000 as ETF outflows extend to seventh straight day",
+     "publisher": "Investing.com",
+     "date": "2026-11-14",
+     "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slides-below-68000-as-anthropic-ipo-frenzy-drains-market-liquidity-5027106"
+    }
+   ]
+  }
+ ],
+ "outages": [
+  {
+   "date": "2020-12-04",
+   "duration": "environ 6 heures",
+   "explain": "Le réseau cesse de confirmer les blocs à 13h46 UTC : un validateur qui faisait tourner plusieurs copies de son nœud a diffusé des blocs contradictoires, et un bug de propagation des blocs a empêché le réseau de se remettre d'accord. Aucun fonds n'a été perdu.",
+   "sources": [
+    {
+     "title": "Mainnet Beta Stall - Postmortem",
+     "publisher": "Solana Foundation",
+     "date": "2020-12-14",
+     "url": "https://solana.com/news/mainnet-beta-stall---postmortem"
+    },
+    {
+     "title": "A Complete History of Solana Outages: Causes, Fixes, and Lessons Learnt",
+     "publisher": "Helius",
+     "date": "2025-02-23",
+     "url": "https://www.helius.dev/blog/solana-outages-complete-history"
+    }
+   ]
+  },
+  {
+   "date": "2021-09-14",
+   "duration": "environ 17 heures",
+   "explain": "Pendant la vente de jetons Grape Protocol sur Raydium, des robots envoient environ 300 000 transactions par seconde, ce qui sature la mémoire des validateurs et bloque la production de blocs. Les validateurs doivent redémarrer le réseau de façon coordonnée, et le SOL tombe vers 145 $.",
+   "sources": [
+    {
+     "title": "9-14 Network Outage Initial Overview",
+     "publisher": "Solana Foundation",
+     "date": "2021-09-20",
+     "url": "https://solana.com/news/9-14-network-outage-initial-overview"
+    },
+    {
+     "title": "Solana Has Been Down for Hours Due to 'Resource Exhaustion'",
+     "publisher": "Decrypt",
+     "date": "2021-09-14",
+     "url": "https://decrypt.co/80917/solana-down-for-hours-resource-exhaustion"
+    },
+    {
+     "title": "Solana blockchain validators restart network after transaction stoppage",
+     "publisher": "The Block",
+     "date": "2021-09-15",
+     "url": "https://www.theblock.co/news/markets/2021-09-15-solana-blockchain-validators-restart-network-after-transaction-stoppage-117711"
+    }
+   ]
+  },
+  {
+   "date": "2022-01-06",
+   "duration": "forte dégradation du 6 au 12 janvier, sans arrêt complet",
+   "explain": "Des robots inondent le réseau de transactions en double : les blocs mettent plus de temps à être traités et le taux de réussite des transactions chute jusqu'à 70 %. Les mises à jour 1.8.12 et 1.8.14 corrigent en partie le problème.",
+   "sources": [
+    {
+     "title": "A Complete History of Solana Outages: Causes, Fixes, and Lessons Learnt",
+     "publisher": "Helius",
+     "date": "2025-02-23",
+     "url": "https://www.helius.dev/blog/solana-outages-complete-history"
+    },
+    {
+     "title": "Solana User Experience 'Not What It Should Be', Says Co-Founder as Network Struggles",
+     "publisher": "Decrypt",
+     "date": "2022-01-24",
+     "url": "https://decrypt.co/91117/solana-user-experience-not-what-it-should-be-co-founder-anatoly"
+    }
+   ]
+  },
+  {
+   "date": "2022-01-21",
+   "duration": "congestion du 21 au 23 janvier (panne partielle), sans arrêt complet",
+   "explain": "Nouvelle saturation par des transactions en double en plein krach du marché : le débit tombe à environ 800 transactions par seconde contre plus de 3 000 d'habitude, et le point d'accès public du réseau est mis hors ligne le 22 janvier. Les utilisateurs ont eu du mal à déplacer leurs fonds pendant la chute des prix.",
+   "sources": [
+    {
+     "title": "Solana User Experience 'Not What It Should Be', Says Co-Founder as Network Struggles",
+     "publisher": "Decrypt",
+     "date": "2022-01-24",
+     "url": "https://decrypt.co/91117/solana-user-experience-not-what-it-should-be-co-founder-anatoly"
+    },
+    {
+     "title": "A Complete History of Solana Outages: Causes, Fixes, and Lessons Learnt",
+     "publisher": "Helius",
+     "date": "2025-02-23",
+     "url": "https://www.helius.dev/blog/solana-outages-complete-history"
+    },
+    {
+     "title": "Solana Tanks 16% Amid Ruthless Crypto Market Crash",
+     "publisher": "Decrypt",
+     "date": "2022-01-24",
+     "url": "https://decrypt.co/91067/solana-tanks-amid-ruthless-crypto-market-crash"
+    }
+   ]
+  },
+  {
+   "date": "2022-02-02",
+   "duration": "pas de panne du réseau (incident de sécurité sur le pont Wormhole)",
+   "explain": "Un pirate exploite une faille du pont Wormhole, qui relie Solana à Ethereum, et crée 120 000 wETH sans contrepartie, soit environ 320 millions de dollars. Jump, propriétaire du projet, remplace les fonds dès le lendemain.",
+   "sources": [
+    {
+     "title": "Crypto Bridge Wormhole Replenished After Hack for $320M in Ethereum",
+     "publisher": "Decrypt",
+     "date": "2022-02-03",
+     "url": "https://decrypt.co/91962/crypto-bridge-wormhole-replenished-after-hack-320m-ethereum"
+    },
+    {
+     "title": "Wormhole Parent Commits $320M Ether to Replace Massive DeFi Hack Losses",
+     "publisher": "Blockworks",
+     "date": "2022-02-03",
+     "url": "https://blockworks.co/news/wormhole-parent-commits-320m-ether-to-replace-massive-defi-hack-losses"
+    }
+   ]
+  },
+  {
+   "date": "2022-04-30",
+   "duration": "environ 7 heures (de 20h30 UTC le 30 avril à 3h30 UTC le 1er mai)",
+   "explain": "Des robots qui cherchent à obtenir des NFT dès leur mise en vente via le programme Candy Machine envoient jusqu'à 6 millions de requêtes par seconde, les validateurs manquent de mémoire et le consensus se bloque. Metaplex instaure ensuite une pénalité de 0,01 SOL contre ces robots.",
+   "sources": [
+    {
+     "title": "04-30-22 Solana Mainnet Beta Outage Report and Mitigation",
+     "publisher": "Solana Foundation",
+     "date": "2022-05-02",
+     "url": "https://solana.com/news/04-30-22-solana-mainnet-beta-outage-report-mitigation"
+    },
+    {
+     "title": "A Complete History of Solana Outages: Causes, Fixes, and Lessons Learnt",
+     "publisher": "Helius",
+     "date": "2025-02-23",
+     "url": "https://www.helius.dev/blog/solana-outages-complete-history"
+    }
+   ]
+  },
+  {
+   "date": "2022-06-01",
+   "duration": "environ 4 h 30 (de 16h30 à 21h00 UTC)",
+   "explain": "Un bug dans le traitement des « durable nonces », des transactions prévues pour être signées hors ligne, permet de traiter deux fois la même transaction, et les validateurs ne parviennent plus à s'accorder. Le réseau redémarre avec cette fonction désactivée, et le SOL perd près de 13 % en 24 heures.",
+   "sources": [
+    {
+     "title": "06-01-22 Solana Mainnet Beta Outage Report",
+     "publisher": "Solana Foundation",
+     "date": "2022-06-04",
+     "url": "https://solana.com/news/06-01-22-solana-mainnet-beta-outage-report-2"
+    },
+    {
+     "title": "Solana suffered a four-hour blackout due to a bug in how the blockchain processes offline transactions",
+     "publisher": "Fortune (CoinDesk)",
+     "date": "2022-06-02",
+     "url": "https://fortune.com/2022/06/02/solana-shutdown-longest-time-offline-transaction-durable-nonce/"
+    }
+   ]
+  },
+  {
+   "date": "2022-08-02",
+   "duration": "pas de panne du réseau (vol dans des portefeuilles sur deux jours)",
+   "explain": "Les clés privées de près de 8 000 portefeuilles créés ou importés dans l'application mobile Slope sont dérobées, et plus de 8 millions de dollars sont volés. Les équipes de Solana précisent que le protocole lui-même n'est pas en cause.",
+   "sources": [
+    {
+     "title": "Another setback for Solana as users lose $8 million in assets following the latest exploit",
+     "publisher": "Kitco",
+     "date": "2022-08-03",
+     "url": "https://www.kitco.com/news/article/2022-08-03/another-setback-solana-users-lose-8-million-assets-following-latest-exploit"
+    },
+    {
+     "title": "Solana team traces exploit back to Slope mobile wallets",
+     "publisher": "The Block",
+     "date": "2022-08-03",
+     "url": "https://www.theblock.co/post/161325/solana-team-traces-exploit-back-to-slope-mobile-wallets"
+    }
+   ]
+  },
+  {
+   "date": "2022-09-30",
+   "duration": "environ 8 heures (de 22h41 UTC le 30 septembre à 6h57 UTC le 1er octobre)",
+   "explain": "Le nœud de secours mal configuré d'un validateur produit des blocs en double, et un bug dans la règle de choix de la chaîne empêche les validateurs de se remettre d'accord. Le réseau redémarre à partir du dernier bloc confirmé.",
+   "sources": [
+    {
+     "title": "09-30-22 Solana Mainnet Beta Outage Report",
+     "publisher": "Solana Foundation",
+     "date": "2022-10-06",
+     "url": "https://solana.com/news/09-30-22-solana-mainnet-beta-outage-report"
+    },
+    {
+     "title": "Solana back online following latest network outage",
+     "publisher": "The Block",
+     "date": "2022-10-01",
+     "url": "https://www.theblock.co/post/174182/solana-back-online-following-latest-network-outage"
+    }
+   ]
+  }
+ ],
+ "now": {
+  "asof": "2026-11-16",
+  "summary": "Mi-novembre 2026, le SOL évolue autour de 70 à 72 $, au plus bas depuis fin juin et environ 76 % sous son record de janvier 2025 (293 $). Le marché crypto est en « peur extrême » (indice à 10) : le bitcoin est retombé vers 62 000 à 64 000 $ après six semaines de baisse, plombé par la perspective d'une nouvelle hausse des taux de la Fed les 8 et 9 décembre, des sorties d'ETF et des liquidations à répétition. La conférence Breakpoint de Londres (15 au 17 novembre) n'a pas enrayé la baisse, alors que les nouvelles de fond restent bonnes : Alpenglow est actif depuis le 21 octobre et le DTCC prévoit de connecter son service de tokenisation à Solana au second semestre 2027. À court terme, le SOL reste surtout piloté par le bitcoin et la politique monétaire américaine, avec des seuils surveillés vers 67 $ puis 60 à 62 $ (plus bas de juin).",
+  "drivers_down": [
+   "Fed : après une hausse en septembre (fourchette de 3,75 % à 4 %), une nouvelle hausse est quasi certaine en décembre et le gouverneur Waller évoque même un demi-point si l'inflation reste forte (prix en hausse de 0,4 % sur un mois en octobre).",
+   "Sorties d'ETF : environ 1,9 milliard de dollars retirés des ETF bitcoin du 5 au 13 novembre, et sept séances de sorties d'affilée pour les ETF Solana (environ 58 millions de dollars).",
+   "Effet de levier : environ 1,5 à 2 milliards de dollars de liquidations en 24 heures les 14 et 15 novembre, et un taux de financement négatif sur le SOL qui montre que les paris à la baisse dominent.",
+   "Confiance entamée par le piratage record de Binance (environ 6,3 milliards de dollars fin octobre), même si la plateforme dit avoir couvert les pertes de ses clients.",
+   "Politique américaine : les démocrates prennent le contrôle du Congrès selon les premiers résultats des élections de mi-mandat, et la loi CLARITY sur la structure du marché crypto, rejetée au Sénat en septembre, est repoussée au mieux à 2027.",
+   "Marchés actions fragiles : démission du PDG de Nvidia le 12 novembre, retrait de Strategy des indices MSCI après le 30 novembre et méga introduction en Bourse d'Anthropic qui pourrait capter des liquidités (hypothèse non démontrée).",
+   "Contexte géopolitique : conflit avec l'Iran non réglé, pétrole cher et taux longs américains proches de leurs plus hauts depuis plus de 20 ans."
+  ],
+  "drivers_up": [
+   "Adoption par la finance traditionnelle : le DTCC, pilier du règlement des titres américains, prévoit d'amener des actifs tokenisés sur Solana au second semestre 2027, et une plateforme d'actions tokenisées (Formation) vise un lancement début 2027 sous l'exemption de la SEC.",
+   "Technique : Alpenglow est actif depuis le 21 octobre (finalité visée d'environ 150 millisecondes) et l'inflation du SOL doit baisser deux fois plus vite après le vote d'août, dont l'activation reste à venir.",
+   "Usage réel : Solana revendique plus de la moitié des volumes d'actions tokenisées en 2026 et environ 16 milliards de dollars de stablecoins sur son réseau.",
+   "ETF : malgré les sorties, les ETF Solana gèrent encore environ 1,1 milliard de dollars, pour environ 1,4 milliard de dollars d'entrées nettes cumulées depuis leur lancement.",
+   "Sentiment extrême : un indice de peur à 10 et des taux de financement négatifs signalent un marché très vendeur, une configuration qui a parfois précédé des rebonds, sans aucune garantie."
+  ],
+  "sources": [
+   {
+    "title": "Fed Governor Waller sees December hike likely, opens door to possible half-point increase",
+    "publisher": "CNBC",
+    "date": "2026-11-10",
+    "url": "https://www.cnbc.com/2026/11/10/fed-governor-waller-sees-december-hike-likely.html"
+   },
+   {
+    "title": "DTCC Tokenization Service to Connect with Solana",
+    "publisher": "DTCC",
+    "date": "2026-11-12",
+    "url": "https://www.dtcc.com/press-releases/2026/dtcc-tokenization-service-to-connect-with-solana"
+   },
+   {
+    "title": "Nvidia (NVDA) shares plunge as much as 14% as Jensen Huang resigns",
+    "publisher": "CoinDesk",
+    "date": "2026-11-12",
+    "url": "https://www.coindesk.com/markets/2026/11/12/nvidia-shares-plunge-10-as-jensen-huang-resigns"
+   },
+   {
+    "title": "Bitcoin falls below $64,000 as ETF outflows extend to seventh straight day",
+    "publisher": "Investing.com",
+    "date": "2026-11-14",
+    "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slides-below-68000-as-anthropic-ipo-frenzy-drains-market-liquidity-5027106"
+   },
+   {
+    "title": "Bitcoin price crash explained: 8 reasons BTC plunged from $81K to $62K",
+    "publisher": "crypto.news",
+    "date": "2026-11-15",
+    "url": "https://crypto.news/why-bitcoin-price-fell-62000"
+   },
+   {
+    "title": "Solana news: why SOL crashed as Breakpoint opened",
+    "publisher": "CryptoTicker",
+    "date": "2026-11-15",
+    "url": "https://cryptoticker.io/en/solana-news-breakpoint-london-price-crash/"
+   }
+  ]
+ },
+ "future": {
+  "upcoming": [
+   {
+    "date": "2026-11-15",
+    "title": "Breakpoint 2026 à Londres (15 au 17 novembre)",
+    "explain": "Conférence annuelle de l'écosystème Solana organisée par la Solana Foundation, en cours à l'Olympia de Londres. Les annonces (partenariats, feuille de route, lieu de l'édition 2027) peuvent faire bouger le cours à court terme, mais l'effet est variable et SOL est tombé vers 67 $ pendant le premier jour.",
+    "effect": "incertain",
+    "certainty": "date fixée",
+    "sources": [
+     {
+      "title": "Solana Breakpoint 2026",
+      "publisher": "Luma (page de l'événement)",
+      "date": "2026",
+      "url": "https://luma.com/breakpoint2026"
+     },
+     {
+      "title": "Solana Breakpoint 2026 London: Key Speakers and Agenda Preview",
+      "publisher": "The Cryptonomist",
+      "date": "2026-10-27",
+      "url": "https://en.cryptonomist.ch/2026/10/27/solana-breakpoint-2026-london/"
+     },
+     {
+      "title": "Solana Price Crash: Will SOL Fall Below $60?",
+      "publisher": "CryptoTicker",
+      "date": "2026-11-15",
+      "url": "https://cryptoticker.io/en/solana-price-crash-67-dollars-76-percent-below-record-november-15-2026/"
+     }
+    ]
+   },
+   {
+    "date": "2026-12-09",
+    "title": "Décision de la Fed (hausse de taux attendue)",
+    "explain": "La Fed (présidée par Kevin Warsh) a relevé ses taux en septembre 2026 à 3,75 % à 4 %, puis a fait une pause le 28 octobre ; fin octobre, les marchés à terme donnaient environ 80 à 85 % de probabilité à une nouvelle hausse le 9 décembre. Des taux plus élevés et un dollar fort pèsent en général sur les actifs risqués comme SOL.",
+    "effect": "baisse possible",
+    "certainty": "date fixée",
+    "sources": [
+     {
+      "title": "Fed interest rate decision October 2026: Fed holds rates steady",
+      "publisher": "CNBC",
+      "date": "2026-10-28",
+      "url": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html"
+     },
+     {
+      "title": "October FOMC Decision: Fed on Hold, But Not Done",
+      "publisher": "The Conference Board",
+      "date": "2026-10",
+      "url": "https://www.conference-board.org/research/global-economy-briefs/fomc-insights-october-2026"
+     },
+     {
+      "title": "Bitcoin falls below $70,000 as dollar surges and $1.6 billion liquidated",
+      "publisher": "CoinDesk",
+      "date": "2026-11-13",
+      "url": "https://www.coindesk.com/markets/2026/11/13/bitcoin-hits-12-week-low-as-dollar-rallies-on-interest-rate-outlook-liquidations-top-usd1-6-billion"
+     }
+    ]
+   },
+   {
+    "date": "2027-01-03",
+    "title": "Nouveau Congrès : la loi CLARITY repart de zéro",
+    "explain": "Le projet de loi américain sur la structure du marché crypto (CLARITY Act) a échoué au Sénat le 15 septembre 2026 (49 voix contre 50, 60 requises) et devient caduc avec la fin de la législature. Les démocrates contrôlant les deux chambres après le 3 novembre 2026, un nouveau texte devra être négocié : l'incertitude réglementaire américaine peut peser, un accord bipartisan serait au contraire un soutien.",
+    "effect": "incertain",
+    "certainty": "date fixée",
+    "sources": [
+     {
+      "title": "Senate cloture vote on Clarity Act fails, dealing regulatory blow to crypto industry",
+      "publisher": "CNBC",
+      "date": "2026-09-15",
+      "url": "https://www.cnbc.com/2026/09/15/senate-cloture-vote-on-clarity-act-fails-dealing-regulatory-setback-to-crypto-industry.html"
+     },
+     {
+      "title": "Crypto market structure bill fails in Senate vote, 49-50",
+      "publisher": "American Banker",
+      "date": "2026-09",
+      "url": "https://www.americanbanker.com/news/crypto-market-structure-bill-fails-in-senate-vote-49-50"
+     },
+     {
+      "title": "Democratic sweep of Congress could be final blow to Clarity Act after $170.5M crypto push",
+      "publisher": "CoinDesk",
+      "date": "2026-11-04",
+      "url": "https://www.coindesk.com/policy/2026/11/04/u-s-democratic-sweep-could-be-the-final-nail-in-the-clarity-act-s-coffin"
+     }
+    ]
+   },
+   {
+    "date": "2027-01-27",
+    "title": "Fed : première décision de 2027",
+    "explain": "Le calendrier provisoire de la Fed prévoit huit réunions en 2027 (de la fin janvier au début décembre). Fin 2026, les marchés envisageaient une ou deux hausses supplémentaires en 2027 si l'inflation reste au-dessus de 3 % : ce serait défavorable aux cryptos, alors qu'un retour aux baisses de taux serait un soutien.",
+    "effect": "incertain",
+    "certainty": "date estimée",
+    "sources": [
+     {
+      "title": "MNI: Federal Reserve Sets 2027 FOMC Meeting Schedule",
+      "publisher": "MNI Markets",
+      "date": "2025-09",
+      "url": "https://www.mnimarkets.com/articles/mni-federal-reserve-sets-2027-fomc-meeting-schedule-1757093400287"
+     },
+     {
+      "title": "Fed interest rate decision October 2026: Fed holds rates steady",
+      "publisher": "CNBC",
+      "date": "2026-10-28",
+      "url": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html"
+     }
+    ]
+   },
+   {
+    "date": "2027-T1",
+    "title": "Activation attendue de la baisse d'inflation SOL",
+    "explain": "Le 28 août 2026, les validateurs ont approuvé (environ 67 % des voix) le doublement du rythme de désinflation de SOL, de 15 % à 30 % par an (SGP-0002, mise en oeuvre par SIMD-0550). Aucune date d'activation n'était fixée mi-novembre 2026 ; Blockdaemon l'estime au plus tôt début 2027. Moins de SOL émis signifie moins de dilution et de pression vendeuse.",
+    "effect": "hausse possible",
+    "certainty": "date estimée",
+    "sources": [
+     {
+      "title": "Solana (SOL) narrowly passes proposal to double disinflation with last-minute Kraken, Galaxy switch",
+      "publisher": "CoinDesk",
+      "date": "2026-08-28",
+      "url": "https://www.coindesk.com/tech/2026/08/28/solana-vote-to-double-disinflation-passes-by-a-hair-in-dramatic-finish"
+     },
+     {
+      "title": "SIMD-0550: What Solana's disinflation vote means for staking",
+      "publisher": "Blockdaemon",
+      "date": "2026-09-02",
+      "url": "https://www.blockdaemon.com/blog/what-is-simd-0550-and-why-does-it-matter-for-institutional-staking"
+     },
+     {
+      "title": "Solana's Emissions Reform: Approved, and What Happens Next",
+      "publisher": "Twinstake",
+      "date": "2026-09-08",
+      "url": "https://www.twinstake.com/reports/solanas-emissions-reform-approved-and-what-happens-next"
+     }
+    ]
+   },
+   {
+    "date": "2027",
+    "title": "Suite d'Alpenglow : Rotor et blocs plus grands",
+    "explain": "Alpenglow (finalité ramenée d'environ 12,8 s à 150 ms) est actif depuis le 21 octobre 2026, mais son second volet Rotor (propagation des blocs), la rotation géographique des leaders et la proposition SIMD-0370 (capacité des blocs liée au matériel) n'ont aucune date. Ces progrès renforcent la thèse technique, mais l'activation d'Alpenglow a été suivie d'une forte baisse du cours.",
+    "effect": "incertain",
+    "certainty": "incertain",
+    "sources": [
+     {
+      "title": "Anza's Alpenglow goes live on Solana, cutting finality to 150 milliseconds",
+      "publisher": "The Block",
+      "date": "2026-10-21",
+      "url": "https://www.theblock.co/news/ecosystems/2026-10-21-anzas-alpenglow-goes-live-on-solana-cutting-finality-to-150-milliseconds-421508"
+     },
+     {
+      "title": "Alpenglow",
+      "publisher": "Solana Foundation (solana.com)",
+      "date": "2026-10",
+      "url": "https://solana.com/upgrades/alpenglow"
+     },
+     {
+      "title": "Where Will Bitcoin and Solana Be in 3 Years?",
+      "publisher": "24/7 Wall St.",
+      "date": "2026-11-15",
+      "url": "https://247wallst.com/investing/cryptocurrency/2026/11/15/where-will-bitcoin-and-solana-be-in-3-years/"
+     }
+    ]
+   },
+   {
+    "date": "2027",
+    "title": "ETF SOL : nouveaux produits ou retour des flux",
+    "explain": "Les ETF spot SOL américains (lancés fin octobre 2025) détenaient environ 1,14 Md$ le 13 novembre 2026 pour environ 1,41 Md$ d'entrées nettes cumulées, mais subissent des sorties depuis octobre 2026. Un ETF sur JitoSOL (staking liquide) a été déposé par Nasdaq, et BlackRock n'avait pas déposé d'ETF SOL au 20 octobre 2026 : un tel dépôt ou un retour des entrées serait un soutien.",
+    "effect": "hausse possible",
+    "certainty": "incertain",
+    "sources": [
+     {
+      "title": "SOL Spot ETF Records $3.09M Net Outflow on November 13 (données SoSoValue)",
+      "publisher": "KuCoin News / Odaily",
+      "date": "2026-11-13",
+      "url": "https://www.kucoin.com/news/flash/sol-spot-etf-sees-3-09m-net-outflow-on-november-13"
+     },
+     {
+      "title": "Spot Solana ETFs Post $26.25 Million Weekly Net Outflow",
+      "publisher": "TokenPost",
+      "date": "2026-11",
+      "url": "https://www.tokenpost.com/news/investing/52639"
+     },
+     {
+      "title": "Solana Liquid Staking Token ETF Filed With SEC by Nasdaq",
+      "publisher": "CoinMarketCap Academy",
+      "date": "2026-03",
+      "url": "https://coinmarketcap.com/academy/article/solana-liquid-staking-token-etf-filed-with-sec-by-nasdaq"
+     },
+     {
+      "title": "BlackRock Files Third Bitcoin ETF, No Solana or XRP Funds",
+      "publisher": "GN Crypto News",
+      "date": "2026-10-20",
+      "url": "https://www.gncrypto.news/news/blackrock-files-third-bitcoin-etf-no-solana-or-xrp-funds/"
+     }
+    ]
+   },
+   {
+    "date": "2028-04",
+    "title": "Halving du Bitcoin (bloc 1 050 000)",
+    "explain": "La récompense des mineurs passera de 3,125 à 1,5625 BTC par bloc ; les estimations situent l'événement à la mi-avril 2028 (CoinWarz : 12 avril 2028), la date exacte dépendant de la vitesse des blocs. Historiquement, les sommets du BTC, et de SOL qui le suit avec plus d'amplitude, sont arrivés 12 à 18 mois après un halving, sans garantie que cela se répète.",
+    "effect": "hausse possible",
+    "certainty": "date estimée",
+    "sources": [
+     {
+      "title": "Next Bitcoin Halving Date (Live Countdown)",
+      "publisher": "CoinWarz",
+      "date": "2026-11",
+      "url": "https://www.coinwarz.com/bitcoin-halving"
+     },
+     {
+      "title": "Bitcoin Moves Past Halfway Point In Halving Cycle As Supply Tightens Toward 2028",
+      "publisher": "Bitcoin Magazine",
+      "date": "2026",
+      "url": "https://bitcoinmagazine.com/news/bitcoin-moves-past-halfway-point-halving"
+     },
+     {
+      "title": "Bitcoin Cycles: The 4-Year Halving Pattern Explained",
+      "publisher": "BIT (Matrixport)",
+      "date": "2026-07-07",
+      "url": "https://www.bit.com/insights/knowledge-hub/bitcoin-cycle"
+     }
+    ]
+   },
+   {
+    "date": "2028",
+    "title": "Fin des déblocages de SOL issus de FTX",
+    "explain": "En 2024, la masse de faillite de FTX a vendu environ 41 millions de SOL bloqués (à 64 $ pour certains acheteurs), débloqués par tranches mensuelles jusqu'en 2028. Alameda détenait encore environ 3,5 millions de SOL en avril 2026 selon Arkham. Ces flux sont modestes face aux volumes échangés, mais peuvent alimenter des ventes.",
+    "effect": "baisse possible",
+    "certainty": "date estimée",
+    "sources": [
+     {
+      "title": "FTX estate's $7.5 billion sale of locked solana attracts strong interest",
+      "publisher": "The Block",
+      "date": "2024-03-28",
+      "url": "https://www.theblock.co/news/business/2024-03-28-galaxy-locked-sol-sale-ftx-estate-285269"
+     },
+     {
+      "title": "Alameda moves $16 million in Solana's SOL token for possible creditor payments",
+      "publisher": "CoinDesk",
+      "date": "2026-04-13",
+      "url": "https://www.coindesk.com/markets/2026/04/13/alameda-moves-usd16-million-in-solana-s-sol-token-for-possible-creditor-distribution"
+     }
+    ]
+   },
+   {
+    "date": "2028-11-07",
+    "title": "Élection présidentielle américaine",
+    "explain": "Le prochain président sera investi le 20 janvier 2029. L'orientation de la Maison-Blanche et du Congrès sur la crypto (régulation, ETF, fiscalité) a fortement pesé sur le marché en 2024-2026 ; le résultat peut renforcer ou affaiblir le climat réglementaire.",
+    "effect": "incertain",
+    "certainty": "date fixée",
+    "sources": [
+     {
+      "title": "2028 United States presidential election",
+      "publisher": "Wikipedia",
+      "date": "2026",
+      "url": "https://en.wikipedia.org/wiki/2028_United_States_presidential_election"
+     },
+     {
+      "title": "2028 Presidential Election",
+      "publisher": "GlobalSecurity.org",
+      "date": "n.d.",
+      "url": "https://www.globalsecurity.org/military/world/usa/government/election-2028.htm"
+     }
+    ]
+   },
+   {
+    "date": "2029-T2",
+    "title": "Inflation SOL au plancher de 1,5 % (si réforme)",
+    "explain": "Avec la désinflation doublée, Helius estimait en juin 2026 que l'émission annuelle de SOL atteindrait son plancher de 1,5 % vers le premier semestre 2029, contre le premier semestre 2032 avec l'ancien calendrier, soit environ 18,9 millions de SOL émis en moins sur six ans. Tout retard d'activation décale cette date.",
+    "effect": "hausse possible",
+    "certainty": "date estimée",
+    "sources": [
+     {
+      "title": "SIMD-550: Why Solana Should Double Disinflation",
+      "publisher": "Helius",
+      "date": "2026-06-16",
+      "url": "https://www.helius.dev/blog/simd-550-solana-disinflation"
+     },
+     {
+      "title": "SIMD-0550: What Solana's disinflation vote means for staking",
+      "publisher": "Blockdaemon",
+      "date": "2026-09-02",
+      "url": "https://www.blockdaemon.com/blog/what-is-simd-0550-and-why-does-it-matter-for-institutional-staking"
+     }
+    ]
+   },
+   {
+    "date": "2029-T4",
+    "title": "Pic de cycle possible si le schéma se répète",
+    "explain": "Si le cycle de quatre ans se reproduit, un sommet interviendrait 12 à 18 mois après le halving d'avril 2028, soit entre mi-2029 et fin 2029 (les sommets précédents datent de fin 2013, fin 2017, fin 2021 et octobre 2025). Il s'agit d'une extrapolation statistique, pas d'un événement programmé.",
+    "effect": "hausse possible",
+    "certainty": "incertain",
+    "sources": [
+     {
+      "title": "Bitcoin Cycles: The 4-Year Halving Pattern Explained",
+      "publisher": "BIT (Matrixport)",
+      "date": "2026-07-07",
+      "url": "https://www.bit.com/insights/knowledge-hub/bitcoin-cycle"
+     },
+     {
+      "title": "Bitcoin 4-Year Cycle Points to October 2026 Bottom, Benjamin Cowen Says",
+      "publisher": "CoinMarketCap Academy",
+      "date": "2026",
+      "url": "https://coinmarketcap.com/academy/article/%20bitcoin-4-year-cycle-october-2026"
+     }
+    ]
+   },
+   {
+    "date": "2030",
+    "title": "2030 : risque de creux de cycle (année de mi-mandat)",
+    "explain": "Benjamin Cowen relie les creux de cycle du BTC aux années d'élections de mi-mandat américaines (2014, 2018, 2022, et 2026 attendu), la prochaine étant 2030. Si ce schéma tient, la fin de l'horizon d'investissement (septembre 2030) pourrait tomber en phase baissière, ce qui reste une hypothèse.",
+    "effect": "baisse possible",
+    "certainty": "incertain",
+    "sources": [
+     {
+      "title": "Bitcoin 4-Year Cycle Points to October 2026 Bottom, Benjamin Cowen Says",
+      "publisher": "CoinMarketCap Academy",
+      "date": "2026",
+      "url": "https://coinmarketcap.com/academy/article/%20bitcoin-4-year-cycle-october-2026"
+     },
+     {
+      "title": "Zooming out",
+      "publisher": "K33 Research",
+      "date": "2022-11-29",
+      "url": "https://k33.com/research/articles/zooming-out"
+     }
+    ]
+   }
+  ],
+  "tokenomics": {
+   "summary": "Fin octobre 2026, l'offre totale de SOL avoisine 637 millions d'unités, dont environ 590 millions en circulation. L'inflation, partie de 8 % et réduite de 15 % par an, est d'environ 3,6 % par an (environ 62 400 SOL créés chaque jour), versés surtout aux stakers qui immobilisent environ 68 % de l'offre totale. Un vote d'août 2026 a approuvé une réduction de 30 % par an (plancher de 1,5 % vers 2029 au lieu de 2032), mais elle n'était pas encore activée mi-novembre 2026. La destruction de frais est devenue négligeable face à l'émission depuis que 100 % des frais prioritaires vont aux validateurs, et une proposition visant à brûler davantage a été rejetée en août 2026. Les ETF américains et les sociétés de trésorerie cotées détiennent chacun de l'ordre de 2 à 3 % de l'offre : leurs achats ont soutenu le cours en 2025, leurs sorties et ventes pèsent depuis l'automne 2026.",
+   "facts": [
+    "Offre totale : environ 636,8 millions de SOL ; offre en circulation : environ 590,1 millions (relevé on-chain du 31 octobre 2026).",
+    "Inflation actuelle : environ 3,58 % par an (époque 1073, fin octobre 2026), soit environ 62 400 nouveaux SOL par jour ; elle était de 3,82 % en juin 2026.",
+    "Calendrier en vigueur : 8 % au départ, baisse de 15 % par an, plancher à long terme de 1,5 % atteint vers le premier semestre 2032.",
+    "Réforme votée le 28 août 2026 (SGP-0002, environ 67 % des voix exprimées) : baisse de 30 % par an et plancher de 1,5 % vers le premier semestre 2029 ; non activée mi-novembre 2026, activation estimée au plus tôt début 2027.",
+    "Effet estimé de la réforme : environ 18,9 millions de SOL émis en moins sur six ans (Helius).",
+    "Staking : environ 434 millions de SOL délégués, soit environ 68 % de l'offre totale et 73,5 % de l'offre en circulation (31 octobre 2026) ; rendement nominal d'environ 4,8 % par an hors MEV.",
+    "Burn : 50 % des frais de base sont détruits, mais 100 % des frais prioritaires vont aux validateurs depuis SIMD-0096 (approuvé en mai 2024) ; la part de l'émission compensée par le burn est jugée négligeable par Helius.",
+    "La proposition SGP-0003, qui aurait brûlé davantage de frais, a échoué en août 2026 avec environ 54 % de oui (66,7 % requis).",
+    "ETF spot SOL américains : environ 1,14 Md$ d'actifs et environ 1,41 Md$ d'entrées nettes cumulées au 13 novembre 2026 ; octobre 2026 a été le premier mois de sorties nettes depuis juin (environ 100 à 144 M$ selon les sources).",
+    "Sociétés de trésorerie cotées : environ 17 à 19,6 millions de SOL au total (environ 3 % de l'offre) ; Forward Industries, la plus grande, déclarait environ 8,5 millions de SOL au 30 septembre 2026.",
+    "SkyAI (ex-Sharps Technology) a vendu toute sa trésorerie SOL (plus de 2 millions de SOL mi-septembre 2026) en octobre 2026 pour financer un rachat d'actions.",
+    "Masse FTX/Alameda : environ 3,5 millions de SOL encore détenus en avril 2026 (Arkham), avec des déblocages mensuels prévus jusqu'en 2028.",
+    "Ordre de grandeur indicatif : 62 400 SOL par jour à environ 70 $ représentent environ 4,4 M$ de nouveaux SOL chaque jour, que le marché doit absorber.",
+    "Aucun chiffre public récent sur la trésorerie de la Solana Foundation n'a été trouvé."
+   ],
+   "sources": [
+    {
+     "title": "Solana price prediction: 62,415 new SOL every day (données RPC Solana)",
+     "publisher": "CryptoTicker",
+     "date": "2026-11-03",
+     "url": "https://cryptoticker.io/en/solana-price-prediction-emission-62415-sol-per-day/"
+    },
+    {
+     "title": "SIMD-550: Why Solana Should Double Disinflation",
+     "publisher": "Helius",
+     "date": "2026-06-16",
+     "url": "https://www.helius.dev/blog/simd-550-solana-disinflation"
+    },
+    {
+     "title": "SIMD-0550: What Solana's disinflation vote means for staking",
+     "publisher": "Blockdaemon",
+     "date": "2026-09-02",
+     "url": "https://www.blockdaemon.com/blog/what-is-simd-0550-and-why-does-it-matter-for-institutional-staking"
+    },
+    {
+     "title": "Solana (SOL) narrowly passes proposal to double disinflation with last-minute Kraken, Galaxy switch",
+     "publisher": "CoinDesk",
+     "date": "2026-08-28",
+     "url": "https://www.coindesk.com/tech/2026/08/28/solana-vote-to-double-disinflation-passes-by-a-hair-in-dramatic-finish"
+    },
+    {
+     "title": "Solana validators to receive full priority fees as SIMD-0096 proposal gains approval",
+     "publisher": "The Block",
+     "date": "2024-05",
+     "url": "https://www.theblock.co/post/296932/solana-validators-to-receive-full-priority-fees-as-simd-0096-proposal-gains-approval"
+    },
+    {
+     "title": "SOL Spot ETF Records $3.09M Net Outflow on November 13 (données SoSoValue)",
+     "publisher": "KuCoin News / Odaily",
+     "date": "2026-11-13",
+     "url": "https://www.kucoin.com/news/flash/sol-spot-etf-sees-3-09m-net-outflow-on-november-13"
+    },
+    {
+     "title": "Solana price prediction: $111 million in wallet transfers (flux ETF d'octobre, données SoSoValue/Farside)",
+     "publisher": "CryptoTicker",
+     "date": "2026-11-01",
+     "url": "https://cryptoticker.io/en/solana-price-prediction-etf-outflow-wallet-transfers-november-2026/"
+    },
+    {
+     "title": "Solana Treasury Companies: SOL Holdings by Public Companies",
+     "publisher": "CoinGecko",
+     "date": "2026",
+     "url": "https://www.coingecko.com/en/treasuries/solana/companies"
+    },
+    {
+     "title": "Solana Treasury Holdings",
+     "publisher": "DefiLlama",
+     "date": "2026-10",
+     "url": "https://defillama.com/digital-asset-treasuries/solana"
+    },
+    {
+     "title": "SkyAI sells off entire Solana treasury, launches $201 million buyback",
+     "publisher": "The Block",
+     "date": "2026-10-19",
+     "url": "https://www.theblock.co/news/business/2026-10-19-skyai-sells-off-entire-solana-treasury-launches-201-million-buyback-421037"
+    },
+    {
+     "title": "Alameda moves $16 million in Solana's SOL token for possible creditor payments",
+     "publisher": "CoinDesk",
+     "date": "2026-04-13",
+     "url": "https://www.coindesk.com/markets/2026/04/13/alameda-moves-usd16-million-in-solana-s-sol-token-for-possible-creditor-distribution"
+    },
+    {
+     "title": "FTX estate's $7.5 billion sale of locked solana attracts strong interest",
+     "publisher": "The Block",
+     "date": "2024-03-28",
+     "url": "https://www.theblock.co/news/business/2024-03-28-galaxy-locked-sol-sale-ftx-estate-285269"
+    },
+    {
+     "title": "Here's why one analyst expects Solana (SOL) to rise twenty-fold from current depressed level",
+     "publisher": "CoinDesk",
+     "date": "2026-02-03",
+     "url": "https://www.coindesk.com/markets/2026/02/03/this-analyst-expects-solana-to-reach-usd2-000-by-2030-despite-cutting-his-2026-target"
+    }
+   ]
+  },
+  "cycles": {
+   "summary": "Les quatre halvings du Bitcoin (28 novembre 2012, 9 juillet 2016, 11 mai 2020, 20 avril 2024) ont chacun été suivis d'un sommet 12 à 18 mois plus tard, puis d'une chute de 77 à 85 % environ un an après ce sommet. Le cycle 2024-2026 a globalement respecté ce calendrier : record du BTC le 6 octobre 2025 vers 126 000 $ (environ 534 jours après le halving), puis marché baissier en 2026 avec un plus bas vers 57 700 $ le 1er juillet 2026 (environ -54 %), une baisse moins profonde que lors des cycles précédents et une hausse préalable plus faible (environ +100 % depuis le halving). Les analystes restent partagés : Benjamin Cowen juge le cycle intact et attendait un creux vers octobre 2026, tandis que Matt Hougan (Bitwise), qui avait annoncé la fin du cycle en 2025, a cité en février 2026 le cycle de quatre ans comme première cause de la baisse. SOL amplifie ces mouvements : environ -97 % entre son sommet de novembre 2021 et son creux de décembre 2022, un record en janvier 2025 (neuf mois avant celui du BTC), puis environ -76 % mi-novembre 2026.",
+   "rows": [
+    {
+     "label": "1er halving",
+     "date": "2012-11-28",
+     "btc": "Récompense de 50 à 25 BTC",
+     "sol": "SOL n'existe pas encore"
+    },
+    {
+     "label": "Sommet du cycle 1",
+     "date": "2013-11-30",
+     "btc": "Environ 1 127 $ (puis environ -83 % à -85 %)",
+     "sol": "Non applicable"
+    },
+    {
+     "label": "Creux du cycle 1",
+     "date": "2015-01",
+     "btc": "Environ 170 $",
+     "sol": "Non applicable"
+    },
+    {
+     "label": "2e halving",
+     "date": "2016-07-09",
+     "btc": "Récompense de 25 à 12,5 BTC",
+     "sol": "Non applicable"
+    },
+    {
+     "label": "Sommet du cycle 2",
+     "date": "2017-12-16",
+     "btc": "Environ 19 665 $",
+     "sol": "Non applicable"
+    },
+    {
+     "label": "Creux du cycle 2",
+     "date": "2018-12",
+     "btc": "Environ 3 200 $ (environ -84 %)",
+     "sol": "Non applicable"
+    },
+    {
+     "label": "3e halving",
+     "date": "2020-05-11",
+     "btc": "Récompense de 12,5 à 6,25 BTC",
+     "sol": "SOL vient d'être lancé (plus bas historique vers 0,50 $ en mai 2020)"
+    },
+    {
+     "label": "Sommets du cycle 3",
+     "date": "2021-11",
+     "btc": "Environ 69 044 $ (10 novembre 2021)",
+     "sol": "Environ 260 $ (6 novembre 2021)"
+    },
+    {
+     "label": "Krach FTX",
+     "date": "2022-11-09",
+     "btc": "Plus bas du cycle vers 15 500 à 16 000 $ le 21 novembre 2022 (environ -77 %)",
+     "sol": "Chute de plus de 40 % en une journée, vers 12 à 16 $"
+    },
+    {
+     "label": "Creux de SOL du cycle 3",
+     "date": "2022-12-29",
+     "btc": "Non précisé",
+     "sol": "Environ 8 $ (environ -97 % depuis le sommet)"
+    },
+    {
+     "label": "4e halving",
+     "date": "2024-04-20",
+     "btc": "Récompense de 6,25 à 3,125 BTC",
+     "sol": "Non précisé"
+    },
+    {
+     "label": "Record de SOL",
+     "date": "2025-01-19",
+     "btc": "BTC encore en hausse (record en octobre 2025)",
+     "sol": "Environ 293 à 295 $ (pendant la frénésie du memecoin TRUMP)"
+    },
+    {
+     "label": "Sommet du cycle 4 (BTC)",
+     "date": "2025-10-06",
+     "btc": "Environ 126 000 $ (record historique)",
+     "sol": "Pas de nouveau record ; environ -60 % entre mi-septembre 2025 et début février 2026"
+    },
+    {
+     "label": "Creux 2026 (provisoire)",
+     "date": "2026-06/07",
+     "btc": "Environ 57 700 $ le 1er juillet 2026 (environ -54 %)",
+     "sol": "Environ 60 à 62 $ les 6 et 7 juin 2026"
+    },
+    {
+     "label": "Situation actuelle",
+     "date": "2026-11-15",
+     "btc": "Environ 62 000 à 65 000 $ (plus bas depuis juillet)",
+     "sol": "Environ 70 $ (environ -76 % depuis le record)"
+    },
+    {
+     "label": "5e halving (prévu)",
+     "date": "2028-04",
+     "btc": "Récompense de 3,125 à 1,5625 BTC",
+     "sol": "À venir"
+    }
+   ],
+   "sources": [
+    {
+     "title": "Bitcoin Cycles: The 4-Year Halving Pattern Explained",
+     "publisher": "BIT (Matrixport)",
+     "date": "2026-07-07",
+     "url": "https://www.bit.com/insights/knowledge-hub/bitcoin-cycle"
+    },
+    {
+     "title": "A brief history of Bitcoin crashes and bear markets: 2009-2022",
+     "publisher": "Cointelegraph",
+     "date": "2022-07-10",
+     "url": "https://cointelegraph.com/magazine/a-brief-history-of-bitcoin-crashes-and-bear-markets-2009-2022"
+    },
+    {
+     "title": "Zooming out",
+     "publisher": "K33 Research",
+     "date": "2022-11-29",
+     "url": "https://k33.com/research/articles/zooming-out"
+    },
+    {
+     "title": "Solana Price, Chart, Market Cap, SOL Coin Essentials",
+     "publisher": "CoinLore",
+     "date": "2026",
+     "url": "https://www.coinlore.com/coin/solana"
+    },
+    {
+     "title": "Solana Price History 2020-2026",
+     "publisher": "CoinGlass",
+     "date": "2026",
+     "url": "https://www.coinglass.com/currencies/SOL/historical-data"
+    },
+    {
+     "title": "Not just FTX Token: Solana price nukes 40% along with other 'SAM coins'",
+     "publisher": "Cointelegraph",
+     "date": "2022-11-09",
+     "url": "https://cointelegraph.com/markets/not-just-ftx-token-solana-price-nukes-40-along-with-other-sam-coins"
+    },
+    {
+     "title": "Solana crypto token loses most of its value in 2022 as FTX collapse weighs",
+     "publisher": "Cyprus Mail (Reuters)",
+     "date": "2022-12-30",
+     "url": "https://www.cyprus-mail.com/2022/12/30/solana-crypto-token-loses-most-of-its-value-in-2022-ftx-collapse-weighs"
+    },
+    {
+     "title": "Official Trump memecoin launch breaks records as Solana (SOL) rallies to new all-time high",
+     "publisher": "Cointelegraph",
+     "date": "2025-01",
+     "url": "https://cointelegraph.com/markets/official-trump-memecoin-launch-breaks-records-as-solana-sol-rallies-to-new-all-time-high"
+    },
+    {
+     "title": "Here's why one analyst expects Solana (SOL) to rise twenty-fold from current depressed level",
+     "publisher": "CoinDesk",
+     "date": "2026-02-03",
+     "url": "https://www.coindesk.com/markets/2026/02/03/this-analyst-expects-solana-to-reach-usd2-000-by-2030-despite-cutting-his-2026-target"
+    },
+    {
+     "title": "Bitcoin price: overnight low and the weekly close",
+     "publisher": "CryptoTicker",
+     "date": "2026-11-15",
+     "url": "https://cryptoticker.io/en/bitcoin-price-overnight-low-weekly-close-november-15-2026/"
+    },
+    {
+     "title": "Solana Price Crash: Will SOL Fall Below $60?",
+     "publisher": "CryptoTicker",
+     "date": "2026-11-15",
+     "url": "https://cryptoticker.io/en/solana-price-crash-67-dollars-76-percent-below-record-november-15-2026/"
+    },
+    {
+     "title": "Where Will Bitcoin and Solana Be in 3 Years?",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-11-15",
+     "url": "https://247wallst.com/investing/cryptocurrency/2026/11/15/where-will-bitcoin-and-solana-be-in-3-years/"
+    },
+    {
+     "title": "Bitcoin 4-Year Cycle Points to October 2026 Bottom, Benjamin Cowen Says",
+     "publisher": "CoinMarketCap Academy",
+     "date": "2026",
+     "url": "https://coinmarketcap.com/academy/article/%20bitcoin-4-year-cycle-october-2026"
+    },
+    {
+     "title": "Bitcoin plunge: Bitwise CIO cites 'the four-year cycle' as No. 1 reason for losses",
+     "publisher": "CNBC",
+     "date": "2026-02-10",
+     "url": "https://www.cnbc.com/2026/02/10/bitcoin-crash-bitwise-cio-cites-the-four-year-cycle-for-losses.html"
+    },
+    {
+     "title": "Next Bitcoin Halving Date (Live Countdown)",
+     "publisher": "CoinWarz",
+     "date": "2026-11",
+     "url": "https://www.coinwarz.com/bitcoin-halving"
+    }
+   ]
+  },
+  "drivers": {
+   "down": [
+    {
+     "title": "Krachs menés par le Bitcoin",
+     "explain": "SOL suit le BTC avec plus d'amplitude : en 2022, le BTC a perdu environ 77 % depuis son sommet et SOL environ 94 % sur l'année ; mi-novembre 2026, le BTC est environ 49 % sous son record contre environ 73 à 76 % pour SOL."
+    },
+    {
+     "title": "Resserrement monétaire et dollar fort",
+     "explain": "Les hausses de taux de 2022 puis la reprise du resserrement en 2026 (hausse de la Fed en septembre, nouvelle hausse attendue en décembre après une inflation plus forte que prévu) ont accompagné les fortes baisses ; le 13 novembre 2026, le dollar à son plus haut depuis avril 2025 a coïncidé avec la chute du BTC sous 70 000 $."
+    },
+    {
+     "title": "Scandales et contagion",
+     "explain": "La faillite de FTX et d'Alameda, grands soutiens et détenteurs de SOL, a fait chuter SOL de plus de 40 % le 9 novembre 2022 et d'environ 55 % en une semaine."
+    },
+    {
+     "title": "Pannes du réseau",
+     "explain": "Solana a connu plusieurs arrêts complets (environ 17 heures en septembre 2021, environ 5 heures en février 2024) qui ont terni sa réputation ; le réseau a toutefois dépassé en novembre 2026 les 1 000 jours sans panne générale."
+    },
+    {
+     "title": "Ventes de gros détenteurs",
+     "explain": "Les ventes de la masse FTX (41 millions de SOL cédés en 2024, débloqués jusqu'en 2028), les mouvements d'Alameda et la liquidation complète de la trésorerie SOL de SkyAI en octobre 2026 ont ajouté de l'offre sur le marché."
+    },
+    {
+     "title": "Sorties d'ETF et levier",
+     "explain": "Les ETF spot SOL ont enregistré en octobre 2026 leur premier mois de sorties nettes depuis juin, poursuivies en novembre ; les liquidations de positions à effet de levier amplifient ensuite les baisses (plus de 1,6 Md$ liquidés sur le marché crypto le 13 novembre 2026)."
+    },
+    {
+     "title": "Fin d'une mode spéculative",
+     "explain": "La retombée des memecoins a fait chuter les revenus du réseau Solana d'environ 87 % entre le premier semestre 2025 et le premier semestre 2026 (21Shares), ce qui affaiblit la thèse de valorisation fondée sur les frais."
+    },
+    {
+     "title": "« Vendre la nouvelle »",
+     "explain": "Une mise à jour très attendue ne garantit pas une hausse : SOL a nettement reculé après l'activation d'Alpenglow le 21 octobre 2026, dans un contexte de sorties d'ETF et de marché baissier."
+    }
+   ],
+   "up": [
+    {
+     "title": "Booms de l'écosystème",
+     "explain": "Les vagues spéculatives sur Solana (BONK fin 2023, memecoin TRUMP en janvier 2025) ont fait exploser l'activité ; SOL a atteint son record d'environ 293 à 295 $ le 19 janvier 2025, en pleine frénésie TRUMP."
+    },
+    {
+     "title": "Produits institutionnels",
+     "explain": "Le lancement des ETF spot SOL (BSOL de Bitwise le 28 octobre 2025, puis Grayscale et d'autres) et les achats des sociétés de trésorerie (environ 3 % de l'offre) ont créé une demande nouvelle ; un retour des entrées ou l'arrivée d'un émetteur comme BlackRock serait un soutien."
+    },
+    {
+     "title": "Clarté réglementaire",
+     "explain": "L'interprétation conjointe SEC-CFTC du 17 mars 2026 classe SOL parmi 16 « matières premières numériques » et considère que le staking protocolaire n'est pas une offre de titres ; une loi de marché votée par le Congrès consoliderait cet acquis."
+    },
+    {
+     "title": "Améliorations techniques",
+     "explain": "Le client Firedancer (décembre 2025), le relèvement de la capacité des blocs à 100 millions d'unités de calcul (juillet 2026) et Alpenglow (octobre 2026) rendent le réseau plus rapide et plus robuste, ce qui soutient l'adoption à moyen terme plutôt que le cours immédiat."
+    },
+    {
+     "title": "Baisses de taux et liquidité",
+     "explain": "Les phases d'assouplissement monétaire (2020-2021, baisses de taux de 2024-2025) ont accompagné les grandes hausses des cryptos ; en 2026, des analystes comme Adrian Fritz (21Shares) liaient un rebond à de futures baisses de taux."
+    },
+    {
+     "title": "Cycle du halving",
+     "explain": "Les sommets de cycle sont intervenus 12 à 18 mois après chaque halving du Bitcoin ; le prochain halving est attendu vers avril 2028."
+    },
+    {
+     "title": "Moins de dilution",
+     "explain": "L'accélération de la baisse de l'inflation (SIMD-0550), approuvée en août 2026, réduirait l'émission de nouveaux SOL ; 21Shares y voyait début 2026 un « véritable catalyseur de valorisation »."
+    },
+    {
+     "title": "Usage réel : stablecoins et finance",
+     "explain": "L'encours de stablecoins sur Solana a progressé de 51 % sur un an (15,7 Md$ au premier semestre 2026) et le volume des DEX a atteint 197 Md$ au troisième trimestre 2026 (+23 %) ; cela peut soutenir SOL si cette activité se traduit en revenus pour les détenteurs."
+    }
+   ],
+   "beta": "Sur un an (données PortfoliosLab au 15 novembre 2026), la corrélation entre SOL et BTC est de 0,86 (moyenne de long terme 0,62) et la volatilité annuelle de SOL atteint 62,5 % contre 44,4 % pour le BTC, ce qui implique un bêta d'environ 1,2 (calcul : corrélation multipliée par le rapport des volatilités) ; dans les baisses, SOL perd davantage (repli maximal sur un an de -57,6 % contre -39,6 % pour le BTC).",
+   "sources": [
+    {
+     "title": "Zooming out",
+     "publisher": "K33 Research",
+     "date": "2022-11-29",
+     "url": "https://k33.com/research/articles/zooming-out"
+    },
+    {
+     "title": "Solana crypto token loses most of its value in 2022 as FTX collapse weighs",
+     "publisher": "Cyprus Mail (Reuters)",
+     "date": "2022-12-30",
+     "url": "https://www.cyprus-mail.com/2022/12/30/solana-crypto-token-loses-most-of-its-value-in-2022-ftx-collapse-weighs"
+    },
+    {
+     "title": "SOL-USD vs BTC-USD: Performance Charts & Full Comparison",
+     "publisher": "PortfoliosLab",
+     "date": "2026-11-15",
+     "url": "https://portfolioslab.com/tools/stock-comparison/SOL-USD/BTC-USD"
+    },
+    {
+     "title": "Fed interest rate decision October 2026: Fed holds rates steady",
+     "publisher": "CNBC",
+     "date": "2026-10-28",
+     "url": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html"
+    },
+    {
+     "title": "Bitcoin falls below $70,000 as dollar surges and $1.6 billion liquidated",
+     "publisher": "CoinDesk",
+     "date": "2026-11-13",
+     "url": "https://www.coindesk.com/markets/2026/11/13/bitcoin-hits-12-week-low-as-dollar-rallies-on-interest-rate-outlook-liquidations-top-usd1-6-billion"
+    },
+    {
+     "title": "Bitcoin Falls Below $70,000 To Reach Lowest Since August",
+     "publisher": "Forbes",
+     "date": "2026-11-13",
+     "url": "https://www.forbes.com/sites/digital-assets/2026/11/13/bitcoin-falls-below-70000-to-reach-lowest-since-august/"
+    },
+    {
+     "title": "Not just FTX Token: Solana price nukes 40% along with other 'SAM coins'",
+     "publisher": "Cointelegraph",
+     "date": "2022-11-09",
+     "url": "https://cointelegraph.com/markets/not-just-ftx-token-solana-price-nukes-40-along-with-other-sam-coins"
+    },
+    {
+     "title": "Solana Outages: Complete History",
+     "publisher": "Helius",
+     "date": "2024",
+     "url": "https://www.helius.dev/blog/solana-outages-complete-history"
+    },
+    {
+     "title": "Solana confirms outage on mainnet, engineers are investigating",
+     "publisher": "The Block",
+     "date": "2024-02-06",
+     "url": "https://www.theblock.co/post/276174/solana-major-outage-mainnet-beta"
+    },
+    {
+     "title": "Solana Officially Scores 1,000 Days Without Outage",
+     "publisher": "Cryptonews.net",
+     "date": "2026-11",
+     "url": "https://cryptonews.net/news/altcoins/33690219/"
+    },
+    {
+     "title": "FTX estate's $7.5 billion sale of locked solana attracts strong interest",
+     "publisher": "The Block",
+     "date": "2024-03-28",
+     "url": "https://www.theblock.co/news/business/2024-03-28-galaxy-locked-sol-sale-ftx-estate-285269"
+    },
+    {
+     "title": "SkyAI sells off entire Solana treasury, launches $201 million buyback",
+     "publisher": "The Block",
+     "date": "2026-10-19",
+     "url": "https://www.theblock.co/news/business/2026-10-19-skyai-sells-off-entire-solana-treasury-launches-201-million-buyback-421037"
+    },
+    {
+     "title": "Solana price prediction: $111 million in wallet transfers (flux ETF d'octobre, données SoSoValue/Farside)",
+     "publisher": "CryptoTicker",
+     "date": "2026-11-01",
+     "url": "https://cryptoticker.io/en/solana-price-prediction-etf-outflow-wallet-transfers-november-2026/"
+    },
+    {
+     "title": "Spot Solana ETFs Post $26.25 Million Weekly Net Outflow",
+     "publisher": "TokenPost",
+     "date": "2026-11",
+     "url": "https://www.tokenpost.com/news/investing/52639"
+    },
+    {
+     "title": "Solana's H1 2026 earnings: 87% drop, but stablecoins and RWA surge",
+     "publisher": "21Shares",
+     "date": "2026",
+     "url": "https://www.21shares.com/en-us/insights/solana-h1-2026-earnings-analysis"
+    },
+    {
+     "title": "Where Will Bitcoin and Solana Be in 3 Years?",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-11-15",
+     "url": "https://247wallst.com/investing/cryptocurrency/2026/11/15/where-will-bitcoin-and-solana-be-in-3-years/"
+    },
+    {
+     "title": "BONK Falls 13% as Solana Ecosystem Sees Profit Taking After Memecoin Frenzy",
+     "publisher": "CoinDesk",
+     "date": "2023-12-27",
+     "url": "https://www.coindesk.com/markets/2023/12/27/bonk-falls-13-as-solana-ecosystem-sees-profit-taking-after-memecoin-frenzy/"
+    },
+    {
+     "title": "Official Trump memecoin launch breaks records as Solana (SOL) rallies to new all-time high",
+     "publisher": "Cointelegraph",
+     "date": "2025-01",
+     "url": "https://cointelegraph.com/markets/official-trump-memecoin-launch-breaks-records-as-solana-sol-rallies-to-new-all-time-high"
+    },
+    {
+     "title": "Bitwise Launches BSOL, First Spot Solana ETP in U.S.",
+     "publisher": "Business Wire (Bitwise)",
+     "date": "2025-10-27",
+     "url": "https://www.businesswire.com/news/home/20251027087034/en/Bitwise-Launches-BSOL-First-Spot-Solana-ETP-in-U.S.-Aims-To-Stake-100-of-Assets-In-House-Powered-by-Helius-To-Maximize-Solanas-7-Average-Staking-Rewards"
+    },
+    {
+     "title": "Here's why one analyst expects Solana (SOL) to rise twenty-fold from current depressed level",
+     "publisher": "CoinDesk",
+     "date": "2026-02-03",
+     "url": "https://www.coindesk.com/markets/2026/02/03/this-analyst-expects-solana-to-reach-usd2-000-by-2030-despite-cutting-his-2026-target"
+    },
+    {
+     "title": "SEC and CFTC Issue Landmark Joint Interpretation on Crypto Asset Classification",
+     "publisher": "Jenner & Block",
+     "date": "2026-03",
+     "url": "https://www.jenner.com/en/news-insights/client-alerts/sec-and-cftc-issue-landmark-joint-interpretation-on-crypto-asset-classification"
+    },
+    {
+     "title": "SEC and CFTC Release Interpretation on Application of Federal Securities Laws to Crypto Assets",
+     "publisher": "Paul, Weiss",
+     "date": "2026-03",
+     "url": "https://www.paulweiss.com/insights/client-memos/sec-and-cftc-release-interpretation-on-application-of-federal-securities-laws-to-crypto-assets"
+    },
+    {
+     "title": "Anza's Alpenglow goes live on Solana, cutting finality to 150 milliseconds",
+     "publisher": "The Block",
+     "date": "2026-10-21",
+     "url": "https://www.theblock.co/news/ecosystems/2026-10-21-anzas-alpenglow-goes-live-on-solana-cutting-finality-to-150-milliseconds-421508"
+    },
+    {
+     "title": "FOMC: Another risk management cut, but December looms large",
+     "publisher": "FXStreet",
+     "date": "2025-10-29",
+     "url": "https://www.fxstreet.com/analysis/fomc-another-risk-management-cut-but-december-looms-large-202510291931"
+    },
+    {
+     "title": "3 reasons Bitcoin is stuck in a bear market, and why one analyst predicts a rebound to $100,000 by year-end",
+     "publisher": "Fortune",
+     "date": "2026-07-12",
+     "url": "https://fortune.com/2026/07/12/bitcoin-bear-market-three-drivers-rebound/"
+    },
+    {
+     "title": "Solana 2026 outlook: Scale is proven, value capture is not",
+     "publisher": "21Shares",
+     "date": "2026-01-26",
+     "url": "https://www.21shares.com/en-us/insights/solana-2026-outlook-scale-is-proven-value-capture-is-not"
+    },
+    {
+     "title": "Solana Q3 2026 Report: Revenue Jumps 48% as Stablecoin Supply Reaches $16.8B (résumé du rapport Blockworks)",
+     "publisher": "KuCoin Blog",
+     "date": "2026-10",
+     "url": "https://www.kucoin.com/blog/solana-q3-2026-report-revenue-jumps-48-percent"
+    },
+    {
+     "title": "Solana Token Holder Report Q3 2026",
+     "publisher": "Blockworks",
+     "date": "2026-10-15",
+     "url": "https://app.blockworks.com/report/solana-token-holder-report-q3-2026"
+    },
+    {
+     "title": "Bitcoin Cycles: The 4-Year Halving Pattern Explained",
+     "publisher": "BIT (Matrixport)",
+     "date": "2026-07-07",
+     "url": "https://www.bit.com/insights/knowledge-hub/bitcoin-cycle"
+    }
+   ]
+  },
+  "opinions": [
+   {
+    "who": "Geoffrey Kendrick, Standard Chartered",
+    "date": "2026-02-03",
+    "view": "Prévoit SOL à 400 $ fin 2027, 700 $ fin 2028, 1 200 $ fin 2029 et 2 000 $ fin 2030, grâce aux stablecoins et aux micropaiements (notamment ceux d'agents IA). Opinion émise alors que SOL valait environ 100 $.",
+    "stance": "haussier",
+    "url": "https://www.coindesk.com/markets/2026/02/03/this-analyst-expects-solana-to-reach-usd2-000-by-2030-despite-cutting-his-2026-target"
+   },
+   {
+    "who": "Geoffrey Kendrick, Standard Chartered",
+    "date": "2026-02-12",
+    "view": "Abaisse la cible fin 2026 de SOL de 250 $ à 135 $ et juge possible une chute du BTC vers 50 000 $ avant une reprise, tout en maintenant 500 000 $ pour le BTC fin 2030.",
+    "stance": "neutre",
+    "url": "https://www.coindesk.com/markets/2026/02/12/standard-chartered-sees-bitcoin-sliding-to-usd50-000-ether-to-usd1-400-before-recovery"
+   },
+   {
+    "who": "Karim AbdelMawla, 21Shares",
+    "date": "2026-01-26",
+    "view": "Solana a prouvé sa capacité à absorber l'usage, mais pas encore que cette activité crée de la valeur pour les détenteurs de SOL (le protocole capte moins de 10 % des frais de l'écosystème). Ses scénarios pour 2026 allaient de 95 $ (pessimiste) à 197 $ (optimiste).",
+    "stance": "neutre",
+    "url": "https://www.21shares.com/en-us/insights/solana-2026-outlook-scale-is-proven-value-capture-is-not"
+   },
+   {
+    "who": "Matthew Sigel, VanEck",
+    "date": "2023-10-27",
+    "view": "Modèle de valorisation à horizon 2030 : 9,81 $ (pessimiste), environ 335 $ (central) et 3 211 $ (optimiste), selon la part de marché captée par Solana. Analyse ancienne, antérieure au cycle 2024-2026.",
+    "stance": "neutre",
+    "url": "https://www.vaneck.com/us/en/blogs/digital-assets/matthew-sigel-vanecks-base-bear-bull-case-solana-valuation-by-2030/"
+   },
+   {
+    "who": "24/7 Wall St. (rédaction)",
+    "date": "2026-11-15",
+    "view": "Juge l'objectif de 1 200 $ en 2029 de Standard Chartered peu réaliste et voit plutôt SOL entre 150 $ et 293 $ fin 2029, avec un scénario défavorable entre 62 $ et 150 $.",
+    "stance": "neutre",
+    "url": "https://247wallst.com/investing/cryptocurrency/2026/11/15/where-will-bitcoin-and-solana-be-in-3-years/"
+   },
+   {
+    "who": "Benjamin Cowen (Into The Cryptoverse)",
+    "date": "2026",
+    "view": "Estime que le cycle de quatre ans du Bitcoin reste valable (sommet au moment attendu) et situait le creux du cycle vers octobre 2026, avec un retour possible vers 60 000 $ avant une reprise durable.",
+    "stance": "neutre",
+    "url": "https://coinmarketcap.com/academy/article/%20bitcoin-4-year-cycle-october-2026"
+   },
+   {
+    "who": "Matt Hougan, Bitwise",
+    "date": "2026-02-10",
+    "view": "Cite le cycle de quatre ans comme première cause de la baisse de 2026, tout en voyant de « bonnes nouvelles sous la surface » (financiarisation, rareté du BTC) et sans remettre en cause la croissance des ETF crypto.",
+    "stance": "neutre",
+    "url": "https://www.cnbc.com/2026/02/10/bitcoin-crash-bitwise-cio-cites-the-four-year-cycle-for-losses.html"
+   },
+   {
+    "who": "Mati Greenspan, Quantum Economics",
+    "date": "2026-11-04",
+    "view": "Estime que la victoire démocrate au Congrès pourrait être « le dernier clou dans le cercueil » du CLARITY Act, l'industrie devant repartir de zéro dans un Washington divisé.",
+    "stance": "baissier",
+    "url": "https://www.coindesk.com/policy/2026/11/04/u-s-democratic-sweep-could-be-the-final-nail-in-the-clarity-act-s-coffin"
+   }
+  ]
+ }
+}
