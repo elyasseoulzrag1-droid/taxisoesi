@@ -57,3 +57,9 @@ Archives publiques [dev-baris/lottery-archive](https://github.com/dev-baris/lott
 (licence CC BY 4.0), comparées l'une à l'autre : 1 989 tirages en commun, aucune différence.
 
 Outil indépendant à but informatif, sans lien avec la FDJ ni les opérateurs EuroMillions.
+
+## Autre outil du dépôt : Radar Solana
+
+Le dossier [`solana/`](solana/) contient un tableau de bord Solana (SOL) en direct : prix à la seconde,
+historique complet depuis 2020 sur 8 périodes, échanges en cours et activité du réseau.
+Ouvre `solana/index.html` dans un navigateur. Détails dans [`solana/README.md`](solana/README.md).
