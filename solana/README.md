@@ -8,17 +8,22 @@ Deux pages autonomes, à ouvrir dans un navigateur :
 
 ## Installer l'appli sur l'écran d'accueil
 
-Ouvre l'adresse de l'appli sur ton téléphone :
-https://raw.githack.com/elyasseoulzrag1-droid/taxisoesi/claude/solana-tracking-app-xrv4x8/solana/plan.html
+Une appli web s'installe depuis une adresse en HTTPS. Le plus simple est GitHub Pages (gratuit) :
+
+1. Sur GitHub, ouvre **Settings**, puis **Pages** :
+   https://github.com/elyasseoulzrag1-droid/taxisoesi/settings/pages
+2. Dans « Build and deployment », choisis **Deploy from a branch**, la branche
+   `claude/solana-tracking-app-xrv4x8` et le dossier **/ (root)**, puis **Save**.
+3. Une à deux minutes plus tard, l'appli est en ligne :
+   https://elyasseoulzrag1-droid.github.io/taxisoesi/solana/plan.html
+
+Ouvre cette adresse sur ton téléphone :
 
 - **iPhone** (Safari) : bouton Partager, puis « Sur l'écran d'accueil ».
 - **Android** (Chrome) : bouton « Installer » dans la page, ou menu ⋮ puis « Ajouter à l'écran d'accueil ».
 
-L'appli s'ouvre alors en plein écran avec son icône, garde une copie pour s'ouvrir sans réseau
-(`sw.js`) et envoie les alertes en notification tant qu'elle est ouverte (`manifest.json`,
-icônes dans `icons/`). Pour une adresse à toi, active GitHub Pages sur cette branche
-(Settings, Pages, « Deploy from a branch », dossier racine) : l'appli sera alors sur
-https://elyasseoulzrag1-droid.github.io/taxisoesi/solana/plan.html
+L'appli s'ouvre alors en plein écran avec son icône (`manifest.json`, icônes dans `icons/`), garde une
+copie pour s'ouvrir sans réseau (`sw.js`) et envoie les alertes en notification tant qu'elle est ouverte.
 
 ## Radar
 
