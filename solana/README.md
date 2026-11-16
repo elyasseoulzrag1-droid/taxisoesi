@@ -8,16 +8,16 @@ Deux pages autonomes, à ouvrir dans un navigateur :
 
 ## Installer l'appli sur l'écran d'accueil
 
-Une appli web s'installe depuis une adresse en HTTPS. Le plus simple est GitHub Pages (gratuit) :
+L'appli est en ligne (GitHub Pages, gratuit) :
 
-1. Sur GitHub, ouvre **Settings**, puis **Pages** :
-   https://github.com/elyasseoulzrag1-droid/taxisoesi/settings/pages
-2. Dans « Build and deployment », choisis **Deploy from a branch**, la branche
-   `claude/solana-tracking-app-xrv4x8` et le dossier **/ (root)**, puis **Save**.
-3. Une à deux minutes plus tard, l'appli est en ligne :
-   https://elyasseoulzrag1-droid.github.io/taxisoesi/solana/plan.html
+- Plan : https://elyasseoulzrag1-droid.github.io/taxisoesi/solana/plan.html
+- Radar : https://elyasseoulzrag1-droid.github.io/taxisoesi/solana/index.html
 
-Ouvre cette adresse sur ton téléphone :
+Elle est publiée depuis la branche `gh-pages`, copie de la branche de travail. Après une
+modification, recopie la branche de travail dans `gh-pages` (par exemple
+`git push origin HEAD:gh-pages`) : GitHub remet l'appli à jour en moins d'une minute.
+
+Ouvre l'adresse du Plan sur ton téléphone :
 
 - **iPhone** (Safari) : bouton Partager, puis « Sur l'écran d'accueil ».
 - **Android** (Chrome) : bouton « Installer » dans la page, ou menu ⋮ puis « Ajouter à l'écran d'accueil ».
