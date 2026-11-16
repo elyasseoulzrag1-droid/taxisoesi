@@ -6,6 +6,20 @@ Deux pages autonomes, à ouvrir dans un navigateur :
 - `plan.html` (**Plan**) : ton plan d'investissement, le thermomètre d'achat, les alertes et l'explication
   de chaque grande hausse et baisse depuis 2020. Fond noir, couleurs de Solana.
 
+## Installer l'appli sur l'écran d'accueil
+
+Ouvre l'adresse de l'appli sur ton téléphone :
+https://raw.githack.com/elyasseoulzrag1-droid/taxisoesi/claude/solana-tracking-app-xrv4x8/solana/plan.html
+
+- **iPhone** (Safari) : bouton Partager, puis « Sur l'écran d'accueil ».
+- **Android** (Chrome) : bouton « Installer » dans la page, ou menu ⋮ puis « Ajouter à l'écran d'accueil ».
+
+L'appli s'ouvre alors en plein écran avec son icône, garde une copie pour s'ouvrir sans réseau
+(`sw.js`) et envoie les alertes en notification tant qu'elle est ouverte (`manifest.webmanifest`,
+icônes dans `icons/`). Pour une adresse à toi, active GitHub Pages sur cette branche
+(Settings, Pages, « Deploy from a branch », dossier racine) : l'appli sera alors sur
+https://elyasseoulzrag1-droid.github.io/taxisoesi/solana/plan.html
+
 ## Radar
 
 Tableau de bord pour suivre Solana (SOL) en direct : le prix qui bouge chaque seconde, tout

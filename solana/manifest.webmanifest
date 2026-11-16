@@ -1,0 +1,24 @@
+{
+  "id": "./plan.html",
+  "name": "Plan Solana",
+  "short_name": "Plan SOL",
+  "description": "Thermomètre d'achat, alertes de prix bas et hauts, plan d'investissement et explication de chaque hausse et baisse de Solana.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./plan.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "categories": ["finance"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Thermomètre", "short_name": "Thermomètre", "url": "./plan.html#thermometre", "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Alertes", "short_name": "Alertes", "url": "./plan.html#alertes", "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Radar en direct", "short_name": "Radar", "url": "./index.html", "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96", "type": "image/png" }] }
+  ]
+}

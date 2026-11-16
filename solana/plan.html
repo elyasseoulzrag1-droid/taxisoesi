@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="Plan d'investissement Solana : thermomètre d'achat, alertes de prix bas et hauts, simulation sur l'historique et explication de chaque hausse et baisse.">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Plan SOL">
 <title>Plan Solana</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -235,6 +243,14 @@ textarea{width:100%;min-height:90px;background:var(--surface-2);border:1px solid
 .opinion{background:var(--surface-2);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink-2)}
 .opinion b{color:var(--ink)}
 
+/* Installation sur l'écran d'accueil */
+.install{padding-top:14px}
+.install-in{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px;position:relative;overflow:hidden}
+.install-in::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--grad)}
+.install-in img{border-radius:10px;flex:none}
+.install-in div{flex:1 1 200px;min-width:0;font-size:13.5px;color:var(--ink-2)}
+.install-in b{display:block;color:var(--ink);font-size:14.5px}
+
 footer{padding-block:6px 48px;color:var(--ink-3);font-size:12.5px}
 footer p{margin:0 0 8px;max-width:90ch}
 .warnbox{border:1px solid rgba(255,181,71,.35);background:rgba(255,181,71,.06);border-radius:14px;padding:14px 16px;color:var(--ink-2);font-size:13.5px}
@@ -285,6 +301,15 @@ footer p{margin:0 0 8px;max-width:90ch}
   </div>
 </header>
 
+<div class="install wrap" id="install" hidden>
+  <div class="install-in">
+    <img src="icons/icon-96.png" alt="" width="44" height="44">
+    <div><b>Installe Plan SOL sur ton écran d'accueil</b><span id="installText"></span></div>
+    <button class="btn primary small" type="button" id="installBtn" hidden>Installer</button>
+    <button class="btn small" type="button" id="installClose">Plus tard</button>
+  </div>
+</div>
+
 <main class="wrap">
 
   <!-- Thermomètre -->
@@ -331,7 +356,7 @@ footer p{margin:0 0 8px;max-width:90ch}
 
   <!-- Alertes -->
   <section id="alertes" class="card" aria-labelledby="alertTitle">
-    <div class="sec-head"><h2 id="alertTitle">Alertes</h2><p>Les alertes se déclenchent tant que cette page est ouverte (onglet en arrière-plan compris).</p></div>
+    <div class="sec-head"><h2 id="alertTitle">Alertes</h2><p>Les alertes se déclenchent tant que l'appli ou la page est ouverte, y compris en arrière-plan sur ordinateur. Sur téléphone, le système met l'appli en veille peu après sa fermeture.</p></div>
     <div class="grid2">
       <div>
         <div class="eyebrow" style="margin-bottom:4px">Dernières alertes</div>
@@ -550,6 +575,31 @@ function ago(ms) {
   if (s < 3600) return `il y a ${Math.max(1, Math.round(s / 60))}${NBSP}min`;
   if (s < 86400) return `il y a ${Math.round(s / 3600)}${NBSP}h`;
   return `il y a ${Math.round(s / 86400)}${NBSP}j`;
+}
+
+/* ---------- Appli sur l'écran d'accueil ---------- */
+let swReg = null;
+const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+function setupInstall() {
+  const secure = location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if ('serviceWorker' in navigator && secure) navigator.serviceWorker.register('sw.js').then(r => { swReg = r; }).catch(() => {});
+  if (!secure || isStandalone()) return;
+  let prompt = null;
+  const box = $('install'), txt = $('installText'), btn = $('installBtn');
+  const show = kind => {
+    if (store.get('plan-sol-install-off', false)) return;
+    txt.textContent = kind === 'ios'
+      ? 'Dans Safari, touche le bouton Partager (le carré avec une flèche) puis « Sur l\'écran d\'accueil ».'
+      : 'Une icône sur ton téléphone, en plein écran, avec les alertes en notification.';
+    btn.hidden = kind === 'ios';
+    box.hidden = false;
+  };
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); prompt = e; show('android'); });
+  window.addEventListener('appinstalled', () => { box.hidden = true; prompt = null; });
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (ios) show('ios');
+  btn.addEventListener('click', async () => { if (!prompt) return; prompt.prompt(); try { await prompt.userChoice; } catch (e) { /* choix ignoré */ } prompt = null; box.hidden = true; });
+  $('installClose').addEventListener('click', () => { box.hidden = true; store.set('plan-sol-install-off', true); });
 }
 
 /* ---------- Stockage local ---------- */
@@ -1287,7 +1337,12 @@ function fireAlert(kind, title, body) {
   saveAlerts(); renderAlertList();
   const tz = $('toasts'); const t = el('div', 'toast'); t.append(el('b', null, title), el('p', null, body)); tz.append(t);
   setTimeout(() => t.remove(), 12000);
-  if (alertsCfg.notify && 'Notification' in window && Notification.permission === 'granted') { try { new Notification(title, { body, tag: kind }); } catch (e) { /* notification refusée */ } }
+  if (alertsCfg.notify && 'Notification' in window && Notification.permission === 'granted') {
+    const opts = { body, tag: `${kind}-${Date.now()}`, icon: 'icons/icon-192.png', badge: 'icons/icon-96.png' };
+    // Sur téléphone (Android, iPhone en appli), seules les notifications du service worker sont autorisées.
+    const viaPage = () => { try { new Notification(title, opts); } catch (e) { /* notification refusée */ } };
+    if (swReg && swReg.showNotification) swReg.showNotification(title, opts).catch(viaPage); else viaPage();
+  }
   if (alertsCfg.sound) chime();
   const prev = document.title; document.title = '● ' + title; setTimeout(() => { document.title = prev; }, 8000);
 }
@@ -1475,6 +1530,7 @@ function syncEvFilter() { for (const b of $('evFilter').children) b.setAttribute
 
 /* ---------- Démarrage ---------- */
 async function boot() {
+  setupInstall();
   bindPlan(); bindJournal(); bindAlerts(); renderJournal();
   renderEvents(); renderFuture(); renderNowBox();
   $('evFilter').addEventListener('click', e => { const b = e.target.closest('button[data-f]'); if (!b) return; evFilter = b.dataset.f; syncEvFilter(); renderEvents(); });
