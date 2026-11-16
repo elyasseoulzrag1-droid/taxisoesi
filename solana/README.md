@@ -15,7 +15,7 @@ https://raw.githack.com/elyasseoulzrag1-droid/taxisoesi/claude/solana-tracking-a
 - **Android** (Chrome) : bouton « Installer » dans la page, ou menu ⋮ puis « Ajouter à l'écran d'accueil ».
 
 L'appli s'ouvre alors en plein écran avec son icône, garde une copie pour s'ouvrir sans réseau
-(`sw.js`) et envoie les alertes en notification tant qu'elle est ouverte (`manifest.webmanifest`,
+(`sw.js`) et envoie les alertes en notification tant qu'elle est ouverte (`manifest.json`,
 icônes dans `icons/`). Pour une adresse à toi, active GitHub Pages sur cette branche
 (Settings, Pages, « Deploy from a branch », dossier racine) : l'appli sera alors sur
 https://elyasseoulzrag1-droid.github.io/taxisoesi/solana/plan.html

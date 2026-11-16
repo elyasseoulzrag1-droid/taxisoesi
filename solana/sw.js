@@ -4,13 +4,14 @@
    - Affiche les notifications d'alerte et ouvre l'appli quand on touche une notification. */
 const CACHE = 'plan-solana-v1';
 const SHELL = [
-  './plan.html', './index.html', './manifest.webmanifest',
+  './plan.html', './index.html', './manifest.json',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png', './icons/favicon-32.png',
 ];
 const LIBS = ['cdn.jsdelivr.net', 'unpkg.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  // Chaque fichier est mis de côté séparément : un fichier manquant ne bloque pas l'installation.
+  event.waitUntil(caches.open(CACHE).then(c => Promise.all(SHELL.map(u => c.add(u).catch(() => {})))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', event => {
