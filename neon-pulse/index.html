@@ -292,7 +292,7 @@ function draw(dt){
   parts=parts.filter(q=>q.life>0);if(parts.length>500)parts.splice(0,parts.length-500);
   if(st==='play'){trail.push({x:px,y:p.y});if(trail.length>(fast||mode==='wave'?30:16))trail.shift();
     if(mode!=='jump'||Math.random()<.4)parts.push({x:px-R*.6,y:p.y+(Math.random()-.5)*14,vx:-200-Math.random()*200,vy:(Math.random()-.5)*80,life:.35,max:.35,hue:fast?20+Math.random()*40:hue+Math.random()*60,s:2+Math.random()*3,gr:0})}
-  const bxs=st==='menu'?W*.5:px-camX,by=st==='menu'?GY-R-Math.abs(Math.sin(tt*3))*70:p.y;
+  const bxs=st==='menu'?W*.1:px-camX,by=st==='menu'?GY-R-Math.abs(Math.sin(tt*3))*70:p.y;
   if(st!=='menu'){
     if(mode==='wave'&&trail.length>1){g.lineJoin='miter';for(const [lw,al] of [[16,.18],[7,.5],[2.5,1]]){g.strokeStyle=hsl(hue+40,100,al===1?85:62,al);g.lineWidth=lw;g.beginPath();trail.forEach((q,i)=>i?g.lineTo(q.x-camX,q.y):g.moveTo(q.x-camX,q.y));g.stroke()}}
     else trail.forEach((q,i)=>{const al=i/trail.length;g.fillStyle=hsl(hue+60*(1-al),100,60,al*.35);g.beginPath();g.arc(q.x-camX,q.y,R*(.35+al*.6),0,6.283);g.fill()})}
