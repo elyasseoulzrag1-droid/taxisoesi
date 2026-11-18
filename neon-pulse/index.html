@@ -36,9 +36,9 @@ const LEVELS=[
    [[55,3,1],[57,3,-1],[59,3,1],[60.5,3,-1],[62,4,1],[64,2,-1],[65,2,1],[66,2,-1],[67,2,1],[69,3,-1],[71,3,1],[72.5,3,-1],[74,2,1]].forEach(a=>S(a[0],a[1],a[2]));
    [[79,1],[80,1],[81,2],[83,1],[84,1],[85,1],[86,2],[88,3],[90,1],[91,1],[92,2],[93,1],[94,1],[96,3],[98,1],[99,1],[100,2],[101,1],[102,3]].forEach(a=>S(a[0],a[1]));
   }},
- {name:'NIVEAU 2',sub:'Brazilian bass',file:'brasil-125.mp3',bpm:125,lead:.258,tm:[[20,0],[112,-.022]],end:125,shape:6,
-  sec:[{b:0,mode:'jump',v:1,name:'',hue:28},{b:28,mode:'wave',v:1,name:'ZIGZAG',hue:205},
-       {b:52,mode:'grav',v:1.2,name:'GRAVITÉ +',hue:300},{b:76,mode:'ship',v:1.1,name:'SCIES',hue:95},{b:100,mode:'turbo',v:1.5,name:'HYPER',hue:0}],
+ {name:'NIVEAU 2',sub:'Deep house solaire',file:'sunset-126.mp3',bpm:125.824,lead:.188,tm:[[12,0],[28,.008],[44,.022],[60,.046],[76,.06],[92,.06],[108,.048],[120,.036]],end:125,shape:6,
+  sec:[{b:0,mode:'jump',v:1,name:'',hue:28},{b:28,mode:'wave',v:1,name:'ZIGZAG',hue:330},
+       {b:52,mode:'grav',v:1.2,name:'GRAVITÉ +',hue:45},{b:76,mode:'ship',v:1.1,name:'SCIES',hue:175},{b:100,mode:'turbo',v:1.5,name:'HYPER',hue:15}],
   build(S,B,L,SW){
    [[6,1],[7,1],[8,2],[10.5,5],[13,1],[14,1],[15,2],[17,5],[19.5,1],[20.5,1],[21.5,2],[23.5,5],[26,2]].forEach(a=>S(a[0],a[1]));
    [270,190,330,230,350,180,300,200,340,250,170,310,220,270].forEach((c,i)=>{const b=30.5+i*1.5;B(b,c-80-CY,-1,50);B(b,GY-c-80,1,50)});
