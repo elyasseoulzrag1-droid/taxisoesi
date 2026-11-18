@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Neon Pulse</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&display=swap">
@@ -22,7 +23,7 @@ function resize(){const d=Math.min(devicePixelRatio||1,2),w=cv.clientWidth||inne
 addEventListener('resize',resize);resize();
 
 /* ---------- niveau ---------- */
-const BPM=124,BT=60/BPM,V=520,PB=V*BT,TURBO=1.45,GY=440,CY=100,R=18,END=106;
+const BPM=126.045,LEAD=.23,BT=60/BPM,V=520,PB=V*BT,TURBO=1.45,GY=440,CY=100,R=18,END=106;
 const SEC=[{b:0,mode:'jump',name:'',hue:190},{b:28,mode:'ship',name:'VOL',hue:275},
            {b:52,mode:'grav',name:'GRAVITÉ',hue:135},{b:76,mode:'turbo',name:'TURBO',hue:345}];
 const bx=b=>b<=76?b*PB:76*PB+(b-76)*PB*TURBO;
@@ -41,7 +42,7 @@ B(41,110,1);B(41,80,-1);B(43,200,-1);B(44.5,200,1);L(46,170,-1);L(47.5,170,1);L(
 [[79,1],[80,1],[81,2],[83,1],[84,1],[85,1],[86,2],[88,3],[90,1],[91,1],[92,2],[93,1],[94,1],[96,3],[98,1],[99,1],[100,2],[101,1],[102,3]].forEach(a=>S(a[0],a[1]));
 
 /* ---------- audio ---------- */
-let ac,comp,master,duck,dly,noiseBuf;
+let ac,comp,master,duck,dly,noiseBuf,trackBuf=null,src=null,musicReady=false;
 const mf=m=>440*Math.pow(2,(m-69)/12);
 const CH=[{r:33,n:[60,64,67,71]},{r:29,n:[57,60,64,67]},{r:26,n:[53,57,60,64]},{r:28,n:[55,59,62,66]}];
 function initAudio(){
@@ -51,6 +52,7 @@ function initAudio(){
 }
 function newBus(){
   if(master){const m=master;m.gain.cancelScheduledValues(ac.currentTime);m.gain.setTargetAtTime(0,ac.currentTime,.03);setTimeout(()=>m.disconnect(),500)}
+  if(src){try{src.stop(ac.currentTime+.2)}catch(e){}src=null}
   master=ac.createGain();master.gain.value=.85;master.connect(comp);
   duck=ac.createGain();duck.connect(master);
   dly=ac.createDelay(1);dly.delayTime.value=BT*.75;const fb=ac.createGain();fb.gain.value=.36;dly.connect(fb);fb.connect(dly);dly.connect(duck);
@@ -93,7 +95,9 @@ const stars=Array.from({length:70},()=>({x:Math.random()*3000,y:Math.random()*H,
 const now=()=>performance.now()/1000;
 function start(from){
   if(!ac)initAudio();ac.resume();newBus();
-  startBeat=from;t0=ac.currentTime+.15;nextStep=Math.ceil(from*4);lastA=ac.currentTime;beat=from;
+  startBeat=from;t0=ac.currentTime+.15;
+  if(trackBuf){src=ac.createBufferSource();src.buffer=trackBuf;src.connect(master);src.start(t0,LEAD+from*BT)}
+ nextStep=Math.ceil(from*4);lastA=ac.currentTime;beat=from;
   secI=0;for(let i=0;i<SEC.length;i++)if(from>=SEC[i].b)secI=i;mode=SEC[secI].mode;
   p={y:GY-R,vy:0,gd:1,on:true,rot:0};px=bx(from);trail=[];parts=[];rings=[];st='play';flash=.3;
 }
@@ -104,7 +108,7 @@ function win(){st='win';winAt=now();flash=1;chime();master.gain.setTargetAtTime(
 function burst(x,y,n,h,sp){for(let i=0;i<n;i++){const a=Math.random()*6.283,v=sp*(.2+Math.random());
   parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:.4+Math.random()*.7,max:1.1,hue:h+Math.random()*80-40,s:2+Math.random()*4,gr:500})}}
 function press(){down=true;pressT=now();
-  if(st==='menu')start(0);
+  if(st==='menu'){if(musicReady)start(0)}
   else if(st==='dead'&&now()-deadAt>.35){attempts++;start(cp)}
   else if(st==='win'&&now()-winAt>1.2){attempts=1;cp=0;start(0)}}
 const KEYS=['Space','ArrowUp','KeyW','KeyX','Enter'];
@@ -153,7 +157,7 @@ function step(dt){
 function puff(side){for(let i=0;i<6;i++)parts.push({x:px-6,y:p.y+side*R,vx:-120-Math.random()*160,vy:-side*Math.random()*120,life:.3,max:.3,hue,s:3,gr:0})}
 function update(){
   const a=ac.currentTime;
-  while(t0+(nextStep/4-startBeat)*BT<a+.2){schedStep(nextStep,Math.max(a,t0+(nextStep/4-startBeat)*BT));nextStep++}
+  while(!trackBuf&&t0+(nextStep/4-startBeat)*BT<a+.2){schedStep(nextStep,Math.max(a,t0+(nextStep/4-startBeat)*BT));nextStep++}
   let dt=Math.min(a-lastA,.05);lastA=a;if(dt<=0)return;
   const b1=startBeat+(a-t0)/BT;if(b1<startBeat){return}
   const b0=beat,n=Math.max(1,Math.ceil(dt/.004));
@@ -263,15 +267,19 @@ function draw(dt){
     g.font=F(15,500);g.fillStyle='rgba(255,255,255,.55)';g.fillText('R pour repartir du début',W/2,305);
     if(now()-deadAt>1.6){attempts++;start(cp)}}
   if(st==='menu'){g.font=F(Math.min(96,W*.11));g.fillStyle='#fff';g.shadowColor=hsl(hue,100,60);g.shadowBlur=40;g.fillText('NEON PULSE',W/2,190);g.shadowBlur=0;
-    g.font=F(22,500);g.fillStyle=hsl(hue,100,75,.6+.4*Math.sin(tt*4));g.fillText('ESPACE ou clic pour jouer',W/2,262);
+    g.font=F(22,500);g.fillStyle=hsl(hue,100,75,.6+.4*Math.sin(tt*4));g.fillText(musicReady?'ESPACE ou clic pour jouer':'Chargement de la musique…',W/2,262);
     g.font=F(16,500);g.fillStyle='rgba(255,255,255,.7)';g.fillText('Saut  ·  Vol  ·  Gravité  ·  Turbo      Mets le son',W/2,300)}
   if(st==='win'){g.font=F(Math.min(70,W*.085));g.fillStyle='#fff';g.shadowColor=hsl(tt*90,100,60);g.shadowBlur=40;g.fillText('NIVEAU TERMINÉ',W/2,210);g.shadowBlur=0;
     g.font=F(22,500);g.fillStyle='rgba(255,255,255,.85)';g.fillText(attempts+(attempts>1?' essais':' essai')+'  ·  ESPACE pour rejouer',W/2,275)}
   if(flash>0){g.fillStyle='rgba(255,255,255,'+flash*.55+')';g.fillRect(-40,-OY-40,W+80,H+2*OY+80);flash=Math.max(0,flash-dt*2.5)}
 }
+// musique Suno : chargée depuis track.mp3, sinon le synthé intégré prend le relais
+try{initAudio();const to=setTimeout(()=>musicReady=true,9000);
+  fetch('track.mp3').then(r=>{if(!r.ok)throw 0;return r.arrayBuffer()}).then(b=>ac.decodeAudioData(b)).then(b=>{trackBuf=b}).catch(()=>{}).finally(()=>{clearTimeout(to);musicReady=true})
+}catch(e){musicReady=true}
 let lt=now();
 function frame(){const t=now(),dt=Math.min(.05,t-lt);lt=t;if(st==='play')update();draw(dt);requestAnimationFrame(frame)}
-window.__np={get s(){return{st,beat,attempts,mode,cp}},setBot:v=>bot=v};
+window.__np={get s(){return{st,beat,attempts,mode,cp,track:!!trackBuf}},setBot:v=>bot=v};
 requestAnimationFrame(frame);
 })();
 </script>
