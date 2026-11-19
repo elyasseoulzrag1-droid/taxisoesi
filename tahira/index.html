@@ -12,10 +12,10 @@
   --ink-34:rgba(18,16,16,.34);
   --line:#E4DFDA;
   --line-2:#F0ECE8;
-  --veil:#6E6257;   --veil-d:#4A4138;
+  --veil:#552521;   --veil-d:#370E0A;
   --mirage:#3E2C25; --mirage-d:#21130D;
   --ember:#80213A;  --ember-d:#660623;
-  --halo:#7A4A22;   --halo-d:#55301A;
+  --halo:#462938;   --halo-d:#2C141F;
   --tint:#FAF7F6;
   --glow:rgba(85,37,33,.10);
   --acc:#552521;
@@ -110,7 +110,7 @@ img{max-width:100%;height:auto;display:block}
 <style>
 /* ---------- hero: the only section that carries full colour ---------- */
 .hero{
-  --hb:#4A4138; --hd:#241F1B; --hg:#8A7D70;
+  --hb:#370E0A; --hd:#1B0301; --hg:#6B3C37;
   position:relative;overflow:hidden;color:#fff;
   background:
     radial-gradient(136% 92% at 50% -10%, var(--hg) 0%, rgba(0,0,0,0) 64%),
@@ -1161,7 +1161,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
 <a class="skip" href="#top" data-i="skip">Skip to content</a>
 <style>
 /* ---------- corrections du document TAHIRA ---------- */
-:root{--veil-t:#A39482;--mirage-t:#6B4A3A;--ember-t:#B0244F;--halo-t:#B9773B}
+:root{--veil-t:var(--veil);--mirage-t:var(--mirage);--ember-t:var(--ember);--halo-t:var(--halo)}
 
 /* en-tete : plus bas, sans cadres ; la langue active est soulignee */
 .top__in{padding-block:7px}
@@ -1851,21 +1851,21 @@ html{scroll-padding-top:84px}
 
   var MUSKS = [
     { key:"veil", latin:"VEIL", arName:"فيل", img:"veil.png", tile:"tile-veil.jpg", price:169,
-      face:"#6E6257", lit:"#8A7D70", dom:"#4A4138", deep:"#241F1B", tint:"#A39482",
-      en:{ short:"white musk", note:"White musk: clean, powdered, the smell of skin after the shower", colour:"Deep greige" },
-      ar:{ short:"مسك أبيض", note:"مسك أبيض: نظيف، بودري، رائحة البشرة بعد الاستحمام", colour:"بيج رمادي داكن" } },
+      face:"#552521", lit:"#6B3C37", dom:"#370E0A", deep:"#1B0301", tint:"#552521",
+      en:{ short:"white musk", note:"White musk: clean, powdered, the smell of skin after the shower", colour:"Deep bordeaux" },
+      ar:{ short:"مسك أبيض", note:"مسك أبيض: نظيف، بودري، رائحة البشرة بعد الاستحمام", colour:"بوردو غامق" } },
     { key:"mirage", latin:"MIRAGE", arName:"ميراج", img:"mirage.png", tile:"tile-mirage.jpg", price:169,
-      face:"#3E2C25", lit:"#57443D", dom:"#21130D", deep:"#0E0502", tint:"#6B4A3A",
+      face:"#3E2C25", lit:"#57443D", dom:"#21130D", deep:"#0E0502", tint:"#3E2C25",
       en:{ short:"oud vanilla", note:"Oud vanilla musk: oud, softened by vanilla, a warm woody finish", colour:"Chocolate brown" },
       ar:{ short:"مسك عود وفانيليا", note:"مسك عود وفانيليا: عود تليّنه الفانيليا، ونهاية خشبية دافئة", colour:"بني شوكولاتة" } },
     { key:"ember", latin:"EMBER", arName:"إمبر", img:"ember.png", tile:"tile-ember.jpg", price:169,
-      face:"#80213A", lit:"#94384F", dom:"#660623", deep:"#320108", tint:"#B0244F",
-      en:{ short:"cherry amber", note:"Cherry amber musk: black cherry, almond, warm amber", colour:"Garnet red" },
-      ar:{ short:"مسك كرز وعنبر", note:"مسك كرز وعنبر: كرز أسود، لوز، عنبر دافئ", colour:"أحمر عقيقي" } },
+      face:"#80213A", lit:"#94384F", dom:"#660623", deep:"#320108", tint:"#80213A",
+      en:{ short:"cherry amber", note:"Cherry amber musk: black cherry, almond, warm amber", colour:"Deep magenta" },
+      ar:{ short:"مسك كرز وعنبر", note:"مسك كرز وعنبر: كرز أسود، لوز، عنبر دافئ", colour:"ماجنتا غامق" } },
     { key:"halo", latin:"HALO", arName:"هالو", img:"halo.png", tile:"tile-halo.jpg", price:169,
-      face:"#7A4A22", lit:"#96613A", dom:"#55301A", deep:"#2A170A", tint:"#B9773B",
-      en:{ short:"pistachio caramel", note:"Pistachio caramel musk: pistachio, caramel, white musk", colour:"Caramel brown" },
-      ar:{ short:"مسك فستق وكراميل", note:"مسك فستق وكراميل: فستق، كراميل، مسك أبيض", colour:"بني كراميل" } }
+      face:"#462938", lit:"#5C3F4E", dom:"#2C141F", deep:"#1D0D11", tint:"#462938",
+      en:{ short:"pistachio caramel", note:"Pistachio caramel musk: pistachio, caramel, white musk", colour:"Plum" },
+      ar:{ short:"مسك فستق وكراميل", note:"مسك فستق وكراميل: فستق، كراميل، مسك أبيض", colour:"برقوقي" } }
   ];
   var COFFRET = { key:"coffret", price:539,
     en:{ name:"THE COFFRET", desc:"All four musks, one for every kind of day" },
