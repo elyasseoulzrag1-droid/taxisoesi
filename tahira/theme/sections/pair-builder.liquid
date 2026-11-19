@@ -55,6 +55,10 @@
           <span class="pairs__price" data-pair-price></span>
           <button class="btn btn--light" type="submit"><span>{{ 'pair.add' | t }}</span></button>
           <span class="pairs__incl">{{ 'pair.incl' | t }}</span>
+          {%- if settings.charm != blank -%}
+            {%- assign charm_worth = settings.charm.price | money -%}
+            <span class="pairs__worth">{{ 'pair.worth' | t: n: charm_worth }}</span>
+          {%- endif -%}
           <p class="msg msg--err" data-form-error hidden></p>
         </form>
         <p class="fine">{{ 'pair.charm' | t }}</p>

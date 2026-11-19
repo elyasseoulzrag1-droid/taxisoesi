@@ -10,10 +10,12 @@
     --mirage:{{ settings.mirage_face }};--mirage-deep:{{ settings.mirage_deep }};
     --ember:{{ settings.ember_face }};--ember-deep:{{ settings.ember_deep }};
     --halo:{{ settings.halo_face }};--halo-deep:{{ settings.halo_deep }};
+    --veil-tint:{{ settings.veil_tint }};--mirage-tint:{{ settings.mirage_tint }};
+    --ember-tint:{{ settings.ember_tint }};--halo-tint:{{ settings.halo_tint }};
   }
-  .m-veil{--face:var(--veil);--deep:var(--veil-deep)}
-  .m-mirage{--face:var(--mirage);--deep:var(--mirage-deep)}
-  .m-ember{--face:var(--ember);--deep:var(--ember-deep)}
-  .m-halo{--face:var(--halo);--deep:var(--halo-deep)}
-  .m-coffret{--face:var(--ember);--deep:var(--ember-deep)}
+  .m-veil{--face:var(--veil);--deep:var(--veil-deep);--sw:var(--veil-tint)}
+  .m-mirage{--face:var(--mirage);--deep:var(--mirage-deep);--sw:var(--mirage-tint)}
+  .m-ember{--face:var(--ember);--deep:var(--ember-deep);--sw:var(--ember-tint)}
+  .m-halo{--face:var(--halo);--deep:var(--halo-deep);--sw:var(--halo-tint)}
+  .m-coffret{--face:var(--ember);--deep:var(--ember-deep);--sw:var(--ember-tint)}
 </style>

@@ -1,3 +1,9 @@
+/* Fonts, served from the theme: no call to an outside service. */
+@font-face{font-family:"Jost";src:url(font-jost.woff2) format("woff2");font-weight:200 500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Sans";src:url(font-instrument-sans.woff2) format("woff2");font-weight:400 600;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url(font-plex-arabic-300.woff2) format("woff2");font-weight:200 300;font-style:normal;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url(font-plex-arabic-400.woff2) format("woff2");font-weight:400 600;font-style:normal;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+
 /* TAHIRA theme
    The house rules: white paper, one ink, four musk colours. Colour is earned:
    it sits behind the tubes, never behind long text. Labels stay readable (12px minimum). */
@@ -664,3 +670,166 @@ body.has-buybar .wa{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 
 /* editor placeholders */
 .placeholder{background:var(--sand);fill:var(--ink-20);width:100%;height:100%}
+
+
+/* =====================================================================
+   Corrections, November 2026 (brief "TAHIRA corrections").
+   Same art direction; this block only fixes what the brief lists.
+   ===================================================================== */
+
+/* ---------- header: lower, no frames, plain count ---------- */
+:root{--head-h:56px}
+@media (max-width:989px){:root{--head-h:52px}}
+.ann__in{min-height:32px}
+.ann__item{font-size:11px}
+@media (max-width:989px){.mark__lat{font-size:18px;letter-spacing:.38em;margin-inline-end:-.38em}.mark__ar{font-size:14px}}
+.icon-btn{width:40px;height:40px}
+.icon-btn .count{position:static;display:inline;min-width:0;height:auto;padding:0;margin-inline-start:2px;background:none;color:var(--ink);font:500 12px/1 var(--t)}
+.icon-btn:has(.count:not(:empty)){width:auto;padding-inline:6px;display:inline-flex;align-items:center;gap:2px}
+.lang button{padding:6px 6px}
+
+/* ---------- one button style everywhere: the thin line ---------- */
+.btn{background:transparent;color:var(--b);border:1px solid var(--b)}
+.btn:hover{background:var(--b);color:var(--f)}
+.btn--line{background:transparent;color:var(--b)}
+.btn--light,.btn--ghost-light{--b:var(--on-dark);--f:var(--ink);background:transparent;color:var(--on-dark);border-color:var(--on-dark)}
+.btn--light:hover,.btn--ghost-light:hover{background:var(--on-dark);color:var(--ink)}
+.field .btn{border:0;border-inline-start:1px solid var(--ink)}
+.field .btn:hover{background:var(--ink);color:var(--paper)}
+.buy__dyn .shopify-payment-button__button--unbranded{background:transparent!important;color:var(--ink)!important;border:1px solid var(--ink)!important;font-family:var(--d);letter-spacing:var(--track);text-transform:uppercase;font-size:13px}
+
+/* ---------- the real tube colours on every swatch ---------- */
+.hero__opt i{width:16px;height:16px;background:var(--sw)}
+.foot__col i,.chart th[scope="row"] i,.review__musk i,.sw i{background:var(--sw)}
+.buybar__name i{background:var(--sw,var(--ink))}
+
+/* ---------- light behind the tubes, so they lift off the dark ---------- */
+.tube{isolation:isolate}
+.tube::before{content:"";position:absolute;left:50%;top:48%;width:330%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(255,241,229,.36) 0%,rgba(255,241,229,.13) 30%,rgba(255,241,229,0) 60%);z-index:-1;pointer-events:none}
+.tube__img{filter:drop-shadow(0 22px 30px rgba(0,0,0,.42)) brightness(1.14) contrast(1.04)}
+.card--musk .card__media{position:relative}
+.card--musk .card__media::after,.pdp__media .gal__item::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(46% 40% at 50% 48%,rgba(255,238,224,.3),rgba(255,238,224,0) 72%);mix-blend-mode:screen}
+.card--musk .card__media img,.pdp__media .gal__item img{filter:brightness(1.12) contrast(1.04)}
+.pdp__media .gal__item{position:relative}
+
+/* ---------- hero: tighter, and the buy button on the first screen ---------- */
+.hero__in{min-height:0;padding-block:clamp(28px,4vw,60px)}
+.hero__copy{gap:18px}
+.hero .h1{font-size:clamp(42px,5.6vw,86px)}
+.hero__opt{padding:11px 0}
+.hero__stage{min-height:clamp(380px,42vw,600px)}
+.hero__pair{display:inline-flex;align-items:center;gap:8px;width:100%;color:var(--on-dark);font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.hero__pair .i{width:16px;height:16px}
+@media (max-width:899px){
+  .hero__in{display:flex;flex-direction:column;gap:14px;padding-block:18px 26px}
+  .hero__copy{display:contents}
+  .hero__lab{display:none}
+  .hero__h{order:1;font-size:clamp(38px,11vw,50px)}
+  .hero__stage{order:2;min-height:236px;margin:0}
+  .hero__stage .tube{--tw:70px}
+  .hero__stage::before{width:200px}
+  .hero__pick{order:3}
+  .hero__line{order:4;font-size:16px}
+  .hero__buy{order:5;display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:center;margin:0}
+  .hero__buy .split,.hero__pair{grid-column:1/-1}
+  .hero__form .btn{width:100%}
+  .hero__see{display:none}
+  .hero__sub{order:6;font-size:15px}
+}
+
+/* ---------- pair builder: bigger true-colour swatches, outline when chosen ---------- */
+.pairs__pick button{background:transparent;padding:18px 6px 14px}
+.pairs__pick button i{width:38px;height:38px;background:var(--sw);outline:0}
+.pairs__pick button[aria-pressed="true"]{background:transparent;border-color:var(--on-dark);box-shadow:inset 0 0 0 1px var(--on-dark)}
+.pairs__worth{width:100%;font-size:13px;color:var(--on-dark-72)}
+
+/* ---------- carousels: a card and a clear third of the next, snap, dots ---------- */
+@media (max-width:599px){
+  .cards--scroll>*{flex:0 0 72%;scroll-snap-stop:always}
+}
+@media (max-width:989px){
+  .reviews>*{flex:0 0 76%;scroll-snap-stop:always}
+}
+.reel__item{scroll-snap-stop:always}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.dots button{width:24px;height:3px;padding:0;border:0;background:var(--ink-20)}
+.dots button[aria-current="true"]{background:var(--ink)}
+
+/* ---------- menu: the four musks as a group, then the pages ---------- */
+.menu-group{padding:22px 0 8px;border-top:1px solid var(--ink);font:500 12px/1.4 var(--d);letter-spacing:var(--track);text-transform:uppercase;color:var(--ink-60)}
+.menu-group:first-child{border-top:0;padding-top:10px}
+.menu-list .menu-musk a{justify-content:flex-start;gap:14px}
+.menu-list .menu-musk i{width:16px;height:22px;background:var(--sw)}
+.menu-musk small{font:400 14px/1.3 var(--t);color:var(--ink-60);margin-inline-start:6px}
+
+/* ---------- product page ---------- */
+.others{display:grid;gap:10px}
+.others__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.other{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);text-decoration:none;transition:border-color .2s}
+.other:hover{border-color:var(--ink)}
+.other i{width:14px;height:30px;background:var(--sw)}
+.other b{display:block;font:400 13px/1.2 "Jost",sans-serif;letter-spacing:.14em}
+.other small{display:block;margin-top:3px;font-size:12px;line-height:1.3;color:var(--ink-60)}
+@media (max-width:440px){.other{grid-template-columns:1fr;justify-items:start;gap:8px;padding:10px}.other i{width:22px;height:10px}}
+.badges{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.badges li{padding:7px 10px;border:1px solid var(--line);font:500 11px/1.35 var(--d);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-72)}
+[dir="rtl"] .badges li{letter-spacing:0;font-size:13px}
+.pdp__quiz{margin:0}
+
+/* the composition: three gradient trapezoids, top to base */
+.pyramid{--g:linear-gradient(180deg,color-mix(in srgb,var(--sw,var(--sand)) 88%,#000 12%) 0%,var(--face,var(--ink)) 55%,var(--deep,var(--ink)) 100%);margin:6px 0 0;display:grid;gap:3px}
+.pyramid>div{display:grid;justify-items:center;align-content:center;gap:2px;min-height:68px;text-align:center;color:#fff;
+  background:var(--g);background-size:100% 300%;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.pyramid__top{clip-path:polygon(32% 0,68% 0,78.7% 100%,21.3% 100%);padding:0 25%;background-position:0 0!important}
+.pyramid__heart{clip-path:polygon(21.3% 0,78.7% 0,89.3% 100%,10.7% 100%);padding:0 15%;background-position:0 50%!important}
+.pyramid__base{clip-path:polygon(10.7% 0,89.3% 0,100% 100%,0 100%);padding:0 7%;background-position:0 100%!important}
+.pyramid dt{font:500 11px/1.3 var(--d);letter-spacing:var(--track);text-transform:uppercase;color:rgba(255,255,255,.78)}
+.pyramid dd{margin:0;font-size:14px;line-height:1.35}
+
+/* regulatory information */
+.reg{margin:0;display:grid;border-top:1px solid var(--line)}
+.reg div{display:grid;grid-template-columns:minmax(110px,.45fr) 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.reg dt{font:500 12px/1.4 var(--d);letter-spacing:var(--track);text-transform:uppercase;color:var(--ink-60);padding-top:2px}
+.reg dd{margin:0;color:var(--ink)}
+
+/* through the day: 08:00 to 23:00 */
+.day{background:linear-gradient(165deg,var(--face),var(--deep));color:var(--on-dark)}
+.day .lab{color:var(--on-dark-72)}
+.day .fine{color:var(--on-dark-50)}
+.day__line{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative}
+.day__line::before{content:"";position:absolute;top:7px;inset-inline:0;height:1px;background:var(--on-dark-line)}
+.day__step{position:relative;display:grid;gap:10px;align-content:start;padding-inline-end:22px}
+.day__dot{width:15px;height:15px;border-radius:50%;background:var(--sw,var(--on-dark));box-shadow:0 0 0 4px var(--deep);opacity:calc(1.15 - var(--i) * .15)}
+.day__time{font:300 26px/1 "Jost",sans-serif;letter-spacing:.06em}
+.day__step p{color:var(--on-dark-72);font-size:15px}
+@media (max-width:749px){
+  .day__line{grid-template-columns:1fr;gap:24px}
+  .day__line::before{top:4px;bottom:4px;height:auto;width:1px;inset-inline-start:7px;inset-inline-end:auto}
+  .day__step{padding-inline:36px 0}
+  .day__dot{position:absolute;inset-inline-start:0;top:5px}
+  .day__time{font-size:22px}
+}
+
+/* layering selector at the bottom of the product page */
+.layer-pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.layer-pick button{display:flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 8px;border:1px solid var(--on-dark-line);background:transparent;color:var(--on-dark-72);font:400 13px/1 "Jost",sans-serif;letter-spacing:.16em}
+.layer-pick button i{width:18px;height:24px;background:var(--sw);flex:none}
+.layer-pick button[aria-pressed="true"]{border-color:var(--on-dark);box-shadow:inset 0 0 0 1px var(--on-dark);color:var(--on-dark)}
+.with__second{display:block;margin-inline-start:-10px;transform:rotate(8deg) translateY(8px)}
+.with__txt [data-layer-text]{color:var(--on-dark)}
+@media (max-width:520px){.layer-pick button{font-size:12px;letter-spacing:.1em;gap:6px}.layer-pick button i{width:12px;height:18px}}
+
+/* WhatsApp: optional, quiet, never neon */
+.wa{background:var(--paper);color:var(--ink);border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.12);width:50px;height:50px}
+.wa .i{width:24px;height:24px}
+
+/* the Arabic watermark: was shrunk by ".quote span" */
+.quote .quote__wm{display:grid;margin:0;font-family:var(--ar);font-weight:300;font-size:clamp(150px,30vw,420px);letter-spacing:0;line-height:1;color:var(--ink);opacity:.045}
+/* the printed name stays legible on light tubes (VEIL greige) */
+.tube__mark{text-shadow:0 0 1px rgba(0,0,0,.45),0 1px 6px rgba(0,0,0,.35)}
+@media (max-width:899px){.hero__in{align-items:stretch}}
+/* VEIL greige is already light: no extra brightness, so its printed name stays readable */
+.tube.m-veil .tube__img{filter:drop-shadow(0 22px 30px rgba(0,0,0,.42)) brightness(.96)}
+.card--musk.m-veil .card__media img{filter:none}

@@ -6,7 +6,7 @@
       <h2 class="h2">{% if section.settings.heading != blank %}{{ section.settings.heading }}{% else %}{{ 'videos.h' | t }}{% endif %}</h2>
     </div>
     {%- if section.blocks.size > 0 -%}
-      <div class="reel">
+      <div class="reel" data-carousel>
         {%- for block in section.blocks -%}
           <figure class="reel__item" {{ block.shopify_attributes }} style="margin:0">
             {%- if block.settings.video != blank -%}

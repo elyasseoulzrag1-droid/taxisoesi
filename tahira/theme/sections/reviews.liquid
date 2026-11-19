@@ -16,7 +16,7 @@
     </div>
 
     {%- if reviews.size > 0 -%}
-      <div class="reviews">
+      <div class="reviews" data-carousel>
         {%- for block in reviews -%}
           {%- assign key = block.settings.musk -%}
           <figure class="review m-{{ key }}" {{ block.shopify_attributes }} data-reveal>

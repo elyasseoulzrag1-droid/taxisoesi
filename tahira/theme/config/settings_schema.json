@@ -90,19 +90,19 @@
       {
         "type": "color",
         "id": "veil_face",
-        "label": "VEIL",
-        "default": "#552521"
+        "label": "VEIL (deep greige)",
+        "default": "#6E6257"
       },
       {
         "type": "color",
         "id": "veil_deep",
         "label": "VEIL, deep",
-        "default": "#1B0301"
+        "default": "#241F1B"
       },
       {
         "type": "color",
         "id": "mirage_face",
-        "label": "MIRAGE",
+        "label": "MIRAGE (chocolate brown)",
         "default": "#3E2C25"
       },
       {
@@ -114,7 +114,7 @@
       {
         "type": "color",
         "id": "ember_face",
-        "label": "EMBER",
+        "label": "EMBER (garnet red)",
         "default": "#80213A"
       },
       {
@@ -126,14 +126,46 @@
       {
         "type": "color",
         "id": "halo_face",
-        "label": "HALO",
-        "default": "#462938"
+        "label": "HALO (caramel brown)",
+        "default": "#7A4A22"
       },
       {
         "type": "color",
         "id": "halo_deep",
         "label": "HALO, deep",
-        "default": "#1D0D11"
+        "default": "#2A170A"
+      },
+      {
+        "type": "header",
+        "content": "Swatches (the real tube colour)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Used for the colour squares: menu, hero, pair builder, product page, sticky bar."
+      },
+      {
+        "type": "color",
+        "id": "veil_tint",
+        "label": "VEIL swatch",
+        "default": "#A39482"
+      },
+      {
+        "type": "color",
+        "id": "mirage_tint",
+        "label": "MIRAGE swatch",
+        "default": "#6B4A3A"
+      },
+      {
+        "type": "color",
+        "id": "ember_tint",
+        "label": "EMBER swatch",
+        "default": "#B0244F"
+      },
+      {
+        "type": "color",
+        "id": "halo_tint",
+        "label": "HALO swatch",
+        "default": "#B9773B"
       },
       {
         "type": "header",
@@ -173,7 +205,7 @@
         "id": "free_shipping",
         "label": "Free delivery from (store currency)",
         "default": 250,
-        "info": "Shows the progress bar in the bag. Set the same threshold in Settings > Shipping. 0 hides the bar."
+        "info": "Shows the progress bar in the bag. Set the same rule in Settings > Shipping and delivery (29 AED below, free from 250 AED). 0 hides the bar."
       },
       {
         "type": "range",
@@ -251,7 +283,13 @@
         "type": "text",
         "id": "whatsapp",
         "label": "WhatsApp number",
-        "info": "International format, digits only, for example 971501234567. Shows a WhatsApp button on every page."
+        "info": "International format, digits only, for example 971501234567. Adds WhatsApp links to the menu, the questions and the contact page."
+      },
+      {
+        "type": "checkbox",
+        "id": "whatsapp_float",
+        "label": "Also show a floating WhatsApp button",
+        "default": false
       },
       {
         "type": "text",
@@ -329,6 +367,26 @@
         "id": "reveal",
         "label": "Fade sections in on scroll",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Regulatory",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Shown on every product page under 'Regulatory information'. Per-product values (INCI, batch, expiry, origin, importer) go in the product metafields tahira.inci, tahira.batch, tahira.expiry, tahira.origin, tahira.importer, and win over these."
+      },
+      {
+        "type": "text",
+        "id": "reg_origin",
+        "label": "Country of origin",
+        "default": "France"
+      },
+      {
+        "type": "textarea",
+        "id": "reg_importer",
+        "label": "Importer in the UAE (name and address)"
       }
     ]
   }

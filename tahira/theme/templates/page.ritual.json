@@ -15,7 +15,7 @@
         "bg": "tint"
       }
     },
-    "applicator": {
+    "tube": {
       "type": "columns",
       "settings": {
         "content": "applicator",
@@ -73,7 +73,7 @@
   "order": [
     "intro",
     "steps",
-    "applicator",
+    "tube",
     "where",
     "when",
     "hold",

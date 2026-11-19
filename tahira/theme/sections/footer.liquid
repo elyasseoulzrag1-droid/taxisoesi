@@ -27,10 +27,10 @@
         {%- assign p = settings[sid] -%}
         {%- assign nk = 'musks.' | append: key | append: '.name' -%}
         {%- assign sk = 'musks.' | append: key | append: '.short' -%}
-        <a class="m-{{ key }}" href="{{ p.url | default: shop_url }}"><i style="background:var(--face)"></i><span>{{ nk | t }}, {{ sk | t | downcase }}</span></a>
+        <a class="m-{{ key }}" href="{{ p.url | default: shop_url }}"><i aria-hidden="true"></i><span>{{ nk | t }}, {{ sk | t | downcase }}</span></a>
       {%- endfor -%}
       {%- if settings.coffret != blank -%}
-        <a class="m-coffret" href="{{ settings.coffret.url }}"><i style="background:var(--face)"></i><span>{{ 'nav.coffret' | t }}</span></a>
+        <a class="m-coffret" href="{{ settings.coffret.url }}"><i aria-hidden="true"></i><span>{{ 'nav.coffret' | t }}</span></a>
       {%- endif -%}
     </nav>
 

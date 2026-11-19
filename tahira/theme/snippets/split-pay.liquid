@@ -1,5 +1,5 @@
-{%- comment -%} "or 4 payments of X, with Tabby or Tamara". price: amount in cents. {%- endcomment -%}
+{%- comment -%} "or 4 payments of 42.25 AED, with Tabby or Tamara". price: amount in cents. {%- endcomment -%}
 {%- if settings.show_split and price > 0 -%}
-  {%- assign part = price | divided_by: settings.split_count | floor | money -%}
+  {%- capture part -%}{% render 'split-amount', price: price %}{%- endcapture -%}
   <p class="split" data-split="{{ settings.split_count }}">{{ 'product.split' | t: n: part, c: settings.split_count }}</p>
 {%- endif -%}

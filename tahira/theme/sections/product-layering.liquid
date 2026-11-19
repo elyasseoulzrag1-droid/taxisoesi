@@ -23,53 +23,75 @@
           else
             assign partner = 'mirage'
         endcase
-        assign pid = 'musk_' | append: partner
-        assign pp = settings[pid]
-        assign idx_a = 0
-        assign idx_b = 0
-        for k in keys
-          if k == key
-            assign idx_a = forloop.index
-          endif
-          if k == partner
-            assign idx_b = forloop.index
-          endif
-        endfor
-        if idx_a < idx_b
-          assign pair_key = key | append: '_' | append: partner
-          assign first = key
-          assign second = partner
-        else
-          assign pair_key = partner | append: '_' | append: key
-          assign first = partner
-          assign second = key
-        endif
-        assign pair_text = 'pair.' | append: pair_key
-        assign total = product.price | plus: pp.price
-        assign charm_part = ''
+        assign charm_id = 0
         if settings.charm != blank and settings.charm.available
-          assign charm_part = ',{"id":' | append: settings.charm.selected_or_first_available_variant.id | append: ',"quantity":1}'
+          assign charm_id = settings.charm.selected_or_first_available_variant.id
         endif
       -%}
       <div class="sec-head" data-reveal>
         <p class="lab">{{ 'product.with_lab' | t }}</p>
         <h2 class="h2">{{ 'product.with_h' | t }}</h2>
+        <p class="lead">{{ 'product.with_p' | t }}</p>
       </div>
       <div class="with">
-        <div class="with__card m-{{ first }}" data-reveal>
+        <div class="with__card m-{{ key }}" data-layer data-key="{{ key }}" data-charm="{{ charm_id }}"
+          data-base-variant="{{ product.selected_or_first_available_variant.id }}" data-base-price="{{ product.price }}"
+          data-base-available="{{ product.available }}" data-reveal>
           <div class="with__tubes" aria-hidden="true">
-            {% render 'tube', key: first %}
-            <span class="m-{{ second }}" style="display:block;margin-inline-start:-10px;transform:rotate(8deg) translateY(8px)">{% render 'tube', key: second %}</span>
+            {% render 'tube', key: key %}
+            {%- for k in keys -%}
+              {%- if k != key -%}
+                <span class="with__second" data-layer-tube="{{ k }}"{% if k != partner %} hidden{% endif %}>{% render 'tube', key: k %}</span>
+              {%- endif -%}
+            {%- endfor -%}
           </div>
           <div class="with__txt on-dark">
-            <p>{{ pair_text | t }}</p>
-            {%- if pp != blank and pp.available and product.available -%}
-              <form class="pairs__buy" action="{{ routes.cart_add_url }}" method="post" data-add data-items='[{"id":{{ product.selected_or_first_available_variant.id }},"quantity":1},{"id":{{ pp.selected_or_first_available_variant.id }},"quantity":1}{{ charm_part }}]'>
-                <span class="pairs__price">{{ total | money }}</span>
-                <button class="btn btn--light" type="submit"><span>{{ 'pair.add' | t }}</span></button>
-              </form>
-              <p class="fine">{{ 'pair.incl' | t }}</p>
-            {%- endif -%}
+            <p class="lab lab--plain">{{ 'pair.choose_second' | t }}</p>
+            <div class="layer-pick" role="group" aria-label="{{ 'pair.choose_second' | t }}">
+              {%- for k in keys -%}
+                {%- if k != key -%}
+                  {%- assign sid = 'musk_' | append: k -%}
+                  {%- assign sp = settings[sid] -%}
+                  {%- assign snk = 'musks.' | append: k | append: '.name' -%}
+                  <button class="m-{{ k }}" type="button" data-layer-key="{{ k }}" aria-pressed="{% if k == partner %}true{% else %}false{% endif %}"
+                    data-variant="{{ sp.selected_or_first_available_variant.id | default: 0 }}" data-price="{{ sp.price | default: 0 }}"
+                    data-available="{% if sp != blank and sp.available %}true{% else %}false{% endif %}">
+                    <i aria-hidden="true"></i><b>{{ snk | t }}</b>
+                  </button>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            {%- for k in keys -%}
+              {%- if k != key -%}
+                {%- liquid
+                  assign idx_a = 0
+                  assign idx_b = 0
+                  for kk in keys
+                    if kk == key
+                      assign idx_a = forloop.index
+                    endif
+                    if kk == k
+                      assign idx_b = forloop.index
+                    endif
+                  endfor
+                  if idx_a < idx_b
+                    assign pk = key | append: '_' | append: k
+                  else
+                    assign pk = k | append: '_' | append: key
+                  endif
+                  assign pt = 'pair.' | append: pk
+                -%}
+                <p data-layer-text="{{ k }}"{% if k != partner %} hidden{% endif %}>{{ pt | t }}</p>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign pp_id = 'musk_' | append: partner -%}
+            {%- assign total = product.price | plus: settings[pp_id].price -%}
+            <form class="pairs__buy" action="{{ routes.cart_add_url }}" method="post" data-add data-items="[]">
+              <span class="pairs__price" data-layer-price>{{ total | money }}</span>
+              <button class="btn btn--light" type="submit"><span>{{ 'pair.add' | t }}</span></button>
+              <p class="msg msg--err" data-form-error hidden></p>
+            </form>
+            <p class="fine">{{ 'pair.incl' | t }}{% if settings.charm != blank %}. {% assign charm_worth = settings.charm.price | money %}{{ 'pair.worth' | t: n: charm_worth }}{% endif %}</p>
           </div>
         </div>
 
@@ -86,7 +108,7 @@
               <h3 class="h3">{{ 'product.complete_h' | t }}</h3>
               <p>{{ 'product.complete_p' | t }}</p>
               <p class="pairs__price">{{ settings.coffret.price | money }}</p>
-              <p><a class="btn btn--line" href="{{ settings.coffret.url }}">{{ 'product.complete_go' | t }}</a></p>
+              <p><a class="btn" href="{{ settings.coffret.url }}">{{ 'product.complete_go' | t }}</a></p>
             </div>
           </div>
         {%- endif -%}
@@ -96,7 +118,7 @@
         <p class="lab">{{ 'grid.lab' | t }}</p>
         <h2 class="h2">{{ 'grid.h' | t }}</h2>
       </div>
-      <div class="cards cards--scroll">
+      <div class="cards cards--scroll" data-carousel>
         {%- for k in keys -%}
           {%- assign sid = 'musk_' | append: k -%}
           {% render 'musk-card', product: settings[sid], key: k, index: forloop.index %}
@@ -111,7 +133,7 @@
   "name": "Layering and coffret",
   "class": "section-layering",
   "settings": [
-    { "type": "paragraph", "content": "On a musk page: the musk to layer over it, added as a pair with the bag charm, and the coffret. On any other product: the four musks." }
+    { "type": "paragraph", "content": "On a musk page: choose the musk to layer over it, read how they wear together, add both with the bag charm. Next to it, the coffret. On any other product: the four musks." }
   ]
 }
 {% endschema %}

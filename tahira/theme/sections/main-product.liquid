@@ -125,17 +125,23 @@
       </div>
 
       {%- if is_musk or is_coffret -%}
-        <div class="swatches">
-          <p class="lab lab--plain">{{ 'nav.shop' | t }}</p>
-          <div class="swatches__row">
+        <nav class="others" aria-labelledby="OthersLabel">
+          <p class="lab lab--plain" id="OthersLabel">{% if is_musk %}{{ 'product.others' | t }}{% else %}{{ 'footer.chart' | t }}{% endif %}</p>
+          <div class="others__row">
             {%- for k in keys -%}
-              {%- assign sid = 'musk_' | append: k -%}
-              {%- assign sp = settings[sid] -%}
-              {%- assign snk = 'musks.' | append: k | append: '.name' -%}
-              <a class="sw m-{{ k }}" href="{{ sp.url | default: shop_url }}"{% if k == key %} aria-current="page"{% endif %}><i aria-hidden="true"></i>{{ snk | t }}</a>
+              {%- if k != key -%}
+                {%- assign sid = 'musk_' | append: k -%}
+                {%- assign sp = settings[sid] -%}
+                {%- assign snk = 'musks.' | append: k | append: '.name' -%}
+                {%- assign ssk = 'musks.' | append: k | append: '.short' -%}
+                <a class="other m-{{ k }}" href="{{ sp.url | default: shop_url }}">
+                  <i aria-hidden="true"></i>
+                  <span><b>{{ snk | t }}</b><small>{{ ssk | t }}</small></span>
+                </a>
+              {%- endif -%}
             {%- endfor -%}
           </div>
-        </div>
+        </nav>
       {%- endif -%}
 
       {%- form 'product', product, class: 'buy-form', data-add: 'true', novalidate: 'novalidate' -%}
@@ -186,6 +192,19 @@
         {%- endif -%}
       </ul>
 
+      {%- if is_musk or is_coffret -%}
+        <ul class="badges">
+          <li>{{ 'product.unit' | t }}</li>
+          <li>{{ 'product.base_badge' | t }}</li>
+          <li>{{ 'product.made' | t }}</li>
+          <li>{{ 'product.printed' | t }}</li>
+        </ul>
+      {%- endif -%}
+
+      {%- if is_musk -%}
+        <p class="pdp__quiz"><a class="link" href="{% if routes.root_url == '/' %}/{% else %}{{ routes.root_url }}{% endif %}#quiz">{{ 'product.quiz_link' | t }}{% render 'icon', name: 'arrow' %}</a></p>
+      {%- endif -%}
+
       {%- for block in section.blocks -%}
         {%- if block.type == '@app' -%}<div {{ block.shopify_attributes }}>{% render block %}</div>{%- endif -%}
       {%- endfor -%}
@@ -205,10 +224,10 @@
             <summary>{{ 'product.scent' | t }}{% render 'icon', name: 'plus' %}</summary>
             <div class="acc__body">
               <p>{{ k_story | t }}</p>
-              <dl class="pyr" aria-label="{{ 'product.pyramid' | t }}">
-                <div><dt>{{ 'musks.labels.top' | t }}</dt><dd>{{ k_top | t }}</dd></div>
-                <div><dt>{{ 'musks.labels.heart' | t }}</dt><dd>{{ k_heart | t }}</dd></div>
-                <div><dt>{{ 'musks.labels.base' | t }}</dt><dd>{{ k_base | t }}</dd></div>
+              <dl class="pyramid" aria-label="{{ 'product.pyramid' | t }}">
+                <div class="pyramid__top"><dt>{{ 'musks.labels.top' | t }}</dt><dd>{{ k_top | t }}</dd></div>
+                <div class="pyramid__heart"><dt>{{ 'musks.labels.heart' | t }}</dt><dd>{{ k_heart | t }}</dd></div>
+                <div class="pyramid__base"><dt>{{ 'musks.labels.base' | t }}</dt><dd>{{ k_base | t }}</dd></div>
               </dl>
               <div class="meter">
                 <span>{{ 'musks.labels.presence' | t }}</span>
@@ -270,15 +289,45 @@
           </details>
         {%- endif -%}
 
+        {%- if is_musk or is_coffret -%}
+          {%- liquid
+            assign m = product.metafields.tahira
+            assign r_origin = m.origin.value | default: m.origin | default: settings.reg_origin
+            assign r_importer = m.importer.value | default: m.importer | default: settings.reg_importer
+            assign r_inci = m.inci.value | default: m.inci
+            assign r_batch = m.batch.value | default: m.batch
+            assign r_expiry = m.expiry.value | default: m.expiry
+          -%}
+          <details>
+            <summary>{{ 'reg.h' | t }}{% render 'icon', name: 'plus' %}</summary>
+            <div class="acc__body">
+              <dl class="reg">
+                {%- if r_inci != blank or request.design_mode -%}
+                  <div><dt>{{ 'reg.inci' | t }}</dt><dd>{% if r_inci != blank %}{{ r_inci | newline_to_br }}{% else %}<span class="fine">{{ 'reg.pending' | t }}</span>{% endif %}</dd></div>
+                {%- endif -%}
+                {%- if r_batch != blank or request.design_mode -%}
+                  <div><dt>{{ 'reg.batch' | t }}</dt><dd>{% if r_batch != blank %}{{ r_batch }}{% else %}<span class="fine">{{ 'reg.pending' | t }}</span>{% endif %}</dd></div>
+                {%- endif -%}
+                {%- if r_expiry != blank or request.design_mode -%}
+                  <div><dt>{{ 'reg.expiry' | t }}</dt><dd>{% if r_expiry != blank %}{{ r_expiry }}{% else %}<span class="fine">{{ 'reg.pending' | t }}</span>{% endif %}</dd></div>
+                {%- endif -%}
+                {%- if r_origin != blank -%}
+                  <div><dt>{{ 'reg.origin' | t }}</dt><dd>{{ r_origin }}</dd></div>
+                {%- endif -%}
+                {%- if r_importer != blank or request.design_mode -%}
+                  <div><dt>{{ 'reg.importer' | t }}</dt><dd>{% if r_importer != blank %}{{ r_importer | newline_to_br }}{% else %}<span class="fine">{{ 'reg.pending' | t }}</span>{% endif %}</dd></div>
+                {%- endif -%}
+              </dl>
+            </div>
+          </details>
+        {%- endif -%}
+
         <details>
           <summary>{{ 'product.care' | t }}{% render 'icon', name: 'plus' %}</summary>
           <div class="acc__body"><p>{{ 'product.care_p' | t }}</p></div>
         </details>
       </div>
 
-      {%- if is_musk -%}
-        <p><a class="link" href="{% if routes.root_url == '/' %}/{% else %}{{ routes.root_url }}{% endif %}#quiz">{{ 'product.quiz_link' | t }}{% render 'icon', name: 'arrow' %}</a></p>
-      {%- endif -%}
     </div>
   </div>
 
@@ -338,7 +387,7 @@
       "type": "paragraph",
       "content": "For the four musks and the coffret, the scent notes, story, how to wear and specification are built in, in English and Arabic. The product description shows below them."
     },
-    { "type": "checkbox", "id": "dynamic_checkout", "label": "Show the express checkout button (Apple Pay, Shop Pay...)", "default": true }
+    { "type": "checkbox", "id": "dynamic_checkout", "label": "Show the express checkout button (Apple Pay, Shop Pay...)", "info": "Off by default: those buttons are solid black and break the thin-line style.", "default": false }
   ],
   "blocks": [{ "type": "@app" }]
 }

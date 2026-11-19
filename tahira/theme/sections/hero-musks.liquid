@@ -1,6 +1,7 @@
 {%- liquid
   assign keys = 'veil,mirage,ember,halo' | split: ','
   assign start = section.settings.start
+  assign pairs_url = '#pairs'
 -%}
 <section class="hero on-dark m-{{ start }}" data-hero aria-label="{{ 'hero.choose' | t }}">
   {%- for key in keys -%}
@@ -8,11 +9,11 @@
   {%- endfor -%}
   <div class="wrap hero__in">
     <div class="hero__copy">
-      <p class="lab">{% if section.settings.eyebrow != blank %}{{ section.settings.eyebrow }}{% else %}{{ 'hero.eyebrow' | t }}{% endif %}</p>
+      <p class="lab hero__lab">{% if section.settings.eyebrow != blank %}{{ section.settings.eyebrow }}{% else %}{{ 'hero.eyebrow' | t }}{% endif %}</p>
       {%- if section.settings.heading != blank -%}
-        <h1 class="h1">{{ section.settings.heading }}</h1>
+        <h1 class="h1 hero__h">{{ section.settings.heading }}</h1>
       {%- else -%}
-        <h1 class="h1">{{ 'hero.title_html' | t }}</h1>
+        <h1 class="h1 hero__h">{{ 'hero.title_html' | t }}</h1>
       {%- endif -%}
       <p class="hero__sub">{% if section.settings.sub != blank %}{{ section.settings.sub }}{% else %}{{ 'hero.sub' | t }}{% endif %}</p>
 
@@ -33,20 +34,21 @@
       {%- assign p0 = settings[sid] -%}
       <div class="hero__buy">
         <span class="hero__price" data-hero-price>{% if p0 != blank %}{{ p0.price | money }}{% endif %}</span>
-        <form action="{{ routes.cart_add_url }}" method="post" data-add data-hero-form>
+        <form class="hero__form" action="{{ routes.cart_add_url }}" method="post" data-add data-hero-form>
           <input type="hidden" name="id" value="{{ p0.selected_or_first_available_variant.id }}">
           <input type="hidden" name="quantity" value="1">
           <button class="btn btn--light" type="submit"{% if p0 == blank %} hidden{% endif %}><span>{{ 'hero.add' | t }}</span></button>
         </form>
-        <a class="btn btn--ghost-light" href="{{ p0.url | default: routes.all_products_collection_url }}" data-hero-link>{{ 'hero.see' | t }}</a>
+        <a class="btn btn--light hero__see" href="{{ p0.url | default: routes.all_products_collection_url }}" data-hero-link>{{ 'hero.see' | t }}</a>
         {%- if settings.show_split -%}
           <p class="split" data-hero-split>
             {%- if p0 != blank -%}
-              {%- assign part = p0.price | divided_by: settings.split_count | floor | money -%}
+              {%- capture part -%}{% render 'split-amount', price: p0.price %}{%- endcapture -%}
               {{ 'product.split' | t: n: part, c: settings.split_count }}
             {%- endif -%}
           </p>
         {%- endif -%}
+        <a class="hero__pair" href="{{ pairs_url }}">{{ 'hero.pair_link' | t }}{% render 'icon', name: 'arrow' %}</a>
       </div>
     </div>
 
@@ -75,7 +77,9 @@
           if p != blank
             assign price = p.price | money
             if settings.show_split
-              assign part = p.price | divided_by: settings.split_count | floor | money
+              capture part
+                render 'split-amount', price: p.price
+              endcapture
               assign split = 'product.split' | t: n: part, c: settings.split_count
             endif
           endif
