@@ -12,10 +12,10 @@
   --ink-34:rgba(18,16,16,.34);
   --line:#E4DFDA;
   --line-2:#F0ECE8;
-  --veil:#552521;   --veil-d:#370E0A;
+  --veil:#6E6257;   --veil-d:#4A4138;
   --mirage:#3E2C25; --mirage-d:#21130D;
   --ember:#80213A;  --ember-d:#660623;
-  --halo:#462938;   --halo-d:#2C141F;
+  --halo:#7A4A22;   --halo-d:#55301A;
   --tint:#FAF7F6;
   --glow:rgba(85,37,33,.10);
   --acc:#552521;
@@ -110,7 +110,7 @@ img{max-width:100%;height:auto;display:block}
 <style>
 /* ---------- hero: the only section that carries full colour ---------- */
 .hero{
-  --hb:#370E0A; --hd:#1B0301; --hg:#6B3C37;
+  --hb:#4A4138; --hd:#241F1B; --hg:#8A7D70;
   position:relative;overflow:hidden;color:#fff;
   background:
     radial-gradient(136% 92% at 50% -10%, var(--hg) 0%, rgba(0,0,0,0) 64%),
@@ -1159,6 +1159,61 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
 </style>
 
 <a class="skip" href="#top" data-i="skip">Skip to content</a>
+<style>
+/* ---------- corrections du document TAHIRA ---------- */
+:root{--veil-t:#A39482;--mirage-t:#6B4A3A;--ember-t:#B0244F;--halo-t:#B9773B}
+
+/* en-tete : plus bas, sans cadres ; la langue active est soulignee */
+.top__in{padding-block:7px}
+.nav__in{padding-block:9px}
+html{scroll-padding-top:84px}
+.lang{border:0;gap:2px}
+.lang button+button{border-inline-start:0}
+.lang button{opacity:.55}
+.lang button[aria-pressed="true"]{background:none;color:var(--ink);opacity:1;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.bag-btn,.bag-btn:hover{border:0}
+.bag-btn:hover{opacity:.7}
+.burger,.burger:hover{border:0}
+@media(max-width:470px){.burger{border:0}}
+
+/* un seul style de bouton : le filet fin */
+.btn{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:hover{background:var(--ink);color:#fff}
+.hero .cap__buy .btn,.phero .btn,.qres .btn,.lay .btn,.mix__out .btn{background:transparent;color:#fff;border-color:#fff}
+.hero .cap__buy .btn:hover,.phero .btn:hover,.qres .btn:hover,.lay .btn:hover,.mix__out .btn:hover{background:#fff;color:#1B0301}
+.qres .btn--line{border-color:rgba(255,255,255,.62)}
+
+/* menu : les quatre musks en groupe, puis les pages */
+.drawer{max-height:calc(100vh - 110px);overflow-y:auto;overscroll-behavior:contain}
+.drawer .menu-g{padding:18px 0 4px;font-family:var(--d);font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-50)}
+.drawer .menu-g--sep{margin-top:8px;padding-top:20px;border-top:1px solid var(--ink)}
+.drawer a.menu-m{justify-content:flex-start;align-items:center;gap:16px}
+.drawer a.menu-m i{width:16px;height:22px;flex:0 0 auto}
+.drawer a.menu-m small{font-family:var(--t);font-weight:400;font-size:14px;letter-spacing:0;color:var(--ink-50);margin-inline-start:8px}
+.drawer li:nth-last-child(1) a{border-bottom:0}
+.menu-lang{display:flex;gap:4px;padding:12px 22px 18px;border-top:1px solid var(--line)}
+.menu-lang button{background:none;border:0;padding:10px 8px;cursor:pointer;color:var(--ink);opacity:.55;font-family:var(--d);font-size:12px;letter-spacing:.16em}
+.menu-lang button.ar-g{font-family:var(--ar);letter-spacing:0;font-size:14px}
+.menu-lang button[aria-pressed="true"]{opacity:1;text-decoration:underline;text-underline-offset:5px}
+
+/* fiche produit : les trois autres, le lien du quiz sur sa propre ligne, le reglementaire */
+.pswitch__lab{margin-top:22px;font-family:var(--d);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.pswitch__lab+.pswitch{margin-top:9px}
+.pquiz{margin-top:10px}
+.pquiz a{display:inline-flex;align-items:center;min-height:36px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.45);font-size:12.5px}
+.pquiz a:hover{border-color:#fff}
+.reg__lab{margin-top:14px}
+.reg__p{color:var(--ink-34);font-style:italic}
+
+/* carrousels sur telephone : une carte, un tiers franc de la suivante, un arret par carte, des points */
+@media(max-width:760px){
+  .grid>*,.row>*{flex:0 0 72%;max-width:none;scroll-snap-stop:always}
+}
+.sdots{display:flex;justify-content:center;gap:6px;margin-top:14px}
+.sdots button{width:26px;height:24px;border:0;padding:0;background:none;cursor:pointer;position:relative}
+.sdots button::before{content:"";position:absolute;inset-inline:0;top:50%;height:2px;background:var(--line)}
+.sdots button[aria-current="true"]::before{background:var(--ink)}
+</style>
 <div class="chart-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
 <div class="top">
@@ -1174,12 +1229,12 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     <a class="mark" href="#home"><span class="mark__lat">TAHIRA</span><span class="mark__ar">طاهرة</span></a>
     <nav aria-label="Pages">
       <ul class="nav__links">
-        <li><a href="#shop" data-page="shop" data-i="nav.shop">The chart</a></li>
-        <li><a href="#house" data-page="house" data-i="nav.house">The house</a></li>
-        <li><a href="#ritual" data-page="ritual" data-i="nav.ritual">The ritual</a></li>
-        <li><a href="#coffret" data-page="coffret" data-i="nav.coffret">The coffret</a></li>
-        <li><a href="#gloss" data-page="gloss" data-i="nav.gloss">The words</a></li>
-        <li><a href="#faq" data-page="faq" data-i="nav.faq">Questions</a></li>
+        <li><a href="#shop" data-page="shop" data-i="menu.shop">Shop</a></li>
+        <li><a href="#coffret" data-page="coffret" data-i="menu.coffret">Gift set</a></li>
+        <li><a href="#pair" data-i="menu.pairs">Pairs</a></li>
+        <li><a href="#ritual" data-page="ritual" data-i="menu.ritual">How to wear</a></li>
+        <li><a href="#house" data-page="house" data-i="menu.house">Our story</a></li>
+        <li><a href="#faq" data-page="faq" data-i="menu.faq">FAQ</a></li>
       </ul>
     </nav>
     <div class="nav__end">
@@ -1193,17 +1248,24 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
   </div>
   <div class="drawer" id="drawer" hidden>
     <ul>
-      <li><a href="#shop" data-page="shop"><span data-i="nav.shop">The chart</span><i style="background:var(--veil)"></i></a></li>
-      <li><a href="#veil" data-page="veil"><span>VEIL</span><i style="background:var(--veil)"></i></a></li>
-      <li><a href="#mirage" data-page="mirage"><span>MIRAGE</span><i style="background:var(--mirage)"></i></a></li>
-      <li><a href="#ember" data-page="ember"><span>EMBER</span><i style="background:var(--ember)"></i></a></li>
-      <li><a href="#halo" data-page="halo"><span>HALO</span><i style="background:var(--halo)"></i></a></li>
-      <li><a href="#coffret" data-page="coffret"><span data-i="nav.coffret">The coffret</span><i style="background:var(--ember)"></i></a></li>
-      <li><a href="#house" data-page="house"><span data-i="nav.house">The house</span><i style="background:var(--mirage)"></i></a></li>
-      <li><a href="#ritual" data-page="ritual"><span data-i="nav.ritual">The ritual</span><i style="background:var(--halo)"></i></a></li>
-      <li><a href="#gloss" data-page="gloss"><span data-i="nav.gloss">The words</span><i style="background:var(--mirage)"></i></a></li>
-      <li><a href="#faq" data-page="faq"><span data-i="nav.faq">Questions</span><i style="background:var(--veil)"></i></a></li>
+      <li class="menu-g" data-i="menu.g1">The four musks</li>
+      <li><a class="menu-m" href="#veil" data-page="veil"><i style="background:var(--veil-t)"></i><span>VEIL <small data-i="menu.d.veil">White musk</small></span></a></li>
+      <li><a class="menu-m" href="#mirage" data-page="mirage"><i style="background:var(--mirage-t)"></i><span>MIRAGE <small data-i="menu.d.mirage">Oud vanilla</small></span></a></li>
+      <li><a class="menu-m" href="#ember" data-page="ember"><i style="background:var(--ember-t)"></i><span>EMBER <small data-i="menu.d.ember">Cherry amber</small></span></a></li>
+      <li><a class="menu-m" href="#halo" data-page="halo"><i style="background:var(--halo-t)"></i><span>HALO <small data-i="menu.d.halo">Pistachio caramel</small></span></a></li>
+      <li><a href="#coffret" data-page="coffret"><span data-i="menu.coffret">Gift set</span></a></li>
+      <li><a href="#pair"><span data-i="menu.pairs">Pairs</span></a></li>
+      <li><a href="#shop" data-page="shop"><span data-i="menu.all">Shop all four</span></a></li>
+      <li class="menu-g menu-g--sep" data-i="menu.g2">Discover</li>
+      <li><a href="#ritual" data-page="ritual"><span data-i="menu.ritual">How to wear</span></a></li>
+      <li><a href="#house" data-page="house"><span data-i="menu.house">Our story</span></a></li>
+      <li><a href="#gloss" data-page="gloss"><span data-i="menu.gloss">Glossary</span></a></li>
+      <li><a href="#faq" data-page="faq"><span data-i="menu.faq">FAQ</span></a></li>
     </ul>
+    <div class="menu-lang" role="group" aria-label="Language">
+      <button type="button" data-setlang="en" aria-pressed="true">EN</button>
+      <button type="button" class="ar-g" data-setlang="ar" aria-pressed="false">عربي</button>
+    </div>
   </div>
 </header>
 
@@ -1218,7 +1280,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       <div>
         <p class="lab" data-i="hero.eyebrow">The house of musk</p>
         <h1 style="margin-top:14px" data-i="hero.h1" data-html="1">Musk, and<br><em>nothing else</em>.</h1>
-        <p class="hero__sub" data-i="hero.sub">Four musks, composed in France. An oil, not a spray. Worn on clean skin, close to you all day.</p>
+        <p class="hero__sub" data-i="hero.sub">Four musks, composed in France. A gel, not a spray. Worn on clean skin, close to you all day.</p>
       </div>
       <div class="index" id="index" role="tablist" aria-label="Choose a musk"></div>
     </div>
@@ -1249,9 +1311,9 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
 <section class="sec" style="padding-block:clamp(34px,4.2vw,62px)">
   <div class="wide">
     <div class="trio">
-      <div><b>01</b><h3 data-i="tri.1.h">An oil, not a spray</h3><p data-i="tri.1.p">It is absorbed instead of evaporating. Six to eight hours on the skin, longer on fabric.</p></div>
-      <div><b>02</b><h3 data-i="tri.2.h">Made in France</h3><p data-i="tri.2.p">Composed and filled in a French laboratory. Raw materials from Grasse.</p></div>
-      <div><b>03</b><h3 data-i="tri.3.h">An applicator, not a dropper</h3><p data-i="tri.3.p">You glide it straight onto the skin. Nothing on your fingers, nothing to rub in.</p></div>
+      <div><b>01</b><h3 data-i="tri.1.h">A gel, not a spray</h3><p data-i="tri.1.p">It sinks in instead of evaporating. Six to eight hours on the skin, longer on fabric.</p></div>
+      <div><b>02</b><h3 data-i="tri.2.h">Made in France</h3><p data-i="tri.2.p">Composed and filled in a French laboratory.</p></div>
+      <div><b>03</b><h3 data-i="tri.3.h">A tube, not a bottle</h3><p data-i="tri.3.p">No glass, no spray. It travels in a bag and never leaks.</p></div>
     </div>
   </div>
 </section>
@@ -1263,7 +1325,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     <div style="display:grid;gap:18px">
       <p class="lab kicker"><i aria-hidden="true"></i><span data-i="new.lab">New to musk</span></p>
       <h2 style="font-size:clamp(28px,3.8vw,50px);font-weight:200" data-i="new.h2">Never worn musk? Start here.</h2>
-      <p class="body-l" style="max-width:40ch" data-i="new.p">Not a perfume. An oil smoothed onto clean skin. It does not fill a room. It stays within arm's length, all day.</p>
+      <p class="body-l" style="max-width:40ch" data-i="new.p">Not a perfume. A gel smoothed onto clean skin. It does not fill a room. It stays within arm's length, all day.</p>
     </div>
     <div class="trio" style="grid-template-columns:1fr;gap:20px">
       <div><b>01</b><h3 data-i="new.1.h">How it is worn</h3><p data-i="new.1.p">After the shower, on warm skin. On the pulse points, in the plural. Thirty seconds, no rubbing.</p></div>
@@ -1287,7 +1349,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     <div class="head--row">
       <div class="head">
         <h2 data-i="shop.h2">One base. Four directions.</h2>
-        <p data-i="shop.p">The same musk base under all four. What changes is what sits over it: white musk, oud and raspberry, amber and cherry, vanilla and cinnamon.</p>
+        <p data-i="shop.p">The same musk base under all four. What changes is what sits over it: white musk, oud and vanilla, cherry and amber, pistachio and caramel.</p>
       </div>
       <a class="btn btn--line" href="#shop" data-page="shop" data-i="btn.all">Shop all four</a>
     </div>
@@ -1367,7 +1429,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       <p class="lab" data-i="sec.5">05 — The coffret</p>
       <h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:200" data-i="cof.h2">The one you give, and the one you keep.</h2>
       <p style="color:var(--ink-72);font-size:14.5px" data-i="cof.short">All four, each in its own case. Ready to give exactly as it arrives.</p>
-      <p class="price"><b>549 AED</b> <em data-i="cof.save">Saves about 17%</em></p>
+      <p class="price"><b>539 AED</b> <em data-i="cof.save">Saves 20%</em></p>
       <p><a class="btn" href="#coffret" data-page="coffret" data-i="btn.discover">Shop the coffret</a></p>
     </div>
   </div>
@@ -1411,7 +1473,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       <div class="head">
         <p class="lab kicker"><i aria-hidden="true"></i><span data-i="sec.1">01 — The four</span></p>
         <h2 data-i="shop.h2">One base. Four directions.</h2>
-        <p data-i="shop.long">An oil, not a spray. It stays close. It holds through the afternoon. One tube lasts two to three months. Made in France, materials from Grasse.</p>
+        <p data-i="shop.long">A gel, not a spray. It stays close. It holds through the afternoon. One tube lasts two to three months. Composed and filled in a French laboratory.</p>
       </div>
       <div class="grid" id="shopGrid"></div>
       <div class="wide-cof" style="margin-top:clamp(22px,3vw,40px)">
@@ -1420,7 +1482,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
           <p class="lab" data-i="nav.coffret">The coffret</p>
           <h3 style="font-family:var(--d);font-weight:200;font-size:clamp(24px,2.8vw,34px)" data-i="cof.h2">The one you give, and the one you keep.</h3>
           <p style="color:var(--ink-72);font-size:14.5px" data-i="cof.short">All four, each in its own case. Ready to give exactly as it arrives.</p>
-          <p class="price"><b>549 AED</b> <s data-i="cof.was">676 AED bought singly</s></p>
+          <p class="price"><b>539 AED</b> <s data-i="cof.was">676 AED bought singly</s></p>
           <p><a class="btn" href="#coffret" data-page="coffret" data-i="btn.discover">Shop the coffret</a></p>
         </div>
       </div>
@@ -1456,19 +1518,18 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         <h2 style="font-size:clamp(30px,4.4vw,58px);font-weight:200" data-i="house.h2">A house that makes musk, and nothing else.</h2>
         <p class="body-l" data-i="house.p1">Musk has been worn here for generations. After the shower. In the bag. Again in the afternoon. Given at Eid. The gesture needed nothing from us.</p>
         <p class="body-l" data-i="house.p2">What it never had was a house behind it. The same white musk is sold under fifty names. The perfume brands treat it as one line out of forty.</p>
-        <p class="body-l" data-i="house.p3">So we kept the gesture and rebuilt everything around it. Four musks composed in France. An applicator you glide onto the skin. One object, finished properly.</p>
+        <p class="body-l" data-i="house.p3">So we kept the gesture and rebuilt everything around it. Four musks composed in France. A gel in a soft tube that goes everywhere with you. One object, finished properly.</p>
         <div class="media" style="margin-top:8px"><picture><source srcset="lineup.webp" type="image/webp"><img width="2000" height="1100" decoding="async" src="lineup.jpg" alt="The four TAHIRA musks lined up" loading="lazy"></picture></div>
       </div>
       <div style="display:grid;gap:20px">
         <p class="lab" data-i="house.spec">Specification</p>
         <dl class="spec">
           <div><dt data-i="spec.base">Base</dt><dd data-i="spec.base.v">Alcohol-free oil-gel</dd></div>
-          <div><dt data-i="spec.fmt">Format</dt><dd data-i="spec.fmt.v">Soft tube, 10 ml</dd></div>
+          <div><dt data-i="spec.fmt">Format</dt><dd data-i="spec.fmt.v">Soft tube, 15 ml</dd></div>
           <div><dt data-i="spec.last">Lasts</dt><dd data-i="spec.last.v">2 to 3 months, used once a day</dd></div>
-          <div><dt data-i="spec.tex">Texture</dt><dd data-i="spec.tex.v">Oil, gloss-like, precise applicator</dd></div>
+          <div><dt data-i="spec.tex">Texture</dt><dd data-i="spec.tex.v">Gel, non-greasy, applied straight from the tube</dd></div>
           <div><dt data-i="spec.hold">Holds</dt><dd data-i="spec.hold.v">6 to 8 hours on skin, longer on fabric</dd></div>
           <div><dt data-i="spec.comp">Made in</dt><dd data-i="spec.comp.v">France</dd></div>
-          <div><dt data-i="spec.mat">Materials</dt><dd data-i="spec.mat.v">Raw materials from Grasse</dd></div>
           <div><dt data-i="spec.life">Shelf life</dt><dd data-i="spec.life.v">24 to 36 months</dd></div>
           <div><dt data-i="spec.del">Delivery</dt><dd data-i="spec.del.v">1 to 3 working days, UAE</dd></div>
         </dl>
@@ -1493,8 +1554,8 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       </div>
       <div class="row">
         <div class="mile is-now"><b data-i="read.1.k">01 — The base</b><h3 data-i="read.1.h">The musk you already know</h3><p data-i="read.1.p">White musk sits under all four. Clean, powdered, close to the skin. Nothing about the base is foreign to you.</p></div>
-        <div class="mile"><b data-i="read.2.k">02 — What sits over it</b><h3 data-i="read.2.h">Notes this category has not worn</h3><p data-i="read.2.p">Oud and raspberry. Amber and black cherry. Bourbon vanilla and cinnamon. Composed in France, on materials from Grasse.</p></div>
-        <div class="mile"><b data-i="read.3.k">03 — The gesture</b><h3 data-i="read.3.h">An applicator, not a dropper</h3><p data-i="read.3.p">You glide it straight onto the skin. Nothing on your fingers, no glass bottle, nothing to rub in.</p></div>
+        <div class="mile"><b data-i="read.2.k">02 — What sits over it</b><h3 data-i="read.2.h">Notes this category has not worn</h3><p data-i="read.2.p">Oud and vanilla. Black cherry and amber. Pistachio and caramel. Composed in France.</p></div>
+        <div class="mile"><b data-i="read.3.k">03 — The gesture</b><h3 data-i="read.3.h">A tube, not a bottle</h3><p data-i="read.3.p">No glass, no spray. It travels in a bag and never leaks.</p></div>
       </div>
     </div>
   </section>
@@ -1527,11 +1588,11 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         <h2 style="font-size:clamp(28px,3.6vw,46px);font-weight:200" data-i="fr.h2">Made in France, from start to finish.</h2>
       </div>
       <div class="row">
-        <div class="mile is-now"><b data-i="fr.1.k">01 — The materials</b><h3 data-i="fr.1.h">From Grasse</h3><p data-i="fr.1.p">Real cinnamon. Bourbon vanilla. Brown sugar. Black cherry. Named materials, not one flat accord.</p></div>
-        <div class="mile"><b data-i="fr.2.k">02 — The formulation</b><h3 data-i="fr.2.h">Built to hold in the heat</h3><p data-i="fr.2.p">An oil base, weighed and matured in France. That is what makes it survive a Gulf afternoon.</p></div>
+        <div class="mile is-now"><b data-i="fr.1.k">01 — The materials</b><h3 data-i="fr.1.h">Named materials</h3><p data-i="fr.1.p">Each musk is written around the same white musk base, with materials that each have a name. Not one flat accord.</p></div>
+        <div class="mile"><b data-i="fr.2.k">02 — The formulation</b><h3 data-i="fr.2.h">Built to hold in the heat</h3><p data-i="fr.2.p">An alcohol-free gel base, weighed and matured in France. That is what makes it survive a Gulf afternoon.</p></div>
         <div class="mile"><b data-i="fr.3.k">03 — The expertise</b><h3 data-i="fr.3.h">A French laboratory</h3><p data-i="fr.3.p">Formulation, filling, packing. All in France. The same batch, every time.</p></div>
       </div>
-      <p class="lede" style="margin-top:clamp(22px,3vw,38px);max-width:36ch" data-i="fr.line">Made in France. Materials from Grasse.</p>
+      <p class="lede" style="margin-top:clamp(22px,3vw,38px);max-width:36ch" data-i="fr.line">Made in France. Composed and filled in a French laboratory.</p>
     </div>
   </section>
 
@@ -1586,12 +1647,12 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     <div class="wide split" style="align-items:center">
       <div class="media"><picture><source srcset="tile-veil.webp" type="image/webp"><img width="960" height="1200" decoding="async" src="tile-veil.jpg" alt="A TAHIRA tube, cap on" loading="lazy"></picture></div>
       <div style="display:grid;gap:20px">
-        <p class="lab kicker"><i aria-hidden="true"></i><span data-i="app.lab">The applicator</span></p>
-        <h2 style="font-size:clamp(26px,3.4vw,44px);font-weight:200" data-i="app.h2">You glide it on. That is the whole gesture.</h2>
+        <p class="lab kicker"><i aria-hidden="true"></i><span data-i="app.lab">The tube</span></p>
+        <h2 style="font-size:clamp(26px,3.4vw,44px);font-weight:200" data-i="app.h2">A tube, not a bottle.</h2>
         <div class="trio" style="grid-template-columns:1fr;gap:20px">
-          <div><b>01</b><h3 data-i="app.1.h">Straight onto the skin</h3><p data-i="app.1.p">The tip carries the oil exactly where you want it. Nothing on your fingers, nothing to rub in.</p></div>
-          <div><b>02</b><h3 data-i="app.2.h">No glass, no spill</h3><p data-i="app.2.p">A soft tube with a cap. It travels in a handbag, a car door, a carry-on.</p></div>
-          <div><b>03</b><h3 data-i="app.3.h">You control the dose</h3><p data-i="app.3.p">One pass leaves a thin film. Two or three for the evening. To the point, not to the palm.</p></div>
+          <div><b>01</b><h3 data-i="app.1.h">Straight from the tube</h3><p data-i="app.1.p">A small dot on each pulse point, smoothed in. Non-greasy, it sinks in.</p></div>
+          <div><b>02</b><h3 data-i="app.2.h">No glass, no spill</h3><p data-i="app.2.p">A soft tube with a cap. It travels in a handbag, a car door, a carry-on, and never leaks.</p></div>
+          <div><b>03</b><h3 data-i="app.3.h">You control the dose</h3><p data-i="app.3.p">One dot leaves a light trace. Two or three for the evening.</p></div>
         </div>
       </div>
     </div>
@@ -1603,7 +1664,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         <p class="lab kicker"><i aria-hidden="true"></i><span data-i="where.lab">Where it goes</span></p>
         <h2 style="font-size:clamp(26px,3.4vw,44px);font-weight:200" data-i="where.h2">Six warm points, not one.</h2>
         <p class="body-l" style="max-width:40ch" data-i="where.p">Musk releases with heat. Placed where the blood runs close to the skin, it works through the day instead of fading in an hour.</p>
-        <p class="fine" data-i="where.fine">On skin, not on fabric. It is an oil, so give it thirty seconds and keep it off silk.</p>
+        <p class="fine" data-i="where.fine">On skin, not on fabric. Give the gel thirty seconds to sink in, and keep it off silk.</p>
       </div>
       <ul class="incl">
         <li><b>01</b><span data-i="where.1">Wrists — the point you reapply from. Never rub them together.</span></li>
@@ -1635,7 +1696,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     <div class="wide split" style="align-items:center">
       <div style="display:grid;gap:22px">
         <p class="lab kicker"><i aria-hidden="true"></i><span data-i="sec.4">04 — Why it holds</span></p>
-        <h2 style="font-size:clamp(28px,3.8vw,50px);font-weight:200" data-i="hold.h2">Why an oil holds where a spray does not.</h2>
+        <h2 style="font-size:clamp(28px,3.8vw,50px);font-weight:200" data-i="hold.h2">Why a gel holds where a spray does not.</h2>
         <div class="versus">
           <div>
             <b data-i="hold.a.k">A spray</b>
@@ -1643,14 +1704,14 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
             <p data-i="hold.a.p">A spray lifts off the skin in the first minutes and takes the scent with it.</p>
           </div>
           <div class="win">
-            <b data-i="hold.b.k">Our oil</b>
+            <b data-i="hold.b.k">Our gel</b>
             <h3 data-i="hold.b.h">Stays where the skin is warm</h3>
-            <p data-i="hold.b.p">An oil is absorbed and releases slowly. Six to eight hours on the skin, longer on fabric.</p>
+            <p data-i="hold.b.p">A gel sinks in and releases slowly. Six to eight hours on the skin, longer on fabric.</p>
           </div>
         </div>
         <p class="fine" data-i="hold.fine">External use on the skin. Not on the eyes or broken skin. No medicinal claim.</p>
       </div>
-      <div class="media"><picture><source srcset="single.webp" type="image/webp"><img width="1200" height="1500" decoding="async" src="single.jpg" alt="EMBER, the amber cherry musk" loading="lazy"></picture></div>
+      <div class="media"><picture><source srcset="single.webp" type="image/webp"><img width="1200" height="1500" decoding="async" src="single.jpg" alt="EMBER, the cherry amber musk" loading="lazy"></picture></div>
     </div>
   </section>
 </div>
@@ -1691,7 +1752,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     <div class="wide">
       <div class="head"><p class="lab" data-i="care.lab">Delivery and returns</p><h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:200" data-i="care.h2">How an order travels.</h2></div>
       <div class="row">
-        <div class="mile is-now"><b data-i="care.1.k">Delivery</b><h3 data-i="care.1.h">1 to 3 working days</h3><p data-i="care.1.p">Tracked, anywhere in the Emirates. Free over 250 AED, 20 AED below. Order before 2pm and it leaves the same day.</p></div>
+        <div class="mile is-now"><b data-i="care.1.k">Delivery</b><h3 data-i="care.1.h">1 to 3 working days</h3><p data-i="care.1.p">Tracked, anywhere in the Emirates. Free over 250 AED, 29 AED below. Order before 2pm and it leaves the same day.</p></div>
         <div class="mile"><b data-i="care.2.k">Payment</b><h3 data-i="care.2.h">Card, Tabby, Tamara, cash</h3><p data-i="care.2.p">Four instalments with Tabby or Tamara. Or cash at the door. VAT included.</p></div>
         <div class="mile"><b data-i="care.3.k">Returns</b><h3 data-i="care.3.h">14 days, unopened</h3><p data-i="care.3.p">Unopened, in its case, within fourteen days of delivery.</p></div>
       </div>
@@ -1725,14 +1786,14 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     <div class="foot__in">
       <div class="foot__col" style="gap:14px;max-width:30ch">
         <a class="mark" href="#home"><span class="mark__lat">TAHIRA</span><span class="mark__ar">طاهرة</span></a>
-        <span class="fine" data-i="foot.tag">The house of musk. Made in France, with premium raw materials from Grasse.</span>
+        <span class="fine" data-i="foot.tag">The house of musk. Composed and filled in a French laboratory.</span>
       </div>
       <div class="foot__col">
         <b data-i="foot.chart">The chart</b>
-        <a href="#veil" data-page="veil"><i style="background:var(--veil)"></i><span data-i="foot.veil">VEIL — white musk</span></a>
-        <a href="#mirage" data-page="mirage"><i style="background:var(--mirage)"></i><span data-i="foot.mirage">MIRAGE — oud raspberry</span></a>
-        <a href="#ember" data-page="ember"><i style="background:var(--ember)"></i><span data-i="foot.ember">EMBER — amber cherry</span></a>
-        <a href="#halo" data-page="halo"><i style="background:var(--halo)"></i><span data-i="foot.halo">HALO — sweet vanilla</span></a>
+        <a href="#veil" data-page="veil"><i style="background:var(--veil-t)"></i><span data-i="foot.veil">VEIL · white musk</span></a>
+        <a href="#mirage" data-page="mirage"><i style="background:var(--mirage-t)"></i><span data-i="foot.mirage">MIRAGE · oud vanilla</span></a>
+        <a href="#ember" data-page="ember"><i style="background:var(--ember-t)"></i><span data-i="foot.ember">EMBER · cherry amber</span></a>
+        <a href="#halo" data-page="halo"><i style="background:var(--halo-t)"></i><span data-i="foot.halo">HALO · pistachio caramel</span></a>
         <a href="#coffret" data-page="coffret"><i style="background:var(--ember)"></i><span data-i="nav.coffret">The coffret</span></a>
       </div>
       <div class="foot__col">
@@ -1747,7 +1808,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         <b data-i="foot.care">Orders</b>
         <a href="#faq" data-page="faq" data-i="foot.del">Delivery, 1 to 3 days</a>
         <a href="#faq" data-page="faq" data-i="foot.pay">Card, Tabby, Tamara, cash</a>
-        <a href="#faq" data-page="faq" data-i="foot.ret">Returns within 14 days</a>
+        <a href="#faq" data-page="faq" data-i="foot.ret">Returns within 14 days, unopened</a>
         <span class="fine" style="max-width:24ch" data-i="foot.never">Never a scent that is not musk.</span>
       </div>
     </div>
@@ -1790,29 +1851,56 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
 
   var MUSKS = [
     { key:"veil", latin:"VEIL", arName:"فيل", img:"veil.png", tile:"tile-veil.jpg", price:169,
-      face:"#552521", lit:"#6B3C37", dom:"#370E0A", deep:"#1B0301",
-      en:{ short:"white musk", note:"White musk — clean, powdered, the smell of skin after the shower", colour:"Deep bordeaux" },
-      ar:{ short:"مسك أبيض", note:"مسك أبيض — نظيف، بودري، رائحة البشرة بعد الاستحمام", colour:"بوردو غامق" } },
+      face:"#6E6257", lit:"#8A7D70", dom:"#4A4138", deep:"#241F1B", tint:"#A39482",
+      en:{ short:"white musk", note:"White musk: clean, powdered, the smell of skin after the shower", colour:"Deep greige" },
+      ar:{ short:"مسك أبيض", note:"مسك أبيض: نظيف، بودري، رائحة البشرة بعد الاستحمام", colour:"بيج رمادي داكن" } },
     { key:"mirage", latin:"MIRAGE", arName:"ميراج", img:"mirage.png", tile:"tile-mirage.jpg", price:169,
-      face:"#3E2C25", lit:"#57443D", dom:"#21130D", deep:"#0E0502",
-      en:{ short:"oud raspberry", note:"Oud raspberry musk — dark fruit, wood, a dry finish", colour:"Chocolate brown" },
-      ar:{ short:"مسك عود وتوت", note:"مسك عود وتوت — فاكهة داكنة، خشب، نهاية جافة", colour:"بني شوكولاتة" } },
+      face:"#3E2C25", lit:"#57443D", dom:"#21130D", deep:"#0E0502", tint:"#6B4A3A",
+      en:{ short:"oud vanilla", note:"Oud vanilla musk: oud, softened by vanilla, a warm woody finish", colour:"Chocolate brown" },
+      ar:{ short:"مسك عود وفانيليا", note:"مسك عود وفانيليا: عود تليّنه الفانيليا، ونهاية خشبية دافئة", colour:"بني شوكولاتة" } },
     { key:"ember", latin:"EMBER", arName:"إمبر", img:"ember.png", tile:"tile-ember.jpg", price:169,
-      face:"#80213A", lit:"#94384F", dom:"#660623", deep:"#320108",
-      en:{ short:"amber cherry", note:"Amber cherry musk — black cherry, almond, warm amber", colour:"Deep magenta" },
-      ar:{ short:"مسك عنبر وكرز", note:"مسك عنبر وكرز — كرز أسود، لوز، عنبر دافئ", colour:"ماجنتا غامق" } },
+      face:"#80213A", lit:"#94384F", dom:"#660623", deep:"#320108", tint:"#B0244F",
+      en:{ short:"cherry amber", note:"Cherry amber musk: black cherry, almond, warm amber", colour:"Garnet red" },
+      ar:{ short:"مسك كرز وعنبر", note:"مسك كرز وعنبر: كرز أسود، لوز، عنبر دافئ", colour:"أحمر عقيقي" } },
     { key:"halo", latin:"HALO", arName:"هالو", img:"halo.png", tile:"tile-halo.jpg", price:169,
-      face:"#462938", lit:"#5C3F4E", dom:"#2C141F", deep:"#1D0D11",
-      en:{ short:"sweet vanilla", note:"Sweet vanilla musk — bourbon vanilla, cinnamon, brown sugar", colour:"Plum" },
-      ar:{ short:"مسك فانيليا", note:"مسك فانيليا — فانيليا بوربون، قرفة، سكر بني", colour:"برقوقي" } }
+      face:"#7A4A22", lit:"#96613A", dom:"#55301A", deep:"#2A170A", tint:"#B9773B",
+      en:{ short:"pistachio caramel", note:"Pistachio caramel musk: pistachio, caramel, white musk", colour:"Caramel brown" },
+      ar:{ short:"مسك فستق وكراميل", note:"مسك فستق وكراميل: فستق، كراميل، مسك أبيض", colour:"بني كراميل" } }
   ];
-  var COFFRET = { key:"coffret", price:549,
+  var COFFRET = { key:"coffret", price:539,
     en:{ name:"THE COFFRET", desc:"All four musks, one for every kind of day" },
     ar:{ name:"المجموعة", desc:"الأنواع الأربعة، واحد لكل نوع من الأيام" } };
   var N = MUSKS.length, FREE = 250, CHARM = 45;
+  /* informations reglementaires (dossier Montaji) : a remplir ici, en anglais et en arabe ;
+     tant qu'une case est vide, la fiche affiche "Added with the regulatory file" */
+  var REG = {
+    en:{ inci:"", batch:"", exp:"", origin:"France", importer:"" },
+    ar:{ inci:"", batch:"", exp:"", origin:"فرنسا", importer:"" }
+  };
 
   var T = {
     en:{
+      "reg.pending":"Added with the regulatory file",
+      "reg.importer":"Importer in the UAE",
+      "reg.origin":"Country of origin",
+      "reg.exp":"Expiry date",
+      "reg.batch":"Batch number",
+      "reg.inci":"Ingredients (INCI)",
+      "reg.lab":"Regulatory information",
+      "menu.d.halo":"Pistachio caramel",
+      "menu.d.ember":"Cherry amber",
+      "menu.d.mirage":"Oud vanilla",
+      "menu.d.veil":"White musk",
+      "menu.g2":"Discover",
+      "menu.g1":"The four musks",
+      "menu.all":"Shop all four",
+      "menu.faq":"FAQ",
+      "menu.gloss":"Glossary",
+      "menu.house":"Our story",
+      "menu.ritual":"How to wear",
+      "menu.pairs":"Pairs",
+      "menu.coffret":"Gift set",
+      "menu.shop":"Shop",
       aed:"AED", unit:"2 to 3 months",
       "top.ship":"Free delivery across the UAE over 250 AED",
       "top.pay":"Cash on delivery · Tabby · Tamara",
@@ -1828,28 +1916,28 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "bag.remove":"Remove",
       "hero.eyebrow":"The house of musk",
       "hero.h1":"Musk, and<br><em>nothing else</em>.",
-      "hero.sub":"Four musks, composed in France. An oil, not a spray. Worn on clean skin, close to you all day.",
+      "hero.sub":"Four musks, composed in France. A gel, not a spray. Worn on clean skin, close to you all day.",
       "btn.add":"Add to bag","btn.addcof":"Add the coffret","btn.added":"Added",
       "sec.1":"01 — The four","sec.2":"02 — The house","sec.3":"03 — The ritual","sec.4":"04 — Why it holds",
       "sec.5":"05 — The coffret","sec.6":"06 — The charter","sec.7":"07 — Questions","sec.8":"08 — The house letter",
       "shop.h2":"One base. Four directions.",
-      "shop.p":"The same musk base under all four. What changes is what sits over it: white musk, oud and raspberry, amber and cherry, vanilla and cinnamon.",
+      "shop.p":"The same musk base under all four. What changes is what sits over it: white musk, oud and vanilla, cherry and amber, pistachio and caramel.",
       "quote.p":"Four musks, and nothing else. That is the whole house.",
       "quote.s":"TAHIRA",
       "house.h2":"A house that makes musk, and nothing else.",
       "house.p1":"Musk has been worn here for generations. After the shower. In the bag. Again in the afternoon. Given at Eid. The gesture needed nothing from us.",
       "house.p2":"What it never had was a house behind it. The same white musk is sold under fifty names. The perfume brands treat it as one line out of forty.",
-      "house.p3":"So we kept the gesture and rebuilt everything around it. Four musks composed in France. An applicator you glide onto the skin. One object, finished properly.",
+      "house.p3":"So we kept the gesture and rebuilt everything around it. Four musks composed in France. A gel in a soft tube that goes everywhere with you. One object, finished properly.",
       "fr.lab":"Made in France","fr.h2":"Made in France, from start to finish.",
-      "fr.1.k":"01 — The materials","fr.1.h":"From Grasse","fr.1.p":"Real cinnamon. Bourbon vanilla. Brown sugar. Black cherry. Named materials, not one flat accord.",
-      "fr.2.k":"02 — The formulation","fr.2.h":"Built to hold in the heat","fr.2.p":"An oil base, weighed and matured in France. That is what makes it survive a Gulf afternoon.",
+      "fr.1.k":"01 — The materials","fr.1.h":"Named materials","fr.1.p":"Each musk is written around the same white musk base, with materials that each have a name. Not one flat accord.",
+      "fr.2.k":"02 — The formulation","fr.2.h":"Built to hold in the heat","fr.2.p":"An alcohol-free gel base, weighed and matured in France. That is what makes it survive a Gulf afternoon.",
       "fr.3.k":"03 — The expertise","fr.3.h":"A French laboratory","fr.3.p":"Formulation, filling, packing. All in France. The same batch, every time.",
-      "fr.line":"Made in France. Materials from Grasse.",
+      "fr.line":"Made in France. Composed and filled in a French laboratory.",
       "house.spec":"Specification",
       "spec.cat":"Category","spec.cat.v":"Musk. Never a house of perfume.",
       "spec.base":"Base","spec.base.v":"Alcohol-free oil-gel",
-      "spec.fmt":"Format","spec.fmt.v":"Soft tube, 10 ml",
-      "spec.tex":"Texture","spec.tex.v":"Oil, gloss-like, precise applicator",
+      "spec.fmt":"Format","spec.fmt.v":"Soft tube, 15 ml",
+      "spec.tex":"Texture","spec.tex.v":"Gel, non-greasy, applied straight from the tube",
       "spec.comp":"Made in","spec.comp.v":"France",
       "charm.name":"THE BAG CHARM","charm.desc":"Carries one tube, clips to your bag","charm.free":"Offered",
       "val.a":"Two tubes","val.b":"The bag charm","val.worth":"Worth {n}",
@@ -1858,7 +1946,6 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "pair.charm":"A small leather holder. Carries one tube, clips to your bag. Free with every pair.",
       "spec.last":"Lasts","spec.last.v":"2 to 3 months, used once a day",
       "spec.hold":"Holds","spec.hold.v":"6 to 8 hours on skin, longer on fabric",
-      "spec.mat":"Materials","spec.mat.v":"Raw materials from Grasse",
       "spec.mark":"Marking","spec.mark.v":"Direct on the tube, never a label",
       "spec.life":"Shelf life","spec.life.v":"24 to 36 months",
       "spec.del":"Delivery","spec.del.v":"1 to 3 working days, UAE",
@@ -1867,11 +1954,11 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "ritual.p":"On clean skin, on the pulse points. No mirror, no cloud, nothing to redo.",
       "ritual.lede":"Placed where the skin runs warm, it releases through the day.",
       "ritual.four":"Four movements",
-      "hold.h2":"Why an oil holds where a spray does not.",
+      "hold.h2":"Why a gel holds where a spray does not.",
       "hold.a.k":"A spray","hold.a.h":"It evaporates",
       "hold.a.p":"A spray lifts off the skin in the first minutes and takes the scent with it.",
-      "hold.b.k":"Our oil","hold.b.h":"Stays where the skin is warm",
-      "hold.b.p":"An oil is absorbed and releases slowly. Six to eight hours on the skin, longer on fabric.",
+      "hold.b.k":"Our gel","hold.b.h":"Stays where the skin is warm",
+      "hold.b.p":"A gel sinks in and releases slowly. Six to eight hours on the skin, longer on fabric.",
       "hold.fine":"External use on the skin. Not on the eyes or broken skin. No medicinal claim.",
       "cof.h2":"The one you give, and the one you keep.",
       "cof.p":"All four, each in its own case. The set that is given at Eid and at weddings, and the one to keep for yourself.",
@@ -1879,7 +1966,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "cof.2":"A rigid case for each tube, and the case that holds the set",
       "cof.3":"A hand-finished card, so it is ready to give as it is",
       "cof.4":"Each name printed straight onto its tube, never a stuck-on label",
-      "cof.was":"676 AED bought singly","cof.save":"Saves about 17%",
+      "cof.was":"676 AED bought singly","cof.save":"Saves 20%",
       "cof.fine":"Card, Tabby, Tamara in four instalments, or cash at the door. Returned unopened within fourteen days.",
       "ch.h2":"What we will never do.",
       "ch.p":"Four promises. They keep the range short. It stays that way.",
@@ -1890,25 +1977,25 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "join.done":"Noted. You will hear from the house once a month.",
       "join.fine":"One message a month, no more. Entries are held on this page until the list is connected to the store.",
       "join.saved":"Held on this page for now. Connect it to the store and it starts sending.",
-      "foot.tag":"The house of musk. Made in France, with premium raw materials from Grasse.",
+      "foot.tag":"The house of musk. Composed and filled in a French laboratory.",
       "foot.chart":"The chart","foot.house":"The house","foot.care":"Orders",
-      "foot.veil":"VEIL — white musk","foot.mirage":"MIRAGE — oud raspberry",
-      "foot.ember":"EMBER — amber cherry","foot.halo":"HALO — sweet vanilla",
+      "foot.veil":"VEIL · white musk","foot.mirage":"MIRAGE · oud vanilla",
+      "foot.ember":"EMBER · cherry amber","foot.halo":"HALO · pistachio caramel",
       "foot.make":"What we make","foot.del":"Delivery, 1 to 3 days",
-      "foot.pay":"Card, Tabby, Tamara, cash","foot.ret":"Returns within 14 days",
+      "foot.pay":"Card, Tabby, Tamara, cash","foot.ret":"Returns within 14 days, unopened",
       "foot.never":"Never a scent that is not musk.",
       "foot.legal1":"© TAHIRA — Cosmetic, external use only",
       "foot.legal2":"Made in France · Delivered across the Emirates",
       "why.lab":"Why it is worn daily","why.h2":"Worn every day, not kept for occasions.","why.1.h":"It holds","why.1.p":"Six to eight hours on the skin. Longer on a scarf or an abaya.","why.2.h":"It layers","why.2.p":"Musk is a fixative. Worn under a perfume, it holds the perfume down and extends it.","why.3.h":"It travels","why.3.p":"A soft tube, no glass, no spray. Reapplied at any hour, on warm skin.",
-      "tri.1.h":"An oil, not a spray","tri.1.p":"It is absorbed instead of evaporating. Six to eight hours on the skin, longer on fabric.",
-      "tri.2.h":"Made in France","tri.2.p":"Composed and filled in a French laboratory. Raw materials from Grasse.",
-      "tri.3.h":"An applicator, not a dropper","tri.3.p":"You glide it straight onto the skin. Nothing on your fingers, nothing to rub in.",
+      "tri.1.h":"A gel, not a spray","tri.1.p":"It sinks in instead of evaporating. Six to eight hours on the skin, longer on fabric.",
+      "tri.2.h":"Made in France","tri.2.p":"Composed and filled in a French laboratory.",
+      "tri.3.h":"A tube, not a bottle","tri.3.p":"No glass, no spray. It travels in a bag and never leaks.",
       "p.how":"The ritual","p.how.h":"Three ways to wear it.",
       "p.spec.h":"What you are actually buying.",
       "p.care.h":"Delivery, payment, returns.",
       "p.spec.note":"External use on the skin. Not on the eyes or broken skin. Keep out of direct sun.",
       "new.lab":"New to musk","new.h2":"Never worn musk? Start here.",
-      "new.p":"Not a perfume. An oil smoothed onto clean skin. It does not fill a room. It stays within arm's length, all day.",
+      "new.p":"Not a perfume. A gel smoothed onto clean skin. It does not fill a room. It stays within arm's length, all day.",
       "new.1.h":"How it is worn","new.1.p":"After the shower, on warm skin. On the pulse points, in the plural. Thirty seconds, no rubbing.",
       "new.2.h":"Musk is a fixative","new.2.p":"Under a perfume, it holds it down and extends it. Under another musk, the second lands softer.",
       "new.3.h":"How much to use","new.3.p":"One pass in the morning. Two or three for the evening. Reapplied at any hour, on warm skin.",
@@ -1926,8 +2013,8 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "quiz.q2.a":"Keep me clean and close, all day","quiz.q2.b":"Make people ask what I am wearing",
       "quiz.q2.c":"Hold my perfume down and make it last","quiz.q2.d":"Comfort me, like something warm",
       "quiz.q3":"What do you want on your skin?",
-      "quiz.q3.a":"Powder, clean linen, bare skin","quiz.q3.b":"Dark fruit and dry wood",
-      "quiz.q3.c":"Black cherry and almond","quiz.q3.d":"Vanilla, cinnamon, brown sugar",
+      "quiz.q3.a":"Powder, clean linen, bare skin","quiz.q3.b":"Oud, softened by vanilla",
+      "quiz.q3.c":"Black cherry and almond","quiz.q3.d":"Pistachio and caramel",
       "p.who":"Who it is for",
       "way.1.h":"On its own","way.1.p":"After the shower, on warm skin. Wrists, neck, behind the ears. Thirty seconds, no rubbing.",
       "way.2.h":"Under another musk","way.2.p":"White musk first, then another over it. The second lands softer and stays longer.",
@@ -1937,12 +2024,12 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "pair.name":"THE PAIR","pair.incl":"Two tubes and the bag charm",
       "pair.count":"Pick any two",
       "pair.hint":"Pick a second one to see the pair.",
-      "pair.veil.mirage":"VEIL first, MIRAGE over it. The oud lands softer. The raspberry reads drier. Clean at the start, woody at the end. Still on your scarf in the morning.",
+      "pair.veil.mirage":"VEIL first, MIRAGE over it. The white musk takes the edge off the oud and the vanilla comes forward. Clean at the start, warm and woody at the end. Still on your scarf in the morning.",
       "pair.veil.ember":"VEIL first, EMBER over it. The cherry loses its edge. The amber sits closer. It carries all evening, and the opening is never loud.",
-      "pair.veil.halo":"VEIL first, HALO over it. The vanilla stops being sweet. It turns warm. The winter pair, and the one for the quiet hours.",
-      "pair.mirage.ember":"The two strongest. They do not fight. MIRAGE first for the wood. EMBER over it for the fruit. A dinner pair.",
-      "pair.mirage.halo":"MIRAGE first, HALO over it. The cinnamon lifts the oud. The vanilla rounds off the dry end. Depth, not sparkle.",
-      "pair.ember.halo":"EMBER first, HALO over it. Black cherry and almond under bourbon vanilla. The musk holds it down. Never dessert.",
+      "pair.veil.halo":"VEIL first, HALO over it. The caramel stops being sweet and turns warm and powdery. The winter pair, and the one for the quiet hours.",
+      "pair.mirage.ember":"The two strongest. They do not fight. MIRAGE first for the oud, EMBER over it for the cherry. A dinner pair.",
+      "pair.mirage.halo":"MIRAGE first, HALO over it. Vanilla meets caramel, and the oud keeps it from turning sweet. Depth, not sugar.",
+      "pair.ember.halo":"EMBER first, HALO over it. Black cherry and almond under pistachio and caramel. The musk holds it down. Never dessert.",
       "pair.p":"Pick any two. They share the same musk base, so the second lands on the first instead of fighting it. The bag charm comes with the pair.",
       "pair.over":"over VEIL","pair.both":"Add the pair","pair.two":"Two tubes and the charm",
       "m.presence":"Presence","m.hold":"Hold","m.profile":"On the skin",
@@ -1960,10 +2047,10 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "tones.p":"Every musk carries its own range, from the deepest note to the light that sits on top. The tube, the cap and the case are drawn from it.",
       "tones.1":"Deep","tones.2":"Body","tones.3":"Face","tones.4":"Light",
       "make.lab":"How it is made","make.h2":"From the material to the tube.",
-      "make.1.k":"01","make.1.h":"Selected in Grasse",
+      "make.1.k":"01","make.1.h":"Composed in France",
       "make.1.p":"Named raw materials, weighed one by one. No bought-in accord sold by the barrel.",
       "make.2.k":"02","make.2.h":"Built in a French laboratory",
-      "make.2.p":"The oil base is composed and left to mature. Heat is part of the brief, not an afterthought.",
+      "make.2.p":"The gel base is composed and left to mature. Heat is part of the brief, not an afterthought.",
       "make.3.k":"03","make.3.h":"Checked against the last batch",
       "make.3.p":"Every batch is compared to the one before it. Same weight, same hold, same opening.",
       "make.4.k":"04","make.4.h":"Filled and printed in France",
@@ -1992,14 +2079,14 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "gloss.p":"Everything a musk house says, in plain language. Nothing here is marketing vocabulary.",
       "gl.1.t":"Musk","gl.1.p":"The base of everything we make. Warm, skin-like, and the reason a scent stays close to you instead of announcing itself from the door.",
       "gl.2.t":"White musk","gl.2.p":"The clean, powdered kind. It reads like skin ten minutes after a shower. VEIL is built on it, and the other three sit over it.",
-      "gl.3.t":"Oud","gl.3.p":"Resinous wood, dry and dark. A few drops change the direction of a whole formula. It is what dries out the raspberry in MIRAGE.",
+      "gl.3.t":"Oud","gl.3.p":"Resinous wood, dry and dark. A few drops change the direction of a whole formula. In MIRAGE, the vanilla rounds it off.",
       "gl.4.t":"Amber","gl.4.p":"Warm, resinous, faintly sweet. It weighs a scent down so it carries into the evening. The floor under EMBER.",
       "gl.5.t":"Fixative","gl.5.p":"A material that slows down everything laid over it. Musk is one. Put it on first and the perfume you spray on top holds for hours longer.",
       "gl.6.t":"Sillage","gl.6.p":"How far a scent travels away from you. Ours stays within arm\u2019s length, and that is a choice, not a limit.",
       "gl.7.t":"Layering","gl.7.p":"Two scents, one over the other. The second lands on the first instead of replacing it. Four musks make six pairs.",
       "gl.8.t":"Pulse points","gl.8.p":"Where the blood runs close to the skin and the warmth releases the scent. Wrists, the sides of the neck, behind the ears, the collarbone, inner elbows, behind the knees.",
-      "gl.9.t":"Oil, not spray","gl.9.p":"A spray lifts off the skin in the first minutes and takes the scent with it. An oil is absorbed and releases slowly, for six to eight hours.",
-      "gl.10.t":"Grasse","gl.10.p":"The town in the south of France where perfumery materials have been traded and refined for three hundred years. Ours are selected there.",
+      "gl.9.t":"Gel, not spray","gl.9.p":"A spray lifts off the skin in the first minutes and takes the scent with it. A gel sinks in and releases slowly, for six to eight hours.",
+      "gl.10.t":"Gourmand","gl.10.p":"A scent built on notes you could eat: vanilla, caramel, pistachio. Held down by musk, it reads as warmth, not dessert. HALO is one.",
       "gl.11.t":"Top, heart, base","gl.11.p":"The three stages of a scent. The top is the first ten minutes, the heart is the hour after, the base is what is still on your scarf at midnight.",
       "gl.12.t":"Accord","gl.12.p":"Several materials blended to read as one smell. A cheap accord is bought ready-made by the barrel. Ours are built from materials that each have a name.",
       "quiz.with":"And the one to layer over it","quiz.duo":"Take the pair, {n}",
@@ -2010,7 +2097,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "ship.eta":"At your door between {a} and {b}.",
       "day.0":"Sunday","day.1":"Monday","day.2":"Tuesday","day.3":"Wednesday",
       "day.4":"Thursday","day.5":"Friday","day.6":"Saturday",
-      "re.ret":"14 days to change your mind","re.del":"Free delivery over 250 AED",
+      "re.ret":"14 days to change your mind, unopened","re.del":"Free delivery over 250 AED",
       "re.quiz":"Not sure? Three questions",
       "up.cof.h":"Complete the chart","up.cof.p":"Add the other two and the case that holds all four. {n} more.",
       "up.cof.go":"Take the coffret",
@@ -2032,13 +2119,13 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "read.1.k":"01 — The base","read.1.h":"The musk you already know",
       "read.1.p":"White musk sits under all four. Clean, powdered, close to the skin. Nothing about the base is foreign to you.",
       "read.2.k":"02 — What sits over it","read.2.h":"Notes this category has not worn",
-      "read.2.p":"Oud and raspberry. Amber and black cherry. Bourbon vanilla and cinnamon. Composed in France, on materials from Grasse.",
-      "read.3.k":"03 — The gesture","read.3.h":"An applicator, not a dropper",
-      "read.3.p":"You glide it straight onto the skin. Nothing on your fingers, no glass bottle, nothing to rub in.",
-      "app.lab":"The applicator","app.h2":"You glide it on. That is the whole gesture.",
-      "app.1.h":"Straight onto the skin","app.1.p":"The tip carries the oil exactly where you want it. Nothing on your fingers, nothing to rub in.",
-      "app.2.h":"No glass, no spill","app.2.p":"A soft tube with a cap. It travels in a handbag, a car door, a carry-on.",
-      "app.3.h":"You control the dose","app.3.p":"One pass leaves a thin film. Two or three for the evening. To the point, not to the palm.",
+      "read.2.p":"Oud and vanilla. Black cherry and amber. Pistachio and caramel. Composed in France.",
+      "read.3.k":"03 — The gesture","read.3.h":"A tube, not a bottle",
+      "read.3.p":"No glass, no spray. It travels in a bag and never leaks.",
+      "app.lab":"The tube","app.h2":"A tube, not a bottle.",
+      "app.1.h":"Straight from the tube","app.1.p":"A small dot on each pulse point, smoothed in. Non-greasy, it sinks in.",
+      "app.2.h":"No glass, no spill","app.2.p":"A soft tube with a cap. It travels in a handbag, a car door, a carry-on, and never leaks.",
+      "app.3.h":"You control the dose","app.3.p":"One dot leaves a light trace. Two or three for the evening.",
       "where.lab":"Where it goes","where.h2":"Six warm points, not one.",
       "where.p":"Musk releases with heat. Placed where the blood runs close to the skin, it works through the day instead of fading in an hour.",
       "where.1":"Wrists — the point you reapply from. Never rub them together.",
@@ -2047,7 +2134,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "where.4":"The collarbone — under an open collar, it rises all day.",
       "where.5":"Inner elbows — held under long sleeves, from morning to evening.",
       "where.6":"Behind the knees — it rises through a dress or an abaya.",
-      "where.fine":"On skin, not on fabric. It is an oil, so give it thirty seconds and keep it off silk.",
+      "where.fine":"On skin, not on fabric. Give the gel thirty seconds to sink in, and keep it off silk.",
       "when.lab":"When","when.h2":"Four moments in a day.",
       "when.1.h":"After the shower","when.1.p":"Clean, warm skin. The pass that carries the whole day.",
       "when.2.h":"Before you go out","when.2.p":"A second pass on the neck and the wrists. Two or three for the evening.",
@@ -2058,19 +2145,19 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "btn.house":"Enter the house","btn.ritual":"The four movements",
       "cof.short":"All four, each in its own case. Ready to give exactly as it arrives.",
       "house.short":"A house that sells forty things sells musk as one of them. We make one thing. We answer for it.",
-      "shop.long":"An oil, not a spray. It stays close. It holds through the afternoon. One tube lasts two to three months. Made in France, materials from Grasse.",
+      "shop.long":"A gel, not a spray. It stays close. It holds through the afternoon. One tube lasts two to three months. Composed and filled in a French laboratory.",
       "care.lab":"Delivery and returns","care.h2":"How an order travels.",
-      "care.1.k":"Delivery","care.1.h":"1 to 3 working days","care.1.p":"Tracked, anywhere in the Emirates. Free over 250 AED, 20 AED below. Order before 2pm and it leaves the same day.",
+      "care.1.k":"Delivery","care.1.h":"1 to 3 working days","care.1.p":"Tracked, anywhere in the Emirates. Free over 250 AED, 29 AED below. Order before 2pm and it leaves the same day.",
       "care.2.k":"Payment","care.2.h":"Card, Tabby, Tamara, cash","care.2.p":"Four instalments with Tabby or Tamara. Or cash at the door. VAT included.",
       "care.3.k":"Returns","care.3.h":"14 days, unopened","care.3.p":"Unopened, in its case, within fourteen days of delivery.",
       "p.scent":"The scent","p.wear":"How to wear it","p.inside":"What is in the tube","p.care":"Delivery and returns",
       "p.pyramid":"The composition","p.related":"Wear it with","p.related.h":"The rest of the chart.",
       "p.top":"Top","p.heart":"Heart","p.base":"Base","p.qty":"Quantity",
       "p.inside.1":"Enough for two to three months, used once a day",
-      "p.inside.2":"An oil you smooth on, no spray, nothing to redo",
+      "p.inside.2":"A gel you smooth on, no spray, nothing to redo",
       "p.inside.3":"A case it arrives in, ready to give as it is",
       "p.inside.4":"The name printed straight onto the tube, never a label",
-      "p.care.p":"1 to 3 working days across the Emirates, tracked. Free over 250 AED. Returns unopened within 14 days.",
+      "p.care.p":"1 to 3 working days across the Emirates, tracked. Free over 250 AED, 29 AED below. Returns unopened within 14 days.",
       "cof.story.line":"The whole chart, in the order the house reads it.",
       "cof.name":"THE COFFRET","cof.inside":"What is in the box","cof.story":"The composition",
       "cof.long":"The four musks, in the order the house reads them. White musk first. Then the three that layer over it. Each in its own case, with a card that explains the gesture.",
@@ -2078,7 +2165,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         { n:"01", h:"Clean skin first", p:"Straight out of the shower, on warm skin. Nothing underneath to fight." },
         { n:"02", h:"The pulse points", p:"Everywhere the skin runs warm. One tube covers all of them.",
           tags:["Wrists","Neck","Behind the ears","Collarbone","Inner elbows","Behind the knees"] },
-        { n:"03", h:"Let it settle", p:"Thirty seconds, no rubbing. The oil takes to the skin instead of lifting off it." },
+        { n:"03", h:"Let it settle", p:"Thirty seconds, no rubbing. The gel sinks in instead of lifting off." },
         { n:"04", h:"Top up, or layer", p:"It lives in your bag. Layer two musks. Or put one under your perfume to make it last." }
       ],
       rules:[
@@ -2087,24 +2174,45 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         { k:"02", p:"Never alcohol.",
           s:"Wear it through the day and through prayer. Top it up on warm skin. It never stings." },
         { k:"03", p:"Never a stuck-on label.",
-          s:"Printed straight onto the tube. Labels lift in the heat. They peel in a bag. The money goes in the oil." },
+          s:"Printed straight onto the tube. Labels lift in the heat. They peel in a bag. The money goes in the formula." },
         { k:"04", p:"Never a discount.",
           s:"The price is the price, all year. The coffret costs less per tube. It ships as one parcel." }
       ],
       faq:[
         { q:"I have never used musk. Where do I start?", a:"VEIL, the white musk. Clean, powdered, close to the skin. The easiest to wear. Want all four? The coffret costs less than four singles." },
-        { q:"Can I wear it for prayer?", a:"Yes. It is an oil, with no alcohol in it. You can also top it up at any hour on warm skin without it stinging." },
-        { q:"Is the musk animal-derived?", a:"No. Composed in France from materials sourced in Grasse. No deer musk, no alcohol." },
-        { q:"Will it survive the heat here?", a:"Better than a spray. A spray lifts off in the first minutes. An oil stays where the skin is warm. Six to eight hours, longer on fabric." },
-        { q:"Will it mark my clothes or my abaya?", a:"On skin, not fabric. Give it thirty seconds. It is an oil, so it can mark silk. Wrists, neck, behind the ears, behind the knees." },
+        { q:"Can I wear it for prayer?", a:"Yes. It is a gel, with no alcohol in it. You can also top it up at any hour on warm skin without it stinging." },
+        { q:"Is the musk animal-derived?", a:"No. Composed in France, with no deer musk and no alcohol." },
+        { q:"Will it survive the heat here?", a:"Better than a spray. A spray lifts off in the first minutes. A gel sinks in and stays where the skin is warm. Six to eight hours, longer on fabric." },
+        { q:"Will it mark my clothes or my abaya?", a:"On skin, not fabric. Give the gel thirty seconds to sink in, and keep it off silk. Wrists, neck, behind the ears, behind the knees." },
         { q:"How long does one tube last?", a:"Two to three months, used once a day. Keep it out of direct sun." },
-        { q:"How do delivery and payment work?", a:"1 to 3 working days, tracked. Free over 250 AED. Card, Tabby, Tamara, or cash at the door." },
-        { q:"How is this different from the musk sold here?", a:"The base is the one you know, worn the same way. What changes is what sits over it: oud and raspberry, amber and black cherry, bourbon vanilla and cinnamon, composed in France from Grasse materials. And an applicator you glide straight onto the skin, instead of a dropper or your fingers." },
+        { q:"How do delivery and payment work?", a:"1 to 3 working days, tracked. Free over 250 AED, 29 AED below. Card, Tabby, Tamara, or cash at the door." },
+        { q:"How is this different from the musk sold here?", a:"The base is the one you know, worn the same way. What changes is what sits over it: oud and vanilla, black cherry and amber, pistachio and caramel, composed in France. And a soft tube you carry everywhere, instead of a glass bottle." },
         { q:"Can I return it?", a:"Unopened, in its case, within fourteen days." }
       ]
 
     },
     ar:{
+      "reg.pending":"تُضاف مع الملف التنظيمي",
+      "reg.importer":"المستورد في الإمارات",
+      "reg.origin":"بلد المنشأ",
+      "reg.exp":"تاريخ انتهاء الصلاحية",
+      "reg.batch":"رقم الدفعة",
+      "reg.inci":"المكوّنات (INCI)",
+      "reg.lab":"المعلومات التنظيمية",
+      "menu.d.halo":"فستق وكراميل",
+      "menu.d.ember":"كرز وعنبر",
+      "menu.d.mirage":"عود وفانيليا",
+      "menu.d.veil":"مسك أبيض",
+      "menu.g2":"اكتشفي",
+      "menu.g1":"المسكات الأربعة",
+      "menu.all":"تسوّقي الأربعة",
+      "menu.faq":"الأسئلة الشائعة",
+      "menu.gloss":"المعجم",
+      "menu.house":"قصتنا",
+      "menu.ritual":"طريقة الاستعمال",
+      "menu.pairs":"الثنائيات",
+      "menu.coffret":"طقم الهدية",
+      "menu.shop":"تسوّقي",
       aed:"د.إ", unit:"من شهرين إلى ثلاثة",
       "top.ship":"توصيل مجاني في الإمارات للطلبات فوق ٢٥٠ د.إ",
       "top.pay":"الدفع عند الاستلام · تابي · تمارا",
@@ -2120,28 +2228,28 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "bag.remove":"إزالة",
       "hero.eyebrow":"بيت المسك",
       "hero.h1":"مسك،<br><em>ولا شيء سواه</em>.",
-      "hero.sub":"أربعة أنواع مسك، تُركَّب في فرنسا. زيت، لا رذاذ. يوضع على بشرة نظيفة، ويبقى قريباً منك طوال اليوم.",
+      "hero.sub":"أربعة أنواع مسك، تُركَّب في فرنسا. جل، لا رذاذ. يوضع على بشرة نظيفة، ويبقى قريباً منك طوال اليوم.",
       "btn.add":"أضيفي إلى السلة","btn.addcof":"أضيفي المجموعة","btn.added":"أُضيف",
       "sec.1":"٠١ — الأربعة","sec.2":"٠٢ — البيت","sec.3":"٠٣ — الطقس اليومي","sec.4":"٠٤ — لماذا يثبت",
       "sec.5":"٠٥ — المجموعة","sec.6":"٠٦ — الميثاق","sec.7":"٠٧ — الأسئلة","sec.8":"٠٨ — رسالة البيت",
       "shop.h2":"قاعدة واحدة. أربعة اتجاهات.",
-      "shop.p":"قاعدة المسك نفسها تحت الأربعة. ما يتغيّر هو ما يوضع فوقها: مسك أبيض، عود وتوت، عنبر وكرز، فانيليا وقرفة.",
+      "shop.p":"قاعدة المسك نفسها تحت الأربعة. ما يتغيّر هو ما يعلوها: مسك أبيض، عود وفانيليا، كرز وعنبر، فستق وكراميل.",
       "quote.p":"أربعة أنواع مسك، ولا شيء سواها. هذا هو البيت كله.",
       "quote.s":"طاهرة",
       "house.h2":"بيت يصنع المسك، ولا شيء سواه.",
       "house.p1":"المسك يُوضع هنا منذ أجيال. بعد الاستحمام. في الحقيبة. ومرة أخرى بعد الظهر. ويُهدى في العيد. هذه الحركة لم تكن تنتظر منّا شيئاً.",
       "house.p2":"ما لم يكن لها يوماً هو بيت خلفها. المسك الأبيض نفسه يُباع تحت خمسين اسماً. والعلامات العطرية تعامله كسطر واحد من أربعين.",
-      "house.p3":"فأبقينا الحركة وأعدنا بناء كل ما حولها. أربعة أنواع مسك تُركَّب في فرنسا. وأداة تمرّرينها على البشرة. غرض واحد، منجز كما يجب.",
+      "house.p3":"فأبقينا الحركة وأعدنا بناء كل ما حولها. أربعة أنواع مسك تُركَّب في فرنسا. جل في أنبوب ليّن يرافقك أينما ذهبتِ. غرض واحد، منجز كما يجب.",
       "fr.lab":"صُنع في فرنسا","fr.h2":"صُنع في فرنسا، من الأول إلى الآخر.",
-      "fr.1.k":"٠١ — المواد","fr.1.h":"من غراس","fr.1.p":"قرفة حقيقية. فانيليا بوربون. سكر بني. كرز أسود. مواد لكل منها اسم، لا تركيبة مسطّحة.",
-      "fr.2.k":"٠٢ — التركيبة","fr.2.h":"مبنية لتثبت في الحرّ","fr.2.p":"قاعدة زيتية، توزن وتنضج في فرنسا. وهذا ما يجعلها تصمد في عصر خليجي.",
+      "fr.1.k":"٠١ — المواد","fr.1.h":"مواد لكل منها اسم","fr.1.p":"كل مسك مكتوب حول قاعدة المسك الأبيض نفسها، بمواد لكل منها اسم. لا تركيبة واحدة مسطّحة.",
+      "fr.2.k":"٠٢ — التركيبة","fr.2.h":"مبنية لتثبت في الحرّ","fr.2.p":"قاعدة جل بلا كحول، تُوزن وتُترك لتنضج في فرنسا. وهذا ما يجعلها تصمد في ظهيرة خليجية.",
       "fr.3.k":"٠٣ — الخبرة","fr.3.h":"مختبر فرنسي","fr.3.p":"التركيب والتعبئة والتغليف. كله في فرنسا. والدفعة نفسها في كل مرة.",
-      "fr.line":"صُنع في فرنسا. مواد أولية من غراس.",
+      "fr.line":"صُنع في فرنسا. يُركَّب ويُعبّأ في مختبر فرنسي.",
       "house.spec":"المواصفات",
       "spec.cat":"الفئة","spec.cat.v":"مسك. وليس بيت عطور.",
       "spec.base":"القاعدة","spec.base.v":"زيت جيلي خالٍ من الكحول",
-      "spec.fmt":"الشكل","spec.fmt.v":"أنبوب طري، ١٠ مل",
-      "spec.tex":"القوام","spec.tex.v":"زيت لامع، تطبيق دقيق",
+      "spec.fmt":"الشكل","spec.fmt.v":"أنبوب ليّن، ١٥ مل",
+      "spec.tex":"القوام","spec.tex.v":"جل غير دهني، يوضع من الأنبوب مباشرة",
       "spec.comp":"صُنع في","spec.comp.v":"فرنسا",
       "charm.name":"حِلية الحقيبة","charm.desc":"تحمل أنبوباً واحداً وتُعلّق على حقيبتك","charm.free":"هدية",
       "val.a":"أنبوبان","val.b":"حِلية الحقيبة","val.worth":"قيمتها {n}",
@@ -2150,7 +2258,6 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "pair.charm":"حامل جلدي صغير. يحمل أنبوباً واحداً ويُعلّق على حقيبتك. هدية مع كل ثنائي.",
       "spec.last":"يدوم","spec.last.v":"من شهرين إلى ثلاثة، باستعمال مرة في اليوم",
       "spec.hold":"يثبت","spec.hold.v":"من ٦ إلى ٨ ساعات على البشرة، وأطول على القماش",
-      "spec.mat":"المواد","spec.mat.v":"مواد أولية من غراس",
       "spec.mark":"الطباعة","spec.mark.v":"مباشرة على الأنبوب، بلا ملصق",
       "spec.life":"مدة الصلاحية","spec.life.v":"من ٢٤ إلى ٣٦ شهراً",
       "spec.del":"التوصيل","spec.del.v":"من يوم إلى ثلاثة أيام عمل، الإمارات",
@@ -2159,11 +2266,11 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "ritual.p":"على بشرة نظيفة، على نقاط النبض. بلا مرآة، بلا سحابة، ولا شيء تعيدينه.",
       "ritual.lede":"يوضع حيث تدفأ البشرة، فيتحرّر على مدار اليوم.",
       "ritual.four":"أربع حركات",
-      "hold.h2":"لماذا يثبت الزيت حيث لا يثبت الرذاذ.",
+      "hold.h2":"لماذا يثبت الجل حيث لا يثبت الرذاذ.",
       "hold.a.k":"الرذاذ","hold.a.h":"يتبخّر",
       "hold.a.p":"الرذاذ يرتفع عن البشرة في الدقائق الأولى، ويأخذ الرائحة معه.",
-      "hold.b.k":"زيتنا","hold.b.h":"يبقى حيث تدفأ البشرة",
-      "hold.b.p":"الزيت يتشرّب ويتحرّر ببطء. من ست إلى ثماني ساعات على البشرة، وأطول على القماش.",
+      "hold.b.k":"جلنا","hold.b.h":"يبقى حيث تدفأ البشرة",
+      "hold.b.p":"الجل يتشرّبه الجلد ويتحرّر ببطء. من ست إلى ثماني ساعات على البشرة، وأطول على القماش.",
       "hold.fine":"للاستعمال الخارجي على البشرة. ليس على العينين ولا على بشرة مجروحة. ولا ادعاء طبي.",
       "cof.h2":"التي تُهدى، والتي تحتفظين بها.",
       "cof.p":"الأربعة كلها، كلٌّ في علبته. المجموعة التي تُهدى في العيد وفي الأعراس، والتي تُحتفظ بها أيضاً.",
@@ -2171,7 +2278,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "cof.2":"علبة صلبة لكل أنبوب، والعلبة التي تضمّ المجموعة",
       "cof.3":"بطاقة مشغولة يدوياً، فتكون جاهزة للإهداء كما هي",
       "cof.4":"اسم كل نوع مطبوع مباشرة على أنبوبه، بلا ملصق",
-      "cof.was":"٦٧٦ د.إ عند الشراء منفرداً","cof.save":"توفير ١٧٪ تقريباً",
+      "cof.was":"٦٧٦ د.إ عند الشراء منفرداً","cof.save":"توفير ٢٠٪",
       "cof.fine":"بطاقة، أو تابي وتمارا على أربع دفعات، أو نقداً عند الباب. والإرجاع غير مفتوح خلال أربعة عشر يوماً.",
       "ch.h2":"ما لن نفعله أبداً.",
       "ch.p":"أربعة وعود. هي سبب قِصر المجموعة. وستبقى قصيرة.",
@@ -2182,25 +2289,25 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "join.done":"تمّ. ستصلك رسالة من البيت مرة في الشهر.",
       "join.fine":"رسالة واحدة شهرياً. تُحفظ البيانات هنا إلى أن تُربط القائمة بالمتجر.",
       "join.saved":"محفوظ على هذه الصفحة حالياً. اربطيها بالمتجر لتبدأ الإرسال.",
-      "foot.tag":"بيت المسك. صُنع في فرنسا بمواد أولية فاخرة من غراس.",
+      "foot.tag":"بيت المسك. يُركَّب ويُعبّأ في مختبر فرنسي.",
       "foot.chart":"لوحة الألوان","foot.house":"البيت","foot.care":"الطلبات",
-      "foot.veil":"فيل — مسك أبيض","foot.mirage":"ميراج — مسك عود وتوت",
-      "foot.ember":"إمبر — مسك عنبر وكرز","foot.halo":"هالو — مسك فانيليا",
+      "foot.veil":"فيل · مسك أبيض","foot.mirage":"ميراج · عود وفانيليا",
+      "foot.ember":"إمبر · كرز وعنبر","foot.halo":"هالو · فستق وكراميل",
       "foot.make":"ما الذي نصنعه","foot.del":"التوصيل، من يوم إلى ثلاثة",
-      "foot.pay":"بطاقة، تابي، تمارا، نقداً","foot.ret":"الإرجاع خلال ١٤ يوماً",
+      "foot.pay":"بطاقة، تابي، تمارا، نقداً","foot.ret":"الإرجاع خلال ١٤ يوماً، دون فتح المنتج",
       "foot.never":"ولا رائحة خارج المسك أبداً.",
       "foot.legal1":"© طاهرة — استعمال تجميلي خارجي فقط",
       "foot.legal2":"صُنع في فرنسا · يُوصَّل في كل الإمارات",
       "why.lab":"لماذا يُوضع كل يوم","why.h2":"يُوضع كل يوم، لا في المناسبات فقط.","why.1.h":"يثبت","why.1.p":"من ست إلى ثماني ساعات على البشرة. وأطول على الشيلة أو العباءة.","why.2.h":"يُطبَّق تحت غيره","why.2.p":"المسك مثبّت. تحت العطر، يمسكه ويطيل بقاءه.","why.3.h":"يرافقك","why.3.p":"أنبوب طري، بلا زجاج وبلا رذاذ. أعيديه في أي ساعة على بشرة دافئة.",
-      "tri.1.h":"زيت، لا رذاذ","tri.1.p":"يتشرّب بدل أن يتبخّر. من ست إلى ثماني ساعات على البشرة، وأطول على القماش.",
-      "tri.2.h":"صُنع في فرنسا","tri.2.p":"يُركَّب ويُعبَّأ في مختبر فرنسي. ومواده الأولية من غراس.",
-      "tri.3.h":"أداة تطبيق، لا قطّارة","tri.3.p":"تمرّرينها مباشرة على البشرة. لا شيء على أصابعك، ولا شيء تفركينه.",
+      "tri.1.h":"جل، لا رذاذ","tri.1.p":"يتشرّبه الجلد بدل أن يتبخّر. من ست إلى ثماني ساعات على البشرة، وأطول على القماش.",
+      "tri.2.h":"صُنع في فرنسا","tri.2.p":"يُركَّب ويُعبّأ في مختبر فرنسي.",
+      "tri.3.h":"أنبوب، لا قارورة","tri.3.p":"بلا زجاج، بلا رذاذ. يرافقك في الحقيبة ولا يتسرّب.",
       "p.how":"الطقس اليومي","p.how.h":"ثلاث طرق لوضعه.",
       "p.spec.h":"ما الذي تشترينه فعلاً.",
       "p.care.h":"التوصيل والدفع والإرجاع.",
       "p.spec.note":"للاستعمال الخارجي على البشرة. ليس على العينين ولا على بشرة مجروحة. احفظيه بعيداً عن الشمس المباشرة.",
       "new.lab":"جديدة على المسك","new.h2":"لم تجرّبي المسك؟ ابدئي من هنا.",
-      "new.p":"ليس عطراً. زيت يُمرَّر على بشرة نظيفة. لا يملأ الغرفة. يبقى في محيطك القريب، طوال اليوم.",
+      "new.p":"ليس عطراً. جل يُفرد على بشرة نظيفة. لا يملأ الغرفة. يبقى في محيطك القريب، طوال اليوم.",
       "new.1.h":"كيف يُوضع","new.1.p":"بعد الاستحمام، على بشرة دافئة. على نقاط النبض، بصيغة الجمع. ثلاثون ثانية، بلا فرك.",
       "new.2.h":"المسك مثبّت","new.2.p":"تحت العطر، يمسكه ويطيل بقاءه. وتحت مسك آخر، ينزل الثاني أنعم.",
       "new.3.h":"كم تضعين منه","new.3.p":"مرور واحد في الصباح. مرّتان أو ثلاث للمساء. وأعيديه في أي ساعة على بشرة دافئة.",
@@ -2218,8 +2325,8 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "quiz.q2.a":"أن يبقيني نظيفة وقريبة، طوال اليوم","quiz.q2.b":"أن يسألوني عمّا أضعه",
       "quiz.q2.c":"أن يثبّت عطري ويطيل بقاءه","quiz.q2.d":"أن يمنحني دفئاً",
       "quiz.q3":"ما الذي تريدينه على بشرتك؟",
-      "quiz.q3.a":"بودرة، قماش نظيف، بشرة عارية","quiz.q3.b":"فاكهة داكنة وخشب جاف",
-      "quiz.q3.c":"كرز أسود ولوز","quiz.q3.d":"فانيليا وقرفة وسكر بني",
+      "quiz.q3.a":"بودرة، قماش نظيف، بشرة عارية","quiz.q3.b":"عود تليّنه الفانيليا",
+      "quiz.q3.c":"كرز أسود ولوز","quiz.q3.d":"فستق وكراميل",
       "p.who":"لمن هو",
       "way.1.h":"وحده","way.1.p":"بعد الاستحمام، على بشرة دافئة. المعصمان، العنق، خلف الأذنين. ثلاثون ثانية، بلا فرك.",
       "way.2.h":"تحت مسك آخر","way.2.p":"مسك أبيض أولاً، ثم آخر فوقه. الثاني ينزل أنعم. ويبقى أطول.",
@@ -2229,12 +2336,12 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "pair.name":"الثنائي","pair.incl":"أنبوبان وحِلية الحقيبة",
       "pair.count":"اختاري أي اثنين",
       "pair.hint":"اختاري الثاني لترَي الثنائي.",
-      "pair.veil.mirage":"فيل أولاً، وميراج فوقه. العود ينزل أنعم. والتوت يُقرأ أجفّ. نظيف في البداية، خشبي في النهاية. وما زال على وشاحك في الصباح.",
-      "pair.veil.ember":"فيل أولاً، وإمبر فوقه. الكرز يفقد حدّته. والعنبر يقترب منك. يرافقك السهرة كلها، وبدايته ليست صاخبة.",
-      "pair.veil.halo":"فيل أولاً، وهالو فوقه. الفانيليا تكفّ عن الحلاوة. وتصبح دفئاً. ثنائي الشتاء، وثنائي ساعات الهدوء.",
-      "pair.mirage.ember":"الأقوى بين الأربعة. ولا يتزاحمان. ميراج أولاً للخشب. وإمبر فوقه للفاكهة. ثنائي العشاء.",
-      "pair.mirage.halo":"ميراج أولاً، وهالو فوقه. القرفة ترفع العود. والفانيليا تدوّر النهاية الجافة. عمق، لا لمعان.",
-      "pair.ember.halo":"إمبر أولاً، وهالو فوقه. كرز أسود ولوز تحت فانيليا بوربون. المسك يمسكهما. ولا يُقرأ حلوى أبداً.",
+      "pair.veil.mirage":"فيل أولاً، ثم ميراج فوقه. المسك الأبيض يليّن حدّة العود وتتقدّم الفانيليا. نظيف في البداية، دافئ وخشبي في النهاية. ويبقى على وشاحك حتى الصباح.",
+      "pair.veil.ember":"فيل أولاً، ثم إمبر فوقه. يفقد الكرز حدّته. ويقترب العنبر. يدوم طوال المساء، وافتتاحيته لا تكون صاخبة أبداً.",
+      "pair.veil.halo":"فيل أولاً، ثم هالو فوقه. يكفّ الكراميل عن الحلاوة ويصبح دافئاً وبودرياً. ثنائي الشتاء، وثنائي الساعات الهادئة.",
+      "pair.mirage.ember":"الأقوى بين الأربعة. ولا يتصارعان. ميراج أولاً من أجل العود، ثم إمبر فوقه من أجل الكرز. ثنائي العشاء.",
+      "pair.mirage.halo":"ميراج أولاً، ثم هالو فوقه. تلتقي الفانيليا بالكراميل، والعود يمنعهما من الحلاوة. عمق، لا سكّر.",
+      "pair.ember.halo":"إمبر أولاً، ثم هالو فوقه. كرز أسود ولوز تحت الفستق والكراميل. والمسك يمسكه. لا يصبح حلوى أبداً.",
       "pair.p":"اختاري أي اثنين. يتشاركان قاعدة المسك نفسها، فينزل الثاني فوق الأول بدل أن يزاحمه. وحِلية الحقيبة تأتي مع الثنائي.",
       "pair.over":"فوق فيل","pair.both":"أضيفي الثنائي","pair.two":"أنبوبان وحِلية",
       "m.presence":"الحضور","m.hold":"الثبات","m.profile":"على البشرة",
@@ -2252,10 +2359,10 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "tones.p":"لكل مسك مداه الخاص، من أعمق نوتة إلى الضوء الذي يعلوها. ومنه يُستمدّ الأنبوب والغطاء والعلبة.",
       "tones.1":"العمق","tones.2":"الجسم","tones.3":"الوجه","tones.4":"الضوء",
       "make.lab":"كيف يُصنع","make.h2":"من المادة إلى الأنبوب.",
-      "make.1.k":"٠١","make.1.h":"تُنتقى في غراس",
+      "make.1.k":"٠١","make.1.h":"يُركَّب في فرنسا",
       "make.1.p":"مواد أولية لكل منها اسم، تُوزن واحدة واحدة. لا تركيبة جاهزة تُشترى بالبرميل.",
       "make.2.k":"٠٢","make.2.h":"تُبنى في مختبر فرنسي",
-      "make.2.p":"تُركَّب القاعدة الزيتية وتُترك لتنضج. والحرارة جزء من المواصفة، لا أمر يُعالَج لاحقاً.",
+      "make.2.p":"قاعدة الجل تُركَّب وتُترك لتنضج. الحرّ جزء من المهمة، لا فكرة لاحقة.",
       "make.3.k":"٠٣","make.3.h":"تُقارن بالدفعة السابقة",
       "make.3.p":"كل دفعة تُقارن بالتي قبلها. الوزن نفسه، والثبات نفسه، والافتتاح نفسه.",
       "make.4.k":"٠٤","make.4.h":"تُعبَّأ وتُطبع في فرنسا",
@@ -2284,14 +2391,14 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "gloss.p":"كل ما يقوله بيت مسك، بلغة واضحة. لا شيء هنا من مفردات التسويق.",
       "gl.1.t":"المسك","gl.1.p":"قاعدة كل ما نصنعه. دافئ، قريب من رائحة البشرة، وهو سبب بقاء الرائحة قريبة منك بدل أن تُعلن عن نفسها من الباب.",
       "gl.2.t":"المسك الأبيض","gl.2.p":"النوع النظيف البودري. يُقرأ كبشرة بعد عشر دقائق من الاستحمام. عليه بُني فيل، وفوقه تُطبَّق الثلاثة الأخرى.",
-      "gl.3.t":"العود","gl.3.p":"خشب راتنجي، جافّ وداكن. بضع قطرات تغيّر اتجاه تركيبة كاملة. وهو ما يجفّف التوت في ميراج.",
+      "gl.3.t":"العود","gl.3.p":"خشب راتنجي، جافّ وداكن. بضع قطرات تغيّر اتجاه تركيبة كاملة. وفي ميراج، تدوّره الفانيليا.",
       "gl.4.t":"العنبر","gl.4.p":"دافئ، راتنجي، حلو قليلاً. يثقّل الرائحة فترافقك إلى المساء. وهو الأرضية تحت إمبر.",
       "gl.5.t":"المثبّت","gl.5.p":"مادة تبطّئ كل ما يوضع فوقها. المسك واحد منها. ضعيه أولاً، فيدوم العطر الذي ترشّينه فوقه ساعات أطول.",
       "gl.6.t":"السياج العطري","gl.6.p":"إلى أي مدى تسافر الرائحة بعيداً عنك. رائحتنا تبقى في مدى الذراع، وهذا اختيار لا حدّ.",
       "gl.7.t":"التطبيق فوق بعضه","gl.7.p":"رائحتان، واحدة فوق الأخرى. الثانية تنزل على الأولى بدل أن تحلّ محلّها. أربعة أنواع تصنع ستة ثنائيات.",
       "gl.8.t":"نقاط النبض","gl.8.p":"حيث يقترب الدم من سطح البشرة فتحرّر الحرارة الرائحة. المعصمان، وجانبا العنق، وخلف الأذنين، وعظمة الترقوة، وباطن المرفقين، وخلف الركبتين.",
-      "gl.9.t":"زيت، لا رذاذ","gl.9.p":"الرذاذ يرتفع عن البشرة في الدقائق الأولى ويأخذ الرائحة معه. أما الزيت فيتشرّب ويتحرّر ببطء، من ست إلى ثماني ساعات.",
-      "gl.10.t":"غراس","gl.10.p":"المدينة في جنوب فرنسا حيث تُتداول مواد العطارة وتُكرَّر منذ ثلاثمئة عام. ومنها تُنتقى موادّنا.",
+      "gl.9.t":"جل، لا رذاذ","gl.9.p":"الرذاذ يرتفع عن البشرة في الدقائق الأولى ويأخذ الرائحة معه. أما الجل فيتشرّبه الجلد ويتحرّر ببطء، من ست إلى ثماني ساعات.",
+      "gl.10.t":"غورماند","gl.10.p":"عطر مبني على نفحات تؤكل: فانيليا، كراميل، فستق. حين يمسكه المسك يُقرأ دفئاً لا حلوى. وهالو منها.",
       "gl.11.t":"المقدمة والقلب والقاعدة","gl.11.p":"مراحل الرائحة الثلاث. المقدمة هي الدقائق العشر الأولى، والقلب هو الساعة التي تليها، والقاعدة هي ما يبقى على شيلتك عند منتصف الليل.",
       "gl.12.t":"التركيبة","gl.12.p":"عدة مواد تُمزج لتُقرأ رائحة واحدة. التركيبة الرخيصة تُشترى جاهزة بالبرميل. أما تركيباتنا فمبنية من مواد لكل منها اسم.",
       "quiz.with":"والذي يُطبَّق فوقه","quiz.duo":"خذي الثنائي، {n}",
@@ -2302,7 +2409,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "ship.eta":"يصلك بين {a} و{b}.",
       "day.0":"الأحد","day.1":"الإثنين","day.2":"الثلاثاء","day.3":"الأربعاء",
       "day.4":"الخميس","day.5":"الجمعة","day.6":"السبت",
-      "re.ret":"١٤ يوماً لتغيّري رأيك","re.del":"توصيل مجاني فوق ٢٥٠ د.إ",
+      "re.ret":"١٤ يوماً لتغيّري رأيك، دون فتح المنتج","re.del":"توصيل مجاني فوق ٢٥٠ د.إ",
       "re.quiz":"غير متأكدة؟ ثلاثة أسئلة",
       "up.cof.h":"أكملي اللوحة","up.cof.p":"أضيفي الاثنين الباقيين والعلبة التي تضمّ الأربعة. بفارق {n}.",
       "up.cof.go":"خذي المجموعة",
@@ -2324,13 +2431,13 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "read.1.k":"٠١ — القاعدة","read.1.h":"المسك الذي تعرفينه",
       "read.1.p":"المسك الأبيض تحت الأربعة كلها. نظيف، بودري، قريب من البشرة. لا شيء في القاعدة غريب عنك.",
       "read.2.k":"٠٢ — ما يوضع فوقها","read.2.h":"نوتات لم تعرفها هذه الفئة",
-      "read.2.p":"عود وتوت. عنبر وكرز أسود. فانيليا بوربون وقرفة. تُركَّب في فرنسا من مواد غراس.",
-      "read.3.k":"٠٣ — الحركة","read.3.h":"أداة تطبيق، لا قطّارة",
-      "read.3.p":"تمرّرينها مباشرة على البشرة. لا شيء على أصابعك، ولا زجاجة، ولا شيء تفركينه.",
-      "app.lab":"أداة التطبيق","app.h2":"تمرّرينها، وانتهى الأمر.",
-      "app.1.h":"مباشرة على البشرة","app.1.p":"الطرف يحمل الزيت إلى الموضع الذي تريدينه بالضبط. لا شيء على أصابعك، ولا شيء تفركينه.",
-      "app.2.h":"بلا زجاج وبلا انسكاب","app.2.p":"أنبوب طري بغطاء. يرافقك في الحقيبة، وفي باب السيارة، وفي حقيبة السفر.",
-      "app.3.h":"الكمية بيدك","app.3.p":"مرور واحد يترك طبقة رفيعة. ومرّتان أو ثلاث للمساء. على الموضع، لا على الكفّ.",
+      "read.2.p":"عود وفانيليا. كرز أسود وعنبر. فستق وكراميل. تُركَّب في فرنسا.",
+      "read.3.k":"٠٣ — الحركة","read.3.h":"أنبوب، لا قارورة",
+      "read.3.p":"بلا زجاج، بلا رذاذ. يرافقك في الحقيبة ولا يتسرّب.",
+      "app.lab":"الأنبوب","app.h2":"أنبوب، لا قارورة.",
+      "app.1.h":"من الأنبوب مباشرة","app.1.p":"نقطة صغيرة على كل نقطة نبض، تُفرد بلطف. غير دهني، يتشرّبه الجلد.",
+      "app.2.h":"بلا زجاج وبلا انسكاب","app.2.p":"أنبوب ليّن بغطاء. يرافقك في الحقيبة، وفي باب السيارة، وفي حقيبة السفر، ولا يتسرّب.",
+      "app.3.h":"الكمية بيدك","app.3.p":"نقطة واحدة تترك أثراً خفيفاً. نقطتان أو ثلاث للمساء.",
       "where.lab":"أين يُوضع","where.h2":"ستة مواضع دافئة، لا موضع واحد.",
       "where.p":"المسك يتحرّر مع الحرارة. ضعيه حيث يقترب الدم من سطح البشرة، فيعمل طوال النهار بدل أن يخفت بعد ساعة.",
       "where.1":"المعصمان — الموضع الذي تعيدين منه. ولا تفركيهما ببعضهما.",
@@ -2339,7 +2446,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "where.4":"عظمة الترقوة — تحت ياقة مفتوحة، يصعد طوال اليوم.",
       "where.5":"باطن المرفقين — يثبت تحت الأكمام الطويلة، من الصباح إلى المساء.",
       "where.6":"خلف الركبتين — يصعد من تحت الفستان أو العباءة.",
-      "where.fine":"على البشرة لا على القماش. هو زيت، فامنحيه ثلاثين ثانية، وأبعديه عن الحرير.",
+      "where.fine":"على البشرة لا على القماش. امنحي الجل ثلاثين ثانية ليتشرّبه الجلد، وأبعديه عن الحرير.",
       "when.lab":"متى","when.h2":"أربع لحظات في اليوم.",
       "when.1.h":"بعد الاستحمام","when.1.p":"بشرة نظيفة دافئة. المرور الذي يحمل اليوم كله.",
       "when.2.h":"قبل الخروج","when.2.p":"مرور ثانٍ على العنق والمعصمين. ومرّتان أو ثلاث للمساء.",
@@ -2350,19 +2457,19 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "btn.house":"ادخلي البيت","btn.ritual":"الحركات الأربع",
       "cof.short":"الأربعة كلها، كلٌّ في علبته. جاهزة للإهداء كما تصل تماماً.",
       "house.short":"البيت الذي يبيع أربعين شيئاً يبيع المسك كواحد منها. نحن نصنع شيئاً واحداً. ونتحمّل مسؤوليته.",
-      "shop.long":"زيت، لا رذاذ. يبقى قريباً. ويصمد بعد الظهر. الأنبوب يدوم من شهرين إلى ثلاثة. صُنع في فرنسا بمواد من غراس.",
+      "shop.long":"جل، لا رذاذ. يبقى قريباً. ويصمد بعد الظهر. الأنبوب يدوم من شهرين إلى ثلاثة. يُركَّب ويُعبّأ في مختبر فرنسي.",
       "care.lab":"التوصيل والإرجاع","care.h2":"كيف يصل الطلب.",
-      "care.1.k":"التوصيل","care.1.h":"من يوم إلى ثلاثة أيام عمل","care.1.p":"مع رقم تتبّع، في كل الإمارات. مجاني فوق ٢٥٠ د.إ، وبـ ٢٠ د.إ دون ذلك. الطلب قبل الثانية ظهراً يغادر في اليوم نفسه.",
+      "care.1.k":"التوصيل","care.1.h":"من يوم إلى ثلاثة أيام عمل","care.1.p":"مع رقم تتبّع، في كل الإمارات. مجاني فوق ٢٥٠ د.إ، وبـ ٢٩ د.إ دون ذلك. الطلب قبل الثانية ظهراً يغادر في اليوم نفسه.",
       "care.2.k":"الدفع","care.2.h":"بطاقة، تابي، تمارا، نقداً","care.2.p":"أربع دفعات عبر تابي أو تمارا. أو نقداً عند الباب. شامل ضريبة القيمة المضافة.",
       "care.3.k":"الإرجاع","care.3.h":"١٤ يوماً، غير مفتوح","care.3.p":"غير مفتوح، داخل علبته، خلال أربعة عشر يوماً من الاستلام.",
       "p.scent":"الرائحة","p.wear":"كيف تضعينه","p.inside":"ماذا يوجد في الأنبوب","p.care":"التوصيل والإرجاع",
       "p.pyramid":"التركيبة","p.related":"ضعيه مع","p.related.h":"بقية اللوحة.",
       "p.top":"المقدمة","p.heart":"القلب","p.base":"القاعدة","p.qty":"الكمية",
       "p.inside.1":"يكفي من شهرين إلى ثلاثة، باستعمال مرة في اليوم",
-      "p.inside.2":"زيت تمرّرينه، بلا رذاذ، ولا شيء تعيدينه",
+      "p.inside.2":"جل تفردينه، بلا رذاذ، ولا شيء لتعيديه",
       "p.inside.3":"علبة يصل بداخلها، جاهزة للإهداء كما هي",
       "p.inside.4":"الاسم مطبوع مباشرة على الأنبوب، بلا ملصق",
-      "p.care.p":"من يوم إلى ثلاثة أيام عمل في كل الإمارات، مع تتبّع. مجاني فوق ٢٥٠ د.إ. والإرجاع غير مفتوح خلال أربعة عشر يوماً.",
+      "p.care.p":"من يوم إلى ثلاثة أيام عمل في كل الإمارات، مع تتبّع. مجاني فوق ٢٥٠ د.إ، وبـ ٢٩ د.إ دون ذلك. والإرجاع غير مفتوح خلال أربعة عشر يوماً.",
       "cof.story.line":"اللوحة كاملة، بالترتيب الذي يقرأها به البيت.",
       "cof.name":"المجموعة","cof.inside":"ماذا يوجد في العلبة","cof.story":"التركيبة",
       "cof.long":"الأنواع الأربعة، بالترتيب الذي يقرأها به البيت. المسك الأبيض أولاً. ثم الثلاثة التي تُطبَّق فوقه. كلٌّ في علبته، مع بطاقة تشرح الحركة.",
@@ -2370,7 +2477,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         { n:"٠١", h:"بشرة نظيفة أولاً", p:"مباشرة بعد الاستحمام، على بشرة دافئة. لا شيء تحته يزاحمه." },
         { n:"٠٢", h:"نقاط النبض", p:"كل موضع تكون فيه البشرة دافئة. أنبوب واحد يكفيها جميعاً.",
           tags:["المعصمان","العنق","خلف الأذنين","عظمة الترقوة","باطن المرفقين","خلف الركبتين"] },
-        { n:"٠٣", h:"اتركيه يستقر", p:"ثلاثون ثانية، بلا فرك. الزيت يتشرّب في البشرة بدل أن يرتفع عنها." },
+        { n:"٠٣", h:"اتركيه يستقر", p:"ثلاثون ثانية، بلا فرك. يتشرّب الجلد الجل بدل أن يرتفع عنه." },
         { n:"٠٤", h:"أعيدي أو طبّقي فوقه", p:"الأنبوب يرافقك في الحقيبة. طبّقي مسكين فوق بعضهما. أو ضعي واحداً تحت عطرك ليدوم أطول." }
       ],
       rules:[
@@ -2379,19 +2486,19 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         { k:"٠٢", p:"ولا كحول أبداً.",
           s:"ضعيه طوال النهار وأثناء الصلاة. وأعيديه على بشرة دافئة. ولا لسعة أبداً." },
         { k:"٠٣", p:"ولا ملصق لاصق أبداً.",
-          s:"الطباعة مباشرة على الأنبوب. الملصقات تنتفخ في الحرّ. وتتقشّر في الحقيبة. المال يذهب إلى الزيت." },
+          s:"الطباعة مباشرة على الأنبوب. الملصقات تنتفخ في الحرّ. وتتقشّر في الحقيبة. المال يذهب إلى التركيبة." },
         { k:"٠٤", p:"ولا تخفيضات أبداً.",
           s:"السعر هو السعر، طوال السنة. المجموعة أرخص للأنبوب الواحد. لأنها تُشحن في طرد واحد." }
       ],
       faq:[
         { q:"لم أجرّب المسك من قبل. من أين أبدأ؟", a:"من فيل، المسك الأبيض. نظيف، بودري، قريب من البشرة. الأسهل وضعاً. وإن أردتِ الأربعة، فالمجموعة أقل من سعر أربعة أنابيب منفردة." },
-        { q:"هل يمكنني وضعه للصلاة؟", a:"نعم. هو زيت، بلا كحول. وأعيديه في أي ساعة على بشرة دافئة دون لسعة." },
-        { q:"هل المسك من مصدر حيواني؟", a:"لا. يُركّب في فرنسا من مواد مصدرها غراس. لا مسك غزال ولا كحول." },
-        { q:"هل يصمد في الحرّ هنا؟", a:"أكثر من الرذاذ. الرذاذ يرتفع في الدقائق الأولى. أما الزيت فيبقى حيث تدفأ البشرة. من ست إلى ثماني ساعات، وأطول على القماش." },
-        { q:"هل يترك أثراً على ملابسي أو عباءتي؟", a:"على البشرة لا على القماش. امنحيه ثلاثين ثانية. هو زيت، وقد يترك أثراً على الحرير. المعصمان، العنق، خلف الأذنين، خلف الركبتين." },
+        { q:"هل يمكنني وضعه للصلاة؟", a:"نعم. هو جل، بلا كحول. وأعيديه في أي ساعة على بشرة دافئة دون لسعة." },
+        { q:"هل المسك من مصدر حيواني؟", a:"لا. يُركَّب في فرنسا، بلا مسك غزال وبلا كحول." },
+        { q:"هل يصمد في الحرّ هنا؟", a:"أكثر من الرذاذ. الرذاذ يرتفع في الدقائق الأولى. أما الجل فيتشرّبه الجلد ويبقى حيث تدفأ البشرة. من ست إلى ثماني ساعات، وأطول على القماش." },
+        { q:"هل يترك أثراً على ملابسي أو عباءتي؟", a:"على البشرة لا على القماش. امنحي الجل ثلاثين ثانية ليتشرّبه الجلد، وأبعديه عن الحرير. المعصمان، العنق، خلف الأذنين، خلف الركبتين." },
         { q:"كم يدوم الأنبوب الواحد؟", a:"من شهرين إلى ثلاثة، باستعمال مرة في اليوم. احفظيه بعيداً عن الشمس المباشرة." },
-        { q:"كيف يتم التوصيل والدفع؟", a:"من يوم إلى ثلاثة أيام عمل، مع تتبّع. مجاني فوق ٢٥٠ د.إ. بطاقة، أو تابي وتمارا، أو نقداً عند الباب." },
-        { q:"ما الفرق بينه وبين المسك المتوفّر هنا؟", a:"القاعدة هي التي تعرفينها، وتُوضع بالطريقة نفسها. ما يتغيّر هو ما فوقها: عود وتوت، عنبر وكرز أسود، فانيليا بوربون وقرفة، تُركَّب في فرنسا من مواد غراس. وأداة تطبيق تمرّرينها مباشرة على البشرة، بدل القطّارة أو الأصابع." },
+        { q:"كيف يتم التوصيل والدفع؟", a:"من يوم إلى ثلاثة أيام عمل، مع تتبّع. مجاني فوق ٢٥٠ د.إ، وبـ ٢٩ د.إ دون ذلك. بطاقة، أو تابي وتمارا، أو نقداً عند الباب." },
+        { q:"ما الفرق بينه وبين المسك المتوفّر هنا؟", a:"القاعدة هي التي تعرفينها، وتُوضع بالطريقة نفسها. ما يتغيّر هو ما فوقها: عود وفانيليا، كرز أسود وعنبر، فستق وكراميل، تُركَّب في فرنسا. وأنبوب ليّن يرافقك أينما ذهبتِ، بدل القارورة الزجاجية." },
         { q:"هل يمكنني الإرجاع؟", a:"نعم. غير مفتوح، داخل علبته، خلال أربعة عشر يوماً." }
       ]
 
@@ -2445,44 +2552,44 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     },
     "mirage": {
       "en": {
-        "line": "Dark fruit, dried out by oud.",
+        "line": "Oud, rounded off by vanilla.",
         "tag": "Evenings",
-        "story": "Dark raspberry, then the oud arrives and dries it out. Not sweet, not obvious. Within the hour it settles dry and woody, and stays there.",
-        "who": "For evenings, dinners and cold days. For anyone who already knows they prefer dry and woody to sweet.",
-        "wear": "Two points on the neck are enough. Over VEIL if you want the oud gentler. Under a woody perfume to hold it past midnight.",
+        "story": "Oud first, dark and dry. Then the vanilla comes in and rounds it off. Not sweet, not smoky. Within the hour it settles warm and woody, close to the skin, and stays there.",
+        "who": "For evenings, dinners and cold days. For anyone who loves oud but wants it softer.",
+        "wear": "Two points on the neck are enough. Over VEIL if you want the oud quieter. Under a woody perfume to hold it past midnight.",
         "notes": [
           {
             "k": "p.top",
-            "v": "Raspberry, pink pepper"
+            "v": "Vanilla"
           },
           {
             "k": "p.heart",
-            "v": "Musk, dry rose"
+            "v": "Oud"
           },
           {
             "k": "p.base",
-            "v": "Oud, cedar"
+            "v": "White musk"
           }
         ]
       },
       "ar": {
-        "line": "فاكهة داكنة، يجفّفها العود.",
+        "line": "عود تدوّره الفانيليا.",
         "tag": "الأمسيات",
-        "story": "توت داكن، ثم يحضر العود فيجفّفه. ليس حلواً وليس بديهياً. خلال ساعة يستقرّ جافاً خشبياً، ويبقى هناك.",
-        "who": "للأمسيات والعشاء والأيام الباردة. ولمن تعرف أنها تفضّل الجاف الخشبي على الحلو.",
-        "wear": "نقطتان على العنق تكفيان. فوق فيل إن أردتِ العود ألطف. تحت عطر خشبي ليدوم بعد منتصف الليل.",
+        "story": "العود أولاً، داكناً وجافاً. ثم تحضر الفانيليا فتدوّره. ليس حلواً ولا مدخّناً. خلال ساعة يستقرّ دافئاً خشبياً قريباً من البشرة، ويبقى هناك.",
+        "who": "للأمسيات والعشاء والأيام الباردة. ولمن تحب العود وتريده ألطف.",
+        "wear": "نقطتان على العنق تكفيان. فوق فيل إن أردتِ العود أهدأ. تحت عطر خشبي ليدوم بعد منتصف الليل.",
         "notes": [
           {
             "k": "p.top",
-            "v": "توت، فلفل وردي"
+            "v": "فانيليا"
           },
           {
             "k": "p.heart",
-            "v": "مسك، ورد جاف"
+            "v": "عود"
           },
           {
             "k": "p.base",
-            "v": "عود، أرز"
+            "v": "مسك أبيض"
           }
         ]
       }
@@ -2533,44 +2640,44 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     },
     "halo": {
       "en": {
-        "line": "Warmth, without the sugar.",
+        "line": "Pistachio, wrapped in caramel.",
         "tag": "Cosy hours",
-        "story": "Bourbon vanilla, real cinnamon, brown sugar. Named materials rather than one flat sweet accord. It reads as warmth, not candy.",
+        "story": "Pistachio first, then a warm caramel that wraps around it. The white musk underneath keeps it soft, so it reads as warmth, not dessert.",
         "who": "For the hours that belong to you. At home, a slow day, winter, the sofa, the car.",
-        "wear": "Behind the ears and behind the knees, where the warmth lasts longest. On its own when you are staying in. Over VEIL when you want it deeper.",
+        "wear": "Behind the ears and behind the knees, where the warmth lasts longest. On its own when you are staying in. Over VEIL when you want it softer.",
         "notes": [
           {
             "k": "p.top",
-            "v": "Cinnamon"
+            "v": "Pistachio"
           },
           {
             "k": "p.heart",
-            "v": "Bourbon vanilla, musk"
+            "v": "Caramel"
           },
           {
             "k": "p.base",
-            "v": "Brown sugar, soft woods"
+            "v": "White musk"
           }
         ]
       },
       "ar": {
-        "line": "دفء، بلا حلاوة.",
+        "line": "فستق يلفّه الكراميل.",
         "tag": "ساعات الدفء",
-        "story": "فانيليا بوربون وقرفة حقيقية وسكر بني. مواد لكل منها اسم، لا تركيبة حلوة مسطّحة. يُقرأ دفئاً لا حلوى.",
+        "story": "الفستق أولاً، ثم كراميل دافئ يلتفّ حوله. والمسك الأبيض تحته يبقيه ناعماً، فيُقرأ دفئاً لا حلوى.",
         "who": "للساعات التي تخصّك وحدك. في البيت، في يوم هادئ، في الشتاء، على الأريكة، في السيارة.",
-        "wear": "خلف الأذنين وخلف الركبتين، حيث يدوم الدفء أطول. وحده حين تبقين في البيت. فوق فيل حين تريدينه أعمق.",
+        "wear": "خلف الأذنين وخلف الركبتين، حيث يدوم الدفء أطول. وحده حين تبقين في البيت. فوق فيل حين تريدينه أنعم.",
         "notes": [
           {
             "k": "p.top",
-            "v": "قرفة"
+            "v": "فستق"
           },
           {
             "k": "p.heart",
-            "v": "فانيليا بوربون، مسك"
+            "v": "كراميل"
           },
           {
             "k": "p.base",
-            "v": "سكر بني، أخشاب ناعمة"
+            "v": "مسك أبيض"
           }
         ]
       }
@@ -2651,7 +2758,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         '<span class="tube__ar">طاهرة</span>' +
         '<span class="tube__name">' + m.latin + '</span>' +
         '<span class="tube__note">' + m.en.short + '</span>' +
-        '<span class="tube__ml">10 ml</span>' +
+        '<span class="tube__ml">15 ml</span>' +
       '</span>';
     return t;
   }
@@ -2832,7 +2939,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         '<div class="bagup__chips" id="upChips">' +
           rest.map(function(x){
             return '<button type="button" data-u="' + x.key + '" aria-pressed="' + (x.key === upSel ? "true" : "false") + '">' +
-              '<i style="background:' + x.face + '"></i>' + x.latin + "</button>";
+              '<i style="background:' + x.tint + '"></i>' + x.latin + "</button>";
           }).join("") +
         "</div>" +
         upLine(A.price + byKey(upSel).price) +
@@ -2904,7 +3011,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       var b = document.createElement("button");
       b.type = "button"; b.setAttribute("role", "tab");
       b.setAttribute("aria-selected", i === active ? "true" : "false");
-      b.innerHTML = '<i style="background:' + m.face + '"></i>' + m.latin + "<span>" + num("0" + (i + 1)) + "</span>";
+      b.innerHTML = '<i style="background:' + m.tint + '"></i>' + m.latin + "<span>" + num("0" + (i + 1)) + "</span>";
       b.addEventListener("click", function(){ go(i); });
       box.appendChild(b);
       return b;
@@ -3018,7 +3125,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
         '<span class="card__tag">' + num(String(MUSKS.indexOf(m) + 1).padStart(2, "0") + " / 04") + '</span></span>' +
         '<span class="card__head"><h3>' + m.latin + "</h3><span>" + money(m.price) + "</span></span>" +
         '<span class="card__note">' + M(m).note + "</span>" +
-        '<span class="card__foot"><i style="background:' + m.face + '"></i>' + (DET[m.key][lang] || DET[m.key].en).tag + "</span>" +
+        '<span class="card__foot"><i style="background:' + m.tint + '"></i>' + (DET[m.key][lang] || DET[m.key].en).tag + "</span>" +
       "</a>" +
       '<button class="card__add" type="button">' + L("btn.add") + "</button>";
     if(vt){ var ci = c.querySelector(".card__media img"); if(ci) ci.style.viewTransitionName = "tube-" + m.key; }
@@ -3158,7 +3265,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       var col = document.createElement("div");
       col.className = "chartab__col";
       col.innerHTML =
-        '<span class="chartab__sw" style="background:' + m.face + '"></span>' +
+        '<span class="chartab__sw" style="background:' + m.tint + '"></span>' +
         '<span class="chartab__n"><b>' + m.latin + "</b><span>" + num("0" + (i + 1) + " / 04") + "</span></span>" +
         '<dl class="chartab__r"><dt>' + L("tab.family") + "</dt><dd>" + M(m).short + "</dd></dl>" +
         '<dl class="chartab__r"><dt>' + L("m.presence") + "</dt>" + bar("presence") + "</dl>" +
@@ -3178,7 +3285,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       var b = document.createElement("button");
       b.type = "button";
       b.setAttribute("aria-pressed", on ? "true" : "false");
-      b.innerHTML = '<i style="background:' + m.face + '"></i><b>' + m.latin + "</b>" +
+      b.innerHTML = '<i style="background:' + m.tint + '"></i><b>' + m.latin + "</b>" +
         '<span>' + (DET[m.key][lang] || DET[m.key].en).tag + "</span>";
       b.addEventListener("click", function(){
         var i = pairSel.indexOf(m.key);
@@ -3271,7 +3378,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
           '<button class="quiz__again" type="button" id="qAgain" style="margin-inline-start:auto">' + L("quiz.again") + "</button>" +
         "</div>" +
         '<div class="qres__duo">' +
-          '<p class="qres__lab"><i style="background:' + second.face + '" aria-hidden="true"></i>' + L("quiz.with") + " \u2014 " + second.latin + "</p>" +
+          '<p class="qres__lab"><i style="background:' + second.tint + '" aria-hidden="true"></i>' + L("quiz.with") + " \u2014 " + second.latin + "</p>" +
           '<p class="qres__gift">' + L("val.line").replace("{n}", money(CHARM)) + "</p>" +
           '<button class="btn btn--line" type="button" id="qDuo">' + L("quiz.duo").replace("{n}", money(best.price + second.price)) + "</button>" +
         "</div>" +
@@ -3340,8 +3447,8 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       ? pic("coffret.jpg", "The TAHIRA coffret", { eager:true, style:"height:auto;width:100%;max-width:520px" })
       : pic(m.img, "TAHIRA " + m.latin, { eager:true });
     var chip = isCof
-      ? '<p class="pchip">' + MUSKS.map(function(x){ return '<i style="background:' + x.face + '"></i>'; }).join("") + "</p>"
-      : '<p class="pchip"><i style="background:' + m.face + '"></i>' + (DET[m.key][lang] || DET[m.key].en).tag + "</p>";
+      ? '<p class="pchip">' + MUSKS.map(function(x){ return '<i style="background:' + x.tint + '"></i>'; }).join("") + "</p>"
+      : '<p class="pchip"><i style="background:' + m.tint + '"></i>' + (DET[m.key][lang] || DET[m.key].en).tag + "</p>";
     pQty = 1;
 
     /* 1 — the coloured hero */
@@ -3356,9 +3463,10 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
               '<h1 class="pname" style="margin-top:12px">' + name + "</h1>" +
               '<p class="pnote">' + note + "</p>" + chip +
               (isCof ? "" :
+                '<p class="pswitch__lab">' + L("sw.lab") + "</p>" +
                 '<nav class="pswitch" aria-label="' + L("sw.lab") + '">' +
                   MUSKS.filter(function(x){ return x.key !== key; }).map(function(x){
-                    return '<a href="' + href(x.key) + '" style="--sw:' + x.face + '"><i></i>' + x.latin + "</a>";
+                    return '<a href="' + href(x.key) + '" style="--sw:' + x.tint + '"><i></i>' + x.latin + "</a>";
                   }).join("") +
                 "</nav>") +
               '<div class="pbuy">' +
@@ -3368,8 +3476,8 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
               "</div>" +
               '<p class="psplit">' + splitLine(price) + "</p>" +
               '<p class="pship" id="pShip"></p>' +
-              '<ul class="pre"><li>' + L("re.ret") + "</li><li>" + L("re.del") + "</li>" +
-                '<li><a href="' + href("home") + '#find">' + L("re.quiz") + "</a></li></ul>" +
+              '<ul class="pre"><li>' + L("re.ret") + "</li><li>" + L("re.del") + "</li></ul>" +
+              '<p class="pquiz"><a href="#find">' + L("re.quiz") + "</a></p>" +
               '<div class="pmeta"><span>' + L("unit") + "</span><span>" + L("spec.base.v") + "</span><span>" + L("spec.comp.v") + "</span><span>" + L("p.inside.4") + "</span></div>" +
             "</div>" +
           "</div>" +
@@ -3500,8 +3608,13 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       "</div></section>";
 
     /* 5 — what is in the tube */
-    var rows = ["base","fmt","last","hold","tex","comp","mat","life"].map(function(k){
+    var rows = ["base","fmt","last","hold","tex","comp","life"].map(function(k){
       return "<div><dt>" + L("spec." + k) + "</dt><dd>" + L("spec." + k + ".v") + "</dd></div>";
+    }).join("");
+    var R = REG[lang] || REG.en;
+    var regRows = ["inci","batch","exp","origin","importer"].map(function(k){
+      var v = R[k] || REG.en[k];
+      return "<div><dt>" + L("reg." + k) + "</dt><dd>" + (v ? v : '<span class="reg__p">' + L("reg.pending") + "</span>") + "</dd></div>";
     }).join("");
     var inside =
       '<section class="sec sec--tint"><div class="wide split" style="align-items:start">' +
@@ -3510,7 +3623,9 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
           '<h2 style="font-size:clamp(26px,3.2vw,42px);font-weight:200">' + L("p.spec.h") + "</h2>" +
           '<p class="fine">' + L("p.spec.note") + "</p>" +
         "</div>" +
-        '<dl class="pyr">' + rows + "</dl>" +
+        '<div style="display:grid;gap:14px;min-width:0"><dl class="pyr">' + rows + "</dl>" +
+          '<p class="lab reg__lab">' + L("reg.lab") + "</p>" +
+          '<dl class="pyr">' + regRows + "</dl></div>" +
       "</div></section>";
 
     /* 6 — delivery, payment, returns */
@@ -3556,7 +3671,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
           '<div class="mix__row" id="mixRow">' +
             others3.map(function(x, i){
               return '<button type="button" data-m="' + x.key + '" aria-pressed="' + (i === 0 ? "true" : "false") + '">' +
-                '<i style="background:' + x.face + '"></i><b>' + x.latin + "</b></button>";
+                '<i style="background:' + x.tint + '"></i><b>' + x.latin + "</b></button>";
             }).join("") +
           "</div>" +
           '<div class="mix__out" id="mixOut"></div>' +
@@ -3679,7 +3794,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     bar.hidden = false;
     bar.classList.remove("is-on");
     bar.innerHTML =
-      '<i style="background:' + (m ? m.face : MUSKS[2].face) + '"></i>' +
+      '<i style="background:' + (m ? m.tint : MUSKS[2].tint) + '"></i>' +
       "<b>" + (m ? m.latin : L("cof.name")) + "</b>" +
       "<em>" + money(price) + "</em>" +
       '<button class="btn" type="button" id="barAdd">' + L("btn.add") + "</button>";
@@ -3728,6 +3843,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     }
     ["pointerup","pointercancel","pointerleave"].forEach(function(ev){ node.addEventListener(ev, up); });
     node.addEventListener("click", function(e){ if(far) e.preventDefault(); }, true);
+    dots(node);
     var group = document.querySelector('[data-arrows="' + node.id + '"]');
     if(!group) return;
     var btns = group.querySelectorAll("button");
@@ -3750,6 +3866,38 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
     node._state = state;
     state();
   }
+  /* les bandes qui defilent sur telephone : un point par carte, sous la bande */
+  function dots(node){
+    if(node._dots || !node.matches(".grid,.row")) return;
+    var box = document.createElement("div");
+    box.className = "sdots";
+    box.setAttribute("aria-hidden", "true");
+    node.parentNode.insertBefore(box, node.nextSibling);
+    node._dots = box;
+    function paint(){
+      var kids = [].slice.call(node.children);
+      if(box.children.length !== kids.length){
+        box.innerHTML = kids.map(function(){ return '<button type="button" tabindex="-1"></button>'; }).join("");
+        [].forEach.call(box.children, function(b, i){
+          b.addEventListener("click", function(){
+            var k = node.children[i];
+            if(k) node.scrollTo({ left: k.offsetLeft - node.offsetLeft - parseFloat(getComputedStyle(node).paddingInlineStart || 0), behavior:"smooth" });
+          });
+        });
+      }
+      var scrolls = node.scrollWidth > node.clientWidth + 4;
+      box.hidden = !scrolls;
+      if(!scrolls) return;
+      var left = node.getBoundingClientRect().left + 30, best = 0, bd = 1e9;
+      kids.forEach(function(k, i){ var dd = Math.abs(k.getBoundingClientRect().left - left); if(dd < bd){ bd = dd; best = i; } });
+      [].forEach.call(box.children, function(b, i){ b.setAttribute("aria-current", i === best ? "true" : "false"); });
+    }
+    node.addEventListener("scroll", function(){ window.requestAnimationFrame(paint); }, { passive:true });
+    window.addEventListener("resize", paint);
+    new MutationObserver(paint).observe(node, { childList:true });
+    setTimeout(paint, 60);
+  }
+  document.querySelectorAll(".grid,.row").forEach(dots);
   var RAILS = ["stepRail","ruleRail"];
   RAILS.forEach(function(id){ var n = el(id); if(n) wire(n); });
   ["homeGrid","shopGrid"].forEach(function(id){ var n = el(id); if(n) wire(n); });
@@ -3825,8 +3973,16 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
   }
   function route(){
     var h = window.__PAGE || (location.hash || "").replace(/^#/, "").toLowerCase();
-    if(PAGES.indexOf(h) < 0) h = "home";
+    var spot = null;
+    if(PAGES.indexOf(h) < 0){ spot = h ? document.getElementById(h) : null; h = "home"; }
     show(h);
+    if(spot) setTimeout(function(){ land(spot); }, 80);
+  }
+  /* on s'arrete sous la barre collante, jamais dessous */
+  function land(n){
+    var nav = document.querySelector(".nav");
+    var off = (nav ? nav.getBoundingClientRect().height : 0) + 14;
+    window.scrollTo({ top: n.getBoundingClientRect().top + window.scrollY - off, behavior: SOFT ? "auto" : "smooth" });
   }
   window.addEventListener("hashchange", route);
 
@@ -3859,6 +4015,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
       if(v != null) n.setAttribute("placeholder", v);
     });
     el("langEn").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    document.querySelectorAll("[data-setlang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setlang === lang ? "true" : "false"); });
     el("langAr").setAttribute("aria-pressed", lang === "ar" ? "true" : "false");
     buildIndex(); buildPanels(); buildPick(); buildPair(); buildSteps(); buildRules(); buildFaq(); buildLayer(); buildTones(); buildMake(); buildGloss(); buildChaps();
     fillGrid("homeGrid", MUSKS); fillGrid("shopGrid", MUSKS);
@@ -3868,6 +4025,7 @@ p,li,dd,summary,.body-l,.fine{text-wrap:pretty}
   }
   el("langEn").addEventListener("click", function(){ apply("en"); });
   el("langAr").addEventListener("click", function(){ apply("ar"); });
+  document.querySelectorAll("[data-setlang]").forEach(function(b){ b.addEventListener("click", function(){ apply(b.dataset.setlang); }); });
 
   var qAgainTop = el("quizAgain");
   if(qAgainTop) qAgainTop.addEventListener("click", buildPick);
