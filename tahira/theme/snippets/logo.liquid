@@ -1,9 +1,0 @@
-{%- comment -%} The wordmark: TAHIRA + طاهرة. {%- endcomment -%}
-<a class="mark" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
-  {%- if settings.logo_image != blank -%}
-    {{ settings.logo_image | image_url: width: 480 | image_tag: width: settings.logo_width, alt: shop.name, class: 'mark__img', loading: 'eager' }}
-  {%- else -%}
-    <span class="mark__lat">{{ settings.logo_latin | default: shop.name }}</span>
-    {%- if settings.logo_arabic != blank -%}<span class="mark__ar" lang="ar">{{ settings.logo_arabic }}</span>{%- endif -%}
-  {%- endif -%}
-</a>
