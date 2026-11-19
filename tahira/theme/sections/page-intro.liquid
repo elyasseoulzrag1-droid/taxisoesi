@@ -1,0 +1,101 @@
+{%- liquid
+  assign c = section.settings.content
+  assign img = ''
+  assign w = 0
+  assign h = 0
+  case c
+    when 'house'
+      assign lab = 'house.lab' | t
+      assign heading = 'house.h' | t
+      assign img = 'lineup.webp'
+      assign w = 2000
+      assign h = 1100
+    when 'ritual'
+      assign lab = 'ritual.lab' | t
+      assign heading = 'ritual.h' | t
+      assign img = 'ritual.webp'
+      assign w = 1360
+      assign h = 850
+    when 'faq'
+      assign lab = 'faq.lab' | t
+      assign heading = 'faq.h' | t
+    when 'words'
+      assign lab = 'words.lab' | t
+      assign heading = 'words.h' | t
+    when 'contact'
+      assign lab = 'footer.contact' | t
+      assign heading = 'contact.h' | t
+    else
+      assign lab = ''
+      assign heading = page.title
+  endcase
+  if section.settings.label != blank
+    assign lab = section.settings.label
+  endif
+  if section.settings.heading != blank
+    assign heading = section.settings.heading
+  endif
+-%}
+<section class="sec" style="padding-bottom:clamp(36px,5vw,72px)">
+  <div class="wrap{% if img != '' or section.settings.image != blank %} mt{% endif %}">
+    <div class="mt__txt" style="max-width:720px">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">{{ 'general.home' | t }}</a><span aria-hidden="true">/</span>
+        <span aria-current="page">{{ page.title | default: heading }}</span>
+      </nav>
+      {%- if lab != blank -%}<p class="lab">{{ lab }}</p>{%- endif -%}
+      <h1 class="h1" style="font-size:clamp(42px,5.8vw,88px)">{{ heading }}</h1>
+      {%- case c -%}
+        {%- when 'house' -%}
+          <p class="lead">{{ 'house.p1' | t }}</p>
+          <p class="body">{{ 'house.p2' | t }}</p>
+          <p class="body">{{ 'house.p3' | t }}</p>
+        {%- when 'ritual' -%}
+          <p class="lead">{{ 'ritual.p' | t }}</p>
+          <p class="h3">{{ 'ritual.lede' | t }}</p>
+        {%- when 'faq' -%}
+          <p class="lead">{{ 'care.h' | t }}</p>
+        {%- when 'words' -%}
+          <p class="lead">{{ 'words.p' | t }}</p>
+        {%- when 'contact' -%}
+          <p class="lead">{{ 'contact.p' | t }}</p>
+      {%- endcase -%}
+      {%- if section.settings.show_content and page.content != blank -%}
+        <div class="rte">{{ page.content }}</div>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.image != blank -%}
+      <div class="mt__media">{{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1800', sizes: '(min-width: 900px) 50vw, 100vw' }}</div>
+    {%- elsif img != '' -%}
+      <div class="mt__media"><img src="{{ img | asset_url }}" width="{{ w }}" height="{{ h }}" alt="" loading="eager" decoding="async"></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page intro",
+  "class": "section-intro",
+  "settings": [
+    {
+      "type": "select",
+      "id": "content",
+      "label": "Built-in text",
+      "options": [
+        { "value": "house", "label": "The house" },
+        { "value": "ritual", "label": "The ritual" },
+        { "value": "faq", "label": "Questions" },
+        { "value": "words", "label": "The words" },
+        { "value": "contact", "label": "Contact" },
+        { "value": "page", "label": "The page title" }
+      ],
+      "default": "page"
+    },
+    { "type": "checkbox", "id": "show_content", "label": "Also show the page content written in Shopify", "default": false },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "label", "label": "Small label" },
+    { "type": "text", "id": "heading", "label": "Heading" }
+  ],
+  "presets": [{ "name": "Page intro" }]
+}
+{% endschema %}

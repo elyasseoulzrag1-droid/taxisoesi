@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {}
+    },
+    "four": {
+      "type": "musk-grid",
+      "settings": {
+        "bg": "tint"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "four"
+  ]
+}

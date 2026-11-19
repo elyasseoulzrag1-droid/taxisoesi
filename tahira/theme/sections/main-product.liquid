@@ -1,0 +1,345 @@
+{%- liquid
+  capture key
+    render 'musk-key', product: product
+  endcapture
+  assign key = key | strip
+  assign is_musk = false
+  if key == 'veil' or key == 'mirage' or key == 'ember' or key == 'halo'
+    assign is_musk = true
+  endif
+  assign is_coffret = false
+  if key == 'coffret'
+    assign is_coffret = true
+  endif
+  assign v = product.selected_or_first_available_variant
+  assign keys = 'veil,mirage,ember,halo' | split: ','
+  assign shop_url = settings.musks_collection.url | default: routes.all_products_collection_url
+
+  assign title = product.title
+  assign alt = ''
+  if is_musk or is_coffret
+    assign nk = 'musks.' | append: key | append: '.name'
+    assign ak = 'musks.' | append: key | append: '.alt'
+    assign title = nk | t
+    assign alt = ak | t
+  endif
+
+  case key
+    when 'veil'
+      assign presence = 2
+      assign hold = 4
+    when 'mirage'
+      assign presence = 4
+      assign hold = 5
+    when 'ember'
+      assign presence = 5
+      assign hold = 4
+    when 'halo'
+      assign presence = 3
+      assign hold = 5
+  endcase
+-%}
+<section class="m-{{ key }}" data-product id="product">
+  <div class="pdp">
+    <div class="pdp__media" data-gallery>
+      <div class="gal" aria-label="{{ 'product.gallery' | t }}">
+        {%- if product.media.size > 0 -%}
+          {%- for media in product.media -%}
+            <div class="gal__item" id="Media-{{ media.id }}">
+              {%- case media.media_type -%}
+                {%- when 'image' -%}
+                  {%- if forloop.first -%}
+                    {{ media | image_url: width: 1600 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1600', sizes: '(min-width: 900px) 58vw, 100vw', alt: media.alt | default: title }}
+                  {%- else -%}
+                    {{ media | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1600', sizes: '(min-width: 900px) 58vw, 100vw', alt: media.alt | default: title }}
+                  {%- endif -%}
+                {%- when 'video' -%}
+                  {{ media | video_tag: muted: true, loop: true, playsinline: true, autoplay: true, controls: false, image_size: '1200x' }}
+                {%- when 'external_video' -%}
+                  {{ media | external_video_tag: loading: 'lazy' }}
+                {%- else -%}
+                  {{ media | media_tag }}
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        {%- elsif is_musk -%}
+          <div class="gal__item gal__item--tube">{% render 'tube', key: key, eager: true %}</div>
+          {%- for i in (1..3) -%}
+            {%- assign g = 'g-' | append: key | append: '-' | append: i | append: '.webp' -%}
+            <div class="gal__item"><img src="{{ g | asset_url }}" width="900" height="1125" alt="{{ title }}" loading="lazy" decoding="async"></div>
+          {%- endfor -%}
+        {%- elsif is_coffret -%}
+          <div class="gal__item"><img src="{{ 'coffret.webp' | asset_url }}" width="1480" height="1001" alt="{{ title }}" loading="eager"></div>
+          <div class="gal__item"><img src="{{ 'lineup.webp' | asset_url }}" width="2000" height="1100" alt="{{ title }}" loading="lazy"></div>
+        {%- else -%}
+          <div class="gal__item">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+        {%- endif -%}
+      </div>
+      {%- liquid
+        assign n_media = product.media.size
+        if n_media == 0 and is_musk
+          assign n_media = 4
+        elsif n_media == 0 and is_coffret
+          assign n_media = 2
+        endif
+      -%}
+      {%- if n_media > 1 -%}
+        <button class="gal__nav gal__nav--prev" type="button" aria-label="{{ 'general.previous' | t }}">{% render 'icon', name: 'back' %}</button>
+        <button class="gal__nav gal__nav--next" type="button" aria-label="{{ 'general.next' | t }}">{% render 'icon', name: 'arrow' %}</button>
+        <div class="gal__dots">
+          {%- for i in (1..n_media) -%}
+            <button type="button" aria-label="{{ 'product.image' | t: n: i }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="pdp__info">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">{{ 'general.home' | t }}</a><span aria-hidden="true">/</span>
+        <a href="{{ shop_url }}">{{ 'nav.shop' | t }}</a><span aria-hidden="true">/</span>
+        <span aria-current="page">{{ title }}</span>
+      </nav>
+
+      <div style="display:grid;gap:10px">
+        {%- if is_musk -%}
+          {%- assign tk = 'musks.' | append: key | append: '.tag' -%}
+          <p class="lab">{{ tk | t }}</p>
+        {%- endif -%}
+        <div class="pdp__title">
+          <h1>{{ title }}</h1>
+          {%- if alt != '' -%}<span>{{ alt }}</span>{%- endif -%}
+        </div>
+        {%- if is_musk or is_coffret -%}
+          {%- assign sk = 'musks.' | append: key | append: '.short' -%}
+          {%- assign lk = 'musks.' | append: key | append: '.line' -%}
+          <p class="pdp__short">{{ sk | t }}</p>
+          <p class="pdp__line">{{ lk | t }}</p>
+        {%- endif -%}
+        {% render 'rating', product: product %}
+      </div>
+
+      <div class="pdp__price">
+        {% render 'price', product: product, variant: v %}
+        {% render 'split-pay', price: v.price %}
+      </div>
+
+      {%- if is_musk or is_coffret -%}
+        <div class="swatches">
+          <p class="lab lab--plain">{{ 'nav.shop' | t }}</p>
+          <div class="swatches__row">
+            {%- for k in keys -%}
+              {%- assign sid = 'musk_' | append: k -%}
+              {%- assign sp = settings[sid] -%}
+              {%- assign snk = 'musks.' | append: k | append: '.name' -%}
+              <a class="sw m-{{ k }}" href="{{ sp.url | default: shop_url }}"{% if k == key %} aria-current="page"{% endif %}><i aria-hidden="true"></i>{{ snk | t }}</a>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- form 'product', product, class: 'buy-form', data-add: 'true', novalidate: 'novalidate' -%}
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <fieldset class="opts" data-option style="margin-bottom:14px">
+              <legend class="lab lab--plain">{{ option.name }}</legend>
+              <div class="opts__row">
+                {%- for value in option.values -%}
+                  <input type="radio" id="Opt-{{ section.id }}-{{ forloop.parentloop.index }}-{{ forloop.index }}" name="option-{{ forloop.parentloop.index }}" value="{{ value | escape }}"{% if option.selected_value == value %} checked{% endif %}>
+                  <label for="Opt-{{ section.id }}-{{ forloop.parentloop.index }}-{{ forloop.index }}">{{ value }}</label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+          {%- endfor -%}
+        {%- endunless -%}
+        <input type="hidden" name="id" value="{{ v.id }}">
+        <div class="buy">
+          <div class="qty qty--lg">
+            <button type="button" data-step="-1" aria-label="{{ 'product.minus' | t }}">{% render 'icon', name: 'minus' %}</button>
+            <input type="number" name="quantity" value="1" min="1" aria-label="{{ 'product.qty' | t }}">
+            <button type="button" data-step="1" aria-label="{{ 'product.plus' | t }}">{% render 'icon', name: 'plus' %}</button>
+          </div>
+          <button class="btn" type="submit"{% unless v.available %} disabled{% endunless %}>
+            <span>{% if v.available %}{{ 'product.add' | t }}{% else %}{{ 'product.sold_out' | t }}{% endif %}</span>
+          </button>
+          {%- if section.settings.dynamic_checkout -%}
+            <div class="buy__dyn">{{ form | payment_button }}</div>
+          {%- endif -%}
+        </div>
+        <p class="msg msg--err" data-form-error hidden style="margin-top:10px"></p>
+      {%- endform -%}
+
+      {%- if settings.show_eta -%}
+        <div class="eta" data-eta hidden>
+          {% render 'icon', name: 'truck' %}
+          <p><b data-eta-when></b> <span data-eta-eta></span></p>
+        </div>
+      {%- endif -%}
+
+      <ul class="assure">
+        <li>{% render 'icon', name: 'return' %}<span>{{ 'product.returns' | t }}</span></li>
+        <li>{% render 'icon', name: 'truck' %}<span>{{ 'product.free_over' | t }}</span></li>
+        {%- if settings.show_cod -%}
+          <li>{% render 'icon', name: 'card' %}<span>{{ 'product.cod' | t }}</span></li>
+        {%- else -%}
+          <li>{% render 'icon', name: 'flag' %}<span>{{ 'trust.1.h' | t }}</span></li>
+        {%- endif -%}
+      </ul>
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == '@app' -%}<div {{ block.shopify_attributes }}>{% render block %}</div>{%- endif -%}
+      {%- endfor -%}
+
+      <div class="acc">
+        {%- if is_musk -%}
+          {%- liquid
+            assign base = 'musks.' | append: key
+            assign k_story = base | append: '.story'
+            assign k_who = base | append: '.who'
+            assign k_wear = base | append: '.wear'
+            assign k_top = base | append: '.top'
+            assign k_heart = base | append: '.heart'
+            assign k_base = base | append: '.base'
+          -%}
+          <details open>
+            <summary>{{ 'product.scent' | t }}{% render 'icon', name: 'plus' %}</summary>
+            <div class="acc__body">
+              <p>{{ k_story | t }}</p>
+              <dl class="pyr" aria-label="{{ 'product.pyramid' | t }}">
+                <div><dt>{{ 'musks.labels.top' | t }}</dt><dd>{{ k_top | t }}</dd></div>
+                <div><dt>{{ 'musks.labels.heart' | t }}</dt><dd>{{ k_heart | t }}</dd></div>
+                <div><dt>{{ 'musks.labels.base' | t }}</dt><dd>{{ k_base | t }}</dd></div>
+              </dl>
+              <div class="meter">
+                <span>{{ 'musks.labels.presence' | t }}</span>
+                <span class="meter__bar" role="img" aria-label="{{ 'musks.labels.scale' | t: n: presence }}">{% for i in (1..5) %}<i{% if i <= presence %} class="on"{% endif %}></i>{% endfor %}</span>
+              </div>
+              <div class="meter">
+                <span>{{ 'musks.labels.hold' | t }}</span>
+                <span class="meter__bar" role="img" aria-label="{{ 'musks.labels.scale' | t: n: hold }}">{% for i in (1..5) %}<i{% if i <= hold %} class="on"{% endif %}></i>{% endfor %}</span>
+              </div>
+            </div>
+          </details>
+          <details>
+            <summary>{{ 'product.who' | t }}{% render 'icon', name: 'plus' %}</summary>
+            <div class="acc__body"><p>{{ k_who | t }}</p></div>
+          </details>
+          <details>
+            <summary>{{ 'product.wear' | t }}{% render 'icon', name: 'plus' %}</summary>
+            <div class="acc__body">
+              <p>{{ k_wear | t }}</p>
+              {%- if pages['the-ritual'] != blank -%}<p><a class="link" href="{{ pages['the-ritual'].url }}">{{ 'ritual.cta' | t }}{% render 'icon', name: 'arrow' %}</a></p>{%- endif -%}
+            </div>
+          </details>
+        {%- elsif is_coffret -%}
+          <details open>
+            <summary>{{ 'coffret.inside' | t }}{% render 'icon', name: 'plus' %}</summary>
+            <div class="acc__body">
+              <p>{{ 'musks.coffret.story' | t }}</p>
+              <ul class="ticks">
+                {%- assign items = 'i1,i2,i3,i4,i5' | split: ',' -%}
+                {%- for i in items -%}
+                  {%- assign ik = 'coffret.' | append: i -%}
+                  <li>{% render 'icon', name: 'check' %}<span>{{ ik | t }}</span></li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </details>
+        {%- endif -%}
+
+        {%- if product.description != blank -%}
+          <details{% unless is_musk or is_coffret %} open{% endunless %}>
+            <summary>{{ 'general.read_more' | t }}{% render 'icon', name: 'plus' %}</summary>
+            <div class="acc__body rte">{{ product.description }}</div>
+          </details>
+        {%- endif -%}
+
+        {%- if is_musk or is_coffret -%}
+          <details>
+            <summary>{{ 'product.inside' | t }}{% render 'icon', name: 'plus' %}</summary>
+            <div class="acc__body">
+              <ul class="ticks">
+                {%- assign items = 'inside1,inside2,inside3,inside4' | split: ',' -%}
+                {%- for i in items -%}
+                  {%- assign ik = 'product.' | append: i -%}
+                  <li>{% render 'icon', name: 'check' %}<span>{{ ik | t }}</span></li>
+                {%- endfor -%}
+              </ul>
+              <p class="fine">{{ 'product.spec_note' | t }}</p>
+            </div>
+          </details>
+        {%- endif -%}
+
+        <details>
+          <summary>{{ 'product.care' | t }}{% render 'icon', name: 'plus' %}</summary>
+          <div class="acc__body"><p>{{ 'product.care_p' | t }}</p></div>
+        </details>
+      </div>
+
+      {%- if is_musk -%}
+        <p><a class="link" href="{% if routes.root_url == '/' %}/{% else %}{{ routes.root_url }}{% endif %}#quiz">{{ 'product.quiz_link' | t }}{% render 'icon', name: 'arrow' %}</a></p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="buybar" data-buybar aria-hidden="true">
+    <span class="buybar__name"><i aria-hidden="true"></i><b>{{ title }}</b><span data-buybar-price>{{ v.price | money }}</span></span>
+    <button class="btn" type="button" tabindex="-1"{% unless v.available %} disabled{% endunless %}>{{ 'product.buybar' | t }}</button>
+  </div>
+
+  <script type="application/json" data-product-json>
+    [
+      {%- for variant in product.variants -%}
+        { "id": {{ variant.id }}, "options": {{ variant.options | json }}, "price": {{ variant.price }}, "compare_at_price": {{ variant.compare_at_price | default: 0 }}, "available": {{ variant.available | json }} }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  </script>
+</section>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {%- if product.featured_media -%}
+      "image": [{{ product.featured_media | image_url: width: 1200 | prepend: "https:" | json }}],
+    {%- endif -%}
+    "description": {{ product.description | strip_html | json }},
+    "brand": { "@type": "Brand", "name": {{ shop.name | json }} },
+    {%- if product.metafields.reviews.rating.value != blank -%}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": {{ product.metafields.reviews.rating.value.rating | json }},
+        "reviewCount": {{ product.metafields.reviews.rating_count | json }}
+      },
+    {%- endif -%}
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type": "Offer",
+          {%- if variant.sku != blank -%}"sku": {{ variant.sku | json }},{%- endif -%}
+          "availability": "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price": {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "url": {{ request.origin | append: variant.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "class": "section-product",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "For the four musks and the coffret, the scent notes, story, how to wear and specification are built in, in English and Arabic. The product description shows below them."
+    },
+    { "type": "checkbox", "id": "dynamic_checkout", "label": "Show the express checkout button (Apple Pay, Shop Pay...)", "default": true }
+  ],
+  "blocks": [{ "type": "@app" }]
+}
+{% endschema %}

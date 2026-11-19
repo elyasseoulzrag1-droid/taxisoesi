@@ -1,0 +1,19 @@
+{%- comment -%} Brand colours from Theme settings > Colours. {%- endcomment -%}
+<style>
+  :root{
+    --ink:{{ settings.ink }};
+    --ink-rgb:{{ settings.ink | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+    --paper:{{ settings.paper }};
+    --tint:{{ settings.tint }};
+    --sand:{{ settings.sand }};
+    --veil:{{ settings.veil_face }};--veil-deep:{{ settings.veil_deep }};
+    --mirage:{{ settings.mirage_face }};--mirage-deep:{{ settings.mirage_deep }};
+    --ember:{{ settings.ember_face }};--ember-deep:{{ settings.ember_deep }};
+    --halo:{{ settings.halo_face }};--halo-deep:{{ settings.halo_deep }};
+  }
+  .m-veil{--face:var(--veil);--deep:var(--veil-deep)}
+  .m-mirage{--face:var(--mirage);--deep:var(--mirage-deep)}
+  .m-ember{--face:var(--ember);--deep:var(--ember-deep)}
+  .m-halo{--face:var(--halo);--deep:var(--halo-deep)}
+  .m-coffret{--face:var(--ember);--deep:var(--ember-deep)}
+</style>

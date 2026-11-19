@@ -1,0 +1,109 @@
+{%- liquid
+  assign c = section.settings.content
+  case c
+    when 'house'
+      assign k_lab = 'house.lab' | t
+      assign k_h = 'house.h' | t
+      assign k_p = 'house.short' | t
+      assign k_btn = 'house.cta' | t
+      assign k_url = pages['the-house'].url
+      assign k_img = 'lineup.webp'
+      assign k_w = 2000
+      assign k_hgt = 1100
+    when 'ritual'
+      assign k_lab = 'ritual.lab' | t
+      assign k_h = 'ritual.h' | t
+      assign k_p = 'ritual.p' | t
+      assign k_btn = 'ritual.cta' | t
+      assign k_url = pages['the-ritual'].url
+      assign k_img = 'ritual.webp'
+      assign k_w = 1360
+      assign k_hgt = 850
+    when 'start'
+      assign k_lab = 'start.lab' | t
+      assign k_h = 'start.h' | t
+      assign k_p = 'start.p' | t
+      assign k_btn = 'quiz.see' | t
+      assign k_url = '#quiz'
+      assign k_img = 'single.webp'
+      assign k_w = 1200
+      assign k_hgt = 1500
+    else
+      assign k_lab = ''
+      assign k_h = ''
+      assign k_p = ''
+      assign k_btn = ''
+      assign k_url = ''
+      assign k_img = 'lineup.webp'
+      assign k_w = 2000
+      assign k_hgt = 1100
+  endcase
+  assign lab = section.settings.label | default: k_lab
+  assign heading = section.settings.heading | default: k_h
+  assign btn = section.settings.button | default: k_btn
+  assign url = section.settings.link | default: k_url
+-%}
+<section class="sec{% if section.settings.bg != 'paper' %} sec--{{ section.settings.bg }}{% endif %}">
+  <div class="wrap mt{% if section.settings.flip %} mt--rev{% endif %}">
+    <div class="mt__media" data-reveal>
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1800', sizes: '(min-width: 900px) 55vw, 100vw', alt: section.settings.image.alt }}
+      {%- else -%}
+        <img src="{{ k_img | asset_url }}" width="{{ k_w }}" height="{{ k_hgt }}" alt="" loading="lazy" decoding="async">
+      {%- endif -%}
+    </div>
+    <div class="mt__txt" data-reveal>
+      {%- if lab != blank -%}<p class="lab">{{ lab }}</p>{%- endif -%}
+      {%- if heading != blank -%}<h2 class="h2">{{ heading }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="lead rte">{{ section.settings.text }}</div>
+      {%- elsif k_p != blank -%}
+        <p class="lead">{{ k_p }}</p>
+      {%- endif -%}
+      {%- if btn != blank and url != blank -%}
+        <p><a class="btn btn--line" href="{{ url }}">{{ btn }}</a></p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "class": "section-mt",
+  "settings": [
+    {
+      "type": "select",
+      "id": "content",
+      "label": "Built-in text",
+      "info": "Built-in texts are already translated into Arabic. Fields below override them.",
+      "options": [
+        { "value": "house", "label": "The house" },
+        { "value": "ritual", "label": "The ritual" },
+        { "value": "start", "label": "Never worn musk?" },
+        { "value": "custom", "label": "None, I write my own" }
+      ],
+      "default": "house"
+    },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "label", "label": "Small label" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "button", "label": "Button label" },
+    { "type": "url", "id": "link", "label": "Button link" },
+    { "type": "checkbox", "id": "flip", "label": "Image on the other side", "default": false },
+    {
+      "type": "select",
+      "id": "bg",
+      "label": "Background",
+      "options": [
+        { "value": "paper", "label": "White" },
+        { "value": "tint", "label": "Tint" },
+        { "value": "sand", "label": "Sand" }
+      ],
+      "default": "paper"
+    }
+  ],
+  "presets": [{ "name": "Image with text" }]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "intro": {
+      "type": "page-intro",
+      "settings": {
+        "content": "contact"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {}
+    }
+  },
+  "order": [
+    "intro",
+    "form"
+  ]
+}

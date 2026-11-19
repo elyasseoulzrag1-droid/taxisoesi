@@ -1,0 +1,34 @@
+<section class="sec" style="padding-top:0">
+  <div class="wrap wrap--narrow">
+    {%- form 'contact', class: 'form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="msg msg--ok" role="status">{{ 'contact.sent' | t }}</p>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <div class="msg msg--err" role="alert">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+      <div class="row2">
+        <label>{{ 'contact.name' | t }}<input type="text" name="contact[name]" autocomplete="name" value="{{ form.name }}"></label>
+        <label>{{ 'contact.phone' | t }}<input type="tel" name="contact[phone]" autocomplete="tel" value="{{ form.phone }}"></label>
+      </div>
+      <label>{{ 'contact.email' | t }}<input type="email" name="contact[email]" autocomplete="email" required value="{{ form.email }}"></label>
+      <label>{{ 'contact.message' | t }}<textarea name="contact[body]" rows="6">{{ form.body }}</textarea></label>
+      <div class="acts">
+        <button class="btn" type="submit">{{ 'contact.send' | t }}</button>
+        {%- if settings.whatsapp != blank -%}
+          {%- assign wa = settings.whatsapp | remove: '+' | remove: ' ' | remove: '-' -%}
+          <a class="btn btn--line" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'icon', name: 'whatsapp' %}{{ 'general.whatsapp' | t }}</a>
+        {%- endif -%}
+      </div>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "class": "section-contact",
+  "settings": [],
+  "presets": [{ "name": "Contact form" }]
+}
+{% endschema %}

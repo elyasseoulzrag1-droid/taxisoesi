@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "intro": {
+      "type": "page-intro",
+      "settings": {
+        "content": "words"
+      }
+    },
+    "words": {
+      "type": "columns",
+      "settings": {
+        "content": "words",
+        "columns": 3,
+        "layout": "grid",
+        "bg": "paper",
+        "numbers": false,
+        "show_head": false
+      }
+    },
+    "four": {
+      "type": "musk-grid",
+      "settings": {
+        "bg": "tint"
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "words",
+    "four"
+  ]
+}

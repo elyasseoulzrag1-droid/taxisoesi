@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "intro": {
+      "type": "page-intro",
+      "settings": {
+        "content": "house"
+      }
+    },
+    "quote": {
+      "type": "quote",
+      "settings": {
+        "bg": "tint"
+      }
+    },
+    "read": {
+      "type": "columns",
+      "settings": {
+        "content": "read",
+        "columns": 3,
+        "layout": "grid",
+        "bg": "paper"
+      }
+    },
+    "spec": {
+      "type": "spec-table",
+      "settings": {
+        "bg": "tint"
+      }
+    },
+    "make": {
+      "type": "columns",
+      "settings": {
+        "content": "make",
+        "columns": 4,
+        "layout": "grid",
+        "bg": "paper"
+      }
+    },
+    "france": {
+      "type": "columns",
+      "settings": {
+        "content": "france",
+        "columns": 3,
+        "layout": "side",
+        "bg": "sand"
+      }
+    },
+    "charter": {
+      "type": "columns",
+      "settings": {
+        "content": "charter",
+        "columns": 2,
+        "layout": "side",
+        "bg": "ink",
+        "numbers": true
+      }
+    },
+    "four": {
+      "type": "musk-grid",
+      "settings": {
+        "bg": "paper"
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "quote",
+    "read",
+    "spec",
+    "make",
+    "france",
+    "charter",
+    "four"
+  ]
+}

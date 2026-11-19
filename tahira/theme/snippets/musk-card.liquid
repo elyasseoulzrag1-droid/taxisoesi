@@ -1,0 +1,74 @@
+{%- comment -%}
+  Product card. The four musks get their colour; anything else gets a neutral card.
+  product: the product (may be blank, then key is used for a placeholder). key: optional musk key.
+  index: position, for eager loading.
+{%- endcomment -%}
+{%- liquid
+  if product != blank
+    capture key
+      render 'musk-key', product: product
+    endcapture
+    assign key = key | strip
+  endif
+  assign is_musk = false
+  if key == 'veil' or key == 'mirage' or key == 'ember' or key == 'halo'
+    assign is_musk = true
+  endif
+  assign loading = 'lazy'
+  if index == 1
+    assign loading = 'eager'
+  endif
+  if is_musk
+    assign name_key = 'musks.' | append: key | append: '.name'
+    assign short_key = 'musks.' | append: key | append: '.short'
+    assign tag_key = 'musks.' | append: key | append: '.tag'
+    assign note_key = 'musks.' | append: key | append: '.note'
+    assign title = name_key | t
+  else
+    assign title = product.title
+  endif
+  assign url = product.url | default: routes.all_products_collection_url
+  assign v = product.selected_or_first_available_variant
+-%}
+<article class="card{% if is_musk %} card--musk m-{{ key }}{% endif %}" data-reveal>
+  <a class="card__media" href="{{ url }}" tabindex="-1" aria-hidden="true">
+    {%- if product.featured_media != blank -%}
+      {{ product.featured_media | image_url: width: 900 | image_tag: loading: loading, widths: '360, 540, 720, 900', sizes: '(min-width: 990px) 25vw, (min-width: 600px) 45vw, 80vw', alt: '' }}
+    {%- elsif is_musk -%}
+      {%- assign tile = 'tile-' | append: key | append: '.webp' -%}
+      <img src="{{ tile | asset_url }}" width="960" height="1200" alt="" loading="{{ loading }}" decoding="async">
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+    {%- endif -%}
+  </a>
+  <div class="card__body">
+    {%- if is_musk -%}
+      <p class="card__tag">{{ tag_key | t }}</p>
+    {%- endif -%}
+    <h3 class="card__name"><a href="{{ url }}">{{ title }}</a></h3>
+    {%- if is_musk -%}
+      <p class="card__short">{{ short_key | t }}</p>
+      <p class="card__note">{{ note_key | t }}</p>
+    {%- elsif product.description != blank -%}
+      <p class="card__note">{{ product.description | strip_html | truncatewords: 14 }}</p>
+    {%- endif -%}
+    <div class="card__foot">
+      {%- if product != blank -%}
+        {% render 'price', product: product %}
+        {%- if product.has_only_default_variant and v.available -%}
+          <form class="card__add" action="{{ routes.cart_add_url }}" method="post" data-add>
+            <input type="hidden" name="id" value="{{ v.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button class="btn btn--sm{% if is_musk %} btn--light{% endif %}" type="submit" aria-label="{{ 'grid.quick_add' | t }}, {{ title | escape }}">
+              {% render 'icon', name: 'plus' %}<span>{{ 'grid.quick_add' | t }}</span>
+            </button>
+          </form>
+        {%- elsif v.available == false -%}
+          <span class="card__sold">{{ 'product.sold_out' | t }}</span>
+        {%- else -%}
+          <a class="btn btn--sm{% if is_musk %} btn--light{% endif %}" href="{{ url }}">{{ 'general.view' | t }}</a>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+</article>

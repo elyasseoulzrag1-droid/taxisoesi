@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "dynamic_checkout": true
+      }
+    },
+    "layering": {
+      "type": "product-layering",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "bg": "paper"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "limit": 5,
+        "bg": "paper",
+        "show_link": true,
+        "schema": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "layering",
+    "reviews",
+    "faq"
+  ]
+}

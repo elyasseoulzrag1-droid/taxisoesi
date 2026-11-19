@@ -1,0 +1,36 @@
+{%- comment -%}
+  The main links: from the chosen menu, or the built-in set if no menu is chosen.
+  menu: a linklist (may be blank). dots: true to show the musk colour dots (drawer).
+{%- endcomment -%}
+{%- if menu != blank and menu.links.size > 0 -%}
+  {%- for link in menu.links -%}
+    <li><a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}><span>{{ link.title }}</span></a></li>
+  {%- endfor -%}
+{%- else -%}
+  {%- liquid
+    assign shop_url = settings.musks_collection.url | default: routes.all_products_collection_url
+    assign pairs_url = routes.root_url | append: '#pairs'
+    if routes.root_url == '/'
+      assign pairs_url = '/#pairs'
+    endif
+  -%}
+  <li><a href="{{ shop_url }}"><span>{{ 'nav.shop' | t }}</span></a></li>
+  {%- if dots -%}
+    {%- assign keys = 'veil,mirage,ember,halo' | split: ',' -%}
+    {%- for key in keys -%}
+      {%- assign sid = 'musk_' | append: key -%}
+      {%- assign p = settings[sid] -%}
+      {%- assign nk = 'musks.' | append: key | append: '.name' -%}
+      {%- assign sk = 'musks.' | append: key | append: '.short' -%}
+      <li class="m-{{ key }}"><a href="{{ p.url | default: shop_url }}"><span>{{ nk | t }} <small class="fine">{{ sk | t }}</small></span><i style="background:var(--face)"></i></a></li>
+    {%- endfor -%}
+  {%- endif -%}
+  {%- if settings.coffret != blank -%}
+    <li><a href="{{ settings.coffret.url }}"><span>{{ 'nav.coffret' | t }}</span></a></li>
+  {%- endif -%}
+  <li><a href="{{ pairs_url }}"><span>{{ 'nav.pairs' | t }}</span></a></li>
+  {%- if pages['the-house'] != blank -%}<li><a href="{{ pages['the-house'].url }}"><span>{{ 'nav.house' | t }}</span></a></li>{%- endif -%}
+  {%- if pages['the-ritual'] != blank -%}<li><a href="{{ pages['the-ritual'].url }}"><span>{{ 'nav.ritual' | t }}</span></a></li>{%- endif -%}
+  {%- if dots and pages['the-words'] != blank -%}<li><a href="{{ pages['the-words'].url }}"><span>{{ 'nav.words' | t }}</span></a></li>{%- endif -%}
+  {%- if pages['questions'] != blank -%}<li><a href="{{ pages['questions'].url }}"><span>{{ 'nav.faq' | t }}</span></a></li>{%- endif -%}
+{%- endif -%}

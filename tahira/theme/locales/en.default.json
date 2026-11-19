@@ -1,0 +1,834 @@
+{
+  "general": {
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "close": "Close",
+    "home": "Home",
+    "language": "Language",
+    "previous": "Previous",
+    "next": "Next",
+    "search": "Search",
+    "search_placeholder": "Search the house",
+    "whatsapp": "Write to us on WhatsApp",
+    "offered": "Offered",
+    "view": "See the musk",
+    "read_more": "Read more",
+    "page": "Page {{ n }}",
+    "ml": "10 ml",
+    "brand": "TAHIRA"
+  },
+  "announcement": {
+    "ship": "Free delivery across the UAE over 250 AED",
+    "pay": "Cash on delivery · Tabby · Tamara",
+    "spec": "Made in France · Lasts 2 to 3 months"
+  },
+  "nav": {
+    "shop": "The four",
+    "coffret": "The coffret",
+    "pairs": "Layering",
+    "house": "The house",
+    "ritual": "The ritual",
+    "words": "The words",
+    "faq": "Questions",
+    "quiz": "Find yours"
+  },
+  "musks": {
+    "veil": {
+      "name": "VEIL",
+      "alt": "فيل",
+      "short": "White musk",
+      "note": "Clean, powdered, the smell of skin after the shower",
+      "colour": "Deep bordeaux",
+      "line": "Skin, ten minutes after the shower.",
+      "tag": "Everyday",
+      "story": "Clean skin, powder, a little warmth. VEIL is you, ten minutes after the shower. It does not carry across a room. It stays within arm's length, which is where musk is meant to sit.",
+      "who": "The one to start with. Clean, powdered, close to the skin. It also works as a base: a perfume sprayed over it holds longer.",
+      "wear": "On its own for work. Under another musk when you want more. Under your perfume when you want it to stay. Reapply whenever, it never stings.",
+      "top": "Clean cotton, aldehyde",
+      "heart": "White musk, powdered iris",
+      "base": "Soft woods, warm skin"
+    },
+    "mirage": {
+      "name": "MIRAGE",
+      "alt": "ميراج",
+      "short": "Oud raspberry",
+      "note": "Dark fruit, wood, a dry finish",
+      "colour": "Chocolate brown",
+      "line": "Dark fruit, dried out by oud.",
+      "tag": "Evenings",
+      "story": "Dark raspberry, then the oud arrives and dries it out. Not sweet, not obvious. Within the hour it settles dry and woody, and stays there.",
+      "who": "For evenings, dinners and cold days. For anyone who already knows they prefer dry and woody to sweet.",
+      "wear": "Two points on the neck are enough. Over VEIL if you want the oud gentler. Under a woody perfume to hold it past midnight.",
+      "top": "Raspberry, pink pepper",
+      "heart": "Musk, dry rose",
+      "base": "Oud, cedar"
+    },
+    "ember": {
+      "name": "EMBER",
+      "alt": "إمبر",
+      "short": "Amber cherry",
+      "note": "Black cherry, almond, warm amber",
+      "colour": "Deep magenta",
+      "line": "Black cherry, warming over amber.",
+      "tag": "When you go out",
+      "story": "Black cherry and almond over amber. The musk underneath keeps it from turning sweet. It opens bright, then softens and warms as the hours pass.",
+      "who": "For evenings out. Warm and fruity, held down by the musk so it never turns loud.",
+      "wear": "Wrists and the inside of the elbows, where you run warmest. A little goes far. Over VEIL if you want the cherry rounder.",
+      "top": "Black cherry",
+      "heart": "Almond, musk",
+      "base": "Amber, benzoin"
+    },
+    "halo": {
+      "name": "HALO",
+      "alt": "هالو",
+      "short": "Sweet vanilla",
+      "note": "Bourbon vanilla, cinnamon, brown sugar",
+      "colour": "Plum",
+      "line": "Warmth, without the sugar.",
+      "tag": "Cosy hours",
+      "story": "Bourbon vanilla, real cinnamon, brown sugar. Named materials rather than one flat sweet accord. It reads as warmth, not candy.",
+      "who": "For the hours that belong to you. At home, a slow day, winter, the sofa, the car.",
+      "wear": "Behind the ears and behind the knees, where the warmth lasts longest. On its own when you are staying in. Over VEIL when you want it deeper.",
+      "top": "Cinnamon",
+      "heart": "Bourbon vanilla, musk",
+      "base": "Brown sugar, soft woods"
+    },
+    "coffret": {
+      "name": "The coffret",
+      "alt": "المجموعة",
+      "short": "All four musks",
+      "note": "All four musks, one for every kind of day",
+      "line": "The whole chart, in the order the house reads it.",
+      "tag": "To give, and to keep",
+      "story": "The four musks, in the order the house reads them. White musk first. Then the three that layer over it. Each in its own case, with a card that explains the gesture."
+    },
+    "labels": {
+      "presence": "Presence",
+      "hold": "Hold",
+      "top": "Top",
+      "heart": "Heart",
+      "base": "Base",
+      "family": "Family",
+      "when": "When to wear",
+      "price": "Price",
+      "scale": "{{ n }} out of 5"
+    }
+  },
+  "hero": {
+    "eyebrow": "The house of musk",
+    "title_html": "Musk, and<br><em>nothing else</em>.",
+    "sub": "Four musks, composed in France. An oil, not a spray. Worn on clean skin, close to you all day.",
+    "add": "Add to bag",
+    "see": "See the musk",
+    "choose": "Choose a musk",
+    "rating": "Rated {{ n }} out of 5"
+  },
+  "trust": {
+    "1": {
+      "h": "Made in France",
+      "p": "Composed in a French laboratory, materials from Grasse."
+    },
+    "2": {
+      "h": "6 to 8 hours",
+      "p": "An oil, not a spray. It holds through a Gulf afternoon."
+    },
+    "3": {
+      "h": "Alcohol-free",
+      "p": "Worn through the day, and through prayer."
+    },
+    "4": {
+      "h": "Pay at the door",
+      "p": "Cash on delivery, or 4 payments with Tabby or Tamara."
+    }
+  },
+  "grid": {
+    "lab": "The four",
+    "h": "One base. Four directions.",
+    "p": "The same musk base under all four. What changes is what sits over it: white musk, oud and raspberry, amber and cherry, vanilla and cinnamon.",
+    "all": "Shop all four",
+    "quick_add": "Add to bag",
+    "added": "Added"
+  },
+  "reviews": {
+    "lab": "They wear it",
+    "h": "In their words.",
+    "verified": "Verified order",
+    "empty": "Add review blocks, or a reviews app block, in the theme editor."
+  },
+  "videos": {
+    "lab": "Worn here",
+    "h": "On the skin, not in a studio.",
+    "play": "Play the video",
+    "pause": "Pause the video"
+  },
+  "quiz": {
+    "lab": "Two minutes",
+    "h": "Which one is yours?",
+    "p": "Three questions. Thirty seconds. One musk.",
+    "step": "Question {{ n }} / 3",
+    "again": "Start again",
+    "result": "Your musk",
+    "why": "Why this one",
+    "with": "And the one to layer over it",
+    "q1": "When will you be wearing it?",
+    "q1a": "Every day, from the morning",
+    "q1b": "In the evening, when I go out",
+    "q1c": "At night, before I sleep",
+    "q2": "What do you want it to do?",
+    "q2a": "Keep me clean and close, all day",
+    "q2b": "Make people ask what I am wearing",
+    "q2c": "Hold my perfume down and make it last",
+    "q2d": "Comfort me, like something warm",
+    "q3": "What do you want on your skin?",
+    "q3a": "Powder, clean linen, bare skin",
+    "q3b": "Dark fruit and dry wood",
+    "q3c": "Black cherry and almond",
+    "q3d": "Vanilla, cinnamon, brown sugar",
+    "see": "See it"
+  },
+  "pair": {
+    "lab": "Layering",
+    "h": "Four musks. Six pairs. One that is yours.",
+    "p": "Pick any two. They share the same musk base, so the second lands on the first instead of fighting it. The bag charm comes with the pair.",
+    "line1": "One musk on clean skin.",
+    "line2": "A second over it, and the first changes.",
+    "pick": "Pick two",
+    "count": "{{ n }} / 2 chosen",
+    "hint": "Pick a second one to see the pair.",
+    "first": "first",
+    "over": "over it",
+    "add": "Add the pair",
+    "incl": "Two tubes and the bag charm",
+    "charm": "A small leather holder. Carries one tube, clips to your bag. Free with every pair.",
+    "charm_name": "The bag charm",
+    "veil_mirage": "VEIL first, MIRAGE over it. The oud lands softer. The raspberry reads drier. Clean at the start, woody at the end. Still on your scarf in the morning.",
+    "veil_ember": "VEIL first, EMBER over it. The cherry loses its edge. The amber sits closer. It carries all evening, and the opening is never loud.",
+    "veil_halo": "VEIL first, HALO over it. The vanilla stops being sweet. It turns warm. The winter pair, and the one for the quiet hours.",
+    "mirage_ember": "The two strongest. They do not fight. MIRAGE first for the wood. EMBER over it for the fruit. A dinner pair.",
+    "mirage_halo": "MIRAGE first, HALO over it. The cinnamon lifts the oud. The vanilla rounds off the dry end. Depth, not sparkle.",
+    "ember_halo": "EMBER first, HALO over it. Black cherry and almond under bourbon vanilla. The musk holds it down. Never dessert."
+  },
+  "coffret": {
+    "lab": "The coffret",
+    "h": "The one you give, and the one you keep.",
+    "p": "All four, each in its own case. Ready to give exactly as it arrives.",
+    "long": "All four, each in its own case. The set that is given at Eid and at weddings, and the one to keep for yourself.",
+    "save": "Saves about {{ n }}%",
+    "was": "{{ n }} bought singly",
+    "cta": "Shop the coffret",
+    "add": "Add the coffret",
+    "inside": "What is in the box",
+    "i1": "All four musks, one for every kind of day",
+    "i2": "A rigid case for each tube, and the case that holds the set",
+    "i3": "A hand-finished card, so it is ready to give as it is",
+    "i4": "Each name printed straight onto its tube, never a stuck-on label",
+    "i5": "One parcel, one delivery, one box to open",
+    "give_lab": "When it is given",
+    "give_h": "Eid, weddings, and the one you keep.",
+    "give1h": "Eid",
+    "give1p": "The box that gets opened in front of everyone. Four scents, not one guess.",
+    "give2h": "A wedding",
+    "give2p": "Given whole, or split between the four women who matter.",
+    "give3h": "A new home",
+    "give3p": "Something that sits on the shelf instead of in the cupboard.",
+    "give4h": "Yourself",
+    "give4p": "One for the office, one for the evening, one for the quiet hours.",
+    "math_lab": "The arithmetic",
+    "math_h": "Four singly, or the coffret.",
+    "math_a": "Four tubes, bought one by one",
+    "math_b": "The coffret, in one box",
+    "math_p": "The difference is the parcel, not a discount. One box, one delivery, one price all year."
+  },
+  "newsletter": {
+    "lab": "The house letter",
+    "h": "One letter a month. Nothing else.",
+    "p": "How the musks are made. Limited editions before they go online. Nothing else.",
+    "label": "Your email address",
+    "placeholder": "you@example.com",
+    "btn": "Subscribe",
+    "done": "Noted. You will hear from the house once a month.",
+    "fine": "One message a month, no more. Unsubscribe in one click.",
+    "error": "Check the address and try again."
+  },
+  "footer": {
+    "tag": "The house of musk. Made in France, with premium raw materials from Grasse.",
+    "chart": "The chart",
+    "house": "The house",
+    "orders": "Orders",
+    "make": "What we make",
+    "del": "Delivery, 1 to 3 days",
+    "pay": "Card, Tabby, Tamara, cash",
+    "ret": "Returns within 14 days",
+    "never": "Never a scent that is not musk.",
+    "legal1": "© TAHIRA. Cosmetic, external use only.",
+    "legal2": "Made in France · Delivered across the Emirates",
+    "contact": "Contact"
+  },
+  "house": {
+    "lab": "The house",
+    "h": "A house that makes musk, and nothing else.",
+    "short": "A house that sells forty things sells musk as one of them. We make one thing. We answer for it.",
+    "p1": "Musk has been worn here for generations. After the shower. In the bag. Again in the afternoon. Given at Eid. The gesture needed nothing from us.",
+    "p2": "What it never had was a house behind it. The same white musk is sold under fifty names. The perfume brands treat it as one line out of forty.",
+    "p3": "So we kept the gesture and rebuilt everything around it. Four musks composed in France. An applicator you glide onto the skin. One object, finished properly.",
+    "cta": "Enter the house",
+    "fine": "Every tube arrives in its own case. Ready to give as it is."
+  },
+  "quote": {
+    "p": "Four musks, and nothing else. That is the whole house.",
+    "s": "TAHIRA"
+  },
+  "spec": {
+    "lab": "Specification",
+    "base": "Base",
+    "base_v": "Alcohol-free oil-gel",
+    "fmt": "Format",
+    "fmt_v": "Soft tube, 10 ml",
+    "last": "Lasts",
+    "last_v": "2 to 3 months, used once a day",
+    "tex": "Texture",
+    "tex_v": "Oil, gloss-like, precise applicator",
+    "hold": "Holds",
+    "hold_v": "6 to 8 hours on skin, longer on fabric",
+    "comp": "Made in",
+    "comp_v": "France",
+    "mat": "Materials",
+    "mat_v": "Raw materials from Grasse",
+    "life": "Shelf life",
+    "life_v": "24 to 36 months",
+    "del": "Delivery",
+    "del_v": "1 to 3 working days, UAE"
+  },
+  "read": {
+    "lab": "A new reading of musk",
+    "h": "The gesture stays. The object changes.",
+    "p": "Musk has been worn here for generations. We did not come to replace it. We came to give it a house: a composition, a format, and a level of finish the category never had.",
+    "1": {
+      "k": "The base",
+      "h": "The musk you already know",
+      "p": "White musk sits under all four. Clean, powdered, close to the skin. Nothing about the base is foreign to you."
+    },
+    "2": {
+      "k": "What sits over it",
+      "h": "Notes this category has not worn",
+      "p": "Oud and raspberry. Amber and black cherry. Bourbon vanilla and cinnamon. Composed in France, on materials from Grasse."
+    },
+    "3": {
+      "k": "The gesture",
+      "h": "An applicator, not a dropper",
+      "p": "You glide it straight onto the skin. Nothing on your fingers, no glass bottle, nothing to rub in."
+    }
+  },
+  "france": {
+    "lab": "Made in France",
+    "h": "Made in France, from start to finish.",
+    "p": "Made in France. Materials from Grasse.",
+    "1": {
+      "k": "The materials",
+      "h": "From Grasse",
+      "p": "Real cinnamon. Bourbon vanilla. Brown sugar. Black cherry. Named materials, not one flat accord."
+    },
+    "2": {
+      "k": "The formulation",
+      "h": "Built to hold in the heat",
+      "p": "An oil base, weighed and matured in France. That is what makes it survive a Gulf afternoon."
+    },
+    "3": {
+      "k": "The expertise",
+      "h": "A French laboratory",
+      "p": "Formulation, filling, packing. All in France. The same batch, every time."
+    }
+  },
+  "make": {
+    "lab": "How it is made",
+    "h": "From the material to the tube.",
+    "1": {
+      "h": "Selected in Grasse",
+      "p": "Named raw materials, weighed one by one. No bought-in accord sold by the barrel."
+    },
+    "2": {
+      "h": "Built in a French laboratory",
+      "p": "The oil base is composed and left to mature. Heat is part of the brief, not an afterthought."
+    },
+    "3": {
+      "h": "Checked against the last batch",
+      "p": "Every batch is compared to the one before it. Same weight, same hold, same opening."
+    },
+    "4": {
+      "h": "Filled and printed in France",
+      "p": "Filled, capped, printed straight onto the tube. Never a label that lifts in the heat."
+    }
+  },
+  "charter": {
+    "lab": "The charter",
+    "h": "What we will never do.",
+    "p": "Four promises. They keep the range short. It stays that way.",
+    "1": {
+      "h": "Never a scent that is not musk.",
+      "p": "Formats can grow. A mist, a cream, a hair oil. The scent will not. One thing, done better than anyone."
+    },
+    "2": {
+      "h": "Never alcohol.",
+      "p": "Wear it through the day and through prayer. Top it up on warm skin. It never stings."
+    },
+    "3": {
+      "h": "Never a stuck-on label.",
+      "p": "Printed straight onto the tube. Labels lift in the heat. They peel in a bag. The money goes in the oil."
+    },
+    "4": {
+      "h": "Never a discount.",
+      "p": "The price is the price, all year. The coffret costs less per tube. It ships as one parcel."
+    }
+  },
+  "why": {
+    "lab": "Why it is worn daily",
+    "h": "Worn every day, not kept for occasions.",
+    "1": {
+      "h": "It holds",
+      "p": "Six to eight hours on the skin. Longer on a scarf or an abaya."
+    },
+    "2": {
+      "h": "It layers",
+      "p": "Musk is a fixative. Worn under a perfume, it holds the perfume down and extends it."
+    },
+    "3": {
+      "h": "It travels",
+      "p": "A soft tube, no glass, no spray. Reapplied at any hour, on warm skin."
+    }
+  },
+  "start": {
+    "lab": "New to musk",
+    "h": "Never worn musk? Start here.",
+    "p": "Not a perfume. An oil smoothed onto clean skin. It does not fill a room. It stays within arm's length, all day.",
+    "1": {
+      "h": "How it is worn",
+      "p": "After the shower, on warm skin. On the pulse points, in the plural. Thirty seconds, no rubbing."
+    },
+    "2": {
+      "h": "Musk is a fixative",
+      "p": "Under a perfume, it holds it down and extends it. Under another musk, the second lands softer."
+    },
+    "3": {
+      "h": "How much to use",
+      "p": "One pass in the morning. Two or three for the evening. Reapplied at any hour, on warm skin."
+    }
+  },
+  "ritual": {
+    "lab": "The ritual",
+    "h": "Four movements, thirty seconds.",
+    "p": "On clean skin, on the pulse points. No mirror, no cloud, nothing to redo.",
+    "lede": "Placed where the skin runs warm, it releases through the day.",
+    "cta": "The four movements"
+  },
+  "steps": {
+    "lab": "Four movements",
+    "1": {
+      "h": "Clean skin first",
+      "p": "Straight out of the shower, on warm skin. Nothing underneath to fight."
+    },
+    "2": {
+      "h": "The pulse points",
+      "p": "Everywhere the skin runs warm. One tube covers all of them."
+    },
+    "3": {
+      "h": "Let it settle",
+      "p": "Thirty seconds, no rubbing. The oil takes to the skin instead of lifting off it."
+    },
+    "4": {
+      "h": "Top up, or layer",
+      "p": "It lives in your bag. Layer two musks. Or put one under your perfume to make it last."
+    }
+  },
+  "applicator": {
+    "lab": "The applicator",
+    "h": "You glide it on. That is the whole gesture.",
+    "1": {
+      "h": "Straight onto the skin",
+      "p": "The tip carries the oil exactly where you want it. Nothing on your fingers, nothing to rub in."
+    },
+    "2": {
+      "h": "No glass, no spill",
+      "p": "A soft tube with a cap. It travels in a handbag, a car door, a carry-on."
+    },
+    "3": {
+      "h": "You control the dose",
+      "p": "One pass leaves a thin film. Two or three for the evening. To the point, not to the palm."
+    }
+  },
+  "where": {
+    "lab": "Where it goes",
+    "h": "Six warm points, not one.",
+    "p": "Musk releases with heat. Placed where the blood runs close to the skin, it works through the day instead of fading in an hour.",
+    "1": {
+      "h": "Wrists",
+      "p": "The point you reapply from. Never rub them together."
+    },
+    "2": {
+      "h": "The sides of the neck",
+      "p": "Two passes, where a scarf will pick it up."
+    },
+    "3": {
+      "h": "Behind the ears",
+      "p": "The warmest point on the head. A small dose is enough."
+    },
+    "4": {
+      "h": "The collarbone",
+      "p": "Under an open collar, it rises all day."
+    },
+    "5": {
+      "h": "Inner elbows",
+      "p": "Held under long sleeves, from morning to evening."
+    },
+    "6": {
+      "h": "Behind the knees",
+      "p": "It rises through a dress or an abaya."
+    },
+    "fine": "On skin, not on fabric. It is an oil, so give it thirty seconds and keep it off silk."
+  },
+  "when": {
+    "lab": "When",
+    "h": "Four moments in a day.",
+    "1": {
+      "h": "After the shower",
+      "p": "Clean, warm skin. The pass that carries the whole day."
+    },
+    "2": {
+      "h": "Before you go out",
+      "p": "A second pass on the neck and the wrists. Two or three for the evening."
+    },
+    "3": {
+      "h": "At any hour",
+      "p": "The tube lives in the bag. On warm skin, without a mirror, and through prayer."
+    },
+    "4": {
+      "h": "At the end of the day",
+      "p": "On a scarf, a sleeve, a pillow. It holds longer on fabric than on skin."
+    }
+  },
+  "hold": {
+    "lab": "Why it holds",
+    "h": "Why an oil holds where a spray does not.",
+    "p": "External use on the skin. Not on the eyes or broken skin. No medicinal claim.",
+    "1": {
+      "k": "A spray",
+      "h": "It evaporates",
+      "p": "A spray lifts off the skin in the first minutes and takes the scent with it."
+    },
+    "2": {
+      "k": "Our oil",
+      "h": "Stays where the skin is warm",
+      "p": "An oil is absorbed and releases slowly. Six to eight hours on the skin, longer on fabric."
+    }
+  },
+  "ways": {
+    "lab": "The ritual",
+    "h": "Three ways to wear it.",
+    "1": {
+      "h": "On its own",
+      "p": "After the shower, on warm skin. Wrists, neck, behind the ears. Thirty seconds, no rubbing."
+    },
+    "2": {
+      "h": "Under another musk",
+      "p": "White musk first, then another over it. The second lands softer and stays longer."
+    },
+    "3": {
+      "h": "Under your perfume",
+      "p": "Musk is a fixative. Pulse points first, perfume on top. It holds for hours longer."
+    }
+  },
+  "words": {
+    "lab": "The words",
+    "h": "The words, explained.",
+    "p": "Everything a musk house says, in plain language. Nothing here is marketing vocabulary.",
+    "1": {
+      "h": "Musk",
+      "p": "The base of everything we make. Warm, skin-like, and the reason a scent stays close to you instead of announcing itself from the door."
+    },
+    "2": {
+      "h": "White musk",
+      "p": "The clean, powdered kind. It reads like skin ten minutes after a shower. VEIL is built on it, and the other three sit over it."
+    },
+    "3": {
+      "h": "Oud",
+      "p": "Resinous wood, dry and dark. A few drops change the direction of a whole formula. It is what dries out the raspberry in MIRAGE."
+    },
+    "4": {
+      "h": "Amber",
+      "p": "Warm, resinous, faintly sweet. It weighs a scent down so it carries into the evening. The floor under EMBER."
+    },
+    "5": {
+      "h": "Fixative",
+      "p": "A material that slows down everything laid over it. Musk is one. Put it on first and the perfume you spray on top holds for hours longer."
+    },
+    "6": {
+      "h": "Sillage",
+      "p": "How far a scent travels away from you. Ours stays within arm’s length, and that is a choice, not a limit."
+    },
+    "7": {
+      "h": "Layering",
+      "p": "Two scents, one over the other. The second lands on the first instead of replacing it. Four musks make six pairs."
+    },
+    "8": {
+      "h": "Pulse points",
+      "p": "Where the blood runs close to the skin and the warmth releases the scent. Wrists, the sides of the neck, behind the ears, the collarbone, inner elbows, behind the knees."
+    },
+    "9": {
+      "h": "Oil, not spray",
+      "p": "A spray lifts off the skin in the first minutes and takes the scent with it. An oil is absorbed and releases slowly, for six to eight hours."
+    },
+    "10": {
+      "h": "Grasse",
+      "p": "The town in the south of France where perfumery materials have been traded and refined for three hundred years. Ours are selected there."
+    },
+    "11": {
+      "h": "Top, heart, base",
+      "p": "The three stages of a scent. The top is the first ten minutes, the heart is the hour after, the base is what is still on your scarf at midnight."
+    },
+    "12": {
+      "h": "Accord",
+      "p": "Several materials blended to read as one smell. A cheap accord is bought ready-made by the barrel. Ours are built from materials that each have a name."
+    }
+  },
+  "faq": {
+    "lab": "Questions",
+    "h": "Before you order.",
+    "1": {
+      "h": "I have never used musk. Where do I start?",
+      "p": "VEIL, the white musk. Clean, powdered, close to the skin. The easiest to wear. Want all four? The coffret costs less than four singles."
+    },
+    "2": {
+      "h": "Can I wear it for prayer?",
+      "p": "Yes. It is an oil, with no alcohol in it. You can also top it up at any hour on warm skin without it stinging."
+    },
+    "3": {
+      "h": "Is the musk animal-derived?",
+      "p": "No. Composed in France from materials sourced in Grasse. No deer musk, no alcohol."
+    },
+    "4": {
+      "h": "Will it survive the heat here?",
+      "p": "Better than a spray. A spray lifts off in the first minutes. An oil stays where the skin is warm. Six to eight hours, longer on fabric."
+    },
+    "5": {
+      "h": "Will it mark my clothes or my abaya?",
+      "p": "On skin, not fabric. Give it thirty seconds. It is an oil, so it can mark silk. Wrists, neck, behind the ears, behind the knees."
+    },
+    "6": {
+      "h": "How long does one tube last?",
+      "p": "Two to three months, used once a day. Keep it out of direct sun."
+    },
+    "7": {
+      "h": "How do delivery and payment work?",
+      "p": "1 to 3 working days, tracked. Free over 250 AED. Card, Tabby, Tamara, or cash at the door."
+    },
+    "8": {
+      "h": "How is this different from the musk sold here?",
+      "p": "The base is the one you know, worn the same way. What changes is what sits over it: oud and raspberry, amber and black cherry, bourbon vanilla and cinnamon, composed in France from Grasse materials. And an applicator you glide straight onto the skin, instead of a dropper or your fingers."
+    },
+    "9": {
+      "h": "Can I return it?",
+      "p": "Unopened, in its case, within fourteen days."
+    },
+    "all": "All the questions"
+  },
+  "care": {
+    "lab": "Delivery and returns",
+    "h": "How an order travels.",
+    "1": {
+      "k": "Delivery",
+      "h": "1 to 3 working days",
+      "p": "Tracked, anywhere in the Emirates. Free over 250 AED, 20 AED below. Order before 2pm and it leaves the same day."
+    },
+    "2": {
+      "k": "Payment",
+      "h": "Card, Tabby, Tamara, cash",
+      "p": "Four instalments with Tabby or Tamara. Or cash at the door. VAT included."
+    },
+    "3": {
+      "k": "Returns",
+      "h": "14 days, unopened",
+      "p": "Unopened, in its case, within fourteen days of delivery."
+    }
+  },
+  "product": {
+    "add": "Add to bag",
+    "added": "Added",
+    "adding": "Adding",
+    "sold_out": "Sold out",
+    "unavailable": "Unavailable",
+    "qty": "Quantity",
+    "minus": "One less",
+    "plus": "One more",
+    "split": "or {{ c }} payments of {{ n }}, with Tabby or Tamara",
+    "ship_today": "Ordered in the next {{ t }}, it leaves today.",
+    "ship_next": "It leaves {{ d }} morning.",
+    "eta": "At your door between {{ a }} and {{ b }}.",
+    "h": "h",
+    "m": "min",
+    "returns": "14 days to change your mind",
+    "free_over": "Free delivery over 250 AED",
+    "cod": "Cash on delivery",
+    "quiz_link": "Not sure? Three questions",
+    "others": "The other three",
+    "scent": "The scent",
+    "wear": "How to wear it",
+    "who": "Who it is for",
+    "inside": "What is in the tube",
+    "inside1": "Enough for two to three months, used once a day",
+    "inside2": "An oil you smooth on, no spray, nothing to redo",
+    "inside3": "A case it arrives in, ready to give as it is",
+    "inside4": "The name printed straight onto the tube, never a label",
+    "care": "Delivery and returns",
+    "care_p": "1 to 3 working days across the Emirates, tracked. Free over 250 AED. Returns unopened within 14 days.",
+    "spec_note": "External use on the skin. Not on the eyes or broken skin. Keep out of direct sun.",
+    "pyramid": "The composition",
+    "with_lab": "Layering",
+    "with_h": "Wear it with.",
+    "with_p": "Pick a second musk. This one goes on first, the other over it.",
+    "complete_h": "Complete the chart",
+    "complete_p": "Add the other three and the case that holds all four.",
+    "complete_go": "Take the coffret",
+    "gallery": "The object",
+    "image": "Image {{ n }}",
+    "buybar": "Add to bag",
+    "day0": "Sunday",
+    "day1": "Monday",
+    "day2": "Tuesday",
+    "day3": "Wednesday",
+    "day4": "Thursday",
+    "day5": "Friday",
+    "day6": "Saturday"
+  },
+  "collection": {
+    "empty": "Nothing here yet.",
+    "count": "{{ n }} products",
+    "shop_long": "An oil, not a spray. It stays close. It holds through the afternoon. One tube lasts two to three months. Made in France, materials from Grasse."
+  },
+  "chart": {
+    "lab": "The chart",
+    "h": "The four, side by side.",
+    "p": "Same base, four directions. Presence is how much of it reaches the room. Hold is how long it stays on the skin.",
+    "go": "See the musk"
+  },
+  "cart": {
+    "name": "Bag",
+    "title": "Your bag",
+    "empty": "Your bag is empty. The chart is four musks away.",
+    "sub": "Subtotal",
+    "checkout": "Checkout",
+    "free_done": "Delivery is free on this order.",
+    "free_left": "{{ n }} away from free delivery",
+    "remove": "Remove",
+    "count": "{{ n }} items in your bag",
+    "taxes": "VAT included. Delivery calculated at checkout.",
+    "note": "A note for the order",
+    "continue": "Shop all four",
+    "up_pair_h": "Layer a second over it",
+    "up_pair_p": "Pick one to go over {{ n }}. The bag charm comes with the pair.",
+    "up_pair_line": "{{ b }} over {{ a }}, {{ price }}. The bag charm comes with the pair.",
+    "up_add": "Add the pair",
+    "up_charm_h": "Your bag charm",
+    "up_charm_p": "Two musks in the bag: the leather charm comes with them.",
+    "up_charm_go": "Add it, offered",
+    "up_cof": "All four, in one box. Nothing left to choose.",
+    "error": "That did not go through. Try again."
+  },
+  "search": {
+    "h": "Search",
+    "results": "{{ n }} results for “{{ terms }}”",
+    "none": "Nothing found for “{{ terms }}”.",
+    "btn": "Search"
+  },
+  "notfound": {
+    "h": "This page is not here.",
+    "p": "The four musks are."
+  },
+  "blog": {
+    "back": "Back to the journal",
+    "by": "By {{ n }}"
+  },
+  "password": {
+    "h": "The house opens soon.",
+    "p": "Leave your address and you will hear first.",
+    "enter": "Enter with the password",
+    "label": "Password",
+    "btn": "Enter",
+    "admin": "Are you the owner?",
+    "login": "Log in here"
+  },
+  "gift": {
+    "h": "Your gift card",
+    "code": "Code",
+    "copy": "Copy the code",
+    "copied": "Copied",
+    "expired": "This card has expired.",
+    "disabled": "This card is disabled.",
+    "shop": "Shop the four",
+    "print": "Print"
+  },
+  "contact": {
+    "h": "Write to the house.",
+    "p": "An answer within one working day. Faster on WhatsApp.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "sent": "Received. We answer within one working day."
+  },
+  "account": {
+    "h": "Your account",
+    "login": "Log in",
+    "logout": "Log out",
+    "register": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "first": "First name",
+    "last": "Last name",
+    "forgot": "Forgotten your password?",
+    "reset_h": "Reset your password",
+    "reset_p": "We will send you an email to reset it.",
+    "reset_sent": "Sent. Check your inbox.",
+    "submit": "Send",
+    "cancel": "Cancel",
+    "orders": "Your orders",
+    "no_orders": "No order yet.",
+    "order": "Order",
+    "date": "Date",
+    "payment": "Payment",
+    "fulfillment": "Delivery",
+    "total": "Total",
+    "addresses": "Addresses",
+    "view_addresses": "View addresses ({{ n }})",
+    "add_address": "Add an address",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "default": "Default address",
+    "set_default": "Make this the default address",
+    "company": "Company",
+    "address1": "Address",
+    "address2": "Apartment, villa, building",
+    "city": "City",
+    "country": "Country",
+    "province": "Emirate",
+    "zip": "Postal code",
+    "phone": "Phone",
+    "back": "Back to your account",
+    "product": "Product",
+    "qty": "Quantity",
+    "price": "Price",
+    "subtotal": "Subtotal",
+    "shipping": "Delivery",
+    "tax": "VAT",
+    "billing": "Billing address",
+    "shipping_address": "Delivery address",
+    "cancelled": "Cancelled on {{ n }}",
+    "activate_h": "Activate your account",
+    "activate_p": "Choose a password to finish.",
+    "activate": "Activate",
+    "decline": "Decline the invitation",
+    "confirm": "Confirm the password",
+    "new_customer": "New to the house?",
+    "guest": "Continue as a guest"
+  }
+}

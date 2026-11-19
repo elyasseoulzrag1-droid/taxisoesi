@@ -1,0 +1,117 @@
+{%- liquid
+  capture key
+    render 'musk-key', product: product
+  endcapture
+  assign key = key | strip
+  assign keys = 'veil,mirage,ember,halo' | split: ','
+  assign is_musk = false
+  if keys contains key and key != ''
+    assign is_musk = true
+  endif
+-%}
+<section class="sec sec--tint">
+  <div class="wrap">
+    {%- if is_musk -%}
+      {%- liquid
+        case key
+          when 'veil'
+            assign partner = 'ember'
+          when 'mirage'
+            assign partner = 'halo'
+          when 'ember'
+            assign partner = 'veil'
+          else
+            assign partner = 'mirage'
+        endcase
+        assign pid = 'musk_' | append: partner
+        assign pp = settings[pid]
+        assign idx_a = 0
+        assign idx_b = 0
+        for k in keys
+          if k == key
+            assign idx_a = forloop.index
+          endif
+          if k == partner
+            assign idx_b = forloop.index
+          endif
+        endfor
+        if idx_a < idx_b
+          assign pair_key = key | append: '_' | append: partner
+          assign first = key
+          assign second = partner
+        else
+          assign pair_key = partner | append: '_' | append: key
+          assign first = partner
+          assign second = key
+        endif
+        assign pair_text = 'pair.' | append: pair_key
+        assign total = product.price | plus: pp.price
+        assign charm_part = ''
+        if settings.charm != blank and settings.charm.available
+          assign charm_part = ',{"id":' | append: settings.charm.selected_or_first_available_variant.id | append: ',"quantity":1}'
+        endif
+      -%}
+      <div class="sec-head" data-reveal>
+        <p class="lab">{{ 'product.with_lab' | t }}</p>
+        <h2 class="h2">{{ 'product.with_h' | t }}</h2>
+      </div>
+      <div class="with">
+        <div class="with__card m-{{ first }}" data-reveal>
+          <div class="with__tubes" aria-hidden="true">
+            {% render 'tube', key: first %}
+            <span class="m-{{ second }}" style="display:block;margin-inline-start:-10px;transform:rotate(8deg) translateY(8px)">{% render 'tube', key: second %}</span>
+          </div>
+          <div class="with__txt on-dark">
+            <p>{{ pair_text | t }}</p>
+            {%- if pp != blank and pp.available and product.available -%}
+              <form class="pairs__buy" action="{{ routes.cart_add_url }}" method="post" data-add data-items='[{"id":{{ product.selected_or_first_available_variant.id }},"quantity":1},{"id":{{ pp.selected_or_first_available_variant.id }},"quantity":1}{{ charm_part }}]'>
+                <span class="pairs__price">{{ total | money }}</span>
+                <button class="btn btn--light" type="submit"><span>{{ 'pair.add' | t }}</span></button>
+              </form>
+              <p class="fine">{{ 'pair.incl' | t }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if settings.coffret != blank -%}
+          <div class="with__card with__card--plain" data-reveal>
+            <span class="with__img">
+              {%- if settings.coffret.featured_media -%}
+                {{ settings.coffret.featured_media | image_url: width: 500 | image_tag: loading: 'lazy', alt: '' }}
+              {%- else -%}
+                <img src="{{ 'coffret.webp' | asset_url }}" width="1480" height="1001" alt="" loading="lazy">
+              {%- endif -%}
+            </span>
+            <div class="with__txt">
+              <h3 class="h3">{{ 'product.complete_h' | t }}</h3>
+              <p>{{ 'product.complete_p' | t }}</p>
+              <p class="pairs__price">{{ settings.coffret.price | money }}</p>
+              <p><a class="btn btn--line" href="{{ settings.coffret.url }}">{{ 'product.complete_go' | t }}</a></p>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- else -%}
+      <div class="sec-head" data-reveal>
+        <p class="lab">{{ 'grid.lab' | t }}</p>
+        <h2 class="h2">{{ 'grid.h' | t }}</h2>
+      </div>
+      <div class="cards cards--scroll">
+        {%- for k in keys -%}
+          {%- assign sid = 'musk_' | append: k -%}
+          {% render 'musk-card', product: settings[sid], key: k, index: forloop.index %}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Layering and coffret",
+  "class": "section-layering",
+  "settings": [
+    { "type": "paragraph", "content": "On a musk page: the musk to layer over it, added as a pair with the bag charm, and the coffret. On any other product: the four musks." }
+  ]
+}
+{% endschema %}

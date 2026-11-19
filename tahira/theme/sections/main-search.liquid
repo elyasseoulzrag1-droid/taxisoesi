@@ -1,0 +1,35 @@
+<section class="sec" style="padding-top:clamp(36px,5vw,72px)">
+  <div class="wrap" style="display:grid;gap:28px">
+    <h1 class="h2">{{ 'search.h' | t }}</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" style="max-width:640px">
+      <input type="hidden" name="type" value="product">
+      <label class="sr" for="SearchInput">{{ 'general.search' | t }}</label>
+      <div class="field">
+        <input id="SearchInput" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search_placeholder' | t }}" autocomplete="off">
+        <button class="btn" type="submit">{{ 'search.btn' | t }}</button>
+      </div>
+    </form>
+    {%- if search.performed -%}
+      {%- if search.results_count == 0 -%}
+        <p class="lead">{{ 'search.none' | t: terms: search.terms }}</p>
+      {%- else -%}
+        <p class="lab lab--plain">{{ 'search.results' | t: n: search.results_count, terms: search.terms }}</p>
+        {%- paginate search.results by 24 -%}
+          <div class="cards">
+            {%- for item in search.results -%}
+              {%- if item.object_type == 'product' -%}
+                {% render 'musk-card', product: item, index: forloop.index %}
+              {%- else -%}
+                <article class="card"><div class="card__body"><h3 class="card__name" style="font-size:24px;letter-spacing:0"><a href="{{ item.url }}">{{ item.title }}</a></h3><p class="card__note">{{ item.content | strip_html | truncatewords: 24 }}</p></div></article>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endpaginate -%}
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Search", "class": "section-search", "settings": [] }
+{% endschema %}

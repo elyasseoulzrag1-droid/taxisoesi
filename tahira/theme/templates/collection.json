@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "per_page": 24
+      }
+    },
+    "chart": {
+      "type": "compare-chart",
+      "settings": {}
+    },
+    "coffret": {
+      "type": "coffret-feature",
+      "settings": {
+        "bg": "sand"
+      }
+    },
+    "quiz": {
+      "type": "quiz",
+      "settings": {
+        "bg": "tint"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "chart",
+    "coffret",
+    "quiz"
+  ]
+}

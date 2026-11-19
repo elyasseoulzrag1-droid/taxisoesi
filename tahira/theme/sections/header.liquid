@@ -1,0 +1,79 @@
+<header class="head" data-head>
+  <div class="wrap head__in">
+    <div class="head__start">
+      <button class="icon-btn head__menu" type="button" data-open="MenuDrawer" aria-controls="MenuDrawer" aria-expanded="false" aria-label="{{ 'general.menu' | t }}">
+        {% render 'icon', name: 'menu' %}
+      </button>
+      <span class="head__logo-desk">{% render 'logo' %}</span>
+    </div>
+
+    <div class="head__mid">
+      <span class="head__logo-mob">{% render 'logo' %}</span>
+      <nav class="head__nav" aria-label="{{ 'general.menu' | t }}">
+        <ul>{% render 'nav-links', menu: section.settings.menu %}</ul>
+      </nav>
+    </div>
+
+    <div class="head__end">
+      <span class="head__lang">{% render 'lang-switch' %}</span>
+      {%- if section.settings.show_account and shop.customer_accounts_enabled -%}
+        <a class="icon-btn head__acc" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="{{ 'account.h' | t }}">{% render 'icon', name: 'user' %}</a>
+      {%- endif -%}
+      <a class="icon-btn" href="{{ routes.cart_url }}" data-open="CartDrawer" aria-controls="CartDrawer" aria-expanded="false" aria-label="{{ 'cart.title' | t }}">
+        {% render 'icon', name: 'bag' %}
+        <span class="count" data-cart-count data-count="{{ cart.item_count }}">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div id="MenuDrawer" class="drawer drawer--start" aria-hidden="true" role="dialog" aria-modal="true" aria-label="{{ 'general.menu' | t }}">
+  <div class="drawer__top">
+    {% render 'logo' %}
+    <button class="icon-btn" type="button" data-close aria-label="{{ 'general.close' | t }}">{% render 'icon', name: 'close' %}</button>
+  </div>
+  <div class="drawer__body">
+    <ul class="menu-list">{% render 'nav-links', menu: section.settings.menu, dots: true %}</ul>
+  </div>
+  <div class="menu-foot">
+    {% render 'lang-switch' %}
+    {%- if shop.customer_accounts_enabled -%}
+      <a class="link" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">{% render 'icon', name: 'user' %}{{ 'account.h' | t }}</a>
+    {%- endif -%}
+    {%- if settings.whatsapp != blank -%}
+      {%- assign wa = settings.whatsapp | remove: '+' | remove: ' ' | remove: '-' -%}
+      <a class="link" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'icon', name: 'whatsapp' %}{{ 'general.whatsapp' | t }}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if localization.available_languages.size > 1 -%}
+  {%- form 'localization', id: 'LangForm', class: 'sr' -%}
+    <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+  {%- endform -%}
+{%- endif -%}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ request.origin | append: routes.root_url | json }}
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "info": "Leave empty to use the built-in links (the four, the coffret, layering, the house, the ritual, questions). They are translated automatically."
+    },
+    { "type": "checkbox", "id": "show_account", "label": "Show the account icon", "default": true }
+  ]
+}
+{% endschema %}

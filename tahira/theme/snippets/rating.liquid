@@ -1,0 +1,18 @@
+{%- comment -%} Stars from the standard reviews metafields (Judge.me, Shopify Product Reviews, Loox, etc.). {%- endcomment -%}
+{%- if settings.show_rating and product.metafields.reviews.rating.value != blank -%}
+  {%- liquid
+    assign value = product.metafields.reviews.rating.value.rating | round: 1
+    assign scale = product.metafields.reviews.rating.value.scale_max | default: 5
+    assign count = product.metafields.reviews.rating_count | default: 0
+    assign pct = value | divided_by: scale | times: 100
+  -%}
+  <a class="rating" href="#reviews" aria-label="{{ 'hero.rating' | t: n: value }}">
+    {%- capture stars -%}{%- for i in (1..5) -%}{% render 'icon', name: 'star' %}{%- endfor -%}{%- endcapture -%}
+    <span class="rating__stars" style="--pct:{{ pct }}%" aria-hidden="true">
+      <span class="rating__base">{{ stars }}</span>
+      <span class="rating__fill">{{ stars }}</span>
+    </span>
+    <span class="rating__val">{{ value }}</span>
+    {%- if count > 0 -%}<span class="rating__count">({{ count }})</span>{%- endif -%}
+  </a>
+{%- endif -%}

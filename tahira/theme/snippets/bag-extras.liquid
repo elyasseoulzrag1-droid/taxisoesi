@@ -1,0 +1,93 @@
+{%- comment -%} Free-delivery bar (position: top) or the upsell card (position: upsell). {%- endcomment -%}
+{%- if position == 'top' -%}
+  {%- assign threshold = settings.free_shipping | default: 0 | times: 100 -%}
+  {%- if threshold > 0 -%}
+    {%- liquid
+      assign left = threshold | minus: cart.total_price
+      assign pct = cart.total_price | times: 100 | divided_by: threshold | floor
+      if pct > 100
+        assign pct = 100
+      endif
+      assign left_money = left | money
+    -%}
+    <div class="ship">
+      <p aria-live="polite">{% if left > 0 %}{{ 'cart.free_left' | t: n: left_money }}{% else %}{{ 'cart.free_done' | t }}{% endif %}</p>
+      <span class="ship__bar" aria-hidden="true"><i style="width:{{ pct }}%"></i></span>
+    </div>
+  {%- endif -%}
+{%- else -%}
+  {%- liquid
+    assign musk_count = 0
+    assign musk_keys = ''
+    assign charm_in = false
+    for item in cart.items
+      capture k
+        render 'musk-key', product: item.product
+      endcapture
+      assign k = k | strip
+      if k == 'veil' or k == 'mirage' or k == 'ember' or k == 'halo'
+        assign musk_count = musk_count | plus: item.quantity
+        assign musk_keys = musk_keys | append: k | append: ','
+      endif
+      if k == 'charm'
+        assign charm_in = true
+      endif
+    endfor
+    assign first_key = musk_keys | split: ',' | first
+  -%}
+  {%- if musk_count == 1 -%}
+    {%- liquid
+      case first_key
+        when 'veil'
+          assign partner = 'ember'
+        when 'mirage'
+          assign partner = 'halo'
+        when 'ember'
+          assign partner = 'veil'
+        else
+          assign partner = 'mirage'
+      endcase
+      assign pid = 'musk_' | append: partner
+      assign pp = settings[pid]
+      assign nk = 'musks.' | append: first_key | append: '.name'
+      assign pk = 'musks.' | append: partner | append: '.name'
+      assign tile = 'tile-' | append: partner | append: '.webp'
+    -%}
+    {%- if pp != blank and pp.available -%}
+      {%- capture items -%}[{"id":{{ pp.selected_or_first_available_variant.id }},"quantity":1}{% if settings.charm != blank and settings.charm.available and charm_in == false %},{"id":{{ settings.charm.selected_or_first_available_variant.id }},"quantity":1}{% endif %}]{%- endcapture -%}
+      <div class="up m-{{ partner }}">
+        <span class="up__img">{%- if pp.featured_media -%}{{ pp.featured_media | image_url: width: 160 | image_tag: alt: '' }}{%- else -%}<img src="{{ tile | asset_url }}" alt="" width="960" height="1200">{%- endif -%}</span>
+        <div>
+          <h3>{{ 'cart.up_pair_h' | t }}</h3>
+          {%- assign a_name = nk | t -%}{%- assign b_name = pk | t -%}{%- assign b_price = pp.price | money -%}
+          <p>{{ 'cart.up_pair_line' | t: a: a_name, b: b_name, price: b_price }}</p>
+          <form action="{{ routes.cart_add_url }}" method="post" data-add data-items='{{ items | strip }}'>
+            <button class="btn btn--sm btn--light" type="submit"><span>{{ 'cart.up_add' | t }}</span></button>
+          </form>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- elsif musk_count >= 2 and settings.charm != blank and settings.charm.available and charm_in == false -%}
+    <div class="up up--plain">
+      <span class="up__img">{%- if settings.charm.featured_media -%}{{ settings.charm.featured_media | image_url: width: 160 | image_tag: alt: '' }}{%- endif -%}</span>
+      <div>
+        <h3>{{ 'cart.up_charm_h' | t }}</h3>
+        <p>{{ 'cart.up_charm_p' | t }}</p>
+        <form action="{{ routes.cart_add_url }}" method="post" data-add>
+          <input type="hidden" name="id" value="{{ settings.charm.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button class="btn btn--sm" type="submit"><span>{{ 'cart.up_charm_go' | t }}</span></button>
+        </form>
+      </div>
+    </div>
+  {%- elsif musk_count >= 2 and musk_count < 4 and settings.coffret != blank and settings.coffret.available -%}
+    <div class="up up--plain">
+      <span class="up__img">{%- if settings.coffret.featured_media -%}{{ settings.coffret.featured_media | image_url: width: 160 | image_tag: alt: '' }}{%- else -%}<img src="{{ 'coffret.webp' | asset_url }}" alt="" width="1480" height="1001">{%- endif -%}</span>
+      <div>
+        <h3>{{ 'product.complete_h' | t }}</h3>
+        <p>{{ 'cart.up_cof' | t }}</p>
+        <a class="btn btn--sm btn--line" href="{{ settings.coffret.url }}">{{ 'product.complete_go' | t }}</a>
+      </div>
+    </div>
+  {%- endif -%}
+{%- endif -%}

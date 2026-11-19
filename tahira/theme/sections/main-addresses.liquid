@@ -1,0 +1,44 @@
+<section class="sec">
+  <div class="wrap" style="display:grid;gap:28px">
+    <a class="link" href="{{ routes.account_url }}">{% render 'icon', name: 'back' %}{{ 'account.back' | t }}</a>
+    <h1 class="h2">{{ 'account.addresses' | t }}</h1>
+
+    <details>
+      <summary class="btn" style="list-style:none">{{ 'account.add_address' | t }}</summary>
+      <div style="padding-top:20px;max-width:640px">
+        {%- form 'customer_address', customer.new_address, class: 'form' -%}
+          {% render 'address-fields', form: form, id: 'new' %}
+          <div class="acts"><button class="btn" type="submit">{{ 'account.save' | t }}</button></div>
+        {%- endform -%}
+      </div>
+    </details>
+
+    {%- paginate customer.addresses by 10 -%}
+      <div class="cols" style="--n:2">
+        {%- for address in customer.addresses -%}
+          <div class="col">
+            {%- if address == customer.default_address -%}<span class="col__k">{{ 'account.default' | t }}</span>{%- endif -%}
+            <p>{{ address | format_address }}</p>
+            <details>
+              <summary class="link" style="list-style:none;cursor:pointer">{{ 'account.edit' | t }}</summary>
+              <div style="padding-top:16px">
+                {%- form 'customer_address', address, class: 'form' -%}
+                  {% render 'address-fields', form: form, id: address.id %}
+                  <div class="acts"><button class="btn" type="submit">{{ 'account.save' | t }}</button></div>
+                {%- endform -%}
+              </div>
+            </details>
+            <form method="post" action="{{ address.url }}">
+              <input type="hidden" name="_method" value="delete">
+              <button class="line__rm" type="submit">{{ 'account.delete' | t }}</button>
+            </form>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Addresses", "class": "section-addresses", "settings": [] }
+{% endschema %}

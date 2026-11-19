@@ -1,0 +1,31 @@
+{%- comment -%}
+  An upright tube with the name printed on it.
+  key: veil | mirage | ember | halo. eager: true for the first one on the page. size: CSS width hint.
+{%- endcomment -%}
+{%- liquid
+  assign setting_id = 'tube_' | append: key
+  assign custom = settings[setting_id]
+  assign name_key = 'musks.' | append: key | append: '.name'
+  assign short_key = 'musks.' | append: key | append: '.short'
+  assign loading = 'lazy'
+  if eager
+    assign loading = 'eager'
+  endif
+-%}
+<span class="tube m-{{ key }}">
+  {%- if custom != blank -%}
+    {{ custom | image_url: width: 600 | image_tag: class: 'tube__img', alt: '', loading: loading, widths: '300, 450, 600', sizes: '(min-width: 990px) 260px, 40vw' }}
+  {%- else -%}
+    {%- assign file = key | append: '.webp' -%}
+    <img class="tube__img" src="{{ file | asset_url }}" width="236" height="780" alt="" loading="{{ loading }}" decoding="async">
+  {%- endif -%}
+  {%- if settings.tube_print -%}
+    <span class="tube__mark" aria-hidden="true">
+      <span class="tube__brand">{{ settings.logo_latin | default: 'TAHIRA' }}</span>
+      <span class="tube__ar">{{ settings.logo_arabic }}</span>
+      <span class="tube__name">{{ name_key | t }}</span>
+      <span class="tube__note">{{ short_key | t }}</span>
+      <span class="tube__ml">{{ 'general.ml' | t }}</span>
+    </span>
+  {%- endif -%}
+</span>

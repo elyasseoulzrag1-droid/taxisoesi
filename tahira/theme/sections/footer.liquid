@@ -1,0 +1,89 @@
+{%- liquid
+  assign shop_url = settings.musks_collection.url | default: routes.all_products_collection_url
+  assign keys = 'veil,mirage,ember,halo' | split: ','
+-%}
+<footer class="foot on-dark">
+  <div class="rule4" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      {% render 'logo' %}
+      <p>{{ 'footer.tag' | t }}</p>
+      <div class="foot__social">
+        {%- if settings.instagram != blank -%}<a href="{{ settings.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>{%- endif -%}
+        {%- if settings.tiktok != blank -%}<a href="{{ settings.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">{% render 'icon', name: 'tiktok' %}</a>{%- endif -%}
+        {%- if settings.snapchat != blank -%}<a href="{{ settings.snapchat }}" target="_blank" rel="noopener" aria-label="Snapchat">{% render 'icon', name: 'snapchat' %}</a>{%- endif -%}
+        {%- if settings.whatsapp != blank -%}
+          {%- assign wa = settings.whatsapp | remove: '+' | remove: ' ' | remove: '-' -%}
+          <a href="https://wa.me/{{ wa }}" target="_blank" rel="noopener" aria-label="WhatsApp">{% render 'icon', name: 'whatsapp' %}</a>
+        {%- endif -%}
+      </div>
+      {% render 'lang-switch' %}
+    </div>
+
+    <nav class="foot__col" aria-labelledby="FootChart">
+      <h3 id="FootChart">{{ 'footer.chart' | t }}</h3>
+      {%- for key in keys -%}
+        {%- assign sid = 'musk_' | append: key -%}
+        {%- assign p = settings[sid] -%}
+        {%- assign nk = 'musks.' | append: key | append: '.name' -%}
+        {%- assign sk = 'musks.' | append: key | append: '.short' -%}
+        <a class="m-{{ key }}" href="{{ p.url | default: shop_url }}"><i style="background:var(--face)"></i><span>{{ nk | t }}, {{ sk | t | downcase }}</span></a>
+      {%- endfor -%}
+      {%- if settings.coffret != blank -%}
+        <a class="m-coffret" href="{{ settings.coffret.url }}"><i style="background:var(--face)"></i><span>{{ 'nav.coffret' | t }}</span></a>
+      {%- endif -%}
+    </nav>
+
+    <nav class="foot__col" aria-labelledby="FootHouse">
+      <h3 id="FootHouse">{{ 'footer.house' | t }}</h3>
+      {%- if section.settings.menu_house != blank -%}
+        {%- for link in section.settings.menu_house.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+      {%- else -%}
+        {%- if pages['the-house'] != blank -%}<a href="{{ pages['the-house'].url }}">{{ 'footer.make' | t }}</a>{%- endif -%}
+        {%- if pages['the-ritual'] != blank -%}<a href="{{ pages['the-ritual'].url }}">{{ 'nav.ritual' | t }}</a>{%- endif -%}
+        {%- if pages['the-words'] != blank -%}<a href="{{ pages['the-words'].url }}">{{ 'nav.words' | t }}</a>{%- endif -%}
+        <a href="{{ shop_url }}">{{ 'nav.shop' | t }}</a>
+        {%- if routes.root_url == '/' -%}<a href="/#quiz">{{ 'nav.quiz' | t }}</a>{%- else -%}<a href="{{ routes.root_url }}#quiz">{{ 'nav.quiz' | t }}</a>{%- endif -%}
+      {%- endif -%}
+    </nav>
+
+    <nav class="foot__col" aria-labelledby="FootOrders">
+      <h3 id="FootOrders">{{ 'footer.orders' | t }}</h3>
+      {%- if section.settings.menu_orders != blank -%}
+        {%- for link in section.settings.menu_orders.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+      {%- else -%}
+        {%- assign faq_url = pages['questions'].url | default: routes.root_url -%}
+        <a href="{{ faq_url }}">{{ 'footer.del' | t }}</a>
+        <a href="{{ faq_url }}">{{ 'footer.pay' | t }}</a>
+        <a href="{{ faq_url }}">{{ 'footer.ret' | t }}</a>
+        {%- if pages['contact'] != blank -%}<a href="{{ pages['contact'].url }}">{{ 'footer.contact' | t }}</a>{%- endif -%}
+        {%- for policy in shop.policies -%}<a href="{{ policy.url }}">{{ policy.title }}</a>{%- endfor -%}
+      {%- endif -%}
+      {%- if settings.contact_email != blank -%}<a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a>{%- endif -%}
+      <span class="fine">{{ 'footer.never' | t }}</span>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <div class="foot__legal">
+      <span>{{ 'footer.legal1' | t }} {{ 'footer.legal2' | t }}</span>
+      <span class="foot__pay">
+        {%- assign methods = section.settings.payments | split: ',' -%}
+        {%- for m in methods -%}<span>{{ m | strip }}</span>{%- endfor -%}
+        {%- if settings.show_cod -%}<span>{{ 'product.cod' | t }}</span>{%- endif -%}
+      </span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer",
+  "settings": [
+    { "type": "link_list", "id": "menu_house", "label": "The house column", "info": "Leave empty for the built-in links." },
+    { "type": "link_list", "id": "menu_orders", "label": "Orders column", "info": "Leave empty for the built-in links and your store policies." },
+    { "type": "text", "id": "payments", "label": "Payment methods shown", "default": "Visa, Mastercard, Apple Pay, Tabby, Tamara", "info": "Comma separated. Cash on delivery is added from Theme settings > Orders." }
+  ]
+}
+{% endschema %}

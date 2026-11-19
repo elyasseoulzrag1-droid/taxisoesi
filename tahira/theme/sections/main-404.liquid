@@ -1,0 +1,13 @@
+<section class="sec quote">
+  {%- if settings.logo_arabic != blank -%}<span class="quote__wm" aria-hidden="true">{{ settings.logo_arabic }}</span>{%- endif -%}
+  <div class="wrap" style="display:grid;gap:24px;justify-items:center">
+    <span>404</span>
+    <h1 class="h2">{{ 'notfound.h' | t }}</h1>
+    <p class="lead">{{ 'notfound.p' | t }}</p>
+    <a class="btn" href="{{ settings.musks_collection.url | default: routes.all_products_collection_url }}">{{ 'grid.all' | t }}</a>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Page not found", "class": "section-404", "settings": [] }
+{% endschema %}
