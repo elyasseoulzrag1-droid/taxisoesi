@@ -8,15 +8,14 @@ Le site TAHIRA d'origine, avec les photos des vrais tubes et les corrections du 
 1. **Prix** : coffret 539 AED au lieu de 549 (676 AED à l'unité, « Saves 20% », 4 × 134.75 AED avec Tabby / Tamara).
 2. **Livraison** : 29 AED sous 250 AED, offerte au-dessus, partout où le montant est annoncé.
 3. **Retours** : « 14 days to change your mind, unopened ».
-4. **Tableau « What you are actually buying »** : 10 ml (comme sur les tubes), texture « Gel, non-greasy, applied straight from the tube »,
+4. **Tableau « What you are actually buying »** : 15 ml, texture « Gel, non-greasy, applied straight from the tube »,
    ligne Materials (Grasse) supprimée.
 5. **Gel, pas huile** : « A gel, not a spray » ; « An applicator, not a dropper » remplacé par
    « A tube, not a bottle » ; toutes les mentions d'huile et de Grasse corrigées (accueil, maison, rituel, glossaire, questions).
    « Alcohol-free oil-gel » est gardé, comme demandé.
-6. **Gamme** : alignée sur ce qui est imprimé sur les tubes : VEIL white musk, MIRAGE oud raspberry,
-   HALO amber cherry, EMBER sweet vanilla. Les textes d'origine de HALO et d'EMBER ont été échangés
-   (histoire, notes, moment, jauges, quiz, paires) ; les couleurs du site restent celles d'origine.
-7. **Layering** : les six paires reprises des textes d'origine, avec les noms remis à la bonne place.
+6. **Gamme** : VEIL white musk, MIRAGE oud vanilla, EMBER cherry amber, HALO pistachio caramel ;
+   notes, histoires et quiz mis à jour. Les couleurs du site restent celles d'origine.
+7. **Layering** : les six paires réécrites avec les nouvelles senteurs.
 8. **Carrousels sur téléphone** : une carte et un tiers de la suivante, un arrêt par carte, des points dessous.
 9. **« Not sure? Three questions »** sur sa propre ligne, sous la liste.
 10. **En-tête** : plus bas, sans cadres autour de EN, عربي, BAG et du menu ; la langue active est soulignée ;
@@ -36,11 +35,21 @@ Tirées de `photos/tubes-tahira.png`, avec les mêmes noms de fichiers qu'avant 
 (sur les fonds de couleur d'origine), alignement, coffret, tube seul, rituel. Le nom que le site dessinait
 sur les anciens tubes vierges est masqué, puisque les vrais tubes l'ont imprimé.
 
-## Ce qui reste à vérifier
+## À trancher
 
-- Le document de corrections proposait une autre gamme (oud vanilla, pistachio caramel, cherry amber, 15 ml).
-  Le site suit maintenant les tubes photographiés ; si la gamme change, il faudra de nouvelles photos.
-- La durée de conservation (24 à 36 mois) est à confirmer auprès du fabricant.
+La photo des tubes ne correspond pas au document sur plusieurs points :
+
+| | Sur les tubes | Dans le document (et donc sur le site) |
+|---|---|---|
+| MIRAGE | Oud framboise | Oud vanilla |
+| HALO | Ambre cerise | Pistachio caramel |
+| EMBER | Vanille sucrée | Cherry amber |
+| Contenance | 10 ml | 15 ml |
+
+Il faudra soit de nouvelles photos de tubes, soit me dire quelle version est la bonne.
+
+Les notes de MIRAGE (vanille, oud, musc blanc) et de HALO (pistache, caramel, musc blanc) sont écrites à partir
+des seuls descripteurs : à comparer avec la fiche de formule.
 
 ## Historique
 
