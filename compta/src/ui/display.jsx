@@ -191,7 +191,7 @@ export function ProgressBar({ value, max = 100, tone = "accent", label, showValu
       >
         <div class="progress-fill" style={{ width: pctValue + "%" }} />
       </div>
-      {showValue ? <span class="progress-value num">{pctValue + " %"}</span> : null}
+      {showValue ? <span class="progress-value num">{pctValue + "\u00a0%"}</span> : null}
     </div>
   );
 }
@@ -271,5 +271,60 @@ export function DateText({ date, style = "moyen", class: className }) {
     <time class={cx("date num", className)} dateTime={date}>
       {text}
     </time>
+  );
+}
+
+/**
+ * Liste de lignes séparées par un filet ("À faire", menu "Plus", comptes dans les réglages).
+ * À poser dans une <Card pad={false}>.
+ * @param {{ label?: string, class?: string, children?: import("preact").ComponentChildren }} props
+ */
+export function List({ label, class: className, children }) {
+  return (
+    <ul class={cx("list", className)} aria-label={label}>
+      {children}
+    </ul>
+  );
+}
+
+/**
+ * Une ligne de List : une icône (ou un avatar), un titre, une ligne de détail, un élément à droite.
+ * @param {{
+ *   title: import("preact").ComponentChildren, sub?: import("preact").ComponentChildren, icon?: string,
+ *   lead?: import("preact").ComponentChildren, trailing?: import("preact").ComponentChildren,
+ *   tone?: "neutral"|"accent"|"in"|"out"|"warn"|"info", onClick?: (event: MouseEvent) => void,
+ *   chevron?: boolean, disabled?: boolean, class?: string
+ * }} props
+ * - `icon` : nom d'icône, affichée dans un carré teinté par `tone`. `lead` : à la place, un élément libre (Avatar, PartnerDot).
+ * - `trailing` : montant, étiquette ou compteur à droite. `onClick` : la ligne devient un bouton, avec un chevron (sauf `chevron={false}`).
+ */
+export function ListItem({ title, sub, icon, lead, trailing, tone = "neutral", onClick, chevron, disabled = false, class: className }) {
+  const inner = (
+    <>
+      {lead ? (
+        <span class="list-lead-free">{lead}</span>
+      ) : icon ? (
+        <span class="list-lead" data-tone={normTone(tone)} aria-hidden="true">
+          <Icon name={icon} size={18} />
+        </span>
+      ) : null}
+      <span class="list-body">
+        <span class="list-title">{title}</span>
+        {sub ? <span class="list-sub">{sub}</span> : null}
+      </span>
+      {trailing != null && trailing !== false ? <span class="list-trail">{trailing}</span> : null}
+      {onClick && chevron !== false ? <Icon name="chevron-right" size={18} class="list-chevron" /> : null}
+    </>
+  );
+  return (
+    <li>
+      {onClick ? (
+        <button type="button" class={cx("list-item list-item-action", className)} onClick={onClick} disabled={disabled}>
+          {inner}
+        </button>
+      ) : (
+        <div class={cx("list-item", className)}>{inner}</div>
+      )}
+    </li>
   );
 }

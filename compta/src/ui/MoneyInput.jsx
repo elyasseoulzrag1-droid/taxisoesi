@@ -70,7 +70,7 @@ export function MoneyInput({
     <div class={cx("money-input", sign && `money-input-${sign}`, disabled && "is-disabled", className)}>
       {sign ? (
         <span class="money-input-sign" aria-hidden="true">
-          {sign === "out" ? "−" : "+"}
+          {sign === "out" ? "\u2212" : "+"}
         </span>
       ) : null}
       <input
@@ -92,19 +92,15 @@ export function MoneyInput({
         {...rest}
       />
       {onCurrency ? (
-        <select
-          class="money-input-currency"
-          aria-label="Devise"
-          value={currency}
-          disabled={disabled}
-          onChange={(event) => onCurrency(event.currentTarget.value)}
-        >
-          {options.map((code) => (
-            <option value={code} selected={code === currency}>
-              {code}
-            </option>
-          ))}
-        </select>
+        <span class="money-input-currency">
+          <select aria-label="Devise" value={currency} disabled={disabled} onChange={(event) => onCurrency(event.currentTarget.value)}>
+            {options.map((code) => (
+              <option value={code} selected={code === currency}>
+                {code}
+              </option>
+            ))}
+          </select>
+        </span>
       ) : (
         <span class="money-input-unit" title={currency}>
           {currencySymbol(currency)}

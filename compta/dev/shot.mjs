@@ -72,6 +72,8 @@ for (const size of sizes) {
           return await r.fulfill({ contentType: "text/javascript", body: await readFile(path.join(ROOT, CDN[hit])) });
         } catch { /* absent : on bloque */ }
       }
+      // Polices Google : pas de réseau ici, on répond une feuille vide pour ne pas polluer la console.
+      if (url.includes("fonts.googleapis.com")) return r.fulfill({ contentType: "text/css", body: "" });
       return r.abort();
     });
     await page.addInitScript({ path: path.join(ROOT, "dev", "mock-claude.js") });

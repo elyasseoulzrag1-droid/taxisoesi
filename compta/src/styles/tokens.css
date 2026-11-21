@@ -76,8 +76,8 @@
   /* Plans. */
   --z-sticky: 10;
   --z-nav: 20;
-  --z-pop: 40;
   --z-modal: 50;
+  --z-pop: 55;
   --z-toast: 60;
 
   /* Neutres (teinte 275, bleu nuit). */
@@ -122,6 +122,20 @@
   --ticket: #fcfdfe;
   --ticket-stub: #eceef8;
   --ticket-edge: #cfd2e0;
+  --ticket-shadow: rgb(22 25 43 / 0.1);
+
+  /* Surface des éléments flottants (menu, infobulle de graphique). */
+  --pop: #ffffff;
+
+  /* Notification : fond sombre dans les deux thèmes, avec ses propres couleurs de sens. */
+  --toast-bg: #1d2036;
+  --toast-ink: #f4f5fa;
+  --toast-line: #1d2036;
+  --toast-in: #61d7b2;
+  --toast-out: #ff8b6d;
+  --toast-warn: #f1c45e;
+  --toast-info: #87c6f2;
+  --toast-accent: #acb7ff;
 
   --focus: #3b39a6;
   --scrim: rgb(22 25 43 / 0.46);
@@ -207,6 +221,13 @@
     --ticket: #1f2230;
     --ticket-stub: #272a40;
     --ticket-edge: #3a3e54;
+    --ticket-shadow: rgb(0 0 0 / 0.5);
+
+    --pop: #262938;
+
+    --toast-bg: #2c3044;
+    --toast-ink: #eaecf5;
+    --toast-line: #484c5f;
 
     --focus: #acb7ff;
     --scrim: rgb(4 5 10 / 0.66);
@@ -283,6 +304,13 @@
   --ticket: #1f2230;
   --ticket-stub: #272a40;
   --ticket-edge: #3a3e54;
+  --ticket-shadow: rgb(0 0 0 / 0.5);
+
+  --pop: #262938;
+
+  --toast-bg: #2c3044;
+  --toast-ink: #eaecf5;
+  --toast-line: #484c5f;
 
   --focus: #acb7ff;
   --scrim: rgb(4 5 10 / 0.66);

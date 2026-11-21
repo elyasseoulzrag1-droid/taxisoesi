@@ -26,7 +26,8 @@ export function createClaudeBackend(db) {
             const data = doc.exists === false ? undefined : doc.data();
             if (data) docs.push({ id: doc.id, data });
           }
-          onDocs(docs, { fromCache: !!(snap.metadata && snap.metadata.fromCache) });
+          const meta = snap.metadata || {};
+          onDocs(docs, { fromCache: !!meta.fromCache, pending: !!meta.hasPendingWrites });
         },
         (err) => onError(err),
       );

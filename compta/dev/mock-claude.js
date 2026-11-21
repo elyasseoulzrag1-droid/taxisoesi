@@ -3,8 +3,21 @@
  *
  * Script classique : à injecter AVANT les scripts de la page, par exemple avec Playwright
  *   await page.addInitScript({ path: "dev/mock-claude.js" });
- * Options : définir `window.__mockOptions = { role, capabilities, latencyMs, user, seed, persist }` avant ce script.
- * Pilotage depuis un test : `window.__mock` (reset, db.dump, db.failNext, downloads, sampleHandler, setRole...).
+ * Options : définir `window.__mockOptions = { role, can, capabilities, latencyMs, user, people, seed, persist }` avant ce script.
+ *   role : "owner" (défaut), "editor", "contributor" (écrit les données, pas de fichiers), "viewer" (lecture seule)
+ *   can: null : la plateforme ne dit rien du droit d'écriture ; capabilities : noms servis (défaut : les cinq)
+ *   seed : { "config/main": {...} } utilisé quand sessionStorage est vide ; persist: false : rien dans sessionStorage
+ * Pilotage depuis un test, par `window.__mock` :
+ *   reset()                                   tout effacer (documents, fichiers, journaux, sessionStorage)
+ *   db.dump(), db.get(chemin), db.load({...}) lire ou modifier les documents directement
+ *   db.writes, db.overlaps                    journal des écritures, écritures simultanées sur un même document
+ *   db.failNext(code, nombre, filtre)         faire échouer les prochaines écritures
+ *   db.hold, db.cacheOnly, db.refresh()       base injoignable, instantanés "en cache"
+ *   setRole(nom)                              changer le niveau du visiteur en cours de route
+ *   downloads, downloadDecision               fichiers enregistrés ; "accept", "decline" ou un code d'erreur
+ *   sampleCalls, sampleHandler, sampleConsent, sampleLimits   appels à Claude, réponses sur mesure, refus, limites
+ *   assets.list(), assets.limits              fichiers envoyés, quotas
+ * Référence complète : api/platform.md (section 7).
  * L'état (documents) survit à un rechargement grâce à sessionStorage ; `window.__mock.reset()` l'efface.
  *
  * Se charge aussi dans Node (tests unitaires) : rien n'y est installé globalement, on appelle
@@ -695,7 +708,8 @@
     }
 
     function sampleProblem(input, opts) {
-      if (opts !== undefined && !isObject(opts)) return fail("invalid_request", "options must be a plain object");
+      const proto = isObject(opts) ? Object.getPrototypeOf(opts) : undefined;
+      if (opts !== undefined && proto !== Object.prototype && proto !== null) return fail("invalid_request", "options must be a plain object");
       if (typeof input === "string") {
         if (!input.trim()) return fail("invalid_request", "input is empty");
       } else if (Array.isArray(input)) {

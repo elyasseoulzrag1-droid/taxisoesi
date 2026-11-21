@@ -43,7 +43,7 @@ export function useFieldProps({ id, invalid, describedBy } = {}) {
  *   htmlFor?: string, required?: boolean, optional?: boolean, class?: string, children?: import("preact").ComponentChildren
  * }} props
  * Sans `htmlFor`, un identifiant stable est créé et transmis au champ du kit placé dedans.
- * Avec `htmlFor`, donne le même `id` au champ. `error` remplace `hint` et marque le champ comme invalide.
+ * Avec `htmlFor`, donne le même `id` au champ. `error` s'affiche au-dessus de `hint`, est annoncé, et marque le champ comme invalide.
  */
 export function Field({ label, hint, error, htmlFor, required = false, optional = false, class: className, children }) {
   const autoId = useStableId("field");

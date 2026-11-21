@@ -158,6 +158,7 @@ export function applySnapshot(snap) {
   const user = (state.platform && state.platform.user) || {};
   const data = {
     ready: !!snap.ready,
+    loaded: snap.loaded !== false,
     stale: !!snap.stale,
     error: snap.error || null,
     readOnly: !!snap.readOnly,

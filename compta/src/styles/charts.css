@@ -1,0 +1,472 @@
+/*
+  Styles des graphiques (src/ui/charts). Marques fines, grille discrète, texte à l'encre des jetons :
+  la couleur d'une série n'est portée que par sa marque (barre, trait, pastille), jamais par le texte.
+*/
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 0;
+  margin: 0;
+}
+
+.chart-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.chart-title {
+  font-weight: 600;
+  line-height: var(--lh-snug);
+}
+
+.chart-sub {
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+}
+
+.chart-plot {
+  position: relative;
+  min-width: 0;
+}
+
+.chart-plot:focus-visible {
+  outline-offset: 4px;
+  border-radius: var(--r-sm);
+}
+
+.chart-svg {
+  display: block;
+  overflow: visible;
+  /* Glisser de côté parcourt le graphique ; glisser de haut en bas fait toujours défiler la page. */
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.chart-grid {
+  stroke: var(--chart-grid);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.chart-axis {
+  stroke: var(--chart-axis);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.chart-cross {
+  stroke: var(--chart-axis);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.chart-tick {
+  fill: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-band {
+  fill: var(--chart-hover);
+}
+
+.chart-mark {
+  transition: opacity var(--dur-1) var(--ease);
+}
+
+.chart-mark.is-dim {
+  opacity: 0.5;
+}
+
+.chart-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-area {
+  opacity: 0.1;
+}
+
+/* Anneau de 2 px à la couleur de la surface autour des points. */
+.chart-dot {
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.sparkline {
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.sparkline-line {
+  fill: none;
+  stroke: var(--chart-muted);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stat .chart-dot {
+  stroke: var(--ticket);
+}
+
+/* Infobulle : la valeur d'abord, le nom ensuite. */
+.chart-tip {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  min-width: 88px;
+  max-width: min(260px, 100%);
+  padding: 7px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--pop);
+  box-shadow: var(--shadow-2);
+  font-size: var(--fs-sm);
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+.chart-tip-title {
+  margin-bottom: 2px;
+  color: var(--ink-2);
+  font-size: var(--fs-xs);
+  overflow-wrap: anywhere;
+}
+
+.chart-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.chart-tip-key {
+  flex-shrink: 0;
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.chart-tip-value {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.chart-tip-label {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink-2);
+  text-overflow: ellipsis;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+}
+
+.chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.chart-swatch {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.chart-swatch-line {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.chart-legend-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.chart-legend-value {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.chart-details {
+  font-size: var(--fs-sm);
+}
+
+.chart-details-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  color: var(--accent-text);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.chart-details-summary::-webkit-details-marker {
+  display: none;
+}
+
+.chart-details-summary::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin: 0 2px 0 3px;
+  border-right: 1.75px solid currentColor;
+  border-bottom: 1.75px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--dur-1) var(--ease);
+}
+
+.chart-details[open] > .chart-details-summary::before {
+  transform: rotate(45deg);
+}
+
+.chart-table {
+  width: 100%;
+  margin-top: var(--sp-1);
+}
+
+.chart-table th,
+.chart-table td {
+  padding: 6px 10px 6px 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 400;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.chart-table thead th {
+  color: var(--ink-3);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.chart-table tbody th {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.chart-table .is-num {
+  padding-right: 0;
+  padding-left: 10px;
+  text-align: right;
+}
+
+.chart-table tbody tr:last-child th,
+.chart-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.chart-empty {
+  display: flex;
+  align-items: center;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-md);
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+}
+
+/* Barres horizontales classées. */
+.hbar-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.hbar-item {
+  min-width: 0;
+  transition: opacity var(--dur-1) var(--ease);
+}
+
+.hbar-item.is-dim {
+  opacity: 0.6;
+}
+
+.hbar-row {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+/* Ligne cliquable : au moins 44 px de haut pour le doigt, sans écarter davantage les lignes. */
+.hbar-row-action {
+  min-height: 44px;
+  margin: -4px 0;
+  padding: 4px 0;
+  cursor: pointer;
+  border-radius: var(--r-xs);
+}
+
+.hbar-row-action:hover .hbar-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.hbar-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.hbar-label {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.9375rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hbar-value {
+  flex-shrink: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.hbar-share {
+  display: inline-block;
+  min-width: 3.1em;
+  margin-left: 6px;
+  color: var(--ink-3);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  text-align: right;
+}
+
+.hbar-sub {
+  display: block;
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+}
+
+.hbar-track {
+  display: block;
+  height: 8px;
+  margin-top: 6px;
+}
+
+/* Bout arrondi côté valeur, carré côté départ. */
+.hbar-fill {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Barre segmentée. */
+.splitbar {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  min-width: 0;
+}
+
+.splitbar-seg {
+  flex-basis: 0;
+  flex-shrink: 1;
+  min-width: 3px;
+  overflow: hidden;
+  transition: opacity var(--dur-1) var(--ease);
+}
+
+.splitbar-seg.is-dim {
+  opacity: 0.55;
+}
+
+.splitbar-seg:focus-visible {
+  outline-offset: 2px;
+}
+
+.splitbar-tall {
+  height: 28px;
+}
+
+.splitbar-tall .splitbar-seg {
+  border-radius: 4px;
+}
+
+.splitbar-text {
+  display: block;
+  padding-left: 7px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.splitbar-thin {
+  height: 8px;
+}
+
+.splitbar-thin .splitbar-seg:first-child {
+  border-radius: var(--r-full) 0 0 var(--r-full);
+}
+
+.splitbar-thin .splitbar-seg:last-child {
+  border-radius: 0 var(--r-full) var(--r-full) 0;
+}
+
+.splitbar-thin .splitbar-seg:only-child {
+  border-radius: var(--r-full);
+}
+
+.splitbar-legend {
+  flex-direction: column;
+  gap: 6px;
+}
+
+.splitbar-legend .chart-legend-item {
+  display: flex;
+}
+
+.splitbar-legend .chart-legend-label {
+  flex: 1 1 auto;
+}
+
+.splitbar-legend .chart-legend-value {
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .splitbar-legend {
+    flex-direction: row;
+    gap: 4px 20px;
+  }
+
+  .splitbar-legend .chart-legend-item {
+    display: inline-flex;
+  }
+
+  .splitbar-legend .chart-legend-label {
+    flex: 0 1 auto;
+  }
+}

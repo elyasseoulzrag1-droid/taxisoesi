@@ -4,8 +4,8 @@ import { CURRENCIES, formatMoney } from "../core/money.js";
 import { formatDate, isValidISO, monthLabel, todayISO } from "../core/dates.js";
 
 /** Signe moins typographique : même largeur qu'un chiffre, il s'aligne dans les colonnes. */
-export const MINUS = "−";
-export const NBSP = " ";
+export const MINUS = "\u2212";
+export const NBSP = "\u00a0";
 /** Affiché quand il n'y a pas de valeur. */
 export const EMPTY = "·";
 
@@ -21,7 +21,7 @@ function numberFormatter(min, max) {
 }
 
 function typo(text) {
-  return text.replace(/ /g, NBSP).replace(/^-/, MINUS);
+  return text.replace(/\u202f/g, NBSP).replace(/^-/, MINUS);
 }
 
 /**
@@ -68,6 +68,31 @@ export function fmtMoneyCompact(cents, currency = "USD") {
   const digits = scaled >= 100 ? 0 : 1;
   const body = fmtNumber(scaled, digits) + NBSP + (big ? "M" : "k") + symbol;
   return (cents < 0 ? MINUS : "") + body;
+}
+
+/**
+ * Graduation d'axe pour un montant. Toutes les graduations d'un même axe prennent la même unité,
+ * choisie d'après la plus grande : "500 $", "1 000 $" sous 10 000 ; "5 k$", "20 k$" au-delà ; puis "1,5 M$".
+ * @param {number} cents valeur de la graduation
+ * @param {string} [currency]
+ * @param {number} [maxCents] plus grande graduation de l'axe en valeur absolue (par défaut : la valeur elle-même)
+ */
+export function fmtMoneyAxis(cents, currency = "USD", maxCents) {
+  if (cents == null || !Number.isFinite(cents)) return "";
+  const max = Math.abs(maxCents == null || !Number.isFinite(maxCents) ? cents : maxCents) / 100;
+  if (max < 10000 || cents === 0) return typo(formatMoney(cents, currency, { round: true }));
+  const symbol = (CURRENCIES[currency] && CURRENCIES[currency].symbol) || currency;
+  const big = max >= 1e6;
+  const scaled = Math.abs(cents) / 100 / (big ? 1e6 : 1000);
+  return (cents < 0 ? MINUS : "") + fmtNumber(scaled, Number.isInteger(scaled) ? 0 : scaled < 10 ? 1 : 0, 0) + NBSP + (big ? "M" : "k") + symbol;
+}
+
+/**
+ * Formateur de graduations à passer en `formatAxis` à BarChart ou LineChart : moneyAxis("USD").
+ * @returns {(cents: number, axis?: { max: number }) => string}
+ */
+export function moneyAxis(currency = "USD") {
+  return (cents, axis) => fmtMoneyAxis(cents, currency, axis ? axis.max : undefined);
 }
 
 /**

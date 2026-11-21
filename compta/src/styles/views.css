@@ -1,0 +1,7 @@
+/*
+  Styles propres aux vues.
+  Ce fichier est réservé aux règles partagées par plusieurs vues ; il est vide pour l'instant.
+  Chaque vue écrit ses règles dans son propre fichier src/styles/views-<nom>.css (chargé après celui-ci),
+  avec des classes préfixées par le nom de la vue (.dash-..., .ops-..., .partners-...) et uniquement
+  les jetons de tokens.css pour les couleurs, les espacements et les rayons.
+*/

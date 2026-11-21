@@ -20,10 +20,15 @@ const EMPTY_DOC_BYTES = 48;
 const EMPTY_OBJECT = Object.freeze({});
 const EMPTY_ARRAY = Object.freeze([]);
 const MONTH_RE = /^\d{4}-\d{2}$/;
+const OFFLINE_NOTICE = Object.freeze({
+  code: "offline",
+  message: "Les données ne sont pas joignables pour le moment. Vérifie ta connexion : elles s'afficheront dès que la base répondra.",
+});
 
 const DEFAULTS = {
   readOnly: false,
   loadTimeoutMs: 10000,       // au-delà : stale (contrat db : limiter le chargement dans le temps)
+  resubscribeDelayMs: 5000,   // abonnement coupé par "unavailable" : on en rouvre un, peu de fois
   writeWaitMs: 10000,         // attente maximale d'une réponse définitive de la base avant une écriture
   softLimitBytes: 180 * 1024, // au-dessus : on ouvre un nouveau fragment de mois
   hardLimitBytes: 240 * 1024, // jamais dépassé par une mise à jour sur place
@@ -70,7 +75,13 @@ export function createStore(backend, options = {}) {
   const opts = { ...DEFAULTS, ...options };
   const cols = {};
   for (const name of COLLECTIONS) {
-    cols[name] = { name, docs: new Map(), loaded: false, confirmed: false, error: null, unsubscribe: null, waiters: [], dirty: true };
+    cols[name] = {
+      name, docs: new Map(), dirty: true, unsubscribe: null, waiters: [], error: null,
+      loaded: false,         // au moins une réponse (même tirée d'une copie locale)
+      confirmed: false,      // la dernière réponse venait bien de la base
+      everConfirmed: false,  // la base a répondu pour de bon au moins une fois : on peut écrire
+      autoRetries: 0, retryTimer: null,
+    };
   }
   const listeners = new Set();
   const cleanCache = new WeakMap();
@@ -149,8 +160,13 @@ export function createStore(backend, options = {}) {
       }
     }
     state.loaded = true;
-    state.confirmed = !(meta && meta.fromCache);
-    if (state.confirmed) for (const waiter of state.waiters.splice(0)) waiter.resolve();
+    // Un instantané "en cache" qui ne fait que refléter nos propres écrits en attente ne remet pas la fraîcheur en cause.
+    const fromCache = !!(meta && meta.fromCache);
+    state.confirmed = !fromCache || (state.confirmed && !!(meta && meta.pending));
+    if (state.confirmed) {
+      state.everConfirmed = true;
+      for (const waiter of state.waiters.splice(0)) waiter.resolve();
+    }
     updateLoadState();
     scheduleNotify();
   }
@@ -164,6 +180,18 @@ export function createStore(backend, options = {}) {
     state.unsubscribe = null;
     if (err.detail) console.warn("[store] abonnement " + col + " interrompu : " + err.detail);
     for (const waiter of state.waiters.splice(0)) waiter.reject(new PlatformError(err.code, err.message));
+    if (err.code === "unavailable" && state.autoRetries < 3) {
+      // Contrat db : après ce code, seul un nouvel abonnement rétablit le direct.
+      state.autoRetries++;
+      state.retryTimer = setTimeout(() => {
+        state.retryTimer = null;
+        if (closed || !state.error) return;
+        listen(col);
+        updateLoadState();
+        scheduleNotify();
+      }, opts.resubscribeDelayMs);
+      if (state.retryTimer && typeof state.retryTimer.unref === "function") state.retryTimer.unref();
+    }
     updateLoadState();
     scheduleNotify();
   }
@@ -204,8 +232,8 @@ export function createStore(backend, options = {}) {
   function waitConfirmed(col) {
     const state = cols[col];
     if (closed) return Promise.reject(new PlatformError("closed", DB_MESSAGES.closed));
-    if (state.confirmed) return Promise.resolve();
     if (state.error) return Promise.reject(new PlatformError(state.error.code, state.error.message));
+    if (state.everConfirmed) return Promise.resolve();
     return new Promise((resolve, reject) => {
       const waiter = {
         resolve: () => { clearTimeout(timer); resolve(); },
@@ -216,7 +244,6 @@ export function createStore(backend, options = {}) {
         if (at >= 0) state.waiters.splice(at, 1);
         reject(new PlatformError("offline", DB_MESSAGES.offline));
       }, opts.writeWaitMs);
-      if (timer && typeof timer.unref === "function") timer.unref();
       state.waiters.push(waiter);
     });
   }
@@ -338,8 +365,9 @@ export function createStore(backend, options = {}) {
   /** Instantané courant (objet gelé ; le même tant que rien n'a changé). */
   function getSnapshot() {
     if (snapshot) return snapshot;
-    const error = firstError();
     const loaded = cols.config.loaded && cols.ledger.loaded;
+    // Délai dépassé sans aucune donnée : on le dit comme une erreur passagère (elle disparaît dès que la base répond).
+    const error = firstError() || (timerFired && !loaded ? OFFLINE_NOTICE : null);
     const configRec = cols.config.docs.get("main");
     const next = {
       ready: loaded || timerFired || !!error,
@@ -839,7 +867,9 @@ export function createStore(backend, options = {}) {
   function retry() {
     if (closed) return;
     for (const name of COLLECTIONS) {
-      if (cols[name].error) listen(name);
+      const state = cols[name];
+      if (state.retryTimer) { clearTimeout(state.retryTimer); state.retryTimer = null; }
+      if (state.error) listen(name);
     }
     timerFired = false;
     updateLoadState();
@@ -854,6 +884,7 @@ export function createStore(backend, options = {}) {
       const state = cols[name];
       try { if (state.unsubscribe) state.unsubscribe(); } catch { /* déjà coupé */ }
       state.unsubscribe = null;
+      if (state.retryTimer) { clearTimeout(state.retryTimer); state.retryTimer = null; }
       for (const waiter of state.waiters.splice(0)) waiter.reject(new PlatformError("closed", DB_MESSAGES.closed));
       for (const rec of state.docs.values()) {
         for (const entry of rec.entries.splice(0)) entry.reject(new PlatformError("closed", DB_MESSAGES.closed));

@@ -10,7 +10,6 @@ const TAB = 9;
 
 // Ordre de préférence en cas d'égalité : du séparateur le plus rare dans du texte au plus courant.
 const CANDIDATES = ["\t", ";", "|", ","];
-const CANDIDATE_CODES = [9, 59, 124, 44];
 
 const SNIFF_MAX_LINES = 60;
 const SNIFF_MAX_CHARS = 262144;
@@ -177,6 +176,23 @@ function trimmedLength(row) {
 
 /* ------------------------------------------------------------------ lecture des enregistrements */
 
+// Dernier guillemet du texte suivi (espaces mis à part) d'un séparateur, d'une fin de ligne ou de la fin du texte ; -1 si aucun.
+function findLastCloser(src, d, skipSpace, skipTab) {
+  const n = src.length;
+  for (let p = n - 1; p >= 0; p--) {
+    if (src.charCodeAt(p) !== QUOTE) continue;
+    let t = p + 1;
+    while (t < n) {
+      const s = src.charCodeAt(t);
+      if ((s === SPACE && skipSpace) || (s === TAB && skipTab)) t++;
+      else break;
+    }
+    const next = t < n ? src.charCodeAt(t) : -1;
+    if (next === -1 || next === d || next === LF || next === CR) return p;
+  }
+  return -1;
+}
+
 /**
  * Découpe le texte en enregistrements (lignes logiques) avec le séparateur donné.
  * Les lignes entièrement vides sont ignorées. Renvoie aussi le numéro de ligne du fichier où commence chaque enregistrement.
@@ -197,6 +213,8 @@ function readRecords(src, start, startLine, delimiter) {
   let i = start;
   let literalQuoteAt = -1;
   let rollbacks = 0;
+  // Position du dernier guillemet capable de fermer une cellule ; calculée seulement après un premier guillemet jamais refermé.
+  let lastCloser = Infinity;
 
   for (;;) {
     let cell = null;
@@ -209,7 +227,7 @@ function readRecords(src, start, startLine, delimiter) {
       if ((c === SPACE && skipSpace) || (c === TAB && skipTab)) j++;
       else break;
     }
-    if (j < n && src.charCodeAt(j) === QUOTE && j !== literalQuoteAt) {
+    if (j < n && src.charCodeAt(j) === QUOTE && j !== literalQuoteAt && j < lastCloser) {
       let k = j + 1;
       let seg = k;
       let buf = "";
@@ -251,6 +269,8 @@ function readRecords(src, start, startLine, delimiter) {
           // Guillemet jamais refermé qui avalerait toute la suite du fichier : on le relit comme un caractère normal.
           rollbacks++;
           literalQuoteAt = j;
+          // Plus aucun guillemet fermant après ce point : les guillemets ouvrants suivants seront lus tels quels, sans relecture.
+          if (lastCloser === Infinity) lastCloser = findLastCloser(src, d, skipSpace, skipTab);
         } else {
           buf += src.slice(seg, n);
           end = n;
@@ -329,7 +349,8 @@ function readSepLine(src) {
   return { delimiter, end: next };
 }
 
-function sniff(src, start) {
+// Compte chaque séparateur possible sur les premières lignes non vides, hors guillemets (si respectQuotes).
+function sniff(src, start, respectQuotes) {
   const n = Math.min(src.length, start + SNIFF_MAX_CHARS);
   const counts = [[], [], [], []];
   const bounds = [];
@@ -360,7 +381,7 @@ function sniff(src, start) {
       lineStart = i + 1;
       continue;
     }
-    if (c === QUOTE && fieldStart) {
+    if (c === QUOTE && fieldStart && respectQuotes) {
       inQuotes = true;
       fieldStart = false;
       hasContent = true;
@@ -376,7 +397,7 @@ function sniff(src, start) {
     bounds.push([lineStart, i]);
     for (let k = 0; k < 4; k++) counts[k].push(current[k]);
   }
-  return { counts, bounds };
+  return { counts, bounds, unclosed: inQuotes };
 }
 
 /**
@@ -393,8 +414,24 @@ export function detectDelimiter(text) {
   return sniffDelimiter(src, 0);
 }
 
+// Vrai si la ligne ressemble à une ligne de titres de colonnes une fois découpée avec le candidat :
+// au moins deux cellules remplies, aucune qui ressemble à une donnée, aucune qui contient un autre séparateur possible.
+function looksLikeHeaderCells(cells, delimiter) {
+  let filled = 0;
+  for (const cell of cells) {
+    if (!cell) continue;
+    filled++;
+    if (cell.length > 80 || looksNumeric(cell)) return false;
+    for (const other of CANDIDATES) if (other !== delimiter && cell.includes(other)) return false;
+  }
+  return filled >= 2;
+}
+
 function sniffDelimiter(src, start) {
-  const { counts, bounds } = sniff(src, start);
+  let sample = sniff(src, start, true);
+  // Un guillemet jamais refermé fausserait tout le comptage : on recompte sans tenir compte des guillemets.
+  if (sample.unclosed) sample = sniff(src, start, false);
+  const { counts, bounds } = sample;
   const total = bounds.length;
   if (!total) return ",";
   let best = ",";
@@ -406,18 +443,12 @@ function sniffDelimiter(src, start) {
     let times = 0;
     for (const [c, f] of freq) if (f > times || (f === times && c > mode)) { mode = c; times = f; }
     if (!times) continue;
-    // La première ligne "régulière" doit ressembler à des titres de colonnes : c'est ce qui départage
-    // un vrai séparateur d'une virgule décimale ou d'une virgule de date présente sur chaque ligne de données.
+    // Part des lignes régulières, avec un bonus quand la première d'entre elles est une vraie ligne de titres :
+    // c'est ce qui départage le bon séparateur d'une virgule décimale ou d'une virgule de date présente sur chaque
+    // ligne de données (elle manque dans l'en-tête, et les cellules qu'elle découpe contiennent encore l'autre séparateur).
     const first = bounds[counts[k].indexOf(mode)];
     const cells = readRecords(src.slice(first[0], first[1]), 0, 1, CANDIDATES[k]).records[0] || [];
-    let filled = 0;
-    let wordy = 0;
-    for (const cell of cells) {
-      if (!cell) continue;
-      filled++;
-      if (!looksNumeric(cell)) wordy++;
-    }
-    const score = (times / total) * (0.75 + 0.25 * (filled ? wordy / filled : 0));
+    const score = (times / total) * (looksLikeHeaderCells(cells, CANDIDATES[k]) ? 1 : 0.6);
     if (score > bestScore + 1e-9) { best = CANDIDATES[k]; bestScore = score; }
   }
   return best;
@@ -431,8 +462,8 @@ function hasNumericCell(row) {
 }
 
 // Les lignes suivantes ont-elles la même forme (même nombre de cellules) que la ligne candidate ?
-// Oui si la ligne juste après a la même forme, ou au moins la moitié des cinq suivantes.
-function followedByConsistentRows(records, index) {
+// `strict` : il faut la majorité des cinq suivantes ; sinon la ligne juste après suffit.
+function followedByConsistentRows(records, index, strict) {
   const width = records[index].length;
   const trimmed = trimmedLength(records[index]);
   let seen = 0;
@@ -445,12 +476,15 @@ function followedByConsistentRows(records, index) {
       if (seen === 1) nextSame = true;
     }
   }
+  if (strict) return same >= 1 && same * 2 > seen;
   return nextSame || (same >= 1 && same * 2 >= seen);
 }
 
 /**
- * Trouve la ligne d'en-tête : la première ligne d'au moins 3 cellules remplies, suivie de lignes de même forme,
- * en préférant une ligne sans nombre ni date (les lignes de titre du genre "Solde;1 234,56" sont écartées).
+ * Trouve la ligne d'en-tête : la première ligne d'au moins 3 cellules remplies, sans nombre ni date, suivie de lignes
+ * de même forme. Les lignes de titre ("Relevé de compte", "Solde;1 234,56") sont ainsi écartées.
+ * À défaut : la première ligne assez remplie, qu'elle ressemble à des titres (données irrégulières ensuite)
+ * ou à des données suivies de lignes régulières (titres de colonnes numériques, fichier sans en-tête).
  */
 function findHeaderRow(records) {
   const total = records.length;
@@ -463,15 +497,30 @@ function findHeaderRow(records) {
     if (filled[i] > widest) widest = filled[i];
   }
   const need = Math.min(3, widest);
-  let loose = -1;
+  let fallback = -1;
   for (let i = 0; i < scan; i++) {
-    if (filled[i] < need) continue;
-    if (!followedByConsistentRows(records, i)) continue;
-    if (!hasNumericCell(records[i])) return i;
-    if (loose < 0) loose = i;
+    let consistent;
+    if (filled[i] >= need) {
+      consistent = followedByConsistentRows(records, i, false);
+    } else if (filled[i] >= 2 && filled[i] === widest - 1 && records[i].length > filled[i]) {
+      // Une colonne sans titre (cellule vide dans la ligne) : acceptable seulement si le tableau a bien cette forme ensuite.
+      consistent = followedByConsistentRows(records, i, true);
+      if (!consistent) continue;
+    } else {
+      continue;
+    }
+    const wordy = !hasNumericCell(records[i]);
+    if (wordy && consistent) {
+      // Une ligne de titre aussi large que le tableau ("Compte;Courant;EUR;;") juste avant de vrais titres plus remplis :
+      // on prend la ligne la plus remplie.
+      let best = i;
+      while (best + 1 < scan && filled[best + 1] > filled[best] && !hasNumericCell(records[best + 1]) &&
+        followedByConsistentRows(records, best + 1, false)) best++;
+      return best;
+    }
+    if (fallback < 0 && (wordy || consistent)) fallback = i;
   }
-  if (loose >= 0) return loose;
-  // Aucune ligne suivie de lignes régulières (fichier très court ou très irrégulier) : la première ligne assez remplie.
+  if (fallback >= 0) return fallback;
   for (let i = 0; i < scan; i++) if (filled[i] >= need) return i;
   return 0;
 }
@@ -584,9 +633,9 @@ export function parseCsv(text, opts = {}) {
 export function normHeader(s) {
   if (s == null) return "";
   return String(s)
-    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .replace(/œ/g, "oe").replace(/æ/g, "ae").replace(/ß/g, "ss")
+    .replace(/\u0153/g, "oe").replace(/\u00e6/g, "ae").replace(/\u00df/g, "ss")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 }
@@ -622,11 +671,13 @@ export function findColumn(headers, candidates) {
 // Clés d'objet à partir des titres : un titre vide devient "Colonne N", un doublon reçoit " (2)", " (3)"...
 function objectKeys(headers) {
   const seen = new Set();
+  const next = new Map();
   return headers.map((header, i) => {
     const base = header || "Colonne " + (i + 1);
     let key = base;
-    let n = 2;
+    let n = next.get(base) || 2;
     while (seen.has(key) || key === "__proto__") key = base + " (" + n++ + ")";
+    next.set(base, n);
     seen.add(key);
     return key;
   });

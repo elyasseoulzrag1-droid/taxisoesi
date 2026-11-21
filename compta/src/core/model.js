@@ -435,6 +435,13 @@ const OP_TEXT_FIELDS = ["party", "ref", "note", "source", "extId", "createdAt", 
 const OP_FLAGS = ["needsReview", "estimated", "reconciled", "demo"];
 /** Champs calculés par buildBook : jamais considérés comme des données de l'opération. */
 const OP_DERIVED = ["baseCents", "fxEstimated", "month", "lines", "effects", "accountEffects", "ownerId", "fromOwnerId", "toOwnerId", "nature", "sharePeriod"];
+/** Champs traités un par un : tout autre champ est recopié tel quel (compatibilité avec une version plus récente). */
+const OP_HANDLED = new Set([
+  "id", "kind", "date", "label", "amountCents", "currency",
+  "accountId", "categoryId", "settledCents", "splits", "fromAccountId", "toAccountId", "toAmountCents",
+  "card", "attachments", "bank", "meta",
+  ...OP_TEXT_FIELDS, ...OP_FLAGS, ...OP_DERIVED,
+]);
 
 function normAttachments(value) {
   if (!Array.isArray(value)) return [];
@@ -475,61 +482,36 @@ function normalizeOpUnsafe(raw) {
   if (!currency) return null;
   if (kind === "transfer" && amountCents < 0) return null;
 
-  const op = {};
-  for (const key of Object.keys(raw)) {
-    const value = raw[key];
-    if (value === null || value === undefined || key === "__proto__" || key[0] === "_") continue;
-    op[key] = value;
-  }
-  for (const key of OP_DERIVED) delete op[key];
-  op.id = id;
-  op.kind = kind;
-  op.date = date;
-  op.label = toStr(raw.label).trim();
-  op.amountCents = amountCents;
-  op.currency = currency;
-
+  // Les champs sont posés un par un, toujours dans le même ordre : pas de suppression après coup.
+  const op = { id, kind, date, label: toStr(raw.label).trim(), amountCents, currency };
   const setText = (key, value) => {
     const text = toStr(value).trim();
     if (text) op[key] = text;
-    else delete op[key];
   };
-  for (const key of OP_TEXT_FIELDS) setText(key, raw[key]);
-  setText("card", typeof raw.card === "number" ? String(raw.card).padStart(4, "0") : raw.card);
-  for (const key of OP_FLAGS) {
-    if (raw[key] === true) op[key] = true;
-    else delete op[key];
-  }
-  const attachments = normAttachments(raw.attachments);
-  if (attachments.length) op.attachments = attachments;
-  else delete op.attachments;
-  if (isObj(raw.bank)) op.bank = { ...raw.bank };
-  else delete op.bank;
-  if (isObj(raw.meta)) op.meta = raw.meta;
-  else delete op.meta;
-
   if (kind === "pl") {
     setText("accountId", raw.accountId);
     op.categoryId = typeof raw.categoryId === "string" && raw.categoryId ? raw.categoryId : null;
     const settled = strictInt(raw.settledCents);
     if (settled !== null) op.settledCents = settled;
-    else delete op.settledCents;
     const splits = normSplits(raw.splits);
     if (splits) op.splits = splits;
-    else delete op.splits;
-    delete op.fromAccountId;
-    delete op.toAccountId;
-    delete op.toAmountCents;
   } else {
     setText("fromAccountId", raw.fromAccountId);
     setText("toAccountId", raw.toAccountId);
     const arrived = strictInt(raw.toAmountCents);
-    if (arrived !== null && arrived >= 0) op.toAmountCents = arrived;
-    else delete op.toAmountCents;
-    delete op.accountId;
-    delete op.categoryId;
-    delete op.settledCents;
-    delete op.splits;
+    if (arrived !== null && arrived > 0) op.toAmountCents = arrived;
+  }
+  for (const key of OP_TEXT_FIELDS) setText(key, raw[key]);
+  setText("card", typeof raw.card === "number" ? String(raw.card).padStart(4, "0") : raw.card);
+  for (const key of OP_FLAGS) if (raw[key] === true) op[key] = true;
+  const attachments = normAttachments(raw.attachments);
+  if (attachments.length) op.attachments = attachments;
+  if (isObj(raw.bank)) op.bank = { ...raw.bank };
+  if (isObj(raw.meta)) op.meta = raw.meta;
+  for (const key of Object.keys(raw)) {
+    if (OP_HANDLED.has(key) || key === "__proto__" || key[0] === "_") continue;
+    const value = raw[key];
+    if (value !== null && value !== undefined) op[key] = value;
   }
   return op;
 }

@@ -5,7 +5,7 @@ import { clamp, cx } from "../util.js";
 /** Mise en forme par défaut d'une valeur quand l'appelant ne passe pas `format`. */
 export function defaultFormat(value) {
   if (value == null || !Number.isFinite(value)) return "";
-  return new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(value).replace(/ /g, " ");
+  return new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(value).replace(/\u202f/g, "\u00a0");
 }
 
 /**

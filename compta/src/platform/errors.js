@@ -57,5 +57,7 @@ export function dbCode(error) {
 export function dbError(error) {
   if (error instanceof PlatformError) return error;
   const code = dbCode(error);
-  return new PlatformError(code, DB_MESSAGES[code] || DB_MESSAGES.unavailable, { detail: detailOf(error) });
+  // invalid_argument hors écriture (abonnement, requête) : un bug de la page, pas un problème du visiteur.
+  const message = code === "invalid_argument" ? DB_MESSAGES.internal : DB_MESSAGES[code] || DB_MESSAGES.unavailable;
+  return new PlatformError(code, message, { detail: detailOf(error) });
 }

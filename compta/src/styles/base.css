@@ -421,7 +421,8 @@ table {
   display: flex;
   align-items: center;
   gap: var(--sp-2);
-  min-height: var(--topbar-h);
+  /* Hauteur fixe : la colonne latérale se cale dessus sur grand écran. */
+  height: var(--topbar-h);
   padding: 0 var(--gutter-r) 0 var(--gutter-l);
 }
 
@@ -465,13 +466,20 @@ table {
   flex-shrink: 0;
 }
 
-/* Bandeau d'état sous la barre (lecture seule, mode local, données d'exemple...). */
+/* Bandeau d'état (lecture seule, mode local, données d'exemple...) : en haut de .app-main, il défile avec la page. */
 .app-status {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--sp-2);
-  padding: 0 var(--gutter-r) var(--sp-2) var(--gutter-l);
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--sp-3) var(--gutter-r) 0 var(--gutter-l);
+}
+
+.app-status + .page {
+  padding-top: var(--sp-3);
 }
 
 .app-body {
@@ -703,6 +711,14 @@ table {
   .page {
     gap: var(--sp-6);
     padding: var(--sp-6) max(28px, env(safe-area-inset-right, 0px)) var(--sp-6) 28px;
+  }
+
+  .app-status {
+    padding: var(--sp-4) max(28px, env(safe-area-inset-right, 0px)) 0 28px;
+  }
+
+  .app-status + .page {
+    padding-top: var(--sp-4);
   }
 
   .page-title,

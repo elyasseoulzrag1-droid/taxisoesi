@@ -45,6 +45,8 @@ function ModalPanel({ title, onClose, footer, size, dismissible, labelledBy, cla
 
     const onKeyDown = (event) => {
       if (openStack[openStack.length - 1] !== id) return;
+      // Un menu ouvert par-dessus la fenêtre gère lui-même Échap et Tab.
+      if (event.target instanceof Element && event.target.closest("[data-owns-keys]")) return;
       if (event.key === "Escape") {
         if (dismissRef.current && closeRef.current) {
           event.stopPropagation();

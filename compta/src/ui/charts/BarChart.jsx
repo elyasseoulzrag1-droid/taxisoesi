@@ -1,9 +1,8 @@
 // Barres verticales : groupées ou empilées, valeurs positives et négatives, étiquettes en abscisse.
-import { useRef } from "preact/hooks";
 import { markColor } from "../tone.js";
-import { useWidth } from "../util.js";
+import { useMeasure } from "../util.js";
 import { ChartEmpty, ChartFrame, ChartLegend, ChartLive, ChartTable, ChartTip, defaultFormat, useChartTip } from "./common.jsx";
-import { barDomain, barPath, fitLabel, labelStep, linear, niceTicks, num, textWidth } from "./scale.js";
+import { barDomain, barPath, fitLabel, labelStep, linear, num, textWidth, axisScale } from "./scale.js";
 
 const FONT = 11;
 const GAP = 2; // espace de 2 px (couleur de la surface) entre deux marques qui se touchent
@@ -54,8 +53,7 @@ export function BarChart({
   emptyText,
   class: className,
 }) {
-  const rootRef = useRef(null);
-  const width = useWidth(rootRef);
+  const { ref: rootRef, attach, width } = useMeasure();
   const rows = (data || []).map((row, i) => ({ label: readLabel(row, x, i), values: series.map((s) => readValue(row, s)) }));
   const count = rows.length;
   const tipState = useChartTip(rootRef, count);
@@ -77,8 +75,9 @@ export function BarChart({
     rows.map((r) => r.values),
     mode,
   );
-  const scale = niceTicks(dMin, dMax, height < 190 ? 3 : 4);
-  const tickLabels = scale.ticks.map((t) => axisFormat(t));
+  const scale = axisScale(dMin, dMax, height < 190 ? 3 : 4);
+  const axisInfo = { max: Math.max(Math.abs(scale.min), Math.abs(scale.max)), step: scale.step };
+  const tickLabels = scale.ticks.map((t) => axisFormat(t, axisInfo));
   const left = Math.min(76, Math.ceil(Math.max(...tickLabels.map((t) => textWidth(t, FONT)))) + 10);
   const top = 10;
   const bottom = 26;
@@ -185,7 +184,7 @@ export function BarChart({
     >
       <div
         class="chart-plot"
-        ref={rootRef}
+        ref={attach}
         style={{ height: height + "px" }}
         tabIndex={0}
         role="group"

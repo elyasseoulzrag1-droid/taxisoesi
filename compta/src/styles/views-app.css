@@ -1,0 +1,226 @@
+/* Règles des écrans de la première version : journal, formulaire, associés, coquille. Couleurs : jetons uniquement. */
+
+.shell-period {
+  max-width: 11.5rem;
+}
+
+/* Ligne d'opération */
+.oplist {
+  display: flex;
+  flex-direction: column;
+}
+.oplist-group + .oplist-group {
+  border-top: 1px solid var(--line);
+}
+.oplist-month {
+  margin: 0;
+  padding: var(--sp-3) var(--sp-4) var(--sp-1);
+  color: var(--ink-3);
+}
+.oplist > .btn {
+  margin: var(--sp-3) var(--sp-4);
+  width: auto;
+}
+.oplist-rows > * + * {
+  border-top: 1px solid var(--line);
+}
+.oprow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+}
+.oprow-button {
+  cursor: pointer;
+}
+.oprow-button:hover {
+  background: var(--surface-2);
+}
+.oprow-button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+.oprow-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.oprow-label {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.oprow-detail {
+  color: var(--ink-3);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+.oprow-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+  margin-top: var(--sp-1);
+}
+.oprow-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 0 0 auto;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.oprow-base {
+  color: var(--ink-3);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+}
+
+.ops-totals {
+  margin: 0;
+}
+
+.dash-equity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: var(--lh-tight);
+}
+
+/* Formulaire d'opération */
+.opform-sentence {
+  margin: 0;
+  padding: var(--sp-3);
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+}
+.opform-suggest {
+  margin-top: var(--sp-2);
+}
+.opform-files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+.opform-files li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  min-width: 0;
+  font-size: var(--fs-sm);
+}
+.opform-upload {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-h);
+  padding: 0 var(--sp-4);
+  border: 1px dashed var(--control-line);
+  border-radius: var(--r-sm);
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+.opform-upload input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.opform-upload:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Associés */
+.share-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+.share-lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-variant-numeric: tabular-nums;
+}
+.partner-detail {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.partner-detail > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  min-height: var(--control-h);
+  padding: var(--sp-2) var(--sp-4);
+  cursor: pointer;
+}
+.partner-detail > summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--r-md);
+}
+.partner-breakdown {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--sp-1) var(--sp-4);
+  margin: 0;
+  padding: var(--sp-2) var(--sp-4) var(--sp-4);
+  font-size: var(--fs-sm);
+}
+.partner-breakdown dt {
+  color: var(--ink-2);
+}
+.partner-breakdown dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.partner-breakdown .strong {
+  color: var(--ink);
+  font-weight: 700;
+  padding-top: var(--sp-1);
+  border-top: 1px solid var(--line);
+}
+.partner-entries {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+.partner-entries th,
+.partner-entries td {
+  padding: var(--sp-2) var(--sp-4);
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.partner-entries th {
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.partner-entries .num {
+  text-align: right;
+  white-space: nowrap;
+}

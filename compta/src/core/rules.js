@@ -21,9 +21,9 @@ function foldBase(value) {
   let s = String(value);
   if (s.length > MAX_TEXT) s = s.slice(0, MAX_TEXT);
   return s
-    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .replace(/œ/g, "oe").replace(/æ/g, "ae").replace(/ß/g, "ss");
+    .replace(/\u0153/g, "oe").replace(/\u00e6/g, "ae").replace(/\u00df/g, "ss");
 }
 
 /**
@@ -63,6 +63,13 @@ const GROUPS = [
   ]],
   ["refunds", null, [
     [null, "\\b(?:remboursements?|rembourse|refund|refunds|refunded) (?:du |de la |au |a la |to |of |for )?(?:clients?|cliente|customers?|commandes?|orders?)\\b|\\b(?:customer|client|order) refunds?\\b"],
+  ]],
+  // Payer une personne prime sur le nom de la plateforme cité dans le libellé ("UGC TikTok Marie" n'est pas de la pub TikTok).
+  ["creators", null, [
+    [null, "\\bugc\\b|\\binfluenceu(?:r|se)s?\\b|\\binfluencers?\\b|\\bcontent creators?\\b|\\bcreat(?:eur|rice)s? (?:ugc|de contenu)\\b"],
+  ]],
+  ["freelancers", null, [
+    [null, "\\bfreelances?\\b|\\bfreelancers?\\b|\\bprestataires?\\b|\\bmonteu(?:r|se) video\\b|\\bvideo editors?\\b"],
   ]],
 
   // Publicité
@@ -156,7 +163,7 @@ const GROUPS = [
     ["MiniMax (Hailuo)", "\\bminimax\\b|\\bhailuo\\b"],
     "Vidu", "PixVerse", "Viggle", "Kaiber", "Genmo", "Haiper", "InVideo", "Arcads", "Creatify", "MakeUGC", "Topview", "Perplexity",
     ["xAI (Grok)", "\\bxai\\b|\\bgrok\\b"],
-    ["Mistral AI", "\\bmistral\\b"],
+    ["Mistral AI", "\\bmistral ?ai\\b|\\bmistral (?:pro|api)\\b|\\ble chat pro\\b"],
     "DeepSeek", "OpenRouter", "Groq", "Cohere",
     ["Poe", "\\bpoe ?com\\b|\\bquora poe\\b"],
     ["LALAL.AI", "\\blalal\\b"],
@@ -217,10 +224,6 @@ const GROUPS = [
     ["#paid", "\\bhashtag ?paid\\b"],
     "Creator.co", "Backstage",
     ["GRIN", "\\bgrin ?(?:co|technologies)\\b"],
-    [null, "\\bugc\\b|\\binfluenceu(?:r|se)s?\\b|\\binfluencers?\\b|\\bcontent creators?\\b|\\bcreat(?:eur|rice)s? (?:ugc|de contenu)\\b"],
-  ]],
-  ["freelancers", null, [
-    [null, "\\bfreelances?\\b|\\bfreelancers?\\b|\\bprestataires?\\b|\\bmonteu(?:r|se) video\\b|\\bvideo editors?\\b"],
   ]],
 
   // Impôts, puis juridique, création de LLC, agent enregistré, comptabilité
@@ -247,6 +250,7 @@ const GROUPS = [
     "LegalStart", "LegalPlace", "Captain Contrat",
     ["Infogreffe", "\\binfogreffe\\b|\\bgreffe\\b"],
     ["INPI", "\\binpi\\b"],
+    "TurboTax",
     ["QuickBooks", "\\bquick ?books\\b|\\bintuit\\b"],
     "Xero",
     ["Bench", "\\bbench ?(?:accounting|co)\\b"],
@@ -257,7 +261,7 @@ const GROUPS = [
     ["Collective", "\\bcollective ?(?:com|hub)\\b"],
     ["Fondo", "\\bfondo\\b|\\btryfondo\\b"],
     ["1-800Accountant", "\\b1 ?800 ?accountant\\b"],
-    "TurboTax", "Taxfyle",
+    "Taxfyle",
     ["A2X", "\\ba2x\\b"],
     "Link My Books", "Synder", "Finaloop",
     [null, "\\bregistered agent\\b|\\bannual report\\b|\\bllc (?:formation|filing|registration|annual)\\b|\\barticles of organization\\b|\\bcertificate of (?:formation|good standing|incorporation)\\b|\\bexpert ?comptable\\b|\\bcomptable\\b|\\baccountant\\b|\\bbookkeep(?:er|ing)\\b|\\bcpa\\b|\\bavocate?\\b|\\blawyer\\b|\\battorney\\b|\\bnotaire\\b"],
@@ -297,7 +301,7 @@ const GROUPS = [
   ["shipping", null, [
     "Printful", "Printify", "Gelato", "Gooten", "Prodigi", "Shippo", "ShipStation", "Pirate Ship", "EasyPost", "Sendcloud",
     ["USPS", "\\busps\\b"],
-    ["UPS", "\\bups\\b"],
+    ["UPS", "(?<!start )\\bups\\b"],
     "FedEx",
     ["DHL", "\\bdhl\\b"],
     ["La Poste", "\\bla poste\\b|\\bcolissimo\\b"],
@@ -317,9 +321,6 @@ const GROUPS = [
     "Stripe", "Klarna", "Afterpay", "Affirm", "Sezzle", "Gumroad", "Lemon Squeezy", "Whop",
     ["Paddle", "\\bpaddle ?(?:com|net)\\b"],
   ]],
-  ["fees_payment", null, [
-    [null, "\\bpayment processing\\b|\\bprocessing fees?\\b|\\bfrais de paiement\\b|\\btransaction fees?\\b|\\bfrais de transaction\\b"],
-  ]],
 
   // Banque et change
   ["bank_fees", null, [
@@ -331,6 +332,9 @@ const GROUPS = [
     bankFee("Qonto", "qonto"),
     bankFee(null, "n26|relay|brex|bunq|boursorama|boursobank|shine|airwallex|chase|bank of america|wells fargo|bnp|societe generale|credit agricole|lcl|cic|caisse d epargne|banque populaire|banque postale"),
     [null, "\\bfrais bancaires?\\b|\\bfrais de tenue\\b|\\btenue de compte\\b|\\bfrais de change\\b|\\bfrais (?:de |sur )?virement\\b|\\bfrais (?:de )?carte\\b|\\bcommission d intervention\\b|\\bcotisation carte\\b|\\bagios\\b|\\boverdraft\\b|\\b(?:bank|foreign transaction|international transaction|intl transaction|non sterling transaction|fx|exchange|currency conversion|conversion|wire|transfer|monthly|maintenance|service|plan|card|atm) (?:fees?|charges?)\\b"],
+  ]],
+  ["fees_payment", null, [
+    [null, "\\bpayment processing\\b|\\bprocessing fees?\\b|\\bfrais de paiement\\b|\\btransaction fees?\\b|\\bfrais de transaction\\b"],
   ]],
 ];
 
@@ -364,13 +368,18 @@ export const VENDORS = buildVendors();
 const matchCache = new Map();
 const MATCH_CACHE_MAX = 4000;
 
+// Un seul motif qui réunit tout le dictionnaire : il écarte vite les libellés inconnus (le cas le plus fréquent d'un relevé).
+const ANY_VENDOR = new RegExp(VENDORS.map((v) => "(?:" + v.re.source + ")").join("|"));
+
 // Rangs de toutes les entrées du dictionnaire reconnues dans le texte (déjà normalisé), dans l'ordre.
 function matchIndexes(text) {
   if (!text) return [];
   let hit = matchCache.get(text);
   if (hit) return hit;
   hit = [];
-  for (let i = 0; i < VENDORS.length; i++) if (VENDORS[i].re.test(text)) hit.push(i);
+  if (ANY_VENDOR.test(text)) {
+    for (let i = 0; i < VENDORS.length; i++) if (VENDORS[i].re.test(text)) hit.push(i);
+  }
   if (matchCache.size >= MATCH_CACHE_MAX) matchCache.clear();
   matchCache.set(text, hit);
   return hit;
@@ -453,22 +462,29 @@ function matchingRules(config, input) {
 export function suggestCategory(config, input) {
   if (!input) return null;
   const indexes = matchIndexes(vendorText(input));
-  let vendorParty = null;
-  for (const i of indexes) if (VENDORS[i].party) { vendorParty = VENDORS[i].party; break; }
+  const positive = Number(input.amountCents) > 0;
+  const categoryOf = (v) => (positive && v.positiveCategoryId ? v.positiveCategoryId : v.categoryId);
 
   for (const rule of matchingRules(config, input)) {
     if (!categoryUsable(config, rule.categoryId)) continue;
-    const out = { categoryId: rule.categoryId, party: vendorParty || cleanParty(input.party), via: "rule", ruleId: rule.id };
+    // Le nom propre du dictionnaire sert de tiers seulement si c'est lui que le dictionnaire aurait retenu en premier.
+    const known = indexes.length ? VENDORS[indexes[0]].party : null;
+    const out = { categoryId: rule.categoryId, party: known || cleanParty(input.party), via: "rule", ruleId: rule.id };
     if (rule.accountId) out.accountId = rule.accountId;
     return out;
   }
 
-  const positive = Number(input.amountCents) > 0;
-  for (const i of indexes) {
-    const v = VENDORS[i];
-    const categoryId = positive && v.positiveCategoryId ? v.positiveCategoryId : v.categoryId;
+  for (let k = 0; k < indexes.length; k++) {
+    const v = VENDORS[indexes[k]];
+    const categoryId = categoryOf(v);
     if (!categoryUsable(config, categoryId)) continue;
-    return { categoryId, party: v.party || vendorParty || cleanParty(input.party), via: "vendor" };
+    let party = v.party;
+    // Mot-clé sans nom propre : on reprend le prestataire reconnu plus loin s'il mène à la même catégorie ("Fiverr freelance").
+    for (let j = k + 1; !party && j < indexes.length; j++) {
+      const other = VENDORS[indexes[j]];
+      if (other.party && categoryOf(other) === categoryId) party = other.party;
+    }
+    return { categoryId, party: party || cleanParty(input.party), via: "vendor" };
   }
   return null;
 }
@@ -497,10 +513,13 @@ export function suggestAccount(config, input) {
     for (const key of Object.keys(accounts)) {
       const account = accounts[key];
       if (!account || !Array.isArray(account.cards)) continue;
-      if (account.cards.some((c) => last4(c) === wanted)) hits.push({ id: account.id || key, archived: !!account.archived, order: Number(account.order) || 0 });
+      if (!account.cards.some((c) => last4(c) === wanted)) continue;
+      hits.push({ id: account.id || key, archived: !!account.archived, order: Number(account.order) || 0, name: String(account.name || "") });
     }
     if (hits.length) {
-      hits.sort((a, b) => Number(a.archived) - Number(b.archived) || a.order - b.order || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+      // Même ordre que la liste des comptes : actifs d'abord, puis `order`, le nom, l'identifiant.
+      hits.sort((a, b) => Number(a.archived) - Number(b.archived) || a.order - b.order || a.name.localeCompare(b.name, "fr") ||
+        (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
       return hits[0].id;
     }
   }

@@ -451,7 +451,9 @@ export function createAi(sample, rawLimits) {
   async function extractOperations(request = {}) {
     const context = isPlainObject(request.context) ? request.context : {};
     const text = typeof request.text === "string" ? request.text.trim().slice(0, MAX_TEXT_CHARS) : "";
-    const given = Array.isArray(request.images) ? request.images.filter(Boolean) : request.images ? [request.images] : [];
+    const raw = request.images;
+    const single = raw && typeof raw.size === "number" && typeof raw.slice === "function" && !Array.isArray(raw);
+    const given = !raw ? [] : single ? [raw] : Array.from(raw).filter(Boolean); // tableau, FileList ou un seul Blob
     if (!given.length && !text) throw new PlatformError("invalid_request", MESSAGES.nothing);
     let images = [];
     if (given.length) {

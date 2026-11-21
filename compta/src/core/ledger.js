@@ -200,7 +200,7 @@ export function buildBook(config, ops) {
     for (let i = 0; i < parts.length; i++) {
       const native = parts[i].amountCents;
       let value;
-      if (baseCents === op.amountCents) value = native;
+      if (op.currency === base) value = native;
       else if (op.amountCents !== 0) value = roundSym((native * baseCents) / op.amountCents);
       else value = fx.convert(native, op.currency, base, op.date).cents;
       scaled.push(value);
@@ -235,7 +235,7 @@ export function buildBook(config, ops) {
       let baseCents;
       let fxEstimated = false;
       if (op.currency === base) baseCents = amount;
-      else if (settled !== null && acc && acc.currency === base) baseCents = settled;
+      else if (settled !== null && acc && !acc.missing && acc.currency === base) baseCents = settled;
       else {
         baseCents = fx.convert(amount, op.currency, base, op.date).cents;
         fxEstimated = true;
@@ -263,11 +263,18 @@ export function buildBook(config, ops) {
       profitCents += baseCents;
       periodProfit[sharePeriod] += baseCents;
 
+      // L'opération normalisée est un objet neuf, propre à ce livre : on y ajoute les champs calculés.
       const effects = [];
-      enriched = {
-        ...op, baseCents, fxEstimated, month, lines, effects, accountEffects,
-        ownerId, nature: amount < 0 ? "expense" : "income", sharePeriod,
-      };
+      enriched = op;
+      op.baseCents = baseCents;
+      op.fxEstimated = fxEstimated;
+      op.month = month;
+      op.lines = lines;
+      op.effects = effects;
+      op.accountEffects = accountEffects;
+      op.ownerId = ownerId;
+      op.nature = amount < 0 ? "expense" : "income";
+      op.sharePeriod = sharePeriod;
       if (ownerId !== BUSINESS) {
         // Payé ou encaissé avec l'argent d'un associé : l'entreprise lui doit la dépense, il lui doit l'encaissement.
         const effectCents = 0 - baseCents;
@@ -329,10 +336,17 @@ export function buildBook(config, ops) {
       const toOwnerId = to ? to.owner : UNKNOWN;
       const effects = [];
       let nature = "internal";
-      enriched = {
-        ...op, baseCents: value, fxEstimated, month, lines: [], effects, accountEffects,
-        fromOwnerId, toOwnerId, nature, sharePeriod: periodIndex(op.date),
-      };
+      enriched = op;
+      op.baseCents = value;
+      op.fxEstimated = fxEstimated;
+      op.month = month;
+      op.lines = [];
+      op.effects = effects;
+      op.accountEffects = accountEffects;
+      op.fromOwnerId = fromOwnerId;
+      op.toOwnerId = toOwnerId;
+      op.nature = nature;
+      op.sharePeriod = periodIndex(op.date);
       if (fromOwnerId !== toOwnerId) {
         if (toOwnerId === BUSINESS) {
           nature = "contribution";

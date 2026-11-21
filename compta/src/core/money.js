@@ -34,7 +34,7 @@ export function detectCurrency(text) {
 
 /**
  * Lit un montant écrit par un humain ou un export et renvoie des centimes (entier), ou null.
- * Accepte "1 234,56", "1,234.56", "1.234,56", "-12.5", "(12.50)", "12,50-", "$94.77", "94,77 €", "−12" (moins typographique),
+ * Accepte "1 234,56", "1,234.56", "1.234,56", "-12.5", "(12.50)", "12,50-", "$94.77", "94,77 €", "\u221212" (moins typographique),
  * "$-12.50", "USD -12.50", "12,50- €" : le signe est cherché avant le premier chiffre et après le dernier.
  * Cas ambigus : un seul séparateur suivi de 3 chiffres et précédé de 1 à 3 chiffres ("1,234", "1.234", "12.345") est lu comme
  * des milliers ; "0,125" et "1234,567" sont des décimales. Les demi-centimes sont arrondis en s'éloignant de zéro.
@@ -49,7 +49,7 @@ export function parseAmountToCents(input, opts = {}) {
     return input < 0 && rounded > 0 ? -rounded : rounded;
   }
   // Toutes les variantes typographiques du signe moins deviennent "-".
-  const s = String(input).trim().replace(/[−‐‑‒–—﹣－]/g, "-");
+  const s = String(input).trim().replace(/[\u2212\u2010\u2011\u2012\u2013\u2014\ufe63\uff0d]/g, "-");
   const first = s.search(/[0-9]/);
   if (first < 0) return null;
   let last = s.length - 1;

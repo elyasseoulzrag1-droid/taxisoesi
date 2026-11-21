@@ -1,6 +1,6 @@
 // Petits outils partagés par les composants du kit (aucune dépendance autre que preact).
 import { createElement, render } from "preact";
-import { useEffect, useLayoutEffect, useRef, useState } from "preact/hooks";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "preact/hooks";
 
 /** Assemble des noms de classes en ignorant les valeurs vides : cx("btn", actif && "is-on"). */
 export function cx(...parts) {
@@ -60,11 +60,20 @@ export function useMediaQuery(query) {
   return matches;
 }
 
-/** Largeur (en px) d'un élément, suivie avec ResizeObserver. 0 tant que rien n'est mesuré. */
-export function useWidth(ref) {
+/**
+ * Mesure la largeur (en px) d'un élément et la suit avec ResizeObserver.
+ * @returns {{ ref: { current: HTMLElement|null }, attach: (node: HTMLElement|null) => void, width: number }}
+ *   `attach` se passe en `ref` à l'élément ; `width` vaut 0 tant que rien n'est mesuré.
+ */
+export function useMeasure() {
+  const ref = useRef(null);
+  const [el, setEl] = useState(null);
   const [width, setWidth] = useState(0);
+  const attach = useCallback((node) => {
+    ref.current = node;
+    setEl(node);
+  }, []);
   useLayoutEffect(() => {
-    const el = ref.current;
     if (!el) return undefined;
     const measure = () => {
       const w = Math.round(el.getBoundingClientRect().width);
@@ -78,8 +87,8 @@ export function useWidth(ref) {
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [ref]);
-  return width;
+  }, [el]);
+  return { ref, attach, width };
 }
 
 // Transmet le contexte Preact de l'arbre d'origine au contenu rendu ailleurs dans le document.

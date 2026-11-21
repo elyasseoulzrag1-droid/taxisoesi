@@ -2,8 +2,7 @@
 // Chaque action renvoie { ok: true, ... } ou { ok: false, error } et ne lève jamais d'exception.
 import { getState, setUi } from "./state.js";
 import { validateOp, normalizeOp, isMonthClosed } from "../core/model.js";
-import { applyBankMatch } from "../core/recon.js";
-import { newId, hashString } from "../core/ids.js";
+import { newId } from "../core/ids.js";
 import { monthOf, monthLabel } from "../core/dates.js";
 import { formatMoney } from "../core/money.js";
 import { toast } from "../ui/index.js";
@@ -160,51 +159,6 @@ export async function removeOps(ids) {
     summary: targets.length === 1 ? "Suppression : " + describe(targets[0]) : `Suppression de ${targets.length} opérations`,
   });
   return { ok: true, count: targets.length };
-}
-
-/**
- * Valide un aperçu d'import. Pour chaque brouillon coché :
- * - s'il correspond à une opération existante (_matchOf), celle-ci est pointée au lieu d'être recréée ;
- * - sinon une nouvelle opération est créée.
- * Les lignes de relevé décochées sont mémorisées pour ne plus être proposées.
- */
-export async function applyDrafts(drafts, { summary, attachments } = {}) {
-  const blocked = writeGuard();
-  if (blocked) return fail(blocked);
-  const { data, book } = getState();
-  const toWrite = [];
-  let created = 0;
-  let matched = 0;
-  const ignoredHashes = [];
-  for (const draft of drafts) {
-    if (!draft._selected) {
-      if (draft.source === "bank" && draft.extId && !draft._dupOf && !draft._matchOf) ignoredHashes.push(hashString(draft.extId));
-      continue;
-    }
-    if (draft._matchOf) {
-      const existing = book.byId.get(draft._matchOf);
-      if (!existing) continue;
-      const line = { date: draft.date, label: draft.label, amountCents: draft.amountCents, currency: draft.currency };
-      const updated = prepare(applyBankMatch(toStoredOp(existing), line, data.config), existing);
-      if (updated) { toWrite.push(updated); matched++; }
-      continue;
-    }
-    const withFiles = attachments && attachments.length && !draft.attachments ? { ...draft, attachments } : draft;
-    const op = prepare(withFiles, null);
-    if (op && validateOp(op, data.config).length === 0) { toWrite.push(op); created++; }
-  }
-  const skipped = drafts.filter((d) => d._selected).length - created - matched;
-  if (!toWrite.length && !ignoredHashes.length) return fail("Aucune ligne cochée à importer.");
-  try {
-    if (toWrite.length) await store().putOps(toWrite);
-    if (ignoredHashes.length) await store().setIgnored(ignoredHashes, new Date().toISOString().slice(0, 10));
-  } catch (err) {
-    return fail(errorMessage(err));
-  }
-  if (toWrite.length) {
-    audit({ action: "import", count: toWrite.length, summary: summary || `Import : ${created} ajoutée(s), ${matched} pointée(s)` });
-  }
-  return { ok: true, created, matched, skipped };
 }
 
 /** Modifie les réglages par fusion profonde (mettre null pour retirer une entrée d'une liste). */

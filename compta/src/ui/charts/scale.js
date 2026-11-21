@@ -84,6 +84,15 @@ export function niceTicks(min, max, count = 4) {
   return { min: ticks[0], max: ticks[ticks.length - 1], step, ticks };
 }
 
+/**
+ * Échelle d'axe d'un graphique : comme niceTicks, sauf quand toutes les valeurs sont nulles
+ * (une seule graduation, zéro, au lieu de fractions sans signification).
+ */
+export function axisScale(min, max, count = 4) {
+  if ((num(min) === null || min === 0) && (num(max) === null || max === 0)) return { min: 0, max: 1, step: 1, ticks: [0] };
+  return niceTicks(min, max, count);
+}
+
 /** Échelle linéaire : valeur du domaine -> position en pixels. */
 export function linear([d0, d1], [r0, r1]) {
   const span = d1 - d0;
@@ -143,7 +152,7 @@ export function linePaths(points) {
 export function textWidth(text, fontSize = 11) {
   let units = 0;
   for (const ch of String(text == null ? "" : text)) {
-    if (/[\s .,:;'|il1!]/.test(ch)) units += 0.3;
+    if (/[\s\u00a0.,:;'|il1!]/.test(ch)) units += 0.3;
     else if (/[A-ZMW@%mw]/.test(ch)) units += 0.72;
     else units += 0.56;
   }
