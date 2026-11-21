@@ -34,43 +34,63 @@ export function detectCurrency(text) {
 
 /**
  * Lit un montant écrit par un humain ou un export et renvoie des centimes (entier), ou null.
- * Accepte "1 234,56", "1,234.56", "1.234,56", "-12.5", "(12.50)", "12,50-", "$94.77", "94,77 €", "\u221212" (moins typographique).
+ * Accepte "1 234,56", "1,234.56", "1.234,56", "-12.5", "(12.50)", "12,50-", "$94.77", "94,77 €", "−12" (moins typographique),
+ * "$-12.50", "USD -12.50", "12,50- €" : le signe est cherché avant le premier chiffre et après le dernier.
+ * Cas ambigus : un seul séparateur suivi de 3 chiffres et précédé de 1 à 3 chiffres ("1,234", "1.234", "12.345") est lu comme
+ * des milliers ; "0,125" et "1234,567" sont des décimales. Les demi-centimes sont arrondis en s'éloignant de zéro.
  * opts.decimal : "," ou "." pour forcer le séparateur décimal (sinon deviné).
  */
 export function parseAmountToCents(input, opts = {}) {
   if (input == null) return null;
-  if (typeof input === "number") return Number.isFinite(input) ? Math.round(input * 100) : null;
-  let s = String(input).trim();
-  if (!s) return null;
-  let negative = false;
-  if (/^\(.*\)$/.test(s)) { negative = true; s = s.slice(1, -1); }
-  s = s.replace(/[\u2212\u2012\u2013\u2014]/g, "-");
-  if (/-\s*$/.test(s)) { negative = !negative; s = s.replace(/-\s*$/, ""); }
-  if (/^\s*-/.test(s)) { negative = !negative; s = s.replace(/^\s*-/, ""); }
-  s = s.replace(/^\s*\+/, "");
-  // On ne garde que chiffres et séparateurs.
-  s = s.replace(/[^0-9.,'\s\u00a0\u202f]/g, "").replace(/['\s\u00a0\u202f]/g, "");
-  if (!/[0-9]/.test(s)) return null;
-  let decimalSep = opts.decimal || null;
+  if (typeof input === "number") {
+    if (!Number.isFinite(input)) return null;
+    // toFixed gomme les artefacts binaires (1.005 * 100 = 100.49999...) ; arrondi symétrique, jamais de -0.
+    const rounded = Math.round(Number((Math.abs(input) * 100).toFixed(6)));
+    return input < 0 && rounded > 0 ? -rounded : rounded;
+  }
+  // Toutes les variantes typographiques du signe moins deviennent "-".
+  const s = String(input).trim().replace(/[−‐‑‒–—﹣－]/g, "-");
+  const first = s.search(/[0-9]/);
+  if (first < 0) return null;
+  let last = s.length - 1;
+  while (last > first && !(s.charCodeAt(last) >= 48 && s.charCodeAt(last) <= 57)) last--;
+  const before = s.slice(0, first);
+  // "12.-" et "12,-" (notation suisse et allemande) valent 12,00 : ce tiret n'est pas un signe.
+  const after = s.slice(last + 1).replace(/^[.,]-+/, "");
+  // Négatif : un "-" avant le premier chiffre ("-$12", "$-12", "USD -12") ou après le dernier ("12,50-", "12,50- €"),
+  // ou des parenthèses comptables autour du nombre. Deux marques ne s'annulent pas : "(-12,50)" reste négatif.
+  const openParen = before.lastIndexOf("(") > before.lastIndexOf(")");
+  const closeAt = after.indexOf(")");
+  const closeParen = closeAt >= 0 && (after.indexOf("(") < 0 || closeAt < after.indexOf("("));
+  const negative = before.includes("-") || after.includes("-") || (openParen && closeParen);
+  let core = s.slice(first, last + 1);
+  // ".5" ou "$.50" : un séparateur décimal collé au premier chiffre (mais pas le point d'une abréviation comme "Fr.12").
+  const lead = before.slice(-1);
+  if ((lead === "." || lead === ",") && !/[0-9A-Za-z.,]/.test(before.slice(-2, -1))) core = lead + core;
+  // On ne garde que chiffres et séparateurs (les espaces et apostrophes de milliers disparaissent).
+  core = core.replace(/[^0-9.,]/g, "");
+  let decimalSep = opts.decimal === "," || opts.decimal === "." ? opts.decimal : null;
   if (!decimalSep) {
-    const lastComma = s.lastIndexOf(",");
-    const lastDot = s.lastIndexOf(".");
+    const lastComma = core.lastIndexOf(",");
+    const lastDot = core.lastIndexOf(".");
     if (lastComma >= 0 && lastDot >= 0) {
       decimalSep = lastComma > lastDot ? "," : ".";
     } else if (lastComma >= 0 || lastDot >= 0) {
       const sep = lastComma >= 0 ? "," : ".";
-      const count = s.split(sep).length - 1;
-      const after = s.length - 1 - s.lastIndexOf(sep);
-      // Un seul séparateur suivi de 3 chiffres ("1,234" ou "1.234") : séparateur de milliers.
-      decimalSep = count > 1 || after === 3 ? null : sep;
-      if (count === 1 && after === 3 && s.indexOf(sep) === 0) decimalSep = sep; // ".125"
+      const pos = core.lastIndexOf(sep);
+      const count = core.split(sep).length - 1;
+      const digitsAfter = core.length - 1 - pos;
+      // Un seul séparateur est un séparateur de milliers seulement s'il est suivi de 3 chiffres exactement et précédé
+      // de 1 à 3 chiffres sans zéro en tête : "1,234" et "1.234" valent 1234, mais "0,125" et "1234,567" sont des décimales.
+      const thousands = count > 1 || (digitsAfter === 3 && /^[1-9][0-9]{0,2}$/.test(core.slice(0, pos)));
+      decimalSep = thousands ? null : sep;
     }
   }
-  let intPart = s;
+  let intPart = core;
   let fracPart = "";
   if (decimalSep) {
-    const idx = s.lastIndexOf(decimalSep);
-    if (idx >= 0) { intPart = s.slice(0, idx); fracPart = s.slice(idx + 1); }
+    const idx = core.lastIndexOf(decimalSep);
+    if (idx >= 0) { intPart = core.slice(0, idx); fracPart = core.slice(idx + 1); }
   }
   intPart = intPart.replace(/[.,]/g, "");
   fracPart = fracPart.replace(/[.,]/g, "");
@@ -80,7 +100,7 @@ export function parseAmountToCents(input, opts = {}) {
   const frac = (fracPart + "000").slice(0, 3);
   let cents = whole * 100 + parseInt(frac.slice(0, 2) || "0", 10);
   if (parseInt(frac[2] || "0", 10) >= 5) cents += 1;
-  return negative ? -cents : cents;
+  return negative && cents !== 0 ? -cents : cents;
 }
 
 /** Centimes -> texte pour un champ de saisie ("1234,56"). */
