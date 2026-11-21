@@ -1,0 +1,19 @@
+{
+  "name": "starringyou-compta",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Compta StarringYou : suivi des ventes, des dépenses, des pubs et des comptes d'associés",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test \"tests/unit/*.test.mjs\"",
+    "test:e2e": "node --test --test-concurrency=1 \"tests/e2e/*.test.mjs\"",
+    "check": "node tools/check-source.mjs"
+  },
+  "dependencies": {
+    "preact": "10.24.3"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.0"
+  }
+}

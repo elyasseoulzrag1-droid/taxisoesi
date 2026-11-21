@@ -1,0 +1,3 @@
+/* Provisoire : remplacé par le kit d'interface. */
+:root { --bg: #f6f7f9; --ink: #141821; }
+body { background: var(--bg); color: var(--ink); }
