@@ -9,7 +9,6 @@ export const ROUTES = [
   { id: "ventes", label: "Ventes", icon: "wallet", hint: "Virements Shopify, commandes, frais" },
   { id: "pub", label: "Pub", icon: "chart", hint: "Dépenses par régie et qui a payé" },
   { id: "rapports", label: "Rapports", icon: "download", hint: "Bénéfice par mois, trésorerie, exports" },
-  { id: "assistant", label: "Assistant", icon: "sparkles", hint: "Pose une question sur tes chiffres" },
   { id: "reglages", label: "Réglages", icon: "settings", hint: "Associés, comptes, catégories, partage" },
   { id: "plus", label: "Plus", icon: "more" },
 ];

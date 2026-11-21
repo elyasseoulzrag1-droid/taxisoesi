@@ -1,3 +1,319 @@
-/* Provisoire : remplacé par le kit d'interface. */
-:root { --bg: #f6f7f9; --ink: #141821; }
-body { background: var(--bg); color: var(--ink); }
+/*
+  Compta StarringYou : jetons de design (couleurs, typo, espacements).
+  Toute couleur de l'appli vient d'ici. Les règles des composants n'utilisent que var(--...).
+
+  Idée directrice : la compta d'un petit studio de films, lue comme un box-office.
+    Encre   : bleu nuit presque noir, pour le texte.
+    Papier  : gris très clair, légèrement bleuté (salle éclairée) ; en sombre : salle obscure.
+    Nuit    : indigo profond, l'accent (boutons, liens, onglet actif).
+    Billet  : le carton des tuiles de chiffres, avec son talon teinté.
+  Les couleurs de sens sont séparées de l'accent :
+    entrée d'argent (vert sarcelle), sortie d'argent (vermillon), à vérifier (ambre), info (bleu acier).
+  Le couple sarcelle / vermillon reste lisible pour les daltoniens (vérifié avec le validateur de palette).
+
+  Le thème sombre est écrit deux fois (préférence du système, puis choix explicite data-theme="dark") :
+  les deux blocs doivent rester identiques (un test unitaire le vérifie).
+*/
+
+:root {
+  color-scheme: light;
+
+  /* Typographie : deux rôles. Figtree pour le texte et les chiffres, Barlow Condensed pour les titres et les talons de billet. */
+  --font-ui: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-body: 1.5;
+
+  /* Espacements : base 4 px. */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+
+  /* Marges latérales : jamais sous 16 px, et on respecte les encoches. */
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Rayons. */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 22px;
+  --r-full: 999px;
+
+  /* Tailles. Sur téléphone, toute cible tactile fait au moins 44 px. */
+  --control-h: 44px;
+  --control-h-sm: 36px;
+  --topbar-h: 56px;
+  --tabbar-h: 60px;
+  --sidebar-w: 248px;
+  --content-max: 1080px;
+
+  /* Mouvement. */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+
+  /* Plans. */
+  --z-sticky: 10;
+  --z-nav: 20;
+  --z-pop: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+
+  /* Neutres (teinte 275, bleu nuit). */
+  --paper: #eef0f6;
+  --surface: #fcfdfe;
+  --surface-2: #f4f5fa;
+  --sunken: #e7e9f0;
+  --line: #dddfe8;
+  --line-strong: #babdcb;
+  --control-line: #8a8fa3;
+  --ink: #16192b;
+  --ink-2: #42465b;
+  --ink-3: #64687b;
+
+  /* Accent "Nuit". */
+  --accent: #3b39a6;
+  --accent-hover: #2e298e;
+  --accent-soft: #e6eaff;
+  --accent-text: #3b39a6;
+  --on-accent: #ffffff;
+
+  /* Sens : texte lisible (--x), fond teinté (--x-soft), aplat pour marques et pastilles (--x-fill). */
+  --in: #006c52;
+  --in-soft: #d9f7eb;
+  --in-fill: #11957c;
+  --out: #b32707;
+  --out-soft: #ffe8e2;
+  --out-fill: #da4620;
+  --warn: #815200;
+  --warn-soft: #fdefcb;
+  --warn-fill: #ecaa0b;
+  --info: #1c5e95;
+  --info-soft: #e2f0ff;
+  --info-fill: #2a78d6;
+
+  /* Action destructrice. */
+  --danger: #b32707;
+  --danger-hover: #962005;
+  --on-danger: #ffffff;
+
+  /* Billet (tuile de chiffre). */
+  --ticket: #fcfdfe;
+  --ticket-stub: #eceef8;
+  --ticket-edge: #cfd2e0;
+
+  --focus: #3b39a6;
+  --scrim: rgb(22 25 43 / 0.46);
+  --shadow-1: 0 1px 2px rgb(22 25 43 / 0.06);
+  --shadow-2: 0 1px 2px rgb(22 25 43 / 0.06), 0 6px 16px rgb(22 25 43 / 0.07);
+  --shadow-3: 0 2px 6px rgb(22 25 43 / 0.08), 0 18px 44px rgb(22 25 43 / 0.18);
+
+  /* Encre posée sur un aplat de couleur (étiquette dans une barre, initiales d'un avatar). */
+  --on-fill: #ffffff;
+  --on-fill-dark: #0b0b0b;
+
+  /* Opaque pour les masques CSS (découpe des billets) : ce n'est pas une couleur visible. */
+  --mask-solid: #000000;
+
+  /*
+    Palette de séries (graphiques, pastilles d'associés, plateformes pub).
+    Ordre fixe, jamais recyclé : au-delà de 8, on regroupe dans "Autres" (--chart-muted).
+    Validée pour le thème clair sur --surface (bandes de clarté, chroma, daltonisme, contraste).
+  */
+  --chart-1: #2a78d6;
+  --chart-2: #eb6834;
+  --chart-3: #1baf7a;
+  --chart-4: #eda100;
+  --chart-5: #e87ba4;
+  --chart-6: #008300;
+  --chart-7: #6250d6;
+  --chart-8: #e34948;
+  --chart-1-ink: #ffffff;
+  --chart-2-ink: #ffffff;
+  --chart-3-ink: #ffffff;
+  --chart-4-ink: #0b0b0b;
+  --chart-5-ink: #ffffff;
+  --chart-6-ink: #ffffff;
+  --chart-7-ink: #ffffff;
+  --chart-8-ink: #ffffff;
+  --chart-in: #11957c;
+  --chart-out: #da4620;
+  --chart-accent: #3b39a6;
+  --chart-muted: #8a8fa3;
+  --chart-grid: #e3e5ed;
+  --chart-axis: #babdcb;
+  --chart-hover: rgb(22 25 43 / 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --paper: #0e1018;
+    --surface: #191b26;
+    --surface-2: #232633;
+    --sunken: #080a10;
+    --line: #2c2f3f;
+    --line-strong: #484c5f;
+    --control-line: #666b82;
+    --ink: #eaecf5;
+    --ink-2: #b2b6ca;
+    --ink-3: #8c91a5;
+
+    --accent: #8f9bfb;
+    --accent-hover: #a4b0ff;
+    --accent-soft: #252950;
+    --accent-text: #acb7ff;
+    --on-accent: #0d0f23;
+
+    --in: #61d7b2;
+    --in-soft: #103328;
+    --in-fill: #2da58b;
+    --out: #ff8b6d;
+    --out-soft: #441f17;
+    --out-fill: #eb5833;
+    --warn: #f1c45e;
+    --warn-soft: #3b2b0d;
+    --warn-fill: #edb333;
+    --info: #87c6f2;
+    --info-soft: #183046;
+    --info-fill: #3987e5;
+
+    --danger: #eb5833;
+    --danger-hover: #ff8b6d;
+    --on-danger: #0d0f23;
+
+    --ticket: #1f2230;
+    --ticket-stub: #272a40;
+    --ticket-edge: #3a3e54;
+
+    --focus: #acb7ff;
+    --scrim: rgb(4 5 10 / 0.66);
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-2: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 20px rgb(0 0 0 / 0.35);
+    --shadow-3: 0 2px 6px rgb(0 0 0 / 0.45), 0 20px 48px rgb(0 0 0 / 0.55);
+
+    --on-fill: #ffffff;
+    --on-fill-dark: #0b0b0b;
+
+    --chart-1: #3987e5;
+    --chart-2: #d95926;
+    --chart-3: #199e70;
+    --chart-4: #c98500;
+    --chart-5: #d55181;
+    --chart-6: #0ca30c;
+    --chart-7: #9085e9;
+    --chart-8: #e66767;
+    --chart-1-ink: #ffffff;
+    --chart-2-ink: #ffffff;
+    --chart-3-ink: #ffffff;
+    --chart-4-ink: #ffffff;
+    --chart-5-ink: #ffffff;
+    --chart-6-ink: #ffffff;
+    --chart-7-ink: #ffffff;
+    --chart-8-ink: #ffffff;
+    --chart-in: #2da58b;
+    --chart-out: #eb5833;
+    --chart-accent: #8f9bfb;
+    --chart-muted: #6c7187;
+    --chart-grid: #2a2d3c;
+    --chart-axis: #484c5f;
+    --chart-hover: rgb(234 236 245 / 0.07);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #0e1018;
+  --surface: #191b26;
+  --surface-2: #232633;
+  --sunken: #080a10;
+  --line: #2c2f3f;
+  --line-strong: #484c5f;
+  --control-line: #666b82;
+  --ink: #eaecf5;
+  --ink-2: #b2b6ca;
+  --ink-3: #8c91a5;
+
+  --accent: #8f9bfb;
+  --accent-hover: #a4b0ff;
+  --accent-soft: #252950;
+  --accent-text: #acb7ff;
+  --on-accent: #0d0f23;
+
+  --in: #61d7b2;
+  --in-soft: #103328;
+  --in-fill: #2da58b;
+  --out: #ff8b6d;
+  --out-soft: #441f17;
+  --out-fill: #eb5833;
+  --warn: #f1c45e;
+  --warn-soft: #3b2b0d;
+  --warn-fill: #edb333;
+  --info: #87c6f2;
+  --info-soft: #183046;
+  --info-fill: #3987e5;
+
+  --danger: #eb5833;
+  --danger-hover: #ff8b6d;
+  --on-danger: #0d0f23;
+
+  --ticket: #1f2230;
+  --ticket-stub: #272a40;
+  --ticket-edge: #3a3e54;
+
+  --focus: #acb7ff;
+  --scrim: rgb(4 5 10 / 0.66);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 20px rgb(0 0 0 / 0.35);
+  --shadow-3: 0 2px 6px rgb(0 0 0 / 0.45), 0 20px 48px rgb(0 0 0 / 0.55);
+
+  --on-fill: #ffffff;
+  --on-fill-dark: #0b0b0b;
+
+  --chart-1: #3987e5;
+  --chart-2: #d95926;
+  --chart-3: #199e70;
+  --chart-4: #c98500;
+  --chart-5: #d55181;
+  --chart-6: #0ca30c;
+  --chart-7: #9085e9;
+  --chart-8: #e66767;
+  --chart-1-ink: #ffffff;
+  --chart-2-ink: #ffffff;
+  --chart-3-ink: #ffffff;
+  --chart-4-ink: #ffffff;
+  --chart-5-ink: #ffffff;
+  --chart-6-ink: #ffffff;
+  --chart-7-ink: #ffffff;
+  --chart-8-ink: #ffffff;
+  --chart-in: #2da58b;
+  --chart-out: #eb5833;
+  --chart-accent: #8f9bfb;
+  --chart-muted: #6c7187;
+  --chart-grid: #2a2d3c;
+  --chart-axis: #484c5f;
+  --chart-hover: rgb(234 236 245 / 0.07);
+}

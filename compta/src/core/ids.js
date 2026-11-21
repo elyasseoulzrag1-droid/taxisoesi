@@ -30,5 +30,5 @@ export function slugify(input, max = 40) {
   return String(input)
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     .toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "")
-    .slice(0, max) || "x";
+    .slice(0, max).replace(/_+$/, "") || "x";
 }

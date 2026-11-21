@@ -1,11 +1,10 @@
 // Registre des importeurs de fichiers : détection du type de fichier, puis lecture en brouillons d'opérations.
 import { IMPORTERS as SHOPIFY } from "./shopify.js";
-import { IMPORTERS as ADS } from "./ads.js";
 import { IMPORTERS as BANK } from "./bank.js";
 import { findDuplicate } from "../recon.js";
 
 /** Tous les types de fichiers reconnus : { type, label, help, needs, detect(parsed), parse(parsed, ctx) }. */
-export const IMPORT_TYPES = [...SHOPIFY, ...ADS, ...BANK];
+export const IMPORT_TYPES = [...SHOPIFY, ...BANK];
 
 /** Classe les types possibles pour un fichier lu, du plus probable au moins probable. */
 export function detectImport(parsed) {

@@ -125,8 +125,10 @@ export function formatMoney(cents, currency = "EUR", opts = {}) {
   const value = cents / 100;
   let out = formatter(currency, digits).format(Math.abs(value)).replace(/\u202f/g, "\u00a0");
   if (opts.code) out += "\u00a0" + currency;
-  if (value < 0 && Math.round(Math.abs(cents)) > 0) out = "-" + out;
-  else if (opts.sign && value > 0) out = "+" + out;
+  // Pas de signe devant un montant affich\u00e9 \u00e0 z\u00e9ro (ex. -0,40 arrondi \u00e0 l'unit\u00e9).
+  const shownZero = Math.round(opts.round ? Math.abs(value) : Math.abs(cents)) === 0;
+  if (value < 0 && !shownZero) out = "-" + out;
+  else if (opts.sign && value > 0 && !shownZero) out = "+" + out;
   return out;
 }
 
