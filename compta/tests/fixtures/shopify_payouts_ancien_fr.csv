@@ -1,0 +1,5 @@
+﻿Payout Date;Status;Charges;Refunds;Adjustments;Reserved Funds;Fees;Retried Amount;Total;Currency;Commentaire
+20/11/2026;paid;412,00;0,00;0,00;0,00;14,35;0,00;397,65;EUR;
+19/11/2026;paid;"1 289,50";-59,00;0,00;0,00;45,20;0,00;"1 185,30";EUR;"vu sur le relevé; ok"
+05/11/2026;paid;0,00;-77,90;0,00;0,00;0,00;0,00;-77,90;EUR;
+Total;;1701,50;-136,90;0,00;0,00;59,55;0,00;1505,05;;

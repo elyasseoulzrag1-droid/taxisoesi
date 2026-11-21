@@ -1,0 +1,7 @@
+"TransferWise ID",Date,"Date Time",Amount,Currency,Description,"Payment Reference","Running Balance","Exchange From","Exchange To","Exchange Rate","Payer Name","Payee Name","Payee Account Number",Merchant,"Card Last Four Digits","Card Holder Full Name",Attachment,"Total fees","Exchange To Amount","Transaction Type","Transaction Details Type"
+TRANSFER-175545673,24-10-2026,24-10-2026 13:43:54.496,-357.38,USD,Sent money to Lina Moreau,Montage video octobre,787.62,USD,EUR,0.84840,,Lina Moreau,FR76 3000 1111 2222 3333 4444 555,,,,,11.35,,DEBIT,TRANSFER
+TRANSFER-175545673,24-10-2026,24-10-2026 13:43:54.496,-11.35,USD,Wise Charges for: TRANSFER-175545673,Montage video octobre,776.27,,,,,Wise,,,,,,0,,DEBIT,TRANSFER
+CARD-88231077,25-10-2026,25-10-2026 09:12:03.110,-29.00,USD,Card transaction of 29.00 USD issued by Heygen Technology,,747.27,,,,,,,Heygen Technology,7741,Camille Roux,,0.00,,DEBIT,CARD
+BALANCE-40117732,26-10-2026,26-10-2026 10:00:00.000,-200.00,USD,Converted 200.00 USD to 184.20 EUR,,547.27,USD,EUR,0.92100,,,,,,,,0.84,184.20,DEBIT,CONVERSION
+TRANSFER-175622746,27-10-2026,27-10-2026 19:27:05.726,1250.00,USD,Received money from Shopify Payments with reference PAYOUT 8841,,1797.27,,,,Shopify Payments,,,,,,,0.00,,CREDIT,DEPOSIT
+CARD-88240519,28-10-2026,28-10-2026 21:05:44.002,-6.50,USD,Card transaction of 6.50 USD issued by Blue Bottle Coffee,,1790.77,,,,,,,Blue Bottle Coffee,7741,Camille Roux,,0.00,,DEBIT,CARD

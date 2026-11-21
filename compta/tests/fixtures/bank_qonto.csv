@@ -1,0 +1,7 @@
+Status,Transaction ID,Operation date (UTC),Operation date (local),Settlement date (UTC),Settlement date (local),Counterparty name,Payment method,Initiator,Category,Reference,Note,Total amount (incl. VAT),Currency,Total amount (incl. VAT) (local),Currency (local),Total VAT amount,Attachment
+settled,starringyou-1-transaction-1041,13-10-2026 08:02:11,13-10-2026 10:02:11,14-10-2026 06:00:00,14-10-2026 08:00:00,Meta Platforms Ireland,card,Camille Roux,marketing,,,-250.00,EUR,-250.00,EUR,0.00,
+settled,starringyou-1-transaction-1042,14-10-2026 12:30:00,14-10-2026 14:30:00,15-10-2026 06:00:00,15-10-2026 08:00:00,Anthropic,card,Camille Roux,online_service,,,-18.42,EUR,-20.00,USD,0.00,
+processing,starringyou-1-transaction-1043,15-10-2026 09:00:00,15-10-2026 11:00:00,,,Canva,card,Camille Roux,online_service,,,-11.99,EUR,-11.99,EUR,0.00,
+settled,starringyou-1-transaction-1044,16-10-2026 00:05:00,16-10-2026 02:05:00,16-10-2026 00:05:00,16-10-2026 02:05:00,Qonto,subscription_fees,,fees,Abonnement Solo,,-9.00,EUR,-9.00,EUR,1.50,
+settled,starringyou-1-transaction-1045,17-10-2026 07:45:10,17-10-2026 09:45:10,17-10-2026 07:45:10,17-10-2026 09:45:10,Shopify Payments,transfer,,sales,PAYOUT 7731,,1840.55,EUR,1840.55,EUR,0.00,
+declined,starringyou-1-transaction-1046,18-10-2026 10:00:00,18-10-2026 12:00:00,,,TikTok Ads,card,Camille Roux,marketing,,,-60.00,EUR,-60.00,EUR,0.00,

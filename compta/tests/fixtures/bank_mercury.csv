@@ -1,0 +1,7 @@
+Date (UTC),Description,Amount,Status,Source Account,Bank Description,Reference,Note,Last Four Digits,Name On Card,Category,GL Code,Timestamp,Original Currency
+11-02-2026,Meta Platforms,-312.44,Sent,Mercury Checking ••4410,FACEBK *RT5KD92LM2 MENLO PARK CA,,,0562,Camille Roux,Advertising,,11-02-2026 14:03:22,USD
+11-03-2026,Shopify,1890.12,Sent,Mercury Checking ••4410,SHOPIFY PAYOUT ST-88412,,,,,Revenue,,11-03-2026 09:00:00,USD
+11-04-2026,Klaviyo,-45.00,Failed,Mercury Checking ••4410,KLAVIYO INC. SOFTWARE,,,0562,Camille Roux,Software,,11-04-2026 10:10:10,USD
+11-05-2026,Marlow Studio,-550.00,Sent,Mercury Checking ••4410,Send Money transaction initiated on Mercury,"From StarringYou LLC, voix off",,,,Contractors,,11-05-2026 16:20:00,USD
+11-06-2026,Runway AI,-28.00,Pending,Mercury Checking ••4410,RUNWAYML.COM,,,0562,Camille Roux,Software,,11-06-2026 08:00:00,USD
+11-07-2026,OpenAI,-20.00,Sent,Mercury Checking ••4410,OPENAI *CHATGPT SUBSCR,,,0562,Camille Roux,Software,,11-07-2026 12:30:00,USD

@@ -1,0 +1,13 @@
+Bill #,Store Name,Shop ID,.myshopify.com URL,Charge category,Description,Amount,Currency,Start of billing cycle,End of billing cycle,Date,Order,Rate,App,Original amount,Original currency,Exchange rate,Usage quantity,Charge date
+612345678,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,subscription_fee,Subscription Fee,39.0,USD,2026-11-20,2026-12-20,2026-11-20,"","","",39.0,USD,1.0,"",2026-11-20
+612345678,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,application_fee,Reviews App Pro,15.0,USD,2026-10-28,2026-11-27,2026-11-20,"","",Reviews App Pro,15.0,USD,1.0,"",2026-10-28
+612345678,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,application_fee,Upsell Booster,9.99,USD,2026-11-03,2026-12-03,2026-11-20,"","",Upsell Booster,9.99,USD,1.0,"",2026-11-03
+612345678,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,transaction_fee,Transaction fee for order #2309,1.28,USD,2026-11-16,2026-11-16,2026-11-20,#2309,2.0%,"",1.28,USD,1.0,"",2026-11-16
+598765432,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,subscription_fee,Subscription Fee,39.0,USD,2026-10-20,2026-11-20,2026-10-20,"","","",39.0,USD,1.0,"",2026-10-20
+598765432,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,application_fee,Reviews App Pro,15.0,USD,2026-09-28,2026-10-27,2026-10-20,"","",Reviews App Pro,15.0,USD,1.0,"",2026-09-28
+598765432,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,application_fee,"Klaviyo: Email Marketing, SMS",20.0,USD,2026-09-29,2026-10-28,2026-10-20,"","","Klaviyo: Email Marketing, SMS",20.0,USD,1.0,"",2026-09-29
+598765432,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,application_fee,Upsell Booster,-4.5,USD,2026-10-03,2026-10-20,2026-10-20,"","",Upsell Booster,-4.5,USD,1.0,"",2026-10-12
+591112223,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,mystery_charge,Something new,12.0,USD,2026-10-12,2026-10-12,2026-10-12,"","","",12.0,USD,1.0,"",2026-10-12
+585554443,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,subscription_fee,Subscription Fee,0,USD,2026-10-06,2026-10-20,2026-10-06,"","","",0,USD,1.0,"",2026-10-06
+,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,application_fee,Orphan App,5.0,USD,2026-10-01,2026-10-31,2026-10-06,"","",Orphan App,5.0,USD,1.0,"",2026-10-01
+577700011,Example Kids Films,71234567890,https://example-kids-films.myshopify.com,application_fee,Broken App,n/a,USD,2026-09-29,2026-10-28,2026-09-29,"","",Broken App,n/a,USD,1.0,"",2026-09-29

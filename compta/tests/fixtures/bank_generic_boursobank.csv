@@ -1,0 +1,4 @@
+dateOp;dateVal;label;category;categoryParent;supplierFound;amount;comment;accountNum;accountLabel;accountbalance
+2026-10-01;2026-10-01;CARTE 30/09/26 MONOPRIX CB*4821;Alimentation;Vie quotidienne;monoprix;-32,10;;00012345678;COMPTE COURANT;1 500,00
+2026-10-02;2026-10-02;CARTE 01/10/26 FACEBK ADS CB*4821;Publicité;Dépenses pro;facebook;-150,00;;00012345678;COMPTE COURANT;1 500,00
+2026-10-05;2026-10-05;VIR SEPA SHOPIFY PAYMENTS;Virements reçus;Revenus;shopify payments;1 020,30;;00012345678;COMPTE COURANT;1 500,00

@@ -1,0 +1,5 @@
+Transaction Date,Transaction Time,Time Zone,Transaction ID,Description,Credit Amount,Debit Amount,Currency,Transfer Amount,Transfer Amount Currency,Status,Running Balance,Additional Description,Store Name,Source,Target,Reference ID
+10/05/2026,12:31:46,UTC,880114201,Payment from Shopify,"1,450.00",,USD,,,Completed,"1,650.00",Payout,StarringYou,Shopify Inc,StarringYou LLC,
+10/07/2026,08:10:02,UTC,880114377,Card charge,,94.77,USD,,,Completed,"1,555.23",,,StarringYou LLC,Applovin Corporation,
+10/09/2026,17:45:30,UTC,880114502,Withdrawal to bank account,,500.00,USD,460.75,EUR,Pending,"1,555.23",,,StarringYou LLC,Banque de Camille Roux,
+10/11/2026,09:00:00,UTC,880114688,Payment to freelancer,,220.00,USD,,,Completed,"1,335.23",Voice over,,StarringYou LLC,Marlow Studio,

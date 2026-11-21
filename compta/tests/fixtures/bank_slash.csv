@@ -1,0 +1,11 @@
+ID,Date,To/From,Amount,Status,Card
+txn_2b7f9c1e,2026-11-14,APPLOVIN CORPORATION,-94.77,Settled,Ads AppLovin (0562)
+txn_2b7f9d40,2026-11-14,FACEBK *ADS9XK2,-250.00,Pending,Ads Meta (2487)
+txn_2b7f9e55,2026-11-14,Deposit from Column N.A.,10000.00,Settled,
+txn_2b7fa011,2026-11-15,KLAVIYO INC,1.00,Refunded,Tools (2487)
+txn_2b7fa1c3,2026-11-15,FACEBK *ADS7QW1,-180.25,Settled,Ads Meta (2487)
+txn_2b7fa2d8,2026-11-16,TIKTOK ADS,-75.00,Declined,Ads TikTok (9930)
+txn_2b7fa3e2,2026-11-17,Shopify,842.19,Settled,
+txn_2b7fa4f6,2026-11-18,HEYGEN TECHNOLOGY INC,-29.00,Settled,Tools (2487)
+txn_2b7fa5a1,2026-11-19,ELEVENLABS.IO,-22.00,Settled,Tools (2487)
+txn_2b7fa6b3,2026-11-20,Slash Pro plan,-25.00,Settled,

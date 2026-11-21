@@ -1,0 +1,5 @@
+Name;Financial Status;Currency;Subtotal;Shipping;Taxes;Total;Discount Amount;Created at;Lineitem quantity;Lineitem name;Lineitem price;Refunded Amount;Payment Method
+#1057;paid;EUR;45,00;2,99;0,00;47,99;;18/11/2026 11:05;1;Film personnalisé;45,00;0,00;Shopify Payments
+#1056;paid;EUR;90,00;2,99;0,00;90,00;2,99;17/11/2026 09:30;2;Film personnalisé;45,00;0,00;Shopify Payments
+#1055;paid;USD;59,00;0,00;0,00;59,00;0,00;17/11/2026 08:00;1;Personalized Movie;59,00;0,00;Shopify Payments
+Total;;;194,00;5,98;0,00;196,99;2,99;;4;;;0,00;

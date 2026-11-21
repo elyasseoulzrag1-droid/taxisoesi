@@ -1,0 +1,8 @@
+Date,Description,Merchant,Amount,Status,Card Name,Card Last 4,Category,Memo,Transaction ID,Original Amount,Original Currency
+11/14/2026,APPLOVIN* ADS SAN FRANCISCO CA,AppLovin,$94.77,posted,Ads AppLovin,0562,Advertising,,txn_01HZX4A,,
+11/15/2026,FACEBK *9XK2LM4 MENLO PARK CA,Meta,"$1,250.00",posted,Ads Meta,2487,Advertising,,txn_01HZX4B,,
+11/15/2026,OVH SAS ROUBAIX FR,OVH,$13.02,posted,Tools,2487,Software,,txn_01HZX4C,11.99,EUR
+11/16/2026,KLAVIYO INC BOSTON MA,Klaviyo,$45.00,pending_approval,Tools,2487,Software,,txn_01HZX4D,,
+11/17/2026,ACH DEPOSIT SHOPIFY PAYMENTS,Shopify,"$2,318.40",posted,,,Revenue,Payout,txn_01HZX4E,,
+11/18/2026,TIKTOK ADS SINGAPORE,TikTok,$60.00,failed,Ads TikTok,9930,Advertising,,txn_01HZX4F,,
+11/19/2026,KLAVIYO INC BOSTON MA,Klaviyo,$20.00,refund,Tools,2487,Software,,txn_01HZX4G,,
