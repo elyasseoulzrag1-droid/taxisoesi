@@ -65,8 +65,9 @@ export default function Partners() {
       id: p.id,
       index,
       name: p.name,
-      put: pos.contributedCents + pos.advancedCents,
-      got: pos.collectedCents + pos.withdrawnCents,
+      // L'argent passé directement d'un associé à un autre compte aussi : versé = mis, reçu = récupéré.
+      put: pos.contributedCents + pos.advancedCents + Math.max(0, -pos.settledCents),
+      got: pos.collectedCents + pos.withdrawnCents + Math.max(0, pos.settledCents),
       net: pos.netCents - 0,
       settled: pos.settledCents,
       share: pos.profitShareCents,
@@ -242,7 +243,7 @@ export default function Partners() {
                 <dd><Money cents={-r.pos.withdrawnCents} currency={base} /></dd>
                 {r.pos.settledCents ? (
                   <>
-                    <dt>Règlements entre associés</dt>
+                    <dt>{r.pos.settledCents > 0 ? "Reçu d'autres associés" : "Versé à d'autres associés"}</dt>
                     <dd><Money cents={-r.pos.settledCents} currency={base} /></dd>
                   </>
                 ) : null}
@@ -290,8 +291,8 @@ export default function Partners() {
       <Section title="Comment c'est calculé">
         <Card>
           <div class="stack-sm text-sm">
-            <p><strong>A mis</strong> : l'argent versé à l'entreprise (apports) et les dépenses de l'entreprise payées avec son argent ou sa carte perso.</p>
-            <p><strong>A déjà récupéré</strong> : les ventes arrivées sur son compte perso et les remboursements ou retraits reçus de l'entreprise.</p>
+            <p><strong>A mis</strong> : l'argent versé à l'entreprise (apports), les dépenses de l'entreprise payées avec son argent ou sa carte perso, et l'argent versé à un autre associé pour l'entreprise.</p>
+            <p><strong>A déjà récupéré</strong> : les ventes arrivées sur son compte perso, les remboursements ou retraits reçus de l'entreprise, et l'argent reçu d'un autre associé.</p>
             <p><strong>Reste à récupérer</strong> : ce qu'il a mis, moins ce qu'il a déjà récupéré. Si le chiffre est négatif, c'est lui qui doit de l'argent à l'entreprise.</p>
             <p><strong>Part du bénéfice</strong> : le bénéfice (ou la perte) de chaque période, multiplié par son pourcentage sur cette période.</p>
             <p><strong>Total qui lui revient</strong> : reste à récupérer plus part du bénéfice.</p>

@@ -11175,7 +11175,7 @@ html.is-scroll-locked body {
         partners.map((p3, i4) => {
           const pos = book.partners[p3.id];
           if (!pos) return null;
-          const put = pos.contributedCents + pos.advancedCents;
+          const put = pos.contributedCents + pos.advancedCents + Math.max(0, -pos.settledCents);
           return /* @__PURE__ */ u3(
             ListItem,
             {
@@ -12262,6 +12262,7 @@ html.is-scroll-locked body {
     const creditors = [];
     const debtors = [];
     for (const [id, position] of Object.entries(book.partners || {})) {
+      if (id === "unknown") continue;
       const cents = mode === "all" ? position.equityCents : position.netCents;
       if (cents > 0) creditors.push({ id, cents });
       else if (cents < 0) debtors.push({ id, cents: -cents });
@@ -12347,8 +12348,9 @@ html.is-scroll-locked body {
         id: p3.id,
         index,
         name: p3.name,
-        put: pos.contributedCents + pos.advancedCents,
-        got: pos.collectedCents + pos.withdrawnCents,
+        // L'argent passé directement d'un associé à un autre compte aussi : versé = mis, reçu = récupéré.
+        put: pos.contributedCents + pos.advancedCents + Math.max(0, -pos.settledCents),
+        got: pos.collectedCents + pos.withdrawnCents + Math.max(0, pos.settledCents),
         net: pos.netCents - 0,
         settled: pos.settledCents,
         share: pos.profitShareCents,
@@ -12446,7 +12448,7 @@ html.is-scroll-locked body {
           " % au lieu de 100."
         ] }) : null
       ] }) }, period.index)) }) }),
-      /* @__PURE__ */ u3(Section, { title: "Qui doit verser quoi \xE0 qui", sub: "La liste la plus courte de paiements pour remettre les compteurs \xE0 z\xE9ro.", children: /* @__PURE__ */ u3("div", { class: "stack", children: [
+      /* @__PURE__ */ u3(Section, { title: "Qui doit verser quoi \xE0 qui", sub: "La liste la plus courte de paiements pour remettre les compteurs \xE0 z\xE9ro. Tout solder : avances et part du b\xE9n\xE9fice. Avances seules : on rembourse ce que chacun a mis, sans toucher au b\xE9n\xE9fice.", children: /* @__PURE__ */ u3("div", { class: "stack", children: [
         /* @__PURE__ */ u3(
           Segmented,
           {
@@ -12454,8 +12456,8 @@ html.is-scroll-locked body {
             value: mode,
             onChange: setMode,
             options: [
-              { value: "all", label: "Tout solder, b\xE9n\xE9fice compris" },
-              { value: "nets", label: "Rembourser seulement les avances" }
+              { value: "all", label: "Tout solder" },
+              { value: "nets", label: "Avances seules" }
             ]
           }
         ),
@@ -12496,7 +12498,7 @@ html.is-scroll-locked body {
           /* @__PURE__ */ u3("dt", { children: "Remboursements et retraits" }),
           /* @__PURE__ */ u3("dd", { children: /* @__PURE__ */ u3(Money, { cents: -r3.pos.withdrawnCents, currency: base }) }),
           r3.pos.settledCents ? /* @__PURE__ */ u3(b, { children: [
-            /* @__PURE__ */ u3("dt", { children: "R\xE8glements entre associ\xE9s" }),
+            /* @__PURE__ */ u3("dt", { children: r3.pos.settledCents > 0 ? "Re\xE7u d'autres associ\xE9s" : "Vers\xE9 \xE0 d'autres associ\xE9s" }),
             /* @__PURE__ */ u3("dd", { children: /* @__PURE__ */ u3(Money, { cents: -r3.pos.settledCents, currency: base }) })
           ] }) : null,
           /* @__PURE__ */ u3("dt", { class: "strong", children: "Reste \xE0 r\xE9cup\xE9rer" }),
@@ -12528,11 +12530,11 @@ html.is-scroll-locked body {
       /* @__PURE__ */ u3(Section, { title: "Comment c'est calcul\xE9", children: /* @__PURE__ */ u3(Card, { children: /* @__PURE__ */ u3("div", { class: "stack-sm text-sm", children: [
         /* @__PURE__ */ u3("p", { children: [
           /* @__PURE__ */ u3("strong", { children: "A mis" }),
-          " : l'argent vers\xE9 \xE0 l'entreprise (apports) et les d\xE9penses de l'entreprise pay\xE9es avec son argent ou sa carte perso."
+          " : l'argent vers\xE9 \xE0 l'entreprise (apports), les d\xE9penses de l'entreprise pay\xE9es avec son argent ou sa carte perso, et l'argent vers\xE9 \xE0 un autre associ\xE9 pour l'entreprise."
         ] }),
         /* @__PURE__ */ u3("p", { children: [
           /* @__PURE__ */ u3("strong", { children: "A d\xE9j\xE0 r\xE9cup\xE9r\xE9" }),
-          " : les ventes arriv\xE9es sur son compte perso et les remboursements ou retraits re\xE7us de l'entreprise."
+          " : les ventes arriv\xE9es sur son compte perso, les remboursements ou retraits re\xE7us de l'entreprise, et l'argent re\xE7u d'un autre associ\xE9."
         ] }),
         /* @__PURE__ */ u3("p", { children: [
           /* @__PURE__ */ u3("strong", { children: "Reste \xE0 r\xE9cup\xE9rer" }),

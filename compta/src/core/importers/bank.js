@@ -20,6 +20,8 @@ import { attachMatches } from "../recon.js";
 const MAX_LABEL = 140;
 const MAX_PARTY = 60;
 const MAX_ROW_WARNINGS = 12;
+/** Au-delà de 10 milliards (en centimes), une cellule n'est pas un montant. */
+const MAX_CENTS = 1e12;
 const HEADER_SCAN_ROWS = 40;
 
 /** Rôles de colonne connus. Une valeur de -1 veut dire "pas de colonne pour ce rôle". */
@@ -162,19 +164,33 @@ function parseMoney(cell, decimal) {
   if (!s) return null;
   const bare = s.replace(/[\s'\u2019$€£¥]/g, "").replace(/^[A-Za-z]{1,4}(?=[-+(\u2212.,\d])/, "").replace(/[A-Za-z]{1,4}$/, "");
   if (!/^[-+\u2212(]*[.,]?\d[\d.,]*[-\u2212)]*$/.test(bare)) return null;
-  return parseAmountToCents(s, decimal === "," || decimal === "." ? { decimal } : {});
+  const cents = parseAmountToCents(s, decimal === "," || decimal === "." ? { decimal } : {});
+  // Un nombre d\u00e9mesur\u00e9 (identifiant, num\u00e9ro de compte) n'est pas un montant.
+  return Number.isSafeInteger(cents) && Math.abs(cents) <= MAX_CENTS ? cents : null;
 }
 
 // Séparateur décimal d'un fichier, décidé sur toutes ses colonnes de montants : "," ou ".", "auto" si rien ne tranche.
+// Indices : les deux séparateurs dans la même cellule (le dernier est le décimal), ou un séparateur unique qui n'est pas
+// suivi de trois chiffres exactement ("12,5", "94.77", "0.1234"). "1,234" seul ne dit rien.
 function detectDecimal(rows, columns) {
   let comma = false;
   let dot = false;
   for (const row of rows) {
     for (const c of columns) {
       const s = String(row[c] == null ? "" : row[c]).replace(/[^0-9.,]/g, "");
-      if (!s) continue;
-      if (/,\d{1,2}$/.test(s)) comma = true;
-      else if (/\.\d{1,2}$/.test(s)) dot = true;
+      const lastDot = s.lastIndexOf(".");
+      const lastComma = s.lastIndexOf(",");
+      if (lastDot < 0 && lastComma < 0) continue;
+      if (lastDot >= 0 && lastComma >= 0) {
+        if (lastDot > lastComma) dot = true; else comma = true;
+        continue;
+      }
+      const isDot = lastDot >= 0;
+      const last = isDot ? lastDot : lastComma;
+      const repeated = s.indexOf(isDot ? "." : ",") !== last;
+      // Répété ("1.234.567") : c'est un séparateur de milliers, donc l'autre est le décimal.
+      if (repeated) { if (isDot) comma = true; else dot = true; continue; }
+      if (s.length - 1 - last !== 3) { if (isDot) dot = true; else comma = true; }
     }
   }
   if (comma && !dot) return ",";
@@ -573,7 +589,7 @@ const SLASH = {
     else if (env.unsigned()) {
       // Fichier sans aucun montant négatif : un paiement par carte est une sortie, le reste une entrée.
       const hint = r.key("type") + " " + r.key("direction");
-      if (/\b(?:credit|deposit|incoming|in|cashback)\b/.test(hint)) r.amountCents = Math.abs(r.amountCents);
+      if (/\b(?:credit|deposit|incoming|in|cashback|refund|refunded|return|returned)\b/.test(hint)) r.amountCents = Math.abs(r.amountCents);
       else if (/\b(?:debit|withdrawal|outgoing|out|payment|purchase|fee)\b/.test(hint) || r.text("card")) r.amountCents = 0 - Math.abs(r.amountCents);
       env.flags.add("unsigned");
     }
@@ -950,6 +966,15 @@ function readStatement(preset, v, override, ctx, out) {
   let owner = "unknown";
   try { owner = accountOwner(config, accountId); } catch { owner = "unknown"; }
   const business = owner === "business";
+  // Prénoms ou noms des associés : un libellé qui en contient un est sans doute un apport, un remboursement ou un retrait.
+  const partners = [];
+  if (config && isObj(config.partners)) {
+    for (const id of Object.keys(config.partners)) {
+      const partner = config.partners[id];
+      const key = isObj(partner) && !partner.archived ? fold(partner.name) : "";
+      if (key.length >= 3) partners.push({ id: partner.id || id, name: squash(partner.name), key: " " + key + " " });
+    }
+  }
 
   if (has(v, "fiat amount")) {
     out.warnings.push("Ce fichier est un export de compte crypto : il ne contient pas de mouvements bancaires à importer.");
@@ -1125,7 +1150,7 @@ function readStatement(preset, v, override, ctx, out) {
       // Carte
       const cardCell = r.text("card");
       const card = last4(cardCell) || cardFromLabel(bankLabel);
-      const cardLabel = r.text("cardLabel") || (cardCell && !/^\d+$/.test(cardCell) ? cardCell : "");
+      const cardLabel = [r.text("cardLabel"), cardCell].find((text) => text && !/^\d+$/.test(text)) || "";
       if (card && config && !otherAccountCards.has(card)) {
         let cardAccount = null;
         try { cardAccount = suggestAccount(config, { card }); } catch { cardAccount = null; }
@@ -1166,8 +1191,21 @@ function readStatement(preset, v, override, ctx, out) {
       if (bankId && bankId !== ref) meta.txId = bankId;
       if (Object.keys(meta).length) draft.meta = meta;
       draft._selected = selected;
-      const note = r.review ? "Statut inconnu sur le relevé (« " + short(r.text("status")) + " ») : vérifie que l'argent a bien bougé."
-        : categoryId ? "" : r.note || (business && amountCents > 0 ? MONEY_IN_NOTE : "");
+      let note = "";
+      if (r.review) {
+        note = "Statut inconnu sur le relevé (« " + short(r.text("status")) + " ») : vérifie que l'argent a bien bougé.";
+      } else if (!categoryId) {
+        const haystack = " " + fold(label + " " + party + " " + bankLabel) + " ";
+        const partner = partners.find((p) => haystack.includes(p.key));
+        if (partner) {
+          draft._partnerId = partner.id;
+          note = amountCents > 0
+            ? partner.name + " apparaît dans le libellé : si c'est un apport, enregistre cette entrée comme un mouvement entre comptes, pas comme une vente."
+            : partner.name + " apparaît dans le libellé : si c'est un remboursement, un retrait ou un règlement entre associés, enregistre cette sortie comme un mouvement entre comptes, pas comme une dépense.";
+        } else {
+          note = r.note || (business && amountCents > 0 ? MONEY_IN_NOTE : "");
+        }
+      }
       if (note) draft._note = note;
       drafts.push(draft);
 
@@ -1317,6 +1355,10 @@ function presetByType(type) {
  * Chaque entrée : { type, label, help, needs, detect(parsed) -> 0..1, parse(parsed, ctx) -> { drafts, stats: null, warnings, info } }.
  * `parse` ne lève jamais d'exception. `ctx.options.mapping` corrige des colonnes (rangs), `ctx.options.ignored` liste les clés
  * (voir ignoreKey) des lignes que l'utilisateur a déjà écartées : elles restent décochées.
+ * Champs d'aperçu posés sur les brouillons (jamais enregistrés) : `_selected`, `_note` (remarque en français), `_matchOf`
+ * (opération déjà saisie que la ligne va pointer, quand `ctx.book` est fourni), `_partnerId` (associé dont le nom figure dans
+ * une ligne sans catégorie : apport, remboursement ou retrait probable).
+ * Chaque brouillon porte `reconciled: true` et `bank: { date, label }` : une opération créée depuis un relevé est déjà pointée.
  */
 export const IMPORTERS = PRESETS.map((preset) => ({
   type: preset.type,

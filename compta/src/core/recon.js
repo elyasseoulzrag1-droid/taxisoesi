@@ -4,6 +4,7 @@
 // - "ce brouillon existe-t-il déjà ?" (findDuplicate) : même identifiant externe, ou même compte, même montant, même jour à un jour près ;
 // - "cette ligne de relevé correspond-elle à une opération déjà saisie ?" (matchBankLines) : dans ce cas l'opération
 //   existante est pointée (applyBankMatch) et la ligne de relevé ne crée rien.
+// Dans l'autre sens (relevé importé d'abord, détail ensuite), completeBankOp complète l'opération créée par le relevé.
 import { daysBetween, isValidISO } from "./dates.js";
 import { convert } from "./fx.js";
 import { normalizeOp } from "./model.js";
@@ -97,7 +98,9 @@ function fromBankLine(op) {
  * - Doublon probable : même type, même compte, même montant signé, même devise, dates à un jour près.
  *   Un mouvement entre comptes est comparé sur ses deux comptes.
  * - Cas miroir du rapprochement : le brouillon ne vient pas d'un relevé (virement Shopify, reçu) et le livre contient
- *   déjà la ligne de relevé de même montant sur le même compte, datée de 2 jours avant à 4 jours après : doublon probable.
+ *   déjà la ligne de relevé de même montant sur le même compte, datée de 2 jours avant à 4 jours après : doublon probable
+ *   (completeBankOp sert alors à compléter l'opération du relevé au lieu d'en créer une seconde).
+ * - Les opérations listées dans `draft._matchedOps` (déjà pointées par une autre ligne du même relevé) ne comptent pas.
  * @param {object} draft brouillon d'opération (kind, date, accountId, amountCents, currency, extId...)
  * @param {object} book livre calculé par buildBook
  * @returns {{ opId: string, exact: boolean } | null}
@@ -117,12 +120,14 @@ export function findDuplicate(draft, book) {
   const accountId = transfer ? draft.fromAccountId : draft.accountId;
   const candidates = index.byAccount.get(accountId || NO_ACCOUNT) || EMPTY;
   const draftFromBank = typeof draft.extId === "string" && draft.extId.startsWith("bank:");
+  // Opérations déjà pointées par une autre ligne du même relevé (voir attachMatches) : elles ne sont plus disponibles.
+  const taken = Array.isArray(draft._matchedOps) ? draft._matchedOps : EMPTY;
 
   let best = null;
   let bestGap = Infinity;
   for (const op of candidates) {
-    if (op.id === selfId || !usableDate(op.date)) continue;
     if (op.amountCents !== draft.amountCents || op.currency !== draft.currency) continue;
+    if (op.id === selfId || !usableDate(op.date)) continue;
     if (transfer) {
       if (op.kind !== "transfer") continue;
       if ((op.fromAccountId || NO_ACCOUNT) !== (draft.fromAccountId || NO_ACCOUNT)) continue;
@@ -137,6 +142,7 @@ export function findDuplicate(draft, book) {
       const mirrored = !transfer && !draftFromBank && fromBankLine(op) && signed <= RECON_DAYS_AFTER && signed >= -RECON_DAYS_BEFORE;
       if (!mirrored) continue;
     }
+    if (taken.length && taken.includes(op.id)) continue;
     if (gap < bestGap || (gap === bestGap && best && op.id < best.id)) { best = op; bestGap = gap; }
   }
   return best ? { opId: best.id, exact: false } : null;
@@ -175,6 +181,28 @@ function sideFor(op, accountId, accountCur) {
   }
   if (op.kind !== "pl" || op.accountId !== accountId || op.reconciled) return null;
   return { name: "pl", cents: op.amountCents, currency: op.currency, settled: op.settledCents };
+}
+
+function dayNumber(iso) {
+  return Date.UTC(Number(iso.slice(0, 4)), Number(iso.slice(5, 7)) - 1, Number(iso.slice(8, 10))) / 86400000;
+}
+
+// Opérations d'un compte qui peuvent encore être pointées, rangées par jour (calculé une fois par livre et par compte).
+function candidatesByDay(index, accountId, accountCur) {
+  if (!index.byDay) index.byDay = new Map();
+  let byDay = index.byDay.get(accountId);
+  if (byDay) return byDay;
+  byDay = new Map();
+  for (const op of index.byAccount.get(accountId) || EMPTY) {
+    const side = sideFor(op, accountId, accountCur);
+    if (!side) continue;
+    const day = dayNumber(op.date);
+    const list = byDay.get(day);
+    if (list) list.push({ op, side });
+    else byDay.set(day, [{ op, side }]);
+  }
+  index.byDay.set(accountId, byDay);
+  return byDay;
 }
 
 function compareAmounts(line, side, accountCur, config, opDate) {
@@ -233,14 +261,15 @@ export function matchBankLines(lines, book, accountId) {
     const account = accountId || line.accountId;
     if (!account) continue;
     const accountCur = accountCurrency(book, config, account);
-    for (const op of index.byAccount.get(account) || EMPTY) {
-      const side = sideFor(op, account, accountCur);
-      if (!side) continue;
-      const gap = daysBetween(op.date, line.date);
-      if (gap > RECON_DAYS_AFTER || gap < -RECON_DAYS_BEFORE) continue;
-      const amounts = compareAmounts(line, side, accountCur, config, op.date);
-      if (!amounts) continue;
-      pairs.push({ i, op, gap, exact: amounts.exact, diff: amounts.diff, affinity: affinity(line, op) });
+    const byDay = candidatesByDay(index, account, accountCur);
+    const lineDay = dayNumber(line.date);
+    // gap = jours entre l'opération et la ligne du relevé (positif : le relevé vient après).
+    for (let gap = -RECON_DAYS_BEFORE; gap <= RECON_DAYS_AFTER; gap++) {
+      for (const { op, side } of byDay.get(lineDay - gap) || EMPTY) {
+        const amounts = compareAmounts(line, side, accountCur, config, op.date);
+        if (!amounts) continue;
+        pairs.push({ i, op, gap, exact: amounts.exact, diff: amounts.diff, affinity: affinity(line, op) });
+      }
     }
   }
 
@@ -332,7 +361,8 @@ export function applyBankMatch(op, line, config) {
  * Un brouillon rapproché reçoit `_matchOf` (identifiant de l'opération) et reste coché : à l'enregistrement, l'opération
  * existante est pointée (applyBankMatch) et aucune nouvelle opération n'est créée.
  * Un brouillon dont l'identifiant externe est déjà dans le livre n'est jamais rapproché : c'est un doublon (déjà importé).
- * Un brouillon rapproché n'est jamais signalé comme doublon (`_dupOf` remis à null).
+ * Un brouillon rapproché n'est jamais signalé comme doublon (`_dupOf` remis à null). Un brouillon non rapproché qui ressemble à
+ * une opération pointée par une autre ligne reçoit `_matchedOps` (les opérations déjà prises), que findDuplicate laisse de côté.
  * @param {object[]} drafts brouillons de l'import
  * @param {object} book livre calculé par buildBook (sans livre, les brouillons sont renvoyés tels quels)
  * @param {string} accountId compte du relevé
@@ -355,10 +385,73 @@ export function attachMatches(drafts, book, accountId) {
   const found = matchBankLines(lines, book, accountId);
   const byDraft = new Map();
   for (const [k, opId] of found) byDraft.set(positions[k], opId);
+  const claimedSet = new Set(found.values());
+  const claimed = Array.from(claimedSet);
   return drafts.map((draft, i) => {
     if (!isObj(draft)) return draft;
     const opId = byDraft.get(i);
-    if (!opId) return draft._matchOf ? { ...draft, _matchOf: null } : draft;
-    return { ...draft, _matchOf: opId, _selected: true, _dupOf: null, _dupExact: false };
+    if (opId) return { ...draft, _matchOf: opId, _selected: true, _dupOf: null, _dupExact: false };
+    let out = draft._matchOf ? { ...draft, _matchOf: null } : draft;
+    // Deux lignes identiques pour une seule opération saisie : la seconde ligne est un autre mouvement, pas un doublon de l'opération
+    // que la première vient de pointer.
+    if (claimed.length) {
+      const dup = findDuplicate(out, book);
+      if (dup && !dup.exact && claimedSet.has(dup.opId)) out = { ...out, _matchedOps: claimed };
+    }
+    return out;
   });
+}
+
+/**
+ * Cas inverse de applyBankMatch : la ligne de relevé est déjà une opération du livre (créée par un import de relevé) et le
+ * détail arrive ensuite, par exemple le virement Shopify avec ses ventes, ses remboursements et ses frais, ou un reçu scanné
+ * (findDuplicate le signale alors comme doublon probable). Plutôt que de créer une seconde opération, on complète celle du relevé.
+ * Renvoie une nouvelle opération : date, libellé, tiers, référence, catégorie ou ventilation, source, identifiant externe et
+ * détails du brouillon ; le relevé reste dans `bank` (avec l'identifiant de la ligne, pour la reconnaître à un prochain import)
+ * et l'opération reste pointée. Si le brouillon est dans une autre devise que la ligne de relevé, son montant devient le montant
+ * de l'opération et celui du relevé devient `settledCents`. Une ventilation n'est reprise que si elle tombe juste.
+ * @param {object} op opération du livre issue d'un relevé
+ * @param {object} draft brouillon plus détaillé du même mouvement
+ * @returns {object} opération complétée
+ */
+export function completeBankOp(op, draft) {
+  const base = normalizeOp(op) || (isObj(op) ? { ...op } : {});
+  if (!isObj(draft) || base.kind !== "pl" || (draft.kind != null && draft.kind !== "pl")) return base;
+  const out = { ...base };
+  const bank = isObj(base.bank) ? { ...base.bank } : { date: base.date, label: base.label };
+  if (!bank.extId && fromBankLine(base)) bank.extId = base.extId;
+  out.bank = bank;
+  out.reconciled = true;
+
+  if (usableDate(draft.date)) out.date = draft.date;
+  for (const key of ["label", "party", "ref", "note", "source", "extId", "card"]) {
+    if (typeof draft[key] === "string" && draft[key].trim()) out[key] = draft[key].trim();
+  }
+  if (isObj(draft.meta)) out.meta = { ...(isObj(base.meta) ? base.meta : {}), ...draft.meta };
+  if (Array.isArray(draft.attachments) && draft.attachments.length) {
+    const known = new Set((base.attachments || []).map((a) => a && a.id));
+    out.attachments = [...(base.attachments || []), ...draft.attachments.filter((a) => isObj(a) && a.id && !known.has(a.id))];
+  }
+
+  // Montant : le relevé fait foi pour le compte ; un reçu dans une autre devise garde son montant d'origine.
+  const sameCurrency = !draft.currency || draft.currency === base.currency;
+  if (!sameCurrency && Number.isInteger(draft.amountCents) && sameSign(draft.amountCents, base.amountCents) && !Number.isInteger(base.settledCents)) {
+    out.settledCents = base.amountCents;
+    out.amountCents = draft.amountCents;
+    out.currency = draft.currency;
+  }
+  const splits = Array.isArray(draft.splits) && draft.splits.length ? draft.splits : null;
+  const splitsFit = splits && splits.every((s) => isObj(s) && Number.isInteger(s.amountCents)) &&
+    splits.reduce((sum, s) => sum + s.amountCents, 0) === out.amountCents;
+  if (splitsFit) {
+    out.splits = splits.map((s) => ({ categoryId: s.categoryId || null, amountCents: s.amountCents }));
+    out.categoryId = typeof draft.categoryId === "string" && draft.categoryId ? draft.categoryId : null;
+  } else if (typeof draft.categoryId === "string" && draft.categoryId) {
+    out.categoryId = draft.categoryId;
+    delete out.splits;
+  }
+  delete out.estimated;
+  if (draft.needsReview === true || (!out.splits && !out.categoryId)) out.needsReview = true;
+  else delete out.needsReview;
+  return out;
 }

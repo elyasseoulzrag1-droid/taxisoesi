@@ -129,7 +129,7 @@ export default function Dashboard() {
             {partners.map((p, i) => {
               const pos = book.partners[p.id];
               if (!pos) return null;
-              const put = pos.contributedCents + pos.advancedCents;
+              const put = pos.contributedCents + pos.advancedCents + Math.max(0, -pos.settledCents);
               return (
                 <ListItem
                   key={p.id}

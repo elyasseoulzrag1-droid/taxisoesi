@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import {
-  findDuplicate, matchBankLines, applyBankMatch, attachMatches,
+  findDuplicate, matchBankLines, applyBankMatch, attachMatches, completeBankOp,
   RECON_DAYS_AFTER, RECON_DAYS_BEFORE, RECON_TOLERANCE_PCT, DUPLICATE_DAYS,
 } from "../../src/core/recon.js";
 import { buildBook } from "../../src/core/ledger.js";
@@ -563,6 +563,29 @@ test("attachMatches : pose _matchOf, garde la ligne cochée, n'est jamais un dou
   assert.equal(out[3], drafts[3]);
 });
 
+test("deux lignes identiques pour une seule opération saisie : la première la pointe, la seconde est un nouveau mouvement", () => {
+  // Une pub Meta de 20,00 $ saisie à la main ; le relevé montre deux prélèvements de 20,00 $ le même jour.
+  const b = book([
+    pl("pub", "2026-10-01", -2000, "perso_usd", { party: "Meta", categoryId: "ads_meta" }),
+    pl("autre", "2026-10-02", -2000, "perso_usd", { party: "Canva", categoryId: "software", reconciled: true }),
+  ]);
+  const drafts = [
+    { kind: "pl", date: "2026-10-01", label: "Facebk *7KQ2M9XL22", party: "Meta", categoryId: "ads_meta", amountCents: -2000, currency: "USD", accountId: "perso_usd", extId: "bank:perso_usd:a", _selected: true },
+    { kind: "pl", date: "2026-10-01", label: "Facebk *7KQ2M9XL22", party: "Meta", categoryId: "ads_meta", amountCents: -2000, currency: "USD", accountId: "perso_usd", extId: "bank:perso_usd:b", _selected: true },
+  ];
+  // sans rapprochement, les deux lignes ressemblent à l'opération saisie
+  assert.deepEqual(drafts.map((d) => findDuplicate(d, b)), [{ opId: "pub", exact: false }, { opId: "pub", exact: false }]);
+  const out = attachMatches(drafts, b, "perso_usd");
+  assert.equal(out[0]._matchOf, "pub");
+  assert.ok(!out[1]._matchOf);
+  assert.deepEqual(out[1]._matchedOps, ["pub"]);
+  // la seconde n'est plus un doublon de l'opération que la première a pointée, mais reste comparée aux autres opérations
+  assert.deepEqual(findDuplicate(out[1], b), { opId: "autre", exact: false });
+  assert.equal(findDuplicate(out[1], book([b.byId.get("pub")])), null);
+  const annotated = annotate(out, b);
+  assert.deepEqual(annotated.map((d) => [d._matchOf, d._dupOf, d._selected]), [["pub", null, true], [null, "autre", true]]);
+});
+
 test("attachMatches : sans livre ou sans liste", () => {
   const drafts = [{ kind: "pl", date: "2026-10-03", amountCents: -1, currency: "USD", accountId: "perso_usd" }];
   assert.deepEqual(attachMatches(drafts, null, "perso_usd"), drafts);
@@ -595,4 +618,74 @@ test("relevé Slash après des reçus saisis à la main : les dépenses de pub s
   assert.ok(result.info.some((s) => /4 lignes correspondent à des opérations déjà saisies/.test(s)));
   // Rien de ce qui est pointé ne crée d'opération : il reste le remboursement Klaviyo, le virement Shopify, ElevenLabs et l'abonnement Slash.
   assert.deepEqual(drafts.filter((d) => d._selected && !d._matchOf).map((d) => d.amountCents), [100, 84219, -2200, -2500]);
+});
+
+// ---------------------------------------------------------------------------------------------
+// Relevé importé d'abord, détail ensuite
+
+test("relevé importé avant les virements Shopify : le virement complète la ligne du relevé au lieu de la doubler", () => {
+  // 1. Le relevé Revolut est importé en premier : la ligne Shopify devient une vente, sans détail.
+  const first = importer("bank_revolut").parse(load("bank_revolut_en.csv"), { config: CONFIG, book: book([]), accountId: "perso_usd" });
+  const bankDraft = first.drafts.find((d) => d.label === "Payment from Shopify Inc");
+  const bankOp = { id: "op_releve" };
+  for (const key of Object.keys(bankDraft)) if (key[0] !== "_") bankOp[key] = bankDraft[key];
+  const b1 = book([bankOp]);
+  assert.equal(b1.profitCents, 123456);
+
+  // 2. L'export des virements Shopify arrive ensuite, daté de la veille par Shopify.
+  const payout = { ...PAYOUTS[0], date: "2026-10-05" };
+  delete payout.id;
+  const dup = findDuplicate(payout, b1);
+  assert.deepEqual(dup, { opId: "op_releve", exact: false });
+
+  const completed = completeBankOp(b1.byId.get(dup.opId), payout);
+  assert.equal(completed.id, "op_releve");
+  assert.equal(completed.date, "2026-10-05");
+  assert.equal(completed.label, "Virement Shopify du 05/10");
+  assert.equal(completed.amountCents, 123456);
+  assert.deepEqual(completed.splits, PAYOUTS[0].splits);
+  assert.equal(completed.source, "shopify");
+  assert.equal(completed.extId, "shopify_payout:2026-10-05:123456");
+  assert.equal(completed.reconciled, true);
+  assert.deepEqual(completed.bank, { date: "2026-10-06", label: "Payment from Shopify Inc", extId: bankDraft.extId });
+  assert.equal(completed.needsReview, undefined);
+  assert.deepEqual(validateOp(completed, CONFIG), []);
+  assert.equal(b1.byId.get("op_releve").source, "revolut", "l'opération du livre n'est pas modifiée");
+
+  // 3. Une seule opération, les ventes et les frais sont détaillés, et les deux fichiers sont reconnus à un nouvel import.
+  const b2 = book([completed]);
+  assert.equal(b2.ops.length, 1);
+  assert.equal(b2.profitCents, 123456);
+  assert.deepEqual(b2.byId.get("op_releve").lines.map((l) => [l.categoryId, l.baseCents]), [["sales_shopify", 130000], ["refunds", -2000], ["fees_payment", -4544]]);
+  assert.deepEqual(findDuplicate(payout, b2), { opId: "op_releve", exact: true });
+  assert.deepEqual(findDuplicate(bankDraft, b2), { opId: "op_releve", exact: true });
+  const again = importer("bank_revolut").parse(load("bank_revolut_en.csv"), { config: CONFIG, book: b2, accountId: "perso_usd" });
+  assert.equal(again.drafts.filter((d) => d._matchOf).length, 0);
+});
+
+test("completeBankOp : reçu en dollars sur une ligne de relevé en euros, ventilation qui ne tombe pas juste", () => {
+  const bankOp = pl("op_releve", "2026-10-03", -8660, "perso_eur", {
+    currency: "EUR", label: "Klaviyo", extId: "bank:perso_eur:k1", source: "revolut", reconciled: true, needsReview: true, bank: { date: "2026-10-04", label: "KLAVIYO INC" },
+  });
+  const receipt = { kind: "pl", date: "2026-10-02", label: "Klaviyo, abonnement octobre", amountCents: -9477, currency: "USD", categoryId: "email_sms", party: "Klaviyo", ref: "2648-3340", source: "scan",
+    attachments: [{ id: "a1", name: "recu.pdf", type: "application/pdf", size: 900 }] };
+  const done = completeBankOp(bankOp, receipt);
+  assert.deepEqual([done.amountCents, done.currency, done.settledCents, done.date, done.categoryId, done.ref], [-9477, "USD", -8660, "2026-10-02", "email_sms", "2648-3340"]);
+  assert.deepEqual(done.bank, { date: "2026-10-04", label: "KLAVIYO INC", extId: "bank:perso_eur:k1" });
+  assert.equal(done.needsReview, undefined);
+  assert.equal(done.attachments.length, 1);
+  assert.deepEqual(validateOp(done, CONFIG), []);
+  const after = book([done]);
+  assert.equal(after.accounts.perso_eur.balanceCents, -8660);
+  assert.equal(after.byId.get("op_releve").baseCents, -9477);
+
+  // ventilation dont le total ne correspond pas au relevé : on garde le montant du relevé et la catégorie simple
+  const odd = completeBankOp(pl("op2", "2026-10-07", 123456, "perso_usd", { extId: "bank:perso_usd:x", reconciled: true }),
+    { kind: "pl", date: "2026-10-05", amountCents: 123456, currency: "USD", categoryId: "sales_shopify", splits: [{ categoryId: "sales_shopify", amountCents: 100000 }] });
+  assert.equal(odd.splits, undefined);
+  assert.equal(odd.categoryId, "sales_shopify");
+  assert.deepEqual(validateOp(odd, CONFIG), []);
+  // un brouillon de mouvement entre comptes ne complète pas une dépense
+  const same = completeBankOp(bankOp, { kind: "transfer", date: "2026-10-02", amountCents: 8660, currency: "EUR" });
+  assert.deepEqual([same.amountCents, same.currency, same.label], [-8660, "EUR", "Klaviyo"]);
 });
